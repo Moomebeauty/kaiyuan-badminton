@@ -25,7 +25,6 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -55,7 +54,6 @@
     padding: 0 22px;
   }
 
-  /* ========= HERO ========= */
   .hero {
     position: relative;
     background: var(--court-green);
@@ -212,6 +210,8 @@
     box-shadow: 0 8px 24px rgba(0,0,0,0.25);
     transition: all 0.3s ease;
     animation: fadeUp 1s ease-out 0.6s both;
+    border: none;
+    cursor: pointer;
   }
 
   .cta-main:active {
@@ -228,7 +228,6 @@
     z-index: 1;
   }
 
-  /* ========= 通用區塊 ========= */
   section { padding: 60px 0; position: relative; }
 
   .section-header {
@@ -278,7 +277,6 @@
     line-height: 1.7;
   }
 
-  /* ========= 痛點區塊 ========= */
   .pain-section {
     background: var(--bg-warm);
     border-top: 1px solid var(--line);
@@ -321,10 +319,7 @@
     line-height: 1.9;
   }
 
-  .pain-grid {
-    display: grid;
-    gap: 12px;
-  }
+  .pain-grid { display: grid; gap: 12px; }
 
   .pain-card {
     background: white;
@@ -344,9 +339,7 @@
     margin-top: 2px;
   }
 
-  .pain-text {
-    flex: 1;
-  }
+  .pain-text { flex: 1; }
 
   .pain-text .pain-q {
     font-size: 14px;
@@ -387,15 +380,9 @@
     line-height: 1.5;
   }
 
-  /* ========= 課程亮點 ========= */
-  .features-section {
-    background: var(--bg);
-  }
+  .features-section { background: var(--bg); }
 
-  .feature-grid {
-    display: grid;
-    gap: 14px;
-  }
+  .feature-grid { display: grid; gap: 14px; }
 
   .feature-card {
     background: white;
@@ -452,11 +439,7 @@
     line-height: 1.7;
   }
 
-  /* ========= 梯次表 ========= */
-  .schedule-grid {
-    display: grid;
-    gap: 12px;
-  }
+  .schedule-grid { display: grid; gap: 12px; }
 
   .schedule-card {
     background: white;
@@ -466,11 +449,6 @@
     display: flex;
     align-items: center;
     gap: 14px;
-    transition: all 0.3s;
-  }
-
-  .schedule-card:active {
-    transform: scale(0.98);
   }
 
   .schedule-num {
@@ -504,9 +482,7 @@
     margin-top: 2px;
   }
 
-  .schedule-info {
-    flex: 1;
-  }
+  .schedule-info { flex: 1; }
 
   .schedule-info h4 {
     font-family: 'Fraunces', 'Noto Serif TC', serif;
@@ -550,10 +526,7 @@
     background: rgba(255,255,255,0.25);
   }
 
-  .time-block .time-icon {
-    font-size: 22px;
-    margin-bottom: 4px;
-  }
+  .time-block .time-icon { font-size: 22px; margin-bottom: 4px; }
 
   .time-block .time-label {
     font-family: 'Bebas Neue', sans-serif;
@@ -569,7 +542,6 @@
     font-weight: 600;
   }
 
-  /* ========= 費用表 ========= */
   .pricing-tabs {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -588,11 +560,7 @@
     font-family: 'Noto Sans TC', sans-serif;
   }
 
-  .price-tab .tab-icon {
-    font-size: 22px;
-    margin-bottom: 4px;
-    line-height: 1;
-  }
+  .price-tab .tab-icon { font-size: 22px; margin-bottom: 4px; line-height: 1; }
 
   .price-tab .tab-label {
     font-size: 12px;
@@ -606,15 +574,11 @@
     border-color: var(--court-deep);
   }
 
-  .price-tab.active .tab-label {
-    color: white;
-  }
-
+  .price-tab.active .tab-label { color: white; }
   .price-tab.active[data-tab="2"] {
     background: var(--racket-red);
     border-color: var(--racket-red-deep);
   }
-
   .price-tab.active[data-tab="3"] {
     background: var(--racket-blue);
     border-color: var(--racket-blue-deep);
@@ -629,9 +593,7 @@
     animation: fadeIn 0.4s ease-out;
   }
 
-  .price-panel.active {
-    display: block;
-  }
+  .price-panel.active { display: block; }
 
   .price-panel .panel-header {
     display: flex;
@@ -672,10 +634,7 @@
     margin-top: 2px;
   }
 
-  .price-options {
-    display: grid;
-    gap: 10px;
-  }
+  .price-options { display: grid; gap: 10px; }
 
   .price-option {
     background: var(--bg-warm);
@@ -735,19 +694,10 @@
     transform: rotate(35deg);
   }
 
-  .price-option.highlight .opt-label {
-    color: white;
-  }
+  .price-option.highlight .opt-label { color: white; }
+  .price-option.highlight .opt-sub { color: var(--shuttle-cork); }
+  .price-option.highlight .opt-price { color: var(--shuttle-cork); }
 
-  .price-option.highlight .opt-sub {
-    color: var(--shuttle-cork);
-  }
-
-  .price-option.highlight .opt-price {
-    color: var(--shuttle-cork);
-  }
-
-  /* ========= 注意事項 ========= */
   .notice-section {
     background: var(--bg-warm);
     border-top: 1px solid var(--line);
@@ -794,7 +744,6 @@
     font-weight: 700;
   }
 
-  /* ========= FINAL CTA ========= */
   .final-cta {
     background: linear-gradient(135deg, var(--court-deep) 0%, var(--court-green) 100%);
     color: var(--court-line);
@@ -865,6 +814,9 @@
     text-decoration: none;
     box-shadow: 0 6px 20px rgba(0,0,0,0.25);
     transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    font-family: 'Noto Sans TC', sans-serif;
   }
 
   .cta-final-btn:active {
@@ -880,7 +832,6 @@
     letter-spacing: 3px;
   }
 
-  /* FOOTER */
   footer {
     background: var(--ink);
     color: var(--shuttle-white);
@@ -896,10 +847,7 @@
     opacity: 0.7;
   }
 
-  footer .footer-ornament svg {
-    width: 18px;
-    height: 18px;
-  }
+  footer .footer-ornament svg { width: 18px; height: 18px; }
 
   footer h4 {
     font-family: 'Fraunces', 'Noto Serif TC', serif;
@@ -938,7 +886,6 @@
     letter-spacing: 2px;
   }
 
-  /* 浮動 CTA */
   .float-cta {
     position: fixed;
     bottom: 18px;
@@ -961,6 +908,8 @@
     pointer-events: none;
     transition: opacity 0.4s, transform 0.2s;
     border: 1.5px solid rgba(255,255,255,0.2);
+    cursor: pointer;
+    font-family: 'Noto Sans TC', sans-serif;
   }
 
   .float-cta.show {
@@ -982,6 +931,263 @@
     letter-spacing: 1.5px;
   }
 
+  /* 報名 Modal */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 27, 20, 0.7);
+    backdrop-filter: blur(8px);
+    z-index: 200;
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    overflow-y: auto;
+    padding: 20px 0;
+  }
+
+  .modal-overlay.show {
+    display: flex;
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .modal {
+    background: white;
+    border-radius: 24px;
+    width: calc(100% - 32px);
+    max-width: 480px;
+    margin: auto;
+    overflow: hidden;
+    animation: modalSlideUp 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+
+  @keyframes modalSlideUp {
+    from { opacity: 0; transform: translateY(40px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .modal-header {
+    background: linear-gradient(135deg, var(--court-deep) 0%, var(--court-green) 100%);
+    color: white;
+    padding: 24px 22px 20px;
+    position: relative;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+
+  .modal-close:active {
+    transform: scale(0.92);
+    background: rgba(255,255,255,0.3);
+  }
+
+  .modal-header h3 {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .modal-header p {
+    font-size: 13px;
+    opacity: 0.9;
+    line-height: 1.6;
+  }
+
+  .modal-body {
+    padding: 24px 22px;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  .form-group { margin-bottom: 18px; }
+
+  .form-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .form-label .required {
+    color: var(--racket-red);
+    margin-left: 4px;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid var(--line);
+    border-radius: 12px;
+    font-size: 14px;
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    transition: all 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus {
+    outline: none;
+    border-color: var(--court-green);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(46,139,87,0.1);
+  }
+
+  .form-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%230F1B14' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 40px;
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 70px;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .form-helper {
+    font-size: 11.5px;
+    color: rgba(15,27,20,0.55);
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+
+  .form-submit {
+    width: 100%;
+    padding: 16px;
+    background: var(--court-green);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 6px 16px rgba(46,139,87,0.3);
+    transition: all 0.2s;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+
+  .form-submit:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 8px rgba(46,139,87,0.3);
+  }
+
+  .form-submit:disabled {
+    background: rgba(15,27,20,0.3);
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  .form-section-title {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--court-green);
+    margin: 18px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1.5px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .form-section-title:first-child { margin-top: 0; }
+  .form-section-title .icon { font-size: 18px; }
+
+  .success-screen {
+    padding: 40px 28px;
+    text-align: center;
+    display: none;
+  }
+
+  .success-screen.show { display: block; }
+
+  .success-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: var(--court-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 40px;
+    animation: successPop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  @keyframes successPop {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .success-screen h3 {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 24px;
+    color: var(--court-green);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .success-screen p {
+    font-size: 14px;
+    color: rgba(15,27,20,0.7);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+
+  .form-loading {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .form-loading.show { display: block; }
+
+  .spinner {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 16px;
+    border: 4px solid var(--line);
+    border-top-color: var(--court-green);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
   @media (min-width: 600px) {
     .container { max-width: 520px; }
   }
@@ -989,7 +1195,6 @@
 </head>
 <body>
 
-<!-- ========== HERO ========== -->
 <header class="hero">
   <svg class="court-lines" viewBox="0 0 400 600" preserveAspectRatio="none">
     <rect x="20" y="20" width="360" height="560" fill="none" stroke="white" stroke-width="2"/>
@@ -1124,10 +1329,10 @@
       <strong>4 梯次 × 8 週</strong>專業羽球訓練營<br>讓孩子告別 3C，揮灑汗水長身高長智慧
     </p>
 
-    <a href="#signup" class="cta-main">
-      <span>查看梯次與費用</span>
+    <button onclick="openModal()" class="cta-main">
+      <span>立即線上報名</span>
       <span style="font-family: serif;">→</span>
-    </a>
+    </button>
   </div>
 
   <svg class="hero-wave" viewBox="0 0 400 32" preserveAspectRatio="none">
@@ -1135,7 +1340,6 @@
   </svg>
 </header>
 
-<!-- ========== 痛點行銷區 ========== -->
 <section class="pain-section">
   <div class="container">
     <div class="pain-intro">
@@ -1152,7 +1356,6 @@
           <div class="pain-a">高強度的羽球訓練，讓孩子下課累到自動放下 3C，回家洗澡吃飯倒頭就睡，作息自然規律。</div>
         </div>
       </div>
-
       <div class="pain-card">
         <div class="pain-emoji">👀</div>
         <div class="pain-text">
@@ -1160,7 +1363,6 @@
           <div class="pain-a">羽球需要追蹤高速移動的球，是公認最能訓練眼球肌肉的運動之一，幫助孩子放鬆眼睛、預防度數惡化。</div>
         </div>
       </div>
-
       <div class="pain-card">
         <div class="pain-emoji">💼</div>
         <div class="pain-text">
@@ -1168,7 +1370,6 @@
           <div class="pain-a">全天班從早 8:30 到下午 5:00，安心托付給專業教練，孩子有人帶、有人教、有同伴玩，比安親班更有意義。</div>
         </div>
       </div>
-
       <div class="pain-card">
         <div class="pain-emoji">📏</div>
         <div class="pain-text">
@@ -1176,7 +1377,6 @@
           <div class="pain-a">羽球是跳躍類運動，刺激生長板促進長高；強化心肺與爆發力，讓孩子體能升級、不再氣喘吁吁。</div>
         </div>
       </div>
-
       <div class="pain-card">
         <div class="pain-emoji">😟</div>
         <div class="pain-text">
@@ -1184,12 +1384,11 @@
           <div class="pain-a">團體訓練培養運動精神，雙打互動建立默契，讓孩子自然交到志同道合的朋友，個性越來越開朗。</div>
         </div>
       </div>
-
       <div class="pain-card">
         <div class="pain-emoji">📚</div>
         <div class="pain-text">
           <div class="pain-q">「擔心開學專注力跟不上？」</div>
-          <div class="pain-a">運動科學證實，規律運動能促進大腦 BDNF 分泌,提升學習力與專注力,開學後課業反而更輕鬆。</div>
+          <div class="pain-a">運動科學證實，規律運動能促進大腦 BDNF 分泌，提升學習力與專注力，開學後課業反而更輕鬆。</div>
         </div>
       </div>
     </div>
@@ -1201,7 +1400,6 @@
   </div>
 </section>
 
-<!-- ========== 課程亮點 ========== -->
 <section class="features-section">
   <div class="container">
     <div class="section-header">
@@ -1217,7 +1415,6 @@
           <p>國家級認證教練親自指導，從基礎握拍到進階戰術，循序漸進培養每位孩子的羽球底蘊</p>
         </div>
       </div>
-
       <div class="feature-card">
         <div class="feature-num">02</div>
         <div class="feature-text">
@@ -1225,7 +1422,6 @@
           <p>低、中、高年級各自編組，依孩子的程度與體能量身打造合適的訓練菜單</p>
         </div>
       </div>
-
       <div class="feature-card">
         <div class="feature-num">03</div>
         <div class="feature-text">
@@ -1233,7 +1429,6 @@
           <p>表現優異者可加入校隊，代表學校參加市賽、全國賽，累積寶貴的比賽經驗</p>
         </div>
       </div>
-
       <div class="feature-card">
         <div class="feature-num">04</div>
         <div class="feature-text">
@@ -1245,7 +1440,6 @@
   </div>
 </section>
 
-<!-- ========== 梯次與時間 ========== -->
 <section>
   <div class="container">
     <div class="section-header">
@@ -1256,10 +1450,7 @@
 
     <div class="schedule-grid">
       <div class="schedule-card">
-        <div class="schedule-num">
-          <span class="label-en">CAMP</span>
-          <span class="num">01</span>
-        </div>
+        <div class="schedule-num"><span class="label-en">CAMP</span><span class="num">01</span></div>
         <div class="schedule-info">
           <h4>第一梯次</h4>
           <div class="schedule-dates">
@@ -1268,12 +1459,8 @@
           </div>
         </div>
       </div>
-
       <div class="schedule-card">
-        <div class="schedule-num">
-          <span class="label-en">CAMP</span>
-          <span class="num">02</span>
-        </div>
+        <div class="schedule-num"><span class="label-en">CAMP</span><span class="num">02</span></div>
         <div class="schedule-info">
           <h4>第二梯次</h4>
           <div class="schedule-dates">
@@ -1282,12 +1469,8 @@
           </div>
         </div>
       </div>
-
       <div class="schedule-card">
-        <div class="schedule-num">
-          <span class="label-en">CAMP</span>
-          <span class="num">03</span>
-        </div>
+        <div class="schedule-num"><span class="label-en">CAMP</span><span class="num">03</span></div>
         <div class="schedule-info">
           <h4>第三梯次</h4>
           <div class="schedule-dates">
@@ -1296,12 +1479,8 @@
           </div>
         </div>
       </div>
-
       <div class="schedule-card">
-        <div class="schedule-num">
-          <span class="label-en">CAMP</span>
-          <span class="num">04</span>
-        </div>
+        <div class="schedule-num"><span class="label-en">CAMP</span><span class="num">04</span></div>
         <div class="schedule-info">
           <h4>第四梯次</h4>
           <div class="schedule-dates">
@@ -1328,8 +1507,7 @@
   </div>
 </section>
 
-<!-- ========== 費用 ========== -->
-<section id="signup" style="padding-top: 0;">
+<section style="padding-top: 0;">
   <div class="container">
     <div class="section-header">
       <div class="section-tag">TUITION</div>
@@ -1337,7 +1515,6 @@
       <p class="section-subtitle">點選身份切換對應價格 · 全梯報名最划算</p>
     </div>
 
-    <!-- 身份切換 Tab -->
     <div class="pricing-tabs">
       <div class="price-tab active" data-tab="1" onclick="switchTab(1)">
         <div class="tab-icon">🏸</div>
@@ -1353,103 +1530,64 @@
       </div>
     </div>
 
-    <!-- 球隊學生 -->
     <div class="price-panel active" data-panel="1">
       <div class="panel-header">
         <div class="panel-icon">🏸</div>
-        <div>
-          <h4>球隊學生</h4>
-          <div class="panel-sub">TEAM STUDENT</div>
-        </div>
+        <div><h4>球隊學生</h4><div class="panel-sub">TEAM STUDENT</div></div>
       </div>
       <div class="price-options">
         <div class="price-option">
-          <div>
-            <div class="opt-label">一梯 · 半天</div>
-            <div class="opt-sub">兩週 / 早上或下午</div>
-          </div>
+          <div><div class="opt-label">一梯 · 半天</div><div class="opt-sub">兩週 / 早上或下午</div></div>
           <div class="opt-price"><span class="currency">NT$</span>3,500</div>
         </div>
         <div class="price-option">
-          <div>
-            <div class="opt-label">一梯 · 全天</div>
-            <div class="opt-sub">兩週 / 含中午活動</div>
-          </div>
+          <div><div class="opt-label">一梯 · 全天</div><div class="opt-sub">兩週 / 含中午活動</div></div>
           <div class="opt-price"><span class="currency">NT$</span>4,500</div>
         </div>
         <div class="price-option highlight">
-          <div>
-            <div class="opt-label">全梯 · 4 梯全包</div>
-            <div class="opt-sub">平均一梯僅 NT$2,750</div>
-          </div>
+          <div><div class="opt-label">全梯 · 4 梯全包</div><div class="opt-sub">平均一梯僅 NT$2,750</div></div>
           <div class="opt-price"><span class="currency">NT$</span>11,500</div>
         </div>
       </div>
     </div>
 
-    <!-- 在校生 -->
     <div class="price-panel" data-panel="2">
       <div class="panel-header">
         <div class="panel-icon">🎒</div>
-        <div>
-          <h4>在校生</h4>
-          <div class="panel-sub">CURRENT STUDENT</div>
-        </div>
+        <div><h4>在校生</h4><div class="panel-sub">CURRENT STUDENT</div></div>
       </div>
       <div class="price-options">
         <div class="price-option">
-          <div>
-            <div class="opt-label">一梯 · 半天</div>
-            <div class="opt-sub">兩週 / 早上或下午</div>
-          </div>
+          <div><div class="opt-label">一梯 · 半天</div><div class="opt-sub">兩週 / 早上或下午</div></div>
           <div class="opt-price"><span class="currency">NT$</span>4,500</div>
         </div>
         <div class="price-option">
-          <div>
-            <div class="opt-label">一梯 · 全天</div>
-            <div class="opt-sub">兩週 / 含中午活動</div>
-          </div>
+          <div><div class="opt-label">一梯 · 全天</div><div class="opt-sub">兩週 / 含中午活動</div></div>
           <div class="opt-price"><span class="currency">NT$</span>5,800</div>
         </div>
         <div class="price-option highlight">
-          <div>
-            <div class="opt-label">全梯 · 4 梯全包</div>
-            <div class="opt-sub">平均一梯僅 NT$3,750</div>
-          </div>
+          <div><div class="opt-label">全梯 · 4 梯全包</div><div class="opt-sub">平均一梯僅 NT$3,750</div></div>
           <div class="opt-price"><span class="currency">NT$</span>15,000</div>
         </div>
       </div>
     </div>
 
-    <!-- 校外 -->
     <div class="price-panel" data-panel="3">
       <div class="panel-header">
         <div class="panel-icon">👋</div>
-        <div>
-          <h4>校外生</h4>
-          <div class="panel-sub">畢業生 / 球隊兄弟姊妹</div>
-        </div>
+        <div><h4>校外生</h4><div class="panel-sub">畢業生 / 球隊兄弟姊妹</div></div>
       </div>
       <div class="price-options">
         <div class="price-option">
-          <div>
-            <div class="opt-label">一梯 · 半天</div>
-            <div class="opt-sub">兩週 / 早上或下午</div>
-          </div>
+          <div><div class="opt-label">一梯 · 半天</div><div class="opt-sub">兩週 / 早上或下午</div></div>
           <div class="opt-price"><span class="currency">NT$</span>5,000</div>
         </div>
         <div class="price-option">
-          <div>
-            <div class="opt-label">一梯 · 全天</div>
-            <div class="opt-sub">兩週 / 含中午活動</div>
-          </div>
+          <div><div class="opt-label">一梯 · 全天</div><div class="opt-sub">兩週 / 含中午活動</div></div>
           <div class="opt-price"><span class="currency">NT$</span>6,500</div>
         </div>
         <div class="price-option highlight">
-          <div>
-            <div class="opt-label">全梯 · 4 梯全包</div>
-            <div class="opt-sub">平均一梯僅 NT$4,250</div>
-          </div>
+          <div><div class="opt-label">全梯 · 4 梯全包</div><div class="opt-sub">平均一梯僅 NT$4,250</div></div>
           <div class="opt-price"><span class="currency">NT$</span>17,000</div>
         </div>
       </div>
@@ -1457,7 +1595,6 @@
   </div>
 </section>
 
-<!-- ========== 注意事項 ========== -->
 <section class="notice-section">
   <div class="container">
     <div class="section-header">
@@ -1468,39 +1605,28 @@
     <div class="notice-card">
       <div class="notice-item">
         <div class="notice-icon">⏰</div>
-        <div class="notice-text">
-          請於上課前 <strong>10–15 分鐘</strong>提早到場，做好上課準備
-        </div>
+        <div class="notice-text">請於上課前 <strong>10–15 分鐘</strong>提早到場，做好上課準備</div>
       </div>
       <div class="notice-item">
         <div class="notice-icon">🎒</div>
-        <div class="notice-text">
-          需自備：<strong>球拍、球鞋、水壺、毛巾、換洗衣服</strong>
-        </div>
+        <div class="notice-text">需自備：<strong>球拍、球鞋、水壺、毛巾、換洗衣服</strong></div>
       </div>
       <div class="notice-item">
         <div class="notice-icon">🍱</div>
-        <div class="notice-text">
-          中午如有訂午餐，請小朋友<strong>自備餐具</strong>
-        </div>
+        <div class="notice-text">中午如有訂午餐，請小朋友<strong>自備餐具</strong></div>
       </div>
       <div class="notice-item">
         <div class="notice-icon">😴</div>
-        <div class="notice-text">
-          報名全天班如需在活動中心午休，請<strong>自備午睡用品</strong>
-        </div>
+        <div class="notice-text">報名全天班如需在活動中心午休，請<strong>自備午睡用品</strong></div>
       </div>
       <div class="notice-item">
         <div class="notice-icon">📅</div>
-        <div class="notice-text">
-          暑假期間訓練<strong>請假不退費</strong>，請假部分將於開學後 <strong>2 個月內補課</strong>完成
-        </div>
+        <div class="notice-text">暑假期間訓練<strong>請假不退費</strong>，請假部分將於開學後 <strong>2 個月內補課</strong>完成</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== FINAL CTA ========== -->
 <section style="padding: 0;">
   <div class="container">
     <div class="final-cta">
@@ -1514,17 +1640,16 @@
         <span class="urgency-badge">名額有限 · 額滿即止</span>
         <h2>讓孩子的暑假<br><span class="em">不一樣</span></h2>
         <p>3 分鐘填表完成報名<br>給孩子一個揮灑汗水、結交朋友的夏天</p>
-        <a href="https://forms.google.com/" target="_blank" rel="noopener" class="cta-final-btn">
-          <span>立即報名</span>
+        <button onclick="openModal()" class="cta-final-btn">
+          <span>立即線上報名</span>
           <span style="font-family: serif;">→</span>
-        </a>
+        </button>
         <div class="deadline">— 額滿即截止 EARLY BIRD —</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== FOOTER ========== -->
 <footer>
   <div class="footer-ornament">
     <svg viewBox="0 0 24 24">
@@ -1552,13 +1677,149 @@
   </div>
 </footer>
 
-<a href="https://forms.google.com/" target="_blank" rel="noopener" class="float-cta" id="floatCta">
+<button onclick="openModal()" class="float-cta" id="floatCta">
   <span class="badge-mini">LIMITED</span>
   <span>立即報名</span>
-</a>
+</button>
+
+<!-- 報名表單 Modal -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalBg(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <h3>🏸 暑期羽球營報名</h3>
+      <p>請填寫以下資料完成報名 · 約 1 分鐘即可完成</p>
+    </div>
+
+    <div class="form-loading" id="formLoading">
+      <div class="spinner"></div>
+      <p style="color: rgba(15,27,20,0.7); font-size: 14px;">資料傳送中，請稍候...</p>
+    </div>
+
+    <div class="success-screen" id="successScreen">
+      <div class="success-icon">✓</div>
+      <h3>報名成功！</h3>
+      <p>感謝您為孩子報名開元羽球暑期營<br>球隊將盡快與您聯繫確認報名資訊<br>並通知繳費方式</p>
+      <button onclick="closeModal()" class="form-submit" style="background: var(--ink);">
+        關閉視窗
+      </button>
+    </div>
+
+    <div class="modal-body" id="formBody">
+      <form id="signupForm" onsubmit="submitForm(event)">
+
+        <div class="form-section-title"><span class="icon">👦</span>學生資料</div>
+
+        <div class="form-group">
+          <label class="form-label">學生姓名 <span class="required">*</span></label>
+          <input type="text" class="form-input" name="studentName" required placeholder="請輸入學生姓名">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">就讀學校 <span class="required">*</span></label>
+            <input type="text" class="form-input" name="school" required placeholder="例：開元國小">
+          </div>
+          <div class="form-group">
+            <label class="form-label">年級 <span class="required">*</span></label>
+            <select class="form-select" name="grade" required>
+              <option value="">請選擇</option>
+              <option value="1年級">1 年級</option>
+              <option value="2年級">2 年級</option>
+              <option value="3年級">3 年級</option>
+              <option value="4年級">4 年級</option>
+              <option value="5年級">5 年級</option>
+              <option value="6年級">6 年級</option>
+              <option value="畢業生">畢業生</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">學生身份 <span class="required">*</span></label>
+          <select class="form-select" name="identity" required>
+            <option value="">請選擇身份</option>
+            <option value="球隊學生">球隊學生</option>
+            <option value="在校生">開元在校生</option>
+            <option value="校外生">校外生（畢業生 / 球隊兄弟姊妹）</option>
+          </select>
+        </div>
+
+        <div class="form-section-title"><span class="icon">📞</span>家長聯絡資料</div>
+
+        <div class="form-group">
+          <label class="form-label">家長姓名 <span class="required">*</span></label>
+          <input type="text" class="form-input" name="parentName" required placeholder="請輸入家長姓名">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">聯絡電話 <span class="required">*</span></label>
+          <input type="tel" class="form-input" name="phone" required placeholder="例：0912-345-678">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Line ID 或 Email</label>
+          <input type="text" class="form-input" name="contact" placeholder="方便聯繫的方式">
+          <div class="form-helper">球隊將透過 Line/Email 通知開課與繳費資訊</div>
+        </div>
+
+        <div class="form-section-title"><span class="icon">🏸</span>選擇梯次與時段</div>
+
+        <div class="form-group">
+          <label class="form-label">報名梯次 <span class="required">*</span></label>
+          <select class="form-select" name="camp" required>
+            <option value="">請選擇梯次</option>
+            <option value="第一梯（7/1-7/11）">第一梯（7/1 – 7/11）</option>
+            <option value="第二梯（7/14-7/25）">第二梯（7/14 – 7/25）</option>
+            <option value="第三梯（7/28-8/8）">第三梯（7/28 – 8/8）</option>
+            <option value="第四梯（8/11-8/22）">第四梯（8/11 – 8/22）</option>
+            <option value="全梯（4梯全包）">🌟 全梯（4 梯全包，最划算）</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">上課時段 <span class="required">*</span></label>
+          <select class="form-select" name="timeSlot" required>
+            <option value="">請選擇時段</option>
+            <option value="半天-早上（08:30-11:30）">半天 · 早上（08:30 – 11:30）</option>
+            <option value="半天-下午（14:00-17:00）">半天 · 下午（14:00 – 17:00）</option>
+            <option value="全天（08:30-17:00）">全天（08:30 – 17:00）</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">是否需要訂購午餐</label>
+          <select class="form-select" name="lunch">
+            <option value="不需要">不需要（半天班 / 自行返家）</option>
+            <option value="需要">需要訂午餐（全天班）</option>
+            <option value="自備午餐">自備午餐（全天班）</option>
+          </select>
+          <div class="form-helper">全天班學員適用 · 訂餐費用另計</div>
+        </div>
+
+        <div class="form-section-title"><span class="icon">📝</span>其他資訊</div>
+
+        <div class="form-group">
+          <label class="form-label">特殊狀況或備註</label>
+          <textarea class="form-textarea" name="notes" placeholder="例：過敏體質、特殊飲食需求、其他需教練留意事項..."></textarea>
+        </div>
+
+        <button type="submit" class="form-submit" id="submitBtn">
+          確認送出報名
+        </button>
+
+        <p style="text-align: center; font-size: 12px; color: rgba(15,27,20,0.5); margin-top: 12px;">
+          送出後球隊將於 1–2 天內聯繫您確認資訊
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
 
 <script>
-  // 浮動 CTA
+  // ✅ 您的 Google Apps Script 網址（已正確設定）
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxD72uv-9Ulqqz5TFZOmFBlrGFrS089Q31vvZeVdDv2ncRTc-xMSZTCnsJSTr_KYRq_ng/exec';
+
   const floatCta = document.getElementById('floatCta');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 600) {
@@ -1568,16 +1829,67 @@
     }
   });
 
-  // 切換費用 tab
   function switchTab(tabId) {
-    document.querySelectorAll('.price-tab').forEach(tab => {
-      tab.classList.remove('active');
-    });
-    document.querySelectorAll('.price-panel').forEach(panel => {
-      panel.classList.remove('active');
-    });
+    document.querySelectorAll('.price-tab').forEach(tab => tab.classList.remove('active'));
+    document.querySelectorAll('.price-panel').forEach(panel => panel.classList.remove('active'));
     document.querySelector(`.price-tab[data-tab="${tabId}"]`).classList.add('active');
     document.querySelector(`.price-panel[data-panel="${tabId}"]`).classList.add('active');
+  }
+
+  function openModal() {
+    document.getElementById('modalOverlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('formBody').style.display = 'block';
+    document.getElementById('formLoading').classList.remove('show');
+    document.getElementById('successScreen').classList.remove('show');
+  }
+
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('show');
+    document.body.style.overflow = '';
+    document.getElementById('signupForm').reset();
+  }
+
+  function closeModalBg(e) {
+    if (e.target.id === 'modalOverlay') closeModal();
+  }
+
+  async function submitForm(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+    const data = {
+      studentName: formData.get('studentName'),
+      schoolGrade: formData.get('school') + ' ' + formData.get('grade'),
+      identity: formData.get('identity'),
+      parentName: formData.get('parentName'),
+      phone: formData.get('phone'),
+      contact: formData.get('contact') || '未填',
+      camp: formData.get('camp'),
+      timeSlot: formData.get('timeSlot'),
+      lunch: formData.get('lunch'),
+      notes: formData.get('notes') || '無'
+    };
+
+    document.getElementById('formBody').style.display = 'none';
+    document.getElementById('formLoading').classList.add('show');
+
+    try {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      document.getElementById('formLoading').classList.remove('show');
+      document.getElementById('successScreen').classList.add('show');
+    } catch (error) {
+      alert('報名送出失敗，請稍後再試或直接聯絡球隊：(06) 237-XXXX');
+      document.getElementById('formLoading').classList.remove('show');
+      document.getElementById('formBody').style.display = 'block';
+    }
   }
 </script>
 
