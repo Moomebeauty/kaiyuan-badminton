@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>開元羽球隊 · 2026 暑期營招生中</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Noto+Sans+TC:wght@400;500;600;700;900&family=Noto+Serif+TC:wght@500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --court-green: #2E8B57;
+    --court-deep: #1F6B42;
+    --court-line: #FFFFFF;
+    --racket-red: #D63636;
+    --racket-red-deep: #A82828;
+    --racket-blue: #2C5FAF;
+    --racket-blue-deep: #1E4582;
+    --shuttle-white: #F8F8F5;
+    --shuttle-cork: #E8B86C;
+    --ink: #0F1B14;
+    --bg: #F4F1EA;
+    --bg-warm: #EDE8DC;
+    --line: rgba(15, 27, 20, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    overflow-x: hidden;
+    line-height: 1.7;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: multiply;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0 22px;
+  }
+
+  /* ========= HERO ========= */
+  .hero {
+    position: relative;
+    background: var(--court-green);
+    color: var(--court-line);
+    padding: 28px 22px 80px;
+    text-align: center;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--court-deep) 0%, var(--court-green) 50%, var(--court-deep) 100%);
+    z-index: -2;
+  }
+
+  .court-lines {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.18;
+    pointer-events: none;
+  }
+
+  .float-item {
+    position: absolute;
+    z-index: 0;
+    animation: floatAnim 5s ease-in-out infinite;
+  }
+  .float-item.f1 { top: 8%; left: 6%; animation-delay: 0s; }
+  .float-item.f2 { top: 18%; right: 5%; animation-delay: 1.5s; }
+  .float-item.f3 { bottom: 18%; left: 8%; animation-delay: 3s; }
+
+  @keyframes floatAnim {
+    0%, 100% { transform: translateY(0) rotate(-10deg); }
+    50% { transform: translateY(-18px) rotate(10deg); }
+  }
+
+  .badge-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(8px);
+    color: var(--court-line);
+    padding: 9px 20px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.35);
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  .badge-top .dot {
+    width: 7px;
+    height: 7px;
+    background: var(--shuttle-cork);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--shuttle-cork);
+    animation: pulse 1.8s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.4); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .summer-tag {
+    display: inline-block;
+    background: var(--shuttle-cork);
+    color: var(--ink);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    letter-spacing: 4px;
+    padding: 6px 16px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+    transform: rotate(-2deg);
+    animation: fadeIn 0.8s ease-out 0.1s both;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+  }
+
+  .logo-wrap {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 20px;
+    position: relative;
+    animation: fadeUp 1s cubic-bezier(0.25, 0.1, 0.25, 1) 0.2s both;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.25));
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: scale(0.92) translateY(15px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  .logo-wrap svg { width: 100%; height: 100%; }
+
+  .hero h1 {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: clamp(38px, 10vw, 50px);
+    line-height: 1.1;
+    color: var(--court-line);
+    margin-bottom: 14px;
+    letter-spacing: -1px;
+    font-weight: 600;
+    animation: fadeUp 1s ease-out 0.4s both;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  }
+
+  .hero h1 .accent {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--shuttle-cork);
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 28px;
+    letter-spacing: 1px;
+    line-height: 1.8;
+    animation: fadeUp 1s ease-out 0.5s both;
+  }
+
+  .hero-sub strong {
+    color: var(--shuttle-cork);
+    font-weight: 700;
+  }
+
+  .cta-main {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--court-line);
+    color: var(--court-deep);
+    padding: 17px 38px;
+    border-radius: 50px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
+    animation: fadeUp 1s ease-out 0.6s both;
+  }
+
+  .cta-main:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  }
+
+  .hero-wave {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 32px;
+    z-index: 1;
+  }
+
+  /* ========= 通用區塊 ========= */
+  section { padding: 60px 0; position: relative; }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    color: var(--court-green);
+    margin-bottom: 12px;
+    letter-spacing: 4px;
+  }
+
+  .section-tag::before,
+  .section-tag::after {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--court-green);
+    opacity: 0.4;
+  }
+
+  .section-title {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 28px;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .section-title .em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--court-green);
+  }
+
+  .section-subtitle {
+    font-size: 14px;
+    color: rgba(15,27,20,0.65);
+    margin-top: 12px;
+    line-height: 1.7;
+  }
+
+  /* ========= 痛點區塊 ========= */
+  .pain-section {
+    background: var(--bg-warm);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 56px 0;
+  }
+
+  .pain-intro {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 0 10px;
+  }
+
+  .pain-intro .quote-mark {
+    font-family: 'Fraunces', serif;
+    font-size: 50px;
+    line-height: 0.5;
+    color: var(--racket-red);
+    opacity: 0.3;
+    font-style: italic;
+  }
+
+  .pain-intro h2 {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 8px 0 16px;
+  }
+
+  .pain-intro h2 .highlight {
+    background: linear-gradient(180deg, transparent 60%, rgba(232,184,108,0.5) 60%);
+    padding: 0 4px;
+  }
+
+  .pain-intro p {
+    font-size: 14px;
+    color: rgba(15,27,20,0.7);
+    line-height: 1.9;
+  }
+
+  .pain-grid {
+    display: grid;
+    gap: 12px;
+  }
+
+  .pain-card {
+    background: white;
+    border-radius: 16px;
+    padding: 18px 20px;
+    border-left: 4px solid var(--racket-red);
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  .pain-emoji {
+    font-size: 26px;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 2px;
+  }
+
+  .pain-text {
+    flex: 1;
+  }
+
+  .pain-text .pain-q {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--racket-red);
+    margin-bottom: 4px;
+    line-height: 1.5;
+  }
+
+  .pain-text .pain-a {
+    font-size: 13px;
+    color: rgba(15,27,20,0.75);
+    line-height: 1.7;
+  }
+
+  .pain-conclusion {
+    text-align: center;
+    margin-top: 28px;
+    padding: 22px 18px;
+    background: var(--court-green);
+    color: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(46,139,87,0.25);
+  }
+
+  .pain-conclusion .label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: var(--shuttle-cork);
+    margin-bottom: 6px;
+  }
+
+  .pain-conclusion p {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  /* ========= 課程亮點 ========= */
+  .features-section {
+    background: var(--bg);
+  }
+
+  .feature-grid {
+    display: grid;
+    gap: 14px;
+  }
+
+  .feature-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+  }
+
+  .feature-card:nth-child(1)::before { background: var(--court-green); }
+  .feature-card:nth-child(2)::before { background: var(--racket-red); }
+  .feature-card:nth-child(3)::before { background: var(--racket-blue); }
+  .feature-card:nth-child(4)::before { background: var(--shuttle-cork); }
+
+  .feature-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 44px;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+
+  .feature-card:nth-child(1) .feature-num { color: var(--court-green); }
+  .feature-card:nth-child(2) .feature-num { color: var(--racket-red); }
+  .feature-card:nth-child(3) .feature-num { color: var(--racket-blue); }
+  .feature-card:nth-child(4) .feature-num { color: var(--shuttle-cork); }
+
+  .feature-text h3 {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+
+  .feature-text p {
+    font-size: 13px;
+    color: rgba(15,27,20,0.7);
+    line-height: 1.7;
+  }
+
+  /* ========= 梯次表 ========= */
+  .schedule-grid {
+    display: grid;
+    gap: 12px;
+  }
+
+  .schedule-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: all 0.3s;
+  }
+
+  .schedule-card:active {
+    transform: scale(0.98);
+  }
+
+  .schedule-num {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+  }
+
+  .schedule-card:nth-child(1) .schedule-num { background: var(--court-green); }
+  .schedule-card:nth-child(2) .schedule-num { background: var(--racket-red); }
+  .schedule-card:nth-child(3) .schedule-num { background: var(--racket-blue); }
+  .schedule-card:nth-child(4) .schedule-num { background: var(--shuttle-cork); color: var(--ink); }
+
+  .schedule-num .label-en {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    line-height: 1;
+    opacity: 0.85;
+  }
+
+  .schedule-num .num {
+    font-size: 26px;
+    line-height: 1;
+    margin-top: 2px;
+  }
+
+  .schedule-info {
+    flex: 1;
+  }
+
+  .schedule-info h4 {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .schedule-dates {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .schedule-date {
+    background: var(--bg-warm);
+    border: 1px solid var(--line);
+    padding: 3px 10px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .time-banner {
+    background: var(--court-green);
+    color: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 14px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .time-banner .divider-v {
+    height: 100%;
+    background: rgba(255,255,255,0.25);
+  }
+
+  .time-block .time-icon {
+    font-size: 22px;
+    margin-bottom: 4px;
+  }
+
+  .time-block .time-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--shuttle-cork);
+    margin-bottom: 4px;
+  }
+
+  .time-block .time-value {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 600;
+  }
+
+  /* ========= 費用表 ========= */
+  .pricing-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .price-tab {
+    background: white;
+    border: 2px solid var(--line);
+    border-radius: 14px;
+    padding: 12px 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+
+  .price-tab .tab-icon {
+    font-size: 22px;
+    margin-bottom: 4px;
+    line-height: 1;
+  }
+
+  .price-tab .tab-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  .price-tab.active {
+    background: var(--court-green);
+    border-color: var(--court-deep);
+  }
+
+  .price-tab.active .tab-label {
+    color: white;
+  }
+
+  .price-tab.active[data-tab="2"] {
+    background: var(--racket-red);
+    border-color: var(--racket-red-deep);
+  }
+
+  .price-tab.active[data-tab="3"] {
+    background: var(--racket-blue);
+    border-color: var(--racket-blue-deep);
+  }
+
+  .price-panel {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 24px 22px;
+    display: none;
+    animation: fadeIn 0.4s ease-out;
+  }
+
+  .price-panel.active {
+    display: block;
+  }
+
+  .price-panel .panel-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .price-panel .panel-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .price-panel[data-panel="1"] .panel-icon { background: rgba(46,139,87,0.15); }
+  .price-panel[data-panel="2"] .panel-icon { background: rgba(214,54,54,0.15); }
+  .price-panel[data-panel="3"] .panel-icon { background: rgba(44,95,175,0.15); }
+
+  .price-panel h4 {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .price-panel .panel-sub {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: rgba(15,27,20,0.5);
+    margin-top: 2px;
+  }
+
+  .price-options {
+    display: grid;
+    gap: 10px;
+  }
+
+  .price-option {
+    background: var(--bg-warm);
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .price-option .opt-label {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .price-option .opt-sub {
+    font-size: 11px;
+    color: rgba(15,27,20,0.55);
+    margin-top: 2px;
+  }
+
+  .price-option .opt-price {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 22px;
+    color: var(--court-green);
+    line-height: 1;
+    text-align: right;
+  }
+
+  .price-option .opt-price .currency {
+    font-size: 13px;
+    margin-right: 2px;
+    opacity: 0.7;
+  }
+
+  .price-option.highlight {
+    background: var(--ink);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .price-option.highlight::before {
+    content: '最划算';
+    position: absolute;
+    top: 8px;
+    right: -22px;
+    background: var(--shuttle-cork);
+    color: var(--ink);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    padding: 2px 24px;
+    transform: rotate(35deg);
+  }
+
+  .price-option.highlight .opt-label {
+    color: white;
+  }
+
+  .price-option.highlight .opt-sub {
+    color: var(--shuttle-cork);
+  }
+
+  .price-option.highlight .opt-price {
+    color: var(--shuttle-cork);
+  }
+
+  /* ========= 注意事項 ========= */
+  .notice-section {
+    background: var(--bg-warm);
+    border-top: 1px solid var(--line);
+  }
+
+  .notice-card {
+    background: white;
+    border-radius: 18px;
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+
+  .notice-item {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .notice-item:last-child { border-bottom: none; }
+
+  .notice-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    background: var(--bg-warm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 16px;
+  }
+
+  .notice-text {
+    font-size: 13.5px;
+    color: rgba(15,27,20,0.78);
+    line-height: 1.7;
+    padding-top: 4px;
+  }
+
+  .notice-text strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  /* ========= FINAL CTA ========= */
+  .final-cta {
+    background: linear-gradient(135deg, var(--court-deep) 0%, var(--court-green) 100%);
+    color: var(--court-line);
+    border-radius: 28px;
+    padding: 44px 28px;
+    text-align: center;
+    margin: 24px 0 48px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(46,139,87,0.25);
+  }
+
+  .final-cta-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0.15;
+    pointer-events: none;
+  }
+
+  .final-cta-inner { position: relative; z-index: 2; }
+
+  .final-cta .urgency-badge {
+    display: inline-block;
+    background: var(--racket-red);
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    padding: 5px 14px;
+    border-radius: 50px;
+    margin-bottom: 14px;
+    box-shadow: 0 4px 12px rgba(214,54,54,0.4);
+  }
+
+  .final-cta h2 {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 28px;
+    line-height: 1.25;
+    margin-bottom: 14px;
+    color: var(--court-line);
+    font-weight: 600;
+  }
+
+  .final-cta h2 .em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--shuttle-cork);
+  }
+
+  .final-cta p {
+    font-size: 14px;
+    margin-bottom: 26px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.8;
+  }
+
+  .cta-final-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--shuttle-cork);
+    color: var(--ink);
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-decoration: none;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    transition: all 0.3s;
+  }
+
+  .cta-final-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+  }
+
+  .deadline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    margin-top: 18px;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 3px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: var(--shuttle-white);
+    padding: 40px 22px;
+    text-align: center;
+  }
+
+  footer .footer-ornament {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    opacity: 0.7;
+  }
+
+  footer .footer-ornament svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  footer h4 {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  footer .school-en {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    opacity: 0.55;
+    margin-bottom: 24px;
+    letter-spacing: 3px;
+  }
+
+  footer .contact-info {
+    font-size: 13px;
+    opacity: 0.85;
+    line-height: 2;
+  }
+
+  footer .contact-info strong {
+    color: var(--shuttle-cork);
+    font-weight: 600;
+    margin-right: 8px;
+  }
+
+  footer .copyright {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(248,248,245,0.1);
+    opacity: 0.5;
+    font-size: 11px;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 2px;
+  }
+
+  /* 浮動 CTA */
+  .float-cta {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    background: var(--racket-red);
+    color: var(--court-line);
+    padding: 13px 26px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(214,54,54,0.4);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s, transform 0.2s;
+    border: 1.5px solid rgba(255,255,255,0.2);
+  }
+
+  .float-cta.show {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .float-cta:active {
+    transform: translateX(-50%) translateY(2px);
+  }
+
+  .float-cta .badge-mini {
+    background: var(--shuttle-cork);
+    color: var(--ink);
+    padding: 3px 10px;
+    border-radius: 50px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+
+  @media (min-width: 600px) {
+    .container { max-width: 520px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== HERO ========== -->
+<header class="hero">
+  <svg class="court-lines" viewBox="0 0 400 600" preserveAspectRatio="none">
+    <rect x="20" y="20" width="360" height="560" fill="none" stroke="white" stroke-width="2"/>
+    <line x1="20" y1="300" x2="380" y2="300" stroke="white" stroke-width="2"/>
+    <line x1="200" y1="20" x2="200" y2="580" stroke="white" stroke-width="1.5"/>
+    <line x1="20" y1="120" x2="380" y2="120" stroke="white" stroke-width="1.5"/>
+    <line x1="20" y1="480" x2="380" y2="480" stroke="white" stroke-width="1.5"/>
+    <line x1="60" y1="120" x2="60" y2="480" stroke="white" stroke-width="1.5"/>
+    <line x1="340" y1="120" x2="340" y2="480" stroke="white" stroke-width="1.5"/>
+  </svg>
+
+  <svg class="float-item f1" width="32" height="32" viewBox="0 0 32 32">
+    <ellipse cx="16" cy="22" rx="5" ry="3.5" fill="#E8B86C" stroke="#0F1B14" stroke-width="1"/>
+    <path d="M11 21 L7 8 L13 18 Z" fill="white" stroke="#0F1B14" stroke-width="0.8"/>
+    <path d="M13 19 L11 5 L15 17 Z" fill="white" stroke="#0F1B14" stroke-width="0.8"/>
+    <path d="M16 18 L17 4 L18 17 Z" fill="white" stroke="#0F1B14" stroke-width="0.8"/>
+    <path d="M19 18 L21 5 L20 19 Z" fill="white" stroke="#0F1B14" stroke-width="0.8"/>
+    <path d="M21 19 L25 8 L23 21 Z" fill="white" stroke="#0F1B14" stroke-width="0.8"/>
+  </svg>
+
+  <svg class="float-item f2" width="36" height="36" viewBox="0 0 36 36">
+    <g transform="translate(18,12) rotate(15)">
+      <ellipse cx="0" cy="0" rx="9" ry="11" fill="none" stroke="#D63636" stroke-width="2.5"/>
+      <g stroke="#D63636" stroke-width="0.6">
+        <line x1="-7" y1="-7" x2="-7" y2="7"/>
+        <line x1="-3" y1="-9" x2="-3" y2="9"/>
+        <line x1="0" y1="-10" x2="0" y2="10"/>
+        <line x1="3" y1="-9" x2="3" y2="9"/>
+        <line x1="7" y1="-7" x2="7" y2="7"/>
+        <line x1="-7" y1="-4" x2="7" y2="-4"/>
+        <line x1="-8" y1="0" x2="8" y2="0"/>
+        <line x1="-7" y1="4" x2="7" y2="4"/>
+      </g>
+    </g>
+    <line x1="22" y1="20" x2="32" y2="34" stroke="#D63636" stroke-width="2.5" stroke-linecap="round"/>
+  </svg>
+
+  <svg class="float-item f3" width="28" height="28" viewBox="0 0 32 32">
+    <ellipse cx="16" cy="22" rx="5" ry="3.5" fill="#E8B86C" stroke="#0F1B14" stroke-width="1"/>
+    <path d="M11 21 L7 8 L13 18 Z" fill="white" stroke="#0F1B14" stroke-width="0.8"/>
+    <path d="M13 19 L11 5 L15 17 Z" fill="white" stroke="#0F1B14" stroke-width="0.8"/>
+    <path d="M16 18 L17 4 L18 17 Z" fill="white" stroke="#0F1B14" stroke-width="0.8"/>
+    <path d="M19 18 L21 5 L20 19 Z" fill="white" stroke="#0F1B14" stroke-width="0.8"/>
+    <path d="M21 19 L25 8 L23 21 Z" fill="white" stroke="#0F1B14" stroke-width="0.8"/>
+  </svg>
+
+  <div class="container">
+    <div class="badge-top">
+      <span class="dot"></span>
+      <span>2026 暑期招生 · 開始報名</span>
+    </div>
+
+    <div class="summer-tag">SUMMER CAMP 2026</div>
+
+    <div class="logo-wrap">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="96" fill="#0F1B14"/>
+        <circle cx="100" cy="100" r="92" fill="#F8F8F5"/>
+        <circle cx="100" cy="100" r="86" fill="none" stroke="#0F1B14" stroke-width="0.8" stroke-dasharray="2,2" opacity="0.4"/>
+
+        <defs>
+          <path id="topArc" d="M 32 100 A 68 68 0 0 1 168 100" fill="none"/>
+          <path id="bottomArc" d="M 32 110 A 68 68 0 0 0 168 110" fill="none"/>
+        </defs>
+
+        <text font-family="'Bebas Neue', sans-serif" font-size="13" font-weight="500" fill="#2E8B57" letter-spacing="2">
+          <textPath href="#topArc" startOffset="50%" text-anchor="middle">TAINAN KAIYUAN ELEMENTARY</textPath>
+        </text>
+
+        <text font-family="'Noto Serif TC', serif" font-size="11" font-weight="600" fill="#0F1B14" letter-spacing="3">
+          <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">開元國民小學羽球隊</textPath>
+        </text>
+
+        <g transform="translate(60, 78) rotate(-25)">
+          <ellipse cx="0" cy="0" rx="22" ry="26" fill="none" stroke="#D63636" stroke-width="3"/>
+          <ellipse cx="0" cy="0" rx="20" ry="24" fill="#F8F8F5" opacity="0.6"/>
+          <g stroke="#D63636" stroke-width="0.7" opacity="0.85">
+            <line x1="-15" y1="-18" x2="-15" y2="18"/>
+            <line x1="-10" y1="-20" x2="-10" y2="20"/>
+            <line x1="-5" y1="-21" x2="-5" y2="21"/>
+            <line x1="0" y1="-22" x2="0" y2="22"/>
+            <line x1="5" y1="-21" x2="5" y2="21"/>
+            <line x1="10" y1="-20" x2="10" y2="20"/>
+            <line x1="15" y1="-18" x2="15" y2="18"/>
+            <line x1="-17" y1="-12" x2="17" y2="-12"/>
+            <line x1="-17" y1="-6" x2="17" y2="-6"/>
+            <line x1="-18" y1="0" x2="18" y2="0"/>
+            <line x1="-17" y1="6" x2="17" y2="6"/>
+            <line x1="-17" y1="12" x2="17" y2="12"/>
+          </g>
+          <rect x="-2.2" y="22" width="4.4" height="34" fill="#0F1B14"/>
+          <rect x="-2.8" y="50" width="5.6" height="9" fill="#D63636" stroke="#0F1B14" stroke-width="0.8"/>
+        </g>
+
+        <g transform="translate(140, 68)">
+          <ellipse cx="0" cy="6" rx="6" ry="4" fill="#E8B86C" stroke="#0F1B14" stroke-width="1"/>
+          <path d="M -5 4 L -10 -8 L -2 -2 Z" fill="#F8F8F5" stroke="#0F1B14" stroke-width="0.7"/>
+          <path d="M -1 2 L -4 -12 L 2 -2 Z" fill="#F8F8F5" stroke="#0F1B14" stroke-width="0.7"/>
+          <path d="M 3 2 L 4 -12 L 6 -2 Z" fill="#F8F8F5" stroke="#0F1B14" stroke-width="0.7"/>
+          <path d="M 6 4 L 12 -8 L 8 -1 Z" fill="#F8F8F5" stroke="#0F1B14" stroke-width="0.7"/>
+        </g>
+
+        <g transform="translate(110, 118)">
+          <circle cx="-26" cy="-22" r="11" fill="#0F1B14"/>
+          <circle cx="-26" cy="-22" r="5" fill="#FFB5BA"/>
+          <circle cx="26" cy="-22" r="11" fill="#0F1B14"/>
+          <circle cx="26" cy="-22" r="5" fill="#FFB5BA"/>
+          <ellipse cx="0" cy="0" rx="32" ry="29" fill="#0F1B14"/>
+          <ellipse cx="0" cy="10" rx="18" ry="14" fill="#F8F8F5"/>
+          <circle cx="-11" cy="-3" r="3.5" fill="#F8F8F5"/>
+          <circle cx="-10.5" cy="-3" r="2" fill="#0F1B14"/>
+          <circle cx="-10" cy="-3.8" r="0.7" fill="#F8F8F5"/>
+          <circle cx="11" cy="-3" r="3.5" fill="#F8F8F5"/>
+          <circle cx="11.5" cy="-3" r="2" fill="#0F1B14"/>
+          <circle cx="12" cy="-3.8" r="0.7" fill="#F8F8F5"/>
+          <ellipse cx="-20" cy="6" rx="4.5" ry="2.8" fill="#FFB5BA" opacity="0.85"/>
+          <ellipse cx="20" cy="6" rx="4.5" ry="2.8" fill="#FFB5BA" opacity="0.85"/>
+          <ellipse cx="0" cy="6" rx="2.5" ry="2" fill="#0F1B14"/>
+          <path d="M -4 11 Q 0 15 4 11" stroke="#0F1B14" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+          <path d="M 0 11 L 0 13" stroke="#0F1B14" stroke-width="1"/>
+          <g stroke="#0F1B14" stroke-width="0.6" fill="none" stroke-linecap="round" opacity="0.7">
+            <line x1="22" y1="2" x2="28" y2="0"/>
+            <line x1="22" y1="6" x2="28" y2="6"/>
+            <line x1="22" y1="10" x2="28" y2="12"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <h1>這個暑假<br><span class="accent">讓孩子動起來</span></h1>
+    <p class="hero-sub">
+      <strong>4 梯次 × 8 週</strong>專業羽球訓練營<br>讓孩子告別 3C，揮灑汗水長身高長智慧
+    </p>
+
+    <a href="#signup" class="cta-main">
+      <span>查看梯次與費用</span>
+      <span style="font-family: serif;">→</span>
+    </a>
+  </div>
+
+  <svg class="hero-wave" viewBox="0 0 400 32" preserveAspectRatio="none">
+    <path d="M0,32 L0,16 Q100,0 200,16 T400,16 L400,32 Z" fill="#EDE8DC"/>
+  </svg>
+</header>
+
+<!-- ========== 痛點行銷區 ========== -->
+<section class="pain-section">
+  <div class="container">
+    <div class="pain-intro">
+      <div class="quote-mark">"</div>
+      <h2>這個暑假，您是否也在<span class="highlight">煩惱</span>？</h2>
+      <p>放暑假最怕孩子整天黏在沙發上滑手機<br>體力越來越差、視力越來越糟、性格越來越孤僻……</p>
+    </div>
+
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-emoji">📱</div>
+        <div class="pain-text">
+          <div class="pain-q">「在家整天滑手機、看平板？」</div>
+          <div class="pain-a">高強度的羽球訓練，讓孩子下課累到自動放下 3C，回家洗澡吃飯倒頭就睡，作息自然規律。</div>
+        </div>
+      </div>
+
+      <div class="pain-card">
+        <div class="pain-emoji">👀</div>
+        <div class="pain-text">
+          <div class="pain-q">「視力一直惡化、近視又加深？」</div>
+          <div class="pain-a">羽球需要追蹤高速移動的球，是公認最能訓練眼球肌肉的運動之一，幫助孩子放鬆眼睛、預防度數惡化。</div>
+        </div>
+      </div>
+
+      <div class="pain-card">
+        <div class="pain-emoji">💼</div>
+        <div class="pain-text">
+          <div class="pain-q">「雙薪家庭，暑假沒人陪？」</div>
+          <div class="pain-a">全天班從早 8:30 到下午 5:00，安心托付給專業教練，孩子有人帶、有人教、有同伴玩，比安親班更有意義。</div>
+        </div>
+      </div>
+
+      <div class="pain-card">
+        <div class="pain-emoji">📏</div>
+        <div class="pain-text">
+          <div class="pain-q">「擔心孩子長不高、體能差？」</div>
+          <div class="pain-a">羽球是跳躍類運動，刺激生長板促進長高；強化心肺與爆發力，讓孩子體能升級、不再氣喘吁吁。</div>
+        </div>
+      </div>
+
+      <div class="pain-card">
+        <div class="pain-emoji">😟</div>
+        <div class="pain-text">
+          <div class="pain-q">「孩子內向害羞、不太合群？」</div>
+          <div class="pain-a">團體訓練培養運動精神，雙打互動建立默契，讓孩子自然交到志同道合的朋友，個性越來越開朗。</div>
+        </div>
+      </div>
+
+      <div class="pain-card">
+        <div class="pain-emoji">📚</div>
+        <div class="pain-text">
+          <div class="pain-q">「擔心開學專注力跟不上？」</div>
+          <div class="pain-a">運動科學證實，規律運動能促進大腦 BDNF 分泌,提升學習力與專注力,開學後課業反而更輕鬆。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pain-conclusion">
+      <div class="label">— OUR PROMISE —</div>
+      <p>這個暑假，把孩子交給我們<br>還您一個更健康、更開朗、更專注的他</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 課程亮點 ========== -->
+<section class="features-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">WHY CHOOSE US</div>
+      <h2 class="section-title">為什麼選<span class="em">開元羽球</span></h2>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-num">01</div>
+        <div class="feature-text">
+          <h3>專業教練團隊</h3>
+          <p>國家級認證教練親自指導，從基礎握拍到進階戰術，循序漸進培養每位孩子的羽球底蘊</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-num">02</div>
+        <div class="feature-text">
+          <h3>分齡分級教學</h3>
+          <p>低、中、高年級各自編組，依孩子的程度與體能量身打造合適的訓練菜單</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-num">03</div>
+        <div class="feature-text">
+          <h3>校隊舞台機會</h3>
+          <p>表現優異者可加入校隊，代表學校參加市賽、全國賽，累積寶貴的比賽經驗</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-num">04</div>
+        <div class="feature-text">
+          <h3>體能與專注力提升</h3>
+          <p>強化心肺、協調與反應力，運動讓孩子更專注、更開朗，學習也更有效率</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 梯次與時間 ========== -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">SUMMER SCHEDULE</div>
+      <h2 class="section-title">暑期<span class="em">四大梯次</span></h2>
+      <p class="section-subtitle">每梯次兩週紮實訓練 · 自由選擇單梯或全梯參加</p>
+    </div>
+
+    <div class="schedule-grid">
+      <div class="schedule-card">
+        <div class="schedule-num">
+          <span class="label-en">CAMP</span>
+          <span class="num">01</span>
+        </div>
+        <div class="schedule-info">
+          <h4>第一梯次</h4>
+          <div class="schedule-dates">
+            <span class="schedule-date">7/1 – 7/5</span>
+            <span class="schedule-date">7/7 – 7/11</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="schedule-card">
+        <div class="schedule-num">
+          <span class="label-en">CAMP</span>
+          <span class="num">02</span>
+        </div>
+        <div class="schedule-info">
+          <h4>第二梯次</h4>
+          <div class="schedule-dates">
+            <span class="schedule-date">7/14 – 7/18</span>
+            <span class="schedule-date">7/21 – 7/25</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="schedule-card">
+        <div class="schedule-num">
+          <span class="label-en">CAMP</span>
+          <span class="num">03</span>
+        </div>
+        <div class="schedule-info">
+          <h4>第三梯次</h4>
+          <div class="schedule-dates">
+            <span class="schedule-date">7/28 – 8/1</span>
+            <span class="schedule-date">8/4 – 8/8</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="schedule-card">
+        <div class="schedule-num">
+          <span class="label-en">CAMP</span>
+          <span class="num">04</span>
+        </div>
+        <div class="schedule-info">
+          <h4>第四梯次</h4>
+          <div class="schedule-dates">
+            <span class="schedule-date">8/11 – 8/15</span>
+            <span class="schedule-date">8/18 – 8/22</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="time-banner">
+      <div class="time-block">
+        <div class="time-icon">☀️</div>
+        <div class="time-label">MORNING</div>
+        <div class="time-value">08:30 – 11:30</div>
+      </div>
+      <div class="divider-v"></div>
+      <div class="time-block">
+        <div class="time-icon">🌤️</div>
+        <div class="time-label">AFTERNOON</div>
+        <div class="time-value">14:00 – 17:00</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 費用 ========== -->
+<section id="signup" style="padding-top: 0;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">TUITION</div>
+      <h2 class="section-title">報名<span class="em">費用方案</span></h2>
+      <p class="section-subtitle">點選身份切換對應價格 · 全梯報名最划算</p>
+    </div>
+
+    <!-- 身份切換 Tab -->
+    <div class="pricing-tabs">
+      <div class="price-tab active" data-tab="1" onclick="switchTab(1)">
+        <div class="tab-icon">🏸</div>
+        <div class="tab-label">球隊學生</div>
+      </div>
+      <div class="price-tab" data-tab="2" onclick="switchTab(2)">
+        <div class="tab-icon">🎒</div>
+        <div class="tab-label">在校生</div>
+      </div>
+      <div class="price-tab" data-tab="3" onclick="switchTab(3)">
+        <div class="tab-icon">👋</div>
+        <div class="tab-label">校外生</div>
+      </div>
+    </div>
+
+    <!-- 球隊學生 -->
+    <div class="price-panel active" data-panel="1">
+      <div class="panel-header">
+        <div class="panel-icon">🏸</div>
+        <div>
+          <h4>球隊學生</h4>
+          <div class="panel-sub">TEAM STUDENT</div>
+        </div>
+      </div>
+      <div class="price-options">
+        <div class="price-option">
+          <div>
+            <div class="opt-label">一梯 · 半天</div>
+            <div class="opt-sub">兩週 / 早上或下午</div>
+          </div>
+          <div class="opt-price"><span class="currency">NT$</span>3,500</div>
+        </div>
+        <div class="price-option">
+          <div>
+            <div class="opt-label">一梯 · 全天</div>
+            <div class="opt-sub">兩週 / 含中午活動</div>
+          </div>
+          <div class="opt-price"><span class="currency">NT$</span>4,500</div>
+        </div>
+        <div class="price-option highlight">
+          <div>
+            <div class="opt-label">全梯 · 4 梯全包</div>
+            <div class="opt-sub">平均一梯僅 NT$2,750</div>
+          </div>
+          <div class="opt-price"><span class="currency">NT$</span>11,500</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 在校生 -->
+    <div class="price-panel" data-panel="2">
+      <div class="panel-header">
+        <div class="panel-icon">🎒</div>
+        <div>
+          <h4>在校生</h4>
+          <div class="panel-sub">CURRENT STUDENT</div>
+        </div>
+      </div>
+      <div class="price-options">
+        <div class="price-option">
+          <div>
+            <div class="opt-label">一梯 · 半天</div>
+            <div class="opt-sub">兩週 / 早上或下午</div>
+          </div>
+          <div class="opt-price"><span class="currency">NT$</span>4,500</div>
+        </div>
+        <div class="price-option">
+          <div>
+            <div class="opt-label">一梯 · 全天</div>
+            <div class="opt-sub">兩週 / 含中午活動</div>
+          </div>
+          <div class="opt-price"><span class="currency">NT$</span>5,800</div>
+        </div>
+        <div class="price-option highlight">
+          <div>
+            <div class="opt-label">全梯 · 4 梯全包</div>
+            <div class="opt-sub">平均一梯僅 NT$3,750</div>
+          </div>
+          <div class="opt-price"><span class="currency">NT$</span>15,000</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 校外 -->
+    <div class="price-panel" data-panel="3">
+      <div class="panel-header">
+        <div class="panel-icon">👋</div>
+        <div>
+          <h4>校外生</h4>
+          <div class="panel-sub">畢業生 / 球隊兄弟姊妹</div>
+        </div>
+      </div>
+      <div class="price-options">
+        <div class="price-option">
+          <div>
+            <div class="opt-label">一梯 · 半天</div>
+            <div class="opt-sub">兩週 / 早上或下午</div>
+          </div>
+          <div class="opt-price"><span class="currency">NT$</span>5,000</div>
+        </div>
+        <div class="price-option">
+          <div>
+            <div class="opt-label">一梯 · 全天</div>
+            <div class="opt-sub">兩週 / 含中午活動</div>
+          </div>
+          <div class="opt-price"><span class="currency">NT$</span>6,500</div>
+        </div>
+        <div class="price-option highlight">
+          <div>
+            <div class="opt-label">全梯 · 4 梯全包</div>
+            <div class="opt-sub">平均一梯僅 NT$4,250</div>
+          </div>
+          <div class="opt-price"><span class="currency">NT$</span>17,000</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 注意事項 ========== -->
+<section class="notice-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">IMPORTANT NOTICE</div>
+      <h2 class="section-title">報名<span class="em">注意事項</span></h2>
+    </div>
+
+    <div class="notice-card">
+      <div class="notice-item">
+        <div class="notice-icon">⏰</div>
+        <div class="notice-text">
+          請於上課前 <strong>10–15 分鐘</strong>提早到場，做好上課準備
+        </div>
+      </div>
+      <div class="notice-item">
+        <div class="notice-icon">🎒</div>
+        <div class="notice-text">
+          需自備：<strong>球拍、球鞋、水壺、毛巾、換洗衣服</strong>
+        </div>
+      </div>
+      <div class="notice-item">
+        <div class="notice-icon">🍱</div>
+        <div class="notice-text">
+          中午如有訂午餐，請小朋友<strong>自備餐具</strong>
+        </div>
+      </div>
+      <div class="notice-item">
+        <div class="notice-icon">😴</div>
+        <div class="notice-text">
+          報名全天班如需在活動中心午休，請<strong>自備午睡用品</strong>
+        </div>
+      </div>
+      <div class="notice-item">
+        <div class="notice-icon">📅</div>
+        <div class="notice-text">
+          暑假期間訓練<strong>請假不退費</strong>，請假部分將於開學後 <strong>2 個月內補課</strong>完成
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FINAL CTA ========== -->
+<section style="padding: 0;">
+  <div class="container">
+    <div class="final-cta">
+      <svg class="final-cta-bg" viewBox="0 0 400 280" preserveAspectRatio="none">
+        <rect x="20" y="20" width="360" height="240" fill="none" stroke="white" stroke-width="2"/>
+        <line x1="20" y1="140" x2="380" y2="140" stroke="white" stroke-width="2"/>
+        <line x1="200" y1="20" x2="200" y2="260" stroke="white" stroke-width="1.5"/>
+      </svg>
+
+      <div class="final-cta-inner">
+        <span class="urgency-badge">名額有限 · 額滿即止</span>
+        <h2>讓孩子的暑假<br><span class="em">不一樣</span></h2>
+        <p>3 分鐘填表完成報名<br>給孩子一個揮灑汗水、結交朋友的夏天</p>
+        <a href="https://forms.google.com/" target="_blank" rel="noopener" class="cta-final-btn">
+          <span>立即報名</span>
+          <span style="font-family: serif;">→</span>
+        </a>
+        <div class="deadline">— 額滿即截止 EARLY BIRD —</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="footer-ornament">
+    <svg viewBox="0 0 24 24">
+      <ellipse cx="12" cy="9" rx="5" ry="6" fill="none" stroke="#F8F8F5" stroke-width="1.5"/>
+      <line x1="12" y1="15" x2="12" y2="22" stroke="#F8F8F5" stroke-width="1.5"/>
+    </svg>
+    <svg viewBox="0 0 24 24">
+      <ellipse cx="12" cy="16" rx="3" ry="2" fill="#E8B86C"/>
+      <path d="M9 15 L7 5 L11 13 Z M12 13 L13 3 L14 13 Z M15 13 L17 5 L16 15 Z" fill="#F8F8F5"/>
+    </svg>
+    <svg viewBox="0 0 24 24">
+      <ellipse cx="12" cy="9" rx="5" ry="6" fill="none" stroke="#F8F8F5" stroke-width="1.5"/>
+      <line x1="12" y1="15" x2="12" y2="22" stroke="#F8F8F5" stroke-width="1.5"/>
+    </svg>
+  </div>
+  <h4>臺南市北區開元國民小學</h4>
+  <div class="school-en">TAINAN MUNICIPAL KAIYUAN ELEMENTARY SCHOOL</div>
+  <div class="contact-info">
+    <div><strong>電話</strong>(06) 237-XXXX 分機 XXX</div>
+    <div><strong>信箱</strong>badminton@kyes.tn.edu.tw</div>
+    <div><strong>地址</strong>臺南市北區開元路 XXX 號</div>
+  </div>
+  <div class="copyright">
+    © 2026 KAIYUAN BADMINTON SUMMER CAMP
+  </div>
+</footer>
+
+<a href="https://forms.google.com/" target="_blank" rel="noopener" class="float-cta" id="floatCta">
+  <span class="badge-mini">LIMITED</span>
+  <span>立即報名</span>
+</a>
+
+<script>
+  // 浮動 CTA
+  const floatCta = document.getElementById('floatCta');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 600) {
+      floatCta.classList.add('show');
+    } else {
+      floatCta.classList.remove('show');
+    }
+  });
+
+  // 切換費用 tab
+  function switchTab(tabId) {
+    document.querySelectorAll('.price-tab').forEach(tab => {
+      tab.classList.remove('active');
+    });
+    document.querySelectorAll('.price-panel').forEach(panel => {
+      panel.classList.remove('active');
+    });
+    document.querySelector(`.price-tab[data-tab="${tabId}"]`).classList.add('active');
+    document.querySelector(`.price-panel[data-panel="${tabId}"]`).classList.add('active');
+  }
+</script>
+
+</body>
+</html>
