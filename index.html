@@ -54,7 +54,6 @@
     padding: 0 22px;
   }
 
-  /* 導覽列 */
   .navbar {
     position: sticky;
     top: 0;
@@ -64,6 +63,7 @@
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255,255,255,0.08);
     padding: 10px 0;
+    transition: transform 0.3s;
   }
 
   .nav-scroll {
@@ -102,6 +102,7 @@
     transform: scale(0.95);
     background: var(--court-green);
     color: white;
+    border-color: var(--court-deep);
   }
 
   .nav-link .nav-icon { font-size: 13px; }
@@ -113,7 +114,8 @@
     font-weight: 700;
   }
 
-  /* HERO */
+  .nav-link.cta:active { background: #d9a755; }
+
   .hero {
     position: relative;
     background: var(--court-green);
@@ -306,7 +308,8 @@
     letter-spacing: 4px;
   }
 
-  .section-tag::before, .section-tag::after {
+  .section-tag::before,
+  .section-tag::after {
     content: '';
     width: 28px;
     height: 1px;
@@ -336,7 +339,6 @@
     line-height: 1.7;
   }
 
-  /* 痛點區 */
   .pain-section {
     background: var(--bg-warm);
     border-top: 1px solid var(--line);
@@ -392,7 +394,13 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   }
 
-  .pain-emoji { font-size: 26px; flex-shrink: 0; line-height: 1; margin-top: 2px; }
+  .pain-emoji {
+    font-size: 26px;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 2px;
+  }
+
   .pain-text { flex: 1; }
 
   .pain-text .pain-q {
@@ -471,6 +479,7 @@
     flex-shrink: 0;
     width: 44px;
     text-align: center;
+    letter-spacing: 1px;
   }
 
   .feature-card:nth-child(1) .feature-num { color: var(--court-green); }
@@ -522,8 +531,18 @@
   .schedule-card:nth-child(3) .schedule-num { background: var(--racket-blue); }
   .schedule-card:nth-child(4) .schedule-num { background: var(--shuttle-cork); color: var(--ink); }
 
-  .schedule-num .label-en { font-size: 9px; letter-spacing: 1.5px; line-height: 1; opacity: 0.85; }
-  .schedule-num .num { font-size: 26px; line-height: 1; margin-top: 2px; }
+  .schedule-num .label-en {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    line-height: 1;
+    opacity: 0.85;
+  }
+
+  .schedule-num .num {
+    font-size: 26px;
+    line-height: 1;
+    margin-top: 2px;
+  }
 
   .schedule-info { flex: 1; }
 
@@ -535,7 +554,11 @@
     margin-bottom: 6px;
   }
 
-  .schedule-dates { display: flex; flex-wrap: wrap; gap: 6px; }
+  .schedule-dates {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
 
   .schedule-date {
     background: var(--bg-warm);
@@ -560,7 +583,10 @@
     text-align: center;
   }
 
-  .time-banner .divider-v { height: 100%; background: rgba(255,255,255,0.25); }
+  .time-banner .divider-v {
+    height: 100%;
+    background: rgba(255,255,255,0.25);
+  }
 
   .time-block .time-icon { font-size: 22px; margin-bottom: 4px; }
 
@@ -578,7 +604,6 @@
     font-weight: 600;
   }
 
-  /* 每日課表 */
   .daily-section {
     background: white;
     border-top: 1px solid var(--line);
@@ -627,16 +652,24 @@
   .daily-tab.active {
     background: var(--court-green);
     border-color: var(--court-deep);
+    color: white;
     box-shadow: 0 6px 16px rgba(46,139,87,0.3);
   }
 
   .daily-tab.active .tab-text { color: white; }
   .daily-tab.active .tab-sub { color: var(--shuttle-cork); }
 
-  .daily-panel { display: none; animation: fadeIn 0.4s ease-out; }
+  .daily-panel {
+    display: none;
+    animation: fadeIn 0.4s ease-out;
+  }
+
   .daily-panel.active { display: block; }
 
-  .timeline { position: relative; padding-left: 32px; }
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+  }
 
   .timeline::before {
     content: '';
@@ -645,11 +678,21 @@
     top: 12px;
     bottom: 12px;
     width: 2px;
-    background: linear-gradient(to bottom, var(--court-green), var(--shuttle-cork));
+    background: linear-gradient(to bottom,
+      var(--court-green) 0%,
+      var(--court-green) 50%,
+      var(--shuttle-cork) 50%,
+      var(--shuttle-cork) 100%);
+    background-size: 2px 8px;
+    background-repeat: repeat-y;
     opacity: 0.3;
   }
 
-  .timeline-item { position: relative; padding: 0 0 20px 0; }
+  .timeline-item {
+    position: relative;
+    padding: 0 0 20px 0;
+  }
+
   .timeline-item:last-child { padding-bottom: 0; }
 
   .timeline-item::before {
@@ -744,9 +787,11 @@
     line-height: 1.7;
   }
 
-  .daily-note strong { color: var(--ink); font-weight: 700; }
+  .daily-note strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
 
-  /* ============ 報名費用區（行銷優化版）============ */
   .pricing-tabs {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -762,6 +807,7 @@
     text-align: center;
     cursor: pointer;
     transition: all 0.25s;
+    font-family: 'Noto Sans TC', sans-serif;
   }
 
   .price-tab .tab-icon { font-size: 22px; margin-bottom: 4px; line-height: 1; }
@@ -773,12 +819,26 @@
     line-height: 1.3;
   }
 
-  .price-tab.active { background: var(--court-green); border-color: var(--court-deep); }
-  .price-tab.active .tab-label { color: white; }
-  .price-tab.active[data-tab="2"] { background: var(--racket-red); border-color: var(--racket-red-deep); }
-  .price-tab.active[data-tab="3"] { background: var(--racket-blue); border-color: var(--racket-blue-deep); }
+  .price-tab.active {
+    background: var(--court-green);
+    border-color: var(--court-deep);
+  }
 
-  .price-panel { display: none; animation: fadeIn 0.4s ease-out; }
+  .price-tab.active .tab-label { color: white; }
+  .price-tab.active[data-tab="2"] {
+    background: var(--racket-red);
+    border-color: var(--racket-red-deep);
+  }
+  .price-tab.active[data-tab="3"] {
+    background: var(--racket-blue);
+    border-color: var(--racket-blue-deep);
+  }
+
+  .price-panel {
+    display: none;
+    animation: fadeIn 0.4s ease-out;
+  }
+
   .price-panel.active { display: block; }
 
   .price-panel .panel-header {
@@ -822,7 +882,6 @@
     margin-top: 2px;
   }
 
-  /* 全梯主打卡片（最上方） */
   .price-hero-card {
     background: linear-gradient(135deg, var(--court-deep) 0%, var(--court-green) 100%);
     color: white;
@@ -843,6 +902,17 @@
     width: 200px;
     height: 200px;
     background: radial-gradient(circle, rgba(232,184,108,0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .price-hero-card::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -20%;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -886,6 +956,7 @@
     font-size: 13px;
     opacity: 0.92;
     margin-bottom: 18px;
+    line-height: 1.6;
   }
 
   .hero-price-body {
@@ -935,6 +1006,12 @@
     letter-spacing: -2px;
   }
 
+  .main-price .unit {
+    font-size: 14px;
+    opacity: 0.85;
+    margin-left: 2px;
+  }
+
   .price-breakdown {
     font-size: 12.5px;
     opacity: 0.92;
@@ -958,9 +1035,14 @@
     border: 1.5px solid rgba(255,255,255,0.25);
   }
 
-  .savings-icon { font-size: 28px; flex-shrink: 0; }
+  .savings-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+  }
 
-  .savings-text { flex: 1; }
+  .savings-text {
+    flex: 1;
+  }
 
   .savings-text .savings-label {
     font-family: 'Bebas Neue', sans-serif;
@@ -1015,29 +1097,6 @@
     flex-shrink: 0;
   }
 
-  .hero-card-cta {
-    width: 100%;
-    background: var(--shuttle-cork);
-    color: var(--ink);
-    border: none;
-    padding: 14px;
-    border-radius: 50px;
-    font-family: 'Noto Sans TC', sans-serif;
-    font-size: 14px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    margin-top: 16px;
-    cursor: pointer;
-    box-shadow: 0 6px 16px rgba(232,184,108,0.4);
-    transition: all 0.2s;
-  }
-
-  .hero-card-cta:active {
-    transform: translateY(2px);
-    box-shadow: 0 3px 8px rgba(232,184,108,0.4);
-  }
-
-  /* 單梯方案副選項 */
   .price-options-secondary {
     background: white;
     border-radius: 18px;
@@ -1046,6 +1105,10 @@
   }
 
   .price-options-secondary .options-header {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(15,27,20,0.6);
     text-align: center;
     padding-bottom: 12px;
     border-bottom: 1px dashed var(--line);
@@ -1054,12 +1117,11 @@
 
   .price-options-secondary .options-header .or {
     background: var(--bg-warm);
-    padding: 4px 14px;
+    padding: 2px 12px;
     border-radius: 50px;
     font-size: 11px;
     letter-spacing: 1px;
-    color: rgba(15,27,20,0.6);
-    font-family: 'Bebas Neue', sans-serif;
+    color: rgba(15,27,20,0.5);
   }
 
   .price-option {
@@ -1102,7 +1164,28 @@
     opacity: 0.7;
   }
 
-  /* 注意事項 */
+  .hero-card-cta {
+    width: 100%;
+    background: var(--shuttle-cork);
+    color: var(--ink);
+    border: none;
+    padding: 14px;
+    border-radius: 50px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-top: 16px;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(232,184,108,0.4);
+    transition: all 0.2s;
+  }
+
+  .hero-card-cta:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 8px rgba(232,184,108,0.4);
+  }
+
   .notice-section {
     background: var(--bg-warm);
     border-top: 1px solid var(--line);
@@ -1144,7 +1227,10 @@
     padding-top: 4px;
   }
 
-  .notice-text strong { color: var(--ink); font-weight: 700; }
+  .notice-text strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
 
   .final-cta {
     background: linear-gradient(135deg, var(--court-deep) 0%, var(--court-green) 100%);
@@ -1158,7 +1244,13 @@
     box-shadow: 0 12px 40px rgba(46,139,87,0.25);
   }
 
-  .final-cta-bg { position: absolute; inset: 0; opacity: 0.15; pointer-events: none; }
+  .final-cta-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0.15;
+    pointer-events: none;
+  }
+
   .final-cta-inner { position: relative; z-index: 2; }
 
   .final-cta .urgency-badge {
@@ -1238,14 +1330,14 @@
   footer .footer-ornament {
     display: flex;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
     margin-bottom: 20px;
-    opacity: 0.7;
+    opacity: 0.85;
     align-items: center;
   }
 
-  footer .footer-ornament svg.racket { width: 22px; height: 22px; }
-  footer .footer-ornament svg.shuttle-icon { width: 20px; height: 28px; }
+  footer .footer-ornament svg.racket { width: 26px; height: 36px; }
+  footer .footer-ornament svg.shuttle-icon { width: 24px; height: 32px; }
 
   footer h4 {
     font-family: 'Fraunces', 'Noto Serif TC', serif;
@@ -1310,9 +1402,14 @@
     font-family: 'Noto Sans TC', sans-serif;
   }
 
-  .float-cta.show { opacity: 1; pointer-events: all; }
+  .float-cta.show {
+    opacity: 1;
+    pointer-events: all;
+  }
 
-  .float-cta:active { transform: translateX(-50%) translateY(2px); }
+  .float-cta:active {
+    transform: translateX(-50%) translateY(2px);
+  }
 
   .float-cta .badge-mini {
     background: var(--shuttle-cork);
@@ -1324,7 +1421,6 @@
     letter-spacing: 1.5px;
   }
 
-  /* 報名 Modal */
   .modal-overlay {
     position: fixed;
     inset: 0;
@@ -1338,7 +1434,10 @@
     padding: 20px 0;
   }
 
-  .modal-overlay.show { display: flex; animation: fadeIn 0.3s ease-out; }
+  .modal-overlay.show {
+    display: flex;
+    animation: fadeIn 0.3s ease-out;
+  }
 
   .modal {
     background: white;
@@ -1378,6 +1477,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.2s;
+  }
+
+  .modal-close:active {
+    transform: scale(0.92);
+    background: rgba(255,255,255,0.3);
   }
 
   .modal-header h3 {
@@ -1393,7 +1498,11 @@
     line-height: 1.6;
   }
 
-  .modal-body { padding: 24px 22px; max-height: 70vh; overflow-y: auto; }
+  .modal-body {
+    padding: 24px 22px;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
 
   .form-group { margin-bottom: 18px; }
 
@@ -1403,9 +1512,13 @@
     font-weight: 700;
     color: var(--ink);
     margin-bottom: 6px;
+    letter-spacing: 0.5px;
   }
 
-  .form-label .required { color: var(--racket-red); margin-left: 4px; }
+  .form-label .required {
+    color: var(--racket-red);
+    margin-left: 4px;
+  }
 
   .form-input, .form-select, .form-textarea {
     width: 100%;
@@ -1416,6 +1529,7 @@
     font-family: 'Noto Sans TC', sans-serif;
     background: var(--bg);
     color: var(--ink);
+    transition: all 0.2s;
     -webkit-appearance: none;
     appearance: none;
   }
@@ -1440,7 +1554,11 @@
     font-family: 'Noto Sans TC', sans-serif;
   }
 
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
 
   .form-helper {
     font-size: 11.5px;
@@ -1462,7 +1580,13 @@
     cursor: pointer;
     margin-top: 10px;
     box-shadow: 0 6px 16px rgba(46,139,87,0.3);
+    transition: all 0.2s;
     font-family: 'Noto Sans TC', sans-serif;
+  }
+
+  .form-submit:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 8px rgba(46,139,87,0.3);
   }
 
   .form-section-title {
@@ -1481,7 +1605,12 @@
   .form-section-title:first-child { margin-top: 0; }
   .form-section-title .icon { font-size: 18px; }
 
-  .success-screen { padding: 40px 28px; text-align: center; display: none; }
+  .success-screen {
+    padding: 40px 28px;
+    text-align: center;
+    display: none;
+  }
+
   .success-screen.show { display: block; }
 
   .success-icon {
@@ -1518,7 +1647,12 @@
     margin-bottom: 24px;
   }
 
-  .form-loading { display: none; text-align: center; padding: 40px 20px; }
+  .form-loading {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
   .form-loading.show { display: block; }
 
   .spinner {
@@ -1538,18 +1672,156 @@
   }
 </style>
 
+<!-- ========================================== -->
+<!-- 修正版 SVG 元件：羽球與球拍（更接近真實照片）-->
+<!-- ========================================== -->
 <svg width="0" height="0" style="position:absolute" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <symbol id="shuttle-white" viewBox="0 0 60 80">
-      <g stroke="white" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" fill="white" opacity="0.9">
-        <path d="M 22 50 L 6 8 L 18 46 Z"/>
-        <path d="M 26 48 L 16 4 L 24 46 Z"/>
-        <path d="M 30 47 L 30 2 L 33 46 Z"/>
-        <path d="M 34 48 L 44 4 L 36 46 Z"/>
-        <path d="M 38 50 L 54 8 L 42 46 Z"/>
+    <!-- 真實版羽球：拉長的橢圓羽毛裙 + 圓球頭 -->
+    <symbol id="shuttle-real" viewBox="0 0 80 110">
+      <!-- 羽毛裙（橢圓輪廓）-->
+      <ellipse cx="40" cy="40" rx="28" ry="36" fill="#FAFAFA" stroke="#0F1B14" stroke-width="1.5"/>
+      <!-- 羽毛分隔線（從球頭往上放射狀展開）-->
+      <g stroke="#0F1B14" stroke-width="1" stroke-linecap="round" fill="none">
+        <line x1="40" y1="76" x2="14" y2="20"/>
+        <line x1="40" y1="76" x2="22" y2="10"/>
+        <line x1="40" y1="76" x2="32" y2="5"/>
+        <line x1="40" y1="76" x2="40" y2="3"/>
+        <line x1="40" y1="76" x2="48" y2="5"/>
+        <line x1="40" y1="76" x2="58" y2="10"/>
+        <line x1="40" y1="76" x2="66" y2="20"/>
       </g>
-      <ellipse cx="30" cy="52" rx="9" ry="2.5" fill="#E8B86C" opacity="0.9"/>
-      <ellipse cx="30" cy="62" rx="10" ry="9" fill="white" opacity="0.95"/>
+      <!-- 羽毛上端弧形邊（鋸齒感）-->
+      <path d="M 12 30 Q 20 18 28 14 Q 35 8 40 6 Q 45 8 52 14 Q 60 18 68 30"
+            fill="none" stroke="#0F1B14" stroke-width="1.2" stroke-linejoin="round"/>
+      <!-- 中段橫線（綁繩交叉）-->
+      <ellipse cx="40" cy="58" rx="22" ry="3" fill="none" stroke="#0F1B14" stroke-width="0.8" opacity="0.5"/>
+      <ellipse cx="40" cy="50" rx="24" ry="3" fill="none" stroke="#0F1B14" stroke-width="0.8" opacity="0.5"/>
+      <!-- 綠色綁帶 -->
+      <ellipse cx="40" cy="74" rx="13" ry="3" fill="#2E8B57" stroke="#0F1B14" stroke-width="1"/>
+      <!-- 軟木球頭（白色圓球）-->
+      <ellipse cx="40" cy="88" rx="14" ry="13" fill="#FAFAFA" stroke="#0F1B14" stroke-width="1.5"/>
+      <!-- 球頭陰影 -->
+      <ellipse cx="36" cy="86" rx="6" ry="5" fill="white" opacity="0.7"/>
+    </symbol>
+
+    <!-- 純白簡化版（深色背景用）-->
+    <symbol id="shuttle-on-dark" viewBox="0 0 80 110">
+      <ellipse cx="40" cy="40" rx="28" ry="36" fill="white" stroke="white" stroke-width="1.5" opacity="0.95"/>
+      <g stroke="rgba(15,27,20,0.6)" stroke-width="1" stroke-linecap="round" fill="none">
+        <line x1="40" y1="76" x2="14" y2="20"/>
+        <line x1="40" y1="76" x2="22" y2="10"/>
+        <line x1="40" y1="76" x2="32" y2="5"/>
+        <line x1="40" y1="76" x2="40" y2="3"/>
+        <line x1="40" y1="76" x2="48" y2="5"/>
+        <line x1="40" y1="76" x2="58" y2="10"/>
+        <line x1="40" y1="76" x2="66" y2="20"/>
+      </g>
+      <path d="M 12 30 Q 20 18 28 14 Q 35 8 40 6 Q 45 8 52 14 Q 60 18 68 30"
+            fill="none" stroke="rgba(15,27,20,0.5)" stroke-width="1.2" stroke-linejoin="round"/>
+      <ellipse cx="40" cy="74" rx="13" ry="3" fill="#2E8B57" opacity="0.95"/>
+      <ellipse cx="40" cy="88" rx="14" ry="13" fill="white" opacity="0.98"/>
+    </symbol>
+
+    <!-- 紅色羽球拍（拉長橢圓 + 細握把）-->
+    <symbol id="racket-red" viewBox="0 0 60 160">
+      <!-- 球拍框（拉長橢圓）-->
+      <ellipse cx="30" cy="45" rx="24" ry="38" fill="white" stroke="#D63636" stroke-width="4"/>
+      <!-- 球拍內框 -->
+      <ellipse cx="30" cy="45" rx="20" ry="34" fill="white" stroke="#D63636" stroke-width="0.8" opacity="0.4"/>
+      <!-- 弦線（橫向）-->
+      <g stroke="#0F1B14" stroke-width="0.6" opacity="0.65">
+        <line x1="11" y1="20" x2="49" y2="20"/>
+        <line x1="9" y1="28" x2="51" y2="28"/>
+        <line x1="8" y1="36" x2="52" y2="36"/>
+        <line x1="7" y1="45" x2="53" y2="45"/>
+        <line x1="8" y1="54" x2="52" y2="54"/>
+        <line x1="9" y1="62" x2="51" y2="62"/>
+        <line x1="11" y1="70" x2="49" y2="70"/>
+      </g>
+      <!-- 弦線（垂直）-->
+      <g stroke="#0F1B14" stroke-width="0.6" opacity="0.65">
+        <line x1="14" y1="13" x2="14" y2="77"/>
+        <line x1="20" y1="9" x2="20" y2="81"/>
+        <line x1="26" y1="7" x2="26" y2="83"/>
+        <line x1="30" y1="6" x2="30" y2="84"/>
+        <line x1="34" y1="7" x2="34" y2="83"/>
+        <line x1="40" y1="9" x2="40" y2="81"/>
+        <line x1="46" y1="13" x2="46" y2="77"/>
+      </g>
+      <!-- 球拍頸（T 型連接處）-->
+      <path d="M 22 80 Q 30 88 38 80 L 36 95 L 24 95 Z" fill="#D63636"/>
+      <!-- 握把 -->
+      <rect x="26" y="93" width="8" height="50" fill="#0F1B14"/>
+      <!-- 握把紋路 -->
+      <g stroke="#666" stroke-width="0.6" opacity="0.4">
+        <line x1="26" y1="100" x2="34" y2="103"/>
+        <line x1="26" y1="108" x2="34" y2="111"/>
+        <line x1="26" y1="116" x2="34" y2="119"/>
+        <line x1="26" y1="124" x2="34" y2="127"/>
+        <line x1="26" y1="132" x2="34" y2="135"/>
+      </g>
+      <!-- 握把底端 -->
+      <rect x="24" y="141" width="12" height="6" rx="1.5" fill="#0F1B14"/>
+      <rect x="25" y="143" width="10" height="2" fill="#D63636"/>
+    </symbol>
+
+    <!-- 藍色羽球拍 -->
+    <symbol id="racket-blue" viewBox="0 0 60 160">
+      <ellipse cx="30" cy="45" rx="24" ry="38" fill="white" stroke="#2C5FAF" stroke-width="4"/>
+      <ellipse cx="30" cy="45" rx="20" ry="34" fill="white" stroke="#2C5FAF" stroke-width="0.8" opacity="0.4"/>
+      <g stroke="#0F1B14" stroke-width="0.6" opacity="0.65">
+        <line x1="11" y1="20" x2="49" y2="20"/>
+        <line x1="9" y1="28" x2="51" y2="28"/>
+        <line x1="8" y1="36" x2="52" y2="36"/>
+        <line x1="7" y1="45" x2="53" y2="45"/>
+        <line x1="8" y1="54" x2="52" y2="54"/>
+        <line x1="9" y1="62" x2="51" y2="62"/>
+        <line x1="11" y1="70" x2="49" y2="70"/>
+      </g>
+      <g stroke="#0F1B14" stroke-width="0.6" opacity="0.65">
+        <line x1="14" y1="13" x2="14" y2="77"/>
+        <line x1="20" y1="9" x2="20" y2="81"/>
+        <line x1="26" y1="7" x2="26" y2="83"/>
+        <line x1="30" y1="6" x2="30" y2="84"/>
+        <line x1="34" y1="7" x2="34" y2="83"/>
+        <line x1="40" y1="9" x2="40" y2="81"/>
+        <line x1="46" y1="13" x2="46" y2="77"/>
+      </g>
+      <path d="M 22 80 Q 30 88 38 80 L 36 95 L 24 95 Z" fill="#2C5FAF"/>
+      <rect x="26" y="93" width="8" height="50" fill="#0F1B14"/>
+      <g stroke="#666" stroke-width="0.6" opacity="0.4">
+        <line x1="26" y1="100" x2="34" y2="103"/>
+        <line x1="26" y1="108" x2="34" y2="111"/>
+        <line x1="26" y1="116" x2="34" y2="119"/>
+        <line x1="26" y1="124" x2="34" y2="127"/>
+        <line x1="26" y1="132" x2="34" y2="135"/>
+      </g>
+      <rect x="24" y="141" width="12" height="6" rx="1.5" fill="#0F1B14"/>
+      <rect x="25" y="143" width="10" height="2" fill="#2C5FAF"/>
+    </symbol>
+
+    <!-- 白色版球拍（深色背景用）-->
+    <symbol id="racket-white" viewBox="0 0 60 160">
+      <ellipse cx="30" cy="45" rx="24" ry="38" fill="none" stroke="white" stroke-width="3.5"/>
+      <g stroke="white" stroke-width="0.5" opacity="0.5">
+        <line x1="11" y1="20" x2="49" y2="20"/>
+        <line x1="9" y1="28" x2="51" y2="28"/>
+        <line x1="8" y1="36" x2="52" y2="36"/>
+        <line x1="7" y1="45" x2="53" y2="45"/>
+        <line x1="8" y1="54" x2="52" y2="54"/>
+        <line x1="9" y1="62" x2="51" y2="62"/>
+        <line x1="11" y1="70" x2="49" y2="70"/>
+        <line x1="14" y1="13" x2="14" y2="77"/>
+        <line x1="20" y1="9" x2="20" y2="81"/>
+        <line x1="26" y1="7" x2="26" y2="83"/>
+        <line x1="30" y1="6" x2="30" y2="84"/>
+        <line x1="34" y1="7" x2="34" y2="83"/>
+        <line x1="40" y1="9" x2="40" y2="81"/>
+        <line x1="46" y1="13" x2="46" y2="77"/>
+      </g>
+      <path d="M 22 80 Q 30 88 38 80 L 36 95 L 24 95 Z" fill="white" opacity="0.85"/>
+      <rect x="26" y="93" width="8" height="50" fill="white" opacity="0.9"/>
     </symbol>
   </defs>
 </svg>
@@ -1579,22 +1851,20 @@
     <line x1="340" y1="120" x2="340" y2="480" stroke="white" stroke-width="1.5"/>
   </svg>
 
-  <svg class="float-item f1" width="40" height="54" viewBox="0 0 60 80"><use href="#shuttle-white"/></svg>
-
-  <svg class="float-item f2" width="40" height="40" viewBox="0 0 36 36">
-    <g transform="translate(18,12) rotate(15)">
-      <ellipse cx="0" cy="0" rx="9" ry="11" fill="none" stroke="#D63636" stroke-width="2.5"/>
-      <g stroke="#D63636" stroke-width="0.6">
-        <line x1="-7" y1="-7" x2="-7" y2="7"/><line x1="-3" y1="-9" x2="-3" y2="9"/>
-        <line x1="0" y1="-10" x2="0" y2="10"/><line x1="3" y1="-9" x2="3" y2="9"/>
-        <line x1="7" y1="-7" x2="7" y2="7"/><line x1="-7" y1="-4" x2="7" y2="-4"/>
-        <line x1="-8" y1="0" x2="8" y2="0"/><line x1="-7" y1="4" x2="7" y2="4"/>
-      </g>
-    </g>
-    <line x1="22" y1="20" x2="32" y2="34" stroke="#D63636" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- 飄浮羽球（左上） -->
+  <svg class="float-item f1" width="44" height="60" viewBox="0 0 80 110">
+    <use href="#shuttle-on-dark"/>
   </svg>
 
-  <svg class="float-item f3" width="34" height="46" viewBox="0 0 60 80"><use href="#shuttle-white"/></svg>
+  <!-- 飄浮紅球拍（右上） -->
+  <svg class="float-item f2" width="38" height="100" viewBox="0 0 60 160">
+    <use href="#racket-white"/>
+  </svg>
+
+  <!-- 飄浮羽球（左下） -->
+  <svg class="float-item f3" width="36" height="50" viewBox="0 0 80 110">
+    <use href="#shuttle-on-dark"/>
+  </svg>
 
   <div class="container">
     <div class="badge-top">
@@ -1623,33 +1893,17 @@
           <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">開元國民小學羽球隊</textPath>
         </text>
 
-        <g transform="translate(60, 78) rotate(-25)">
-          <ellipse cx="0" cy="0" rx="22" ry="26" fill="none" stroke="#D63636" stroke-width="3"/>
-          <ellipse cx="0" cy="0" rx="20" ry="24" fill="#F8F8F5" opacity="0.6"/>
-          <g stroke="#D63636" stroke-width="0.7" opacity="0.85">
-            <line x1="-15" y1="-18" x2="-15" y2="18"/><line x1="-10" y1="-20" x2="-10" y2="20"/>
-            <line x1="-5" y1="-21" x2="-5" y2="21"/><line x1="0" y1="-22" x2="0" y2="22"/>
-            <line x1="5" y1="-21" x2="5" y2="21"/><line x1="10" y1="-20" x2="10" y2="20"/>
-            <line x1="15" y1="-18" x2="15" y2="18"/><line x1="-17" y1="-12" x2="17" y2="-12"/>
-            <line x1="-17" y1="-6" x2="17" y2="-6"/><line x1="-18" y1="0" x2="18" y2="0"/>
-            <line x1="-17" y1="6" x2="17" y2="6"/><line x1="-17" y1="12" x2="17" y2="12"/>
-          </g>
-          <rect x="-2.2" y="22" width="4.4" height="34" fill="#0F1B14"/>
-          <rect x="-2.8" y="50" width="5.6" height="9" fill="#D63636" stroke="#0F1B14" stroke-width="0.8"/>
+        <!-- LOGO 中的紅色球拍（用真實版） -->
+        <g transform="translate(45, 50) rotate(-25) scale(0.6)">
+          <use href="#racket-red"/>
         </g>
 
-        <g transform="translate(140, 60) rotate(20)">
-          <g stroke="#0F1B14" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" fill="#F8F8F5">
-            <path d="M -7 14 L -13 -10 L -4 12 Z"/>
-            <path d="M -3 13 L -6 -14 L -1 12 Z"/>
-            <path d="M 0 12 L 0 -16 L 2 12 Z"/>
-            <path d="M 3 13 L 6 -14 L 1 12 Z"/>
-            <path d="M 7 14 L 13 -10 L 4 12 Z"/>
-          </g>
-          <ellipse cx="0" cy="15" rx="5" ry="1.5" fill="#2E8B57" stroke="#0F1B14" stroke-width="0.6"/>
-          <ellipse cx="0" cy="20" rx="5.5" ry="5" fill="#F8F8F5" stroke="#0F1B14" stroke-width="0.8"/>
+        <!-- LOGO 中的羽球（用真實版） -->
+        <g transform="translate(132, 56) rotate(20) scale(0.45)">
+          <use href="#shuttle-real"/>
         </g>
 
+        <!-- 熊熊頭 -->
         <g transform="translate(110, 118)">
           <circle cx="-26" cy="-22" r="11" fill="#0F1B14"/>
           <circle cx="-26" cy="-22" r="5" fill="#FFB5BA"/>
@@ -2031,7 +2285,6 @@
   </div>
 </section>
 
-<!-- ========== 報名費用（行銷優化版）========== -->
 <section id="tuition" style="padding-top: 50px;">
   <div class="container">
     <div class="section-header">
@@ -2055,7 +2308,6 @@
       </div>
     </div>
 
-    <!-- 球隊學生 -->
     <div class="price-panel active" data-panel="1">
       <div class="panel-header">
         <div class="panel-icon">🏸</div>
@@ -2068,8 +2320,9 @@
             <span>⭐</span>
             <span>家長 90% 推薦</span>
           </div>
-
-          <div class="price-hero-title">全梯<span class="em-yellow">最超值</span>方案</div>
+          <div class="price-hero-title">
+            全梯<span class="em-yellow">最超值</span>方案
+          </div>
           <div class="price-hero-sub">4 梯全包 · 整個暑假動起來</div>
 
           <div class="hero-price-body">
@@ -2110,7 +2363,9 @@
             </div>
           </div>
 
-          <button onclick="openModal()" class="hero-card-cta">🏸 立即報名全梯</button>
+          <button onclick="openModal()" class="hero-card-cta">
+            🏸 立即報名全梯
+          </button>
         </div>
       </div>
 
@@ -2135,7 +2390,6 @@
       </div>
     </div>
 
-    <!-- 在校生 -->
     <div class="price-panel" data-panel="2">
       <div class="panel-header">
         <div class="panel-icon">🎒</div>
@@ -2148,8 +2402,9 @@
             <span>⭐</span>
             <span>家長 90% 推薦</span>
           </div>
-
-          <div class="price-hero-title">全梯<span class="em-yellow">最超值</span>方案</div>
+          <div class="price-hero-title">
+            全梯<span class="em-yellow">最超值</span>方案
+          </div>
           <div class="price-hero-sub">4 梯全包 · 整個暑假動起來</div>
 
           <div class="hero-price-body">
@@ -2190,7 +2445,9 @@
             </div>
           </div>
 
-          <button onclick="openModal()" class="hero-card-cta">🏸 立即報名全梯</button>
+          <button onclick="openModal()" class="hero-card-cta">
+            🏸 立即報名全梯
+          </button>
         </div>
       </div>
 
@@ -2215,7 +2472,6 @@
       </div>
     </div>
 
-    <!-- 校外生 -->
     <div class="price-panel" data-panel="3">
       <div class="panel-header">
         <div class="panel-icon">👋</div>
@@ -2228,8 +2484,9 @@
             <span>⭐</span>
             <span>家長 90% 推薦</span>
           </div>
-
-          <div class="price-hero-title">全梯<span class="em-yellow">最超值</span>方案</div>
+          <div class="price-hero-title">
+            全梯<span class="em-yellow">最超值</span>方案
+          </div>
           <div class="price-hero-sub">4 梯全包 · 整個暑假動起來</div>
 
           <div class="hero-price-body">
@@ -2270,7 +2527,9 @@
             </div>
           </div>
 
-          <button onclick="openModal()" class="hero-card-cta">🏸 立即報名全梯</button>
+          <button onclick="openModal()" class="hero-card-cta">
+            🏸 立即報名全梯
+          </button>
         </div>
       </div>
 
@@ -2354,14 +2613,14 @@
 
 <footer>
   <div class="footer-ornament">
-    <svg class="racket" viewBox="0 0 24 24">
-      <ellipse cx="12" cy="9" rx="5" ry="6" fill="none" stroke="#F8F8F5" stroke-width="1.5"/>
-      <line x1="12" y1="15" x2="12" y2="22" stroke="#F8F8F5" stroke-width="1.5"/>
+    <svg class="racket" viewBox="0 0 60 160">
+      <use href="#racket-white"/>
     </svg>
-    <svg class="shuttle-icon" viewBox="0 0 60 80"><use href="#shuttle-white"/></svg>
-    <svg class="racket" viewBox="0 0 24 24">
-      <ellipse cx="12" cy="9" rx="5" ry="6" fill="none" stroke="#F8F8F5" stroke-width="1.5"/>
-      <line x1="12" y1="15" x2="12" y2="22" stroke="#F8F8F5" stroke-width="1.5"/>
+    <svg class="shuttle-icon" viewBox="0 0 80 110">
+      <use href="#shuttle-on-dark"/>
+    </svg>
+    <svg class="racket" viewBox="0 0 60 160">
+      <use href="#racket-white"/>
     </svg>
   </div>
   <h4>臺南市北區開元國民小學</h4>
@@ -2371,7 +2630,9 @@
     <div><strong>信箱</strong>badminton@kyes.tn.edu.tw</div>
     <div><strong>地址</strong>臺南市北區開元路 XXX 號</div>
   </div>
-  <div class="copyright">© 2026 KAIYUAN BADMINTON SUMMER CAMP</div>
+  <div class="copyright">
+    © 2026 KAIYUAN BADMINTON SUMMER CAMP
+  </div>
 </footer>
 
 <button onclick="openModal()" class="float-cta" id="floatCta">
@@ -2396,11 +2657,14 @@
       <div class="success-icon">✓</div>
       <h3>報名成功！</h3>
       <p>感謝您為孩子報名開元羽球暑期營<br>球隊將盡快與您聯繫確認報名資訊<br>並通知繳費方式</p>
-      <button onclick="closeModal()" class="form-submit" style="background: var(--ink);">關閉視窗</button>
+      <button onclick="closeModal()" class="form-submit" style="background: var(--ink);">
+        關閉視窗
+      </button>
     </div>
 
     <div class="modal-body" id="formBody">
       <form id="signupForm" onsubmit="submitForm(event)">
+
         <div class="form-section-title"><span class="icon">👦</span>學生資料</div>
 
         <div class="form-group">
@@ -2497,7 +2761,9 @@
           <textarea class="form-textarea" name="notes" placeholder="例：過敏體質、特殊飲食需求、其他需教練留意事項..."></textarea>
         </div>
 
-        <button type="submit" class="form-submit">確認送出報名</button>
+        <button type="submit" class="form-submit" id="submitBtn">
+          確認送出報名
+        </button>
 
         <p style="text-align: center; font-size: 12px; color: rgba(15,27,20,0.5); margin-top: 12px;">
           送出後球隊將於 1–2 天內聯繫您確認資訊
