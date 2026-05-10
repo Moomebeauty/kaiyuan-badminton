@@ -2317,6 +2317,94 @@
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-3px); }
   }
+
+  /* ========== 全天班中午詳細說明 ========== */
+  .fullday-detail {
+    margin-top: 14px;
+    padding: 16px 16px 14px;
+    background: linear-gradient(135deg, rgba(232,184,108,0.12) 0%, rgba(232,184,108,0.05) 100%);
+    border: 1.5px solid rgba(232,184,108,0.4);
+    border-radius: 16px;
+  }
+
+  .fd-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #8a6428;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed rgba(232,184,108,0.5);
+  }
+
+  .fd-title .fd-icon {
+    font-size: 20px;
+  }
+
+  .fd-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .fd-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .fd-emoji {
+    font-size: 22px;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  }
+
+  .fd-text { flex: 1; }
+
+  .fd-text strong {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 3px;
+    line-height: 1.4;
+  }
+
+  .fd-text p {
+    font-size: 12.5px;
+    color: rgba(15,27,20,0.72);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .fd-tag {
+    display: inline-block;
+    background: var(--racket-red);
+    color: white;
+    padding: 1px 8px;
+    border-radius: 50px;
+    font-size: 10.5px;
+    font-weight: 700;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+
+  .fd-highlight {
+    background: linear-gradient(180deg, transparent 60%, rgba(232,184,108,0.5) 60%);
+    font-weight: 700;
+    color: var(--ink);
+    padding: 0 2px;
+  }
 </style>
 </head>
 <body>
@@ -2543,8 +2631,39 @@
         <div class="time-opt time-opt-fullday">
           <div class="to-icon">🌞</div>
           <div class="to-info">
-            <div class="to-label">全天班 <span class="to-recommend">含午餐午休</span></div>
+            <div class="to-label">全天班 <span class="to-recommend">教練全程陪同</span></div>
             <div class="to-time">08:30 – 17:00</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 全天班中午時段詳細說明 -->
+      <div class="fullday-detail">
+        <div class="fd-title">
+          <span class="fd-icon">🌞</span>
+          <span>全天班中午時段安排</span>
+        </div>
+        <div class="fd-items">
+          <div class="fd-item">
+            <span class="fd-emoji">👨‍🏫</span>
+            <div class="fd-text">
+              <strong>11:30–14:00 教練全程陪同</strong>
+              <p>專業教練負責管理孩子用餐、午休及活動，家長安心放心</p>
+            </div>
+          </div>
+          <div class="fd-item">
+            <span class="fd-emoji">🍱</span>
+            <div class="fd-text">
+              <strong>午餐方案任選</strong>
+              <p>可向球隊一起加購訂餐<span class="fd-tag">費用另計</span>，或孩子自備午餐皆可</p>
+            </div>
+          </div>
+          <div class="fd-item">
+            <span class="fd-emoji">😴</span>
+            <div class="fd-text">
+              <strong>活動中心午休</strong>
+              <p>飯後可於活動中心休息恢復體力，<span class="fd-highlight">請自備午睡用品</span>（小毯子、墊子）</p>
+            </div>
           </div>
         </div>
       </div>
@@ -2847,7 +2966,7 @@
           <div class="plan-icon-mid">🌤️</div>
           <div class="plan-title-group">
             <h3 class="plan-title-mid">單梯 · 全天班</h3>
-            <p class="plan-tagline-mid">兩週訓練 · 含中午活動</p>
+            <p class="plan-tagline-mid">兩週訓練 · 含中午管理</p>
           </div>
           <div class="plan-price-side">
             <span class="cur">NT$</span><span class="amt-mid">4,500</span>
@@ -2855,7 +2974,7 @@
         </div>
         <div class="plan-tags">
           <span class="plan-tag tag-time">⏰ 08:30–17:00</span>
-          <span class="plan-tag tag-lunch">🍱 含午餐午休</span>
+          <span class="plan-tag tag-lunch">👨‍🏫 教練全程陪同</span>
           <span class="plan-tag tag-suit">💼 適合雙薪家庭</span>
         </div>
         <button onclick="openModal()" class="plan-cta plan-cta-blue">
@@ -2928,7 +3047,7 @@
           <div class="plan-icon-mid">🌤️</div>
           <div class="plan-title-group">
             <h3 class="plan-title-mid">單梯 · 全天班</h3>
-            <p class="plan-tagline-mid">兩週訓練 · 含中午活動</p>
+            <p class="plan-tagline-mid">兩週訓練 · 含中午管理</p>
           </div>
           <div class="plan-price-side">
             <span class="cur">NT$</span><span class="amt-mid">5,800</span>
@@ -2936,7 +3055,7 @@
         </div>
         <div class="plan-tags">
           <span class="plan-tag tag-time">⏰ 08:30–17:00</span>
-          <span class="plan-tag tag-lunch">🍱 含午餐午休</span>
+          <span class="plan-tag tag-lunch">👨‍🏫 教練全程陪同</span>
           <span class="plan-tag tag-suit">💼 適合雙薪家庭</span>
         </div>
         <button onclick="openModal()" class="plan-cta plan-cta-blue">
@@ -3008,7 +3127,7 @@
           <div class="plan-icon-mid">🌤️</div>
           <div class="plan-title-group">
             <h3 class="plan-title-mid">單梯 · 全天班</h3>
-            <p class="plan-tagline-mid">兩週訓練 · 含中午活動</p>
+            <p class="plan-tagline-mid">兩週訓練 · 含中午管理</p>
           </div>
           <div class="plan-price-side">
             <span class="cur">NT$</span><span class="amt-mid">6,500</span>
@@ -3016,7 +3135,7 @@
         </div>
         <div class="plan-tags">
           <span class="plan-tag tag-time">⏰ 08:30–17:00</span>
-          <span class="plan-tag tag-lunch">🍱 含午餐午休</span>
+          <span class="plan-tag tag-lunch">👨‍🏫 教練全程陪同</span>
           <span class="plan-tag tag-suit">💼 適合雙薪家庭</span>
         </div>
         <button onclick="openModal()" class="plan-cta plan-cta-blue">
@@ -3239,11 +3358,11 @@
         <div class="form-group">
           <label class="form-label">是否需要訂購午餐</label>
           <select class="form-select" name="lunch">
-            <option value="不需要">不需要（半天班 / 自行返家）</option>
-            <option value="需要">需要訂午餐（全天班）</option>
-            <option value="自備午餐">自備午餐（全天班）</option>
+            <option value="不需要">不需要（半天班 / 中午自行返家）</option>
+            <option value="加購訂餐">加購訂餐（球隊統一訂購，費用另計）</option>
+            <option value="自備午餐">自備午餐（家長自行準備）</option>
           </select>
-          <div class="form-helper">全天班學員適用 · 訂餐費用另計</div>
+          <div class="form-helper">全天班學員適用 · 訂餐費用會由球隊另行通知</div>
         </div>
 
         <div class="form-section-title"><span class="icon">📝</span>其他資訊</div>
