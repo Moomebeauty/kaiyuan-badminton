@@ -2142,6 +2142,181 @@
     font-weight: 600;
     letter-spacing: 1px;
   }
+
+  /* ========== 時段說明卡片 ========== */
+  .time-explain-card {
+    background: white;
+    border-radius: 20px;
+    padding: 22px 20px;
+    margin-bottom: 28px;
+    border: 2px solid var(--shuttle-cork);
+    box-shadow: 0 8px 24px rgba(232,184,108,0.2);
+  }
+
+  .time-explain-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .time-explain-title .te-icon {
+    font-size: 30px;
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    background: rgba(232,184,108,0.18);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .time-explain-title .te-main {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 2px;
+  }
+
+  .time-explain-title .te-sub {
+    font-size: 12px;
+    color: rgba(15,27,20,0.6);
+    line-height: 1.5;
+  }
+
+  .time-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .time-opt {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1.5px solid var(--line);
+    background: var(--bg);
+  }
+
+  .time-opt-morning {
+    background: rgba(46,139,87,0.08);
+    border-color: rgba(46,139,87,0.25);
+  }
+
+  .time-opt-afternoon {
+    background: rgba(44,95,175,0.06);
+    border-color: rgba(44,95,175,0.2);
+  }
+
+  .time-opt-fullday {
+    background: rgba(232,184,108,0.15);
+    border-color: rgba(232,184,108,0.45);
+    position: relative;
+  }
+
+  .time-opt .to-icon {
+    font-size: 26px;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  }
+
+  .time-opt .to-info { flex: 1; }
+
+  .time-opt .to-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .time-opt .to-recommend {
+    background: var(--shuttle-cork);
+    color: var(--ink);
+    padding: 2px 8px;
+    border-radius: 50px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .time-opt .to-time {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: var(--court-deep);
+    font-weight: 600;
+  }
+
+  .time-opt-afternoon .to-time { color: var(--racket-blue-deep); }
+  .time-opt-fullday .to-time { color: #8a6428; }
+
+  /* 梯次區塊小標題 */
+  .camp-section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    margin-top: 6px;
+  }
+
+  .camp-section-title .csl-line {
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .camp-section-title .csl-text {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(15,27,20,0.7);
+    letter-spacing: 1px;
+  }
+
+  /* 引導按鈕：往下到費用 */
+  .scroll-to-price {
+    display: block;
+    margin-top: 24px;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, var(--shuttle-cork) 0%, #d9a755 100%);
+    color: var(--ink);
+    border-radius: 50px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    box-shadow: 0 6px 16px rgba(232,184,108,0.4);
+    transition: all 0.2s;
+    animation: subtleBounce 2.5s ease-in-out infinite;
+  }
+
+  .scroll-to-price:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 8px rgba(232,184,108,0.4);
+  }
+
+  @keyframes subtleBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+  }
 </style>
 </head>
 <body>
@@ -2331,7 +2506,55 @@
     <div class="section-header">
       <div class="section-tag">SUMMER SCHEDULE</div>
       <h2 class="section-title">暑期<span class="em">四大梯次</span></h2>
-      <p class="section-subtitle">每梯次兩週紮實訓練 · 自由選擇單梯或全梯參加</p>
+      <p class="section-subtitle">
+        每梯次兩週紮實訓練<br>
+        自由選擇 <strong style="color:var(--court-green)">單梯半天</strong>、<strong style="color:var(--racket-blue)">單梯全天</strong>，<br>
+        或最划算的 <strong style="color:#B8860B">4 梯全包</strong> 方案
+      </p>
+    </div>
+
+    <!-- 上課時段說明卡片（醒目） -->
+    <div class="time-explain-card">
+      <div class="time-explain-title">
+        <span class="te-icon">⏰</span>
+        <div>
+          <div class="te-main">每天 3 種上課時段選擇</div>
+          <div class="te-sub">家長可依孩子作息與接送時間，自由選擇</div>
+        </div>
+      </div>
+
+      <div class="time-options">
+        <div class="time-opt time-opt-morning">
+          <div class="to-icon">☀️</div>
+          <div class="to-info">
+            <div class="to-label">半天 · 上午班</div>
+            <div class="to-time">08:30 – 11:30</div>
+          </div>
+        </div>
+
+        <div class="time-opt time-opt-afternoon">
+          <div class="to-icon">🌤️</div>
+          <div class="to-info">
+            <div class="to-label">半天 · 下午班</div>
+            <div class="to-time">14:00 – 17:00</div>
+          </div>
+        </div>
+
+        <div class="time-opt time-opt-fullday">
+          <div class="to-icon">🌞</div>
+          <div class="to-info">
+            <div class="to-label">全天班 <span class="to-recommend">含午餐午休</span></div>
+            <div class="to-time">08:30 – 17:00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 四大梯次卡片（更新日期）-->
+    <div class="camp-section-title">
+      <span class="csl-line"></span>
+      <span class="csl-text">📅 四大梯次日期</span>
+      <span class="csl-line"></span>
     </div>
 
     <div class="schedule-grid">
@@ -2340,8 +2563,8 @@
         <div class="schedule-info">
           <h4>第一梯次</h4>
           <div class="schedule-dates">
-            <span class="schedule-date">7/1 – 7/5</span>
-            <span class="schedule-date">7/7 – 7/11</span>
+            <span class="schedule-date">7/6 – 7/10</span>
+            <span class="schedule-date">7/13 – 7/17</span>
           </div>
         </div>
       </div>
@@ -2350,8 +2573,8 @@
         <div class="schedule-info">
           <h4>第二梯次</h4>
           <div class="schedule-dates">
-            <span class="schedule-date">7/14 – 7/18</span>
-            <span class="schedule-date">7/21 – 7/25</span>
+            <span class="schedule-date">7/20 – 7/24</span>
+            <span class="schedule-date">7/27 – 7/31</span>
           </div>
         </div>
       </div>
@@ -2360,8 +2583,8 @@
         <div class="schedule-info">
           <h4>第三梯次</h4>
           <div class="schedule-dates">
-            <span class="schedule-date">7/28 – 8/1</span>
-            <span class="schedule-date">8/4 – 8/8</span>
+            <span class="schedule-date">8/3 – 8/7</span>
+            <span class="schedule-date">8/10 – 8/14</span>
           </div>
         </div>
       </div>
@@ -2370,26 +2593,17 @@
         <div class="schedule-info">
           <h4>第四梯次</h4>
           <div class="schedule-dates">
-            <span class="schedule-date">8/11 – 8/15</span>
-            <span class="schedule-date">8/18 – 8/22</span>
+            <span class="schedule-date">8/17 – 8/21</span>
+            <span class="schedule-date">8/24 – 8/28</span>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="time-banner">
-      <div class="time-block">
-        <div class="time-icon">☀️</div>
-        <div class="time-label">MORNING</div>
-        <div class="time-value">08:30 – 11:30</div>
-      </div>
-      <div class="divider-v"></div>
-      <div class="time-block">
-        <div class="time-icon">🌤️</div>
-        <div class="time-label">AFTERNOON</div>
-        <div class="time-value">14:00 – 17:00</div>
-      </div>
-    </div>
+    <!-- 引導往下到費用 -->
+    <a href="#tuition" class="scroll-to-price">
+      <span>👇 看完梯次，往下查看詳細費用</span>
+    </a>
   </div>
 </section>
 
@@ -3005,10 +3219,10 @@
           <select class="form-select" name="camp" required>
             <option value="">請選擇梯次</option>
             <option value="全梯（4梯全包）">🌟 全梯（4 梯全包，最划算）</option>
-            <option value="第一梯（7/1-7/11）">第一梯（7/1 – 7/11）</option>
-            <option value="第二梯（7/14-7/25）">第二梯（7/14 – 7/25）</option>
-            <option value="第三梯（7/28-8/8）">第三梯（7/28 – 8/8）</option>
-            <option value="第四梯（8/11-8/22）">第四梯（8/11 – 8/22）</option>
+            <option value="第一梯（7/6-7/17）">第一梯（7/6 – 7/17）</option>
+            <option value="第二梯（7/20-7/31）">第二梯（7/20 – 7/31）</option>
+            <option value="第三梯（8/3-8/14）">第三梯（8/3 – 8/14）</option>
+            <option value="第四梯（8/17-8/28）">第四梯（8/17 – 8/28）</option>
           </select>
         </div>
 
