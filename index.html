@@ -25,7 +25,7 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 64px; }
 
   body {
     font-family: 'Noto Sans TC', sans-serif;
@@ -54,6 +54,66 @@
     padding: 0 22px;
   }
 
+  /* 導覽列 */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 90;
+    background: rgba(15, 27, 20, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 10px 0;
+  }
+
+  .nav-scroll {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0 16px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .nav-scroll::-webkit-scrollbar { display: none; }
+
+  .nav-link {
+    flex-shrink: 0;
+    padding: 8px 14px;
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+    scroll-snap-align: start;
+  }
+
+  .nav-link:active {
+    transform: scale(0.95);
+    background: var(--court-green);
+    color: white;
+  }
+
+  .nav-link .nav-icon { font-size: 13px; }
+
+  .nav-link.cta {
+    background: var(--shuttle-cork);
+    color: var(--ink);
+    border-color: var(--shuttle-cork);
+    font-weight: 700;
+  }
+
+  /* HERO */
   .hero {
     position: relative;
     background: var(--court-green);
@@ -246,8 +306,7 @@
     letter-spacing: 4px;
   }
 
-  .section-tag::before,
-  .section-tag::after {
+  .section-tag::before, .section-tag::after {
     content: '';
     width: 28px;
     height: 1px;
@@ -277,6 +336,7 @@
     line-height: 1.7;
   }
 
+  /* 痛點區 */
   .pain-section {
     background: var(--bg-warm);
     border-top: 1px solid var(--line);
@@ -332,13 +392,7 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   }
 
-  .pain-emoji {
-    font-size: 26px;
-    flex-shrink: 0;
-    line-height: 1;
-    margin-top: 2px;
-  }
-
+  .pain-emoji { font-size: 26px; flex-shrink: 0; line-height: 1; margin-top: 2px; }
   .pain-text { flex: 1; }
 
   .pain-text .pain-q {
@@ -417,7 +471,6 @@
     flex-shrink: 0;
     width: 44px;
     text-align: center;
-    letter-spacing: 1px;
   }
 
   .feature-card:nth-child(1) .feature-num { color: var(--court-green); }
@@ -469,18 +522,8 @@
   .schedule-card:nth-child(3) .schedule-num { background: var(--racket-blue); }
   .schedule-card:nth-child(4) .schedule-num { background: var(--shuttle-cork); color: var(--ink); }
 
-  .schedule-num .label-en {
-    font-size: 9px;
-    letter-spacing: 1.5px;
-    line-height: 1;
-    opacity: 0.85;
-  }
-
-  .schedule-num .num {
-    font-size: 26px;
-    line-height: 1;
-    margin-top: 2px;
-  }
+  .schedule-num .label-en { font-size: 9px; letter-spacing: 1.5px; line-height: 1; opacity: 0.85; }
+  .schedule-num .num { font-size: 26px; line-height: 1; margin-top: 2px; }
 
   .schedule-info { flex: 1; }
 
@@ -492,11 +535,7 @@
     margin-bottom: 6px;
   }
 
-  .schedule-dates {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
+  .schedule-dates { display: flex; flex-wrap: wrap; gap: 6px; }
 
   .schedule-date {
     background: var(--bg-warm);
@@ -521,10 +560,7 @@
     text-align: center;
   }
 
-  .time-banner .divider-v {
-    height: 100%;
-    background: rgba(255,255,255,0.25);
-  }
+  .time-banner .divider-v { height: 100%; background: rgba(255,255,255,0.25); }
 
   .time-block .time-icon { font-size: 22px; margin-bottom: 4px; }
 
@@ -542,6 +578,175 @@
     font-weight: 600;
   }
 
+  /* 每日課表 */
+  .daily-section {
+    background: white;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .daily-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+
+  .daily-tab {
+    background: white;
+    border: 2px solid var(--line);
+    border-radius: 14px;
+    padding: 14px 10px;
+    cursor: pointer;
+    transition: all 0.25s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .daily-tab .tab-icon-emoji { font-size: 22px; }
+
+  .daily-tab .tab-text {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+    text-align: left;
+  }
+
+  .daily-tab .tab-sub {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: rgba(15,27,20,0.5);
+    margin-top: 2px;
+    display: block;
+  }
+
+  .daily-tab.active {
+    background: var(--court-green);
+    border-color: var(--court-deep);
+    box-shadow: 0 6px 16px rgba(46,139,87,0.3);
+  }
+
+  .daily-tab.active .tab-text { color: white; }
+  .daily-tab.active .tab-sub { color: var(--shuttle-cork); }
+
+  .daily-panel { display: none; animation: fadeIn 0.4s ease-out; }
+  .daily-panel.active { display: block; }
+
+  .timeline { position: relative; padding-left: 32px; }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    bottom: 12px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--court-green), var(--shuttle-cork));
+    opacity: 0.3;
+  }
+
+  .timeline-item { position: relative; padding: 0 0 20px 0; }
+  .timeline-item:last-child { padding-bottom: 0; }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -26px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid var(--court-green);
+    box-shadow: 0 0 0 3px white;
+    z-index: 2;
+  }
+
+  .timeline-item.lunch::before { border-color: var(--shuttle-cork); }
+  .timeline-item.rest::before { border-color: var(--racket-blue); }
+  .timeline-item.warm::before { border-color: var(--racket-red); }
+
+  .time-time {
+    display: inline-block;
+    background: var(--ink);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 50px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+  }
+
+  .timeline-item.highlight .time-time { background: var(--court-green); }
+  .timeline-item.lunch .time-time { background: var(--shuttle-cork); color: var(--ink); }
+  .timeline-item.rest .time-time { background: var(--racket-blue); }
+  .timeline-item.warm .time-time { background: var(--racket-red); }
+
+  .time-content {
+    background: var(--bg);
+    border-radius: 14px;
+    padding: 14px 16px;
+    border: 1px solid var(--line);
+  }
+
+  .time-content h4 {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 15.5px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .time-content h4 .item-emoji { font-size: 18px; }
+
+  .time-content p {
+    font-size: 12.5px;
+    color: rgba(15,27,20,0.7);
+    line-height: 1.7;
+  }
+
+  .timeline-item.highlight .time-content {
+    background: rgba(46,139,87,0.08);
+    border-color: rgba(46,139,87,0.2);
+  }
+
+  .timeline-item.lunch .time-content {
+    background: rgba(232,184,108,0.12);
+    border-color: rgba(232,184,108,0.35);
+  }
+
+  .timeline-item.rest .time-content {
+    background: rgba(44,95,175,0.06);
+    border-color: rgba(44,95,175,0.2);
+  }
+
+  .timeline-item.warm .time-content {
+    background: rgba(214,54,54,0.06);
+    border-color: rgba(214,54,54,0.2);
+  }
+
+  .daily-note {
+    margin-top: 20px;
+    padding: 16px;
+    background: var(--bg-warm);
+    border-radius: 14px;
+    border-left: 4px solid var(--shuttle-cork);
+    font-size: 13px;
+    color: rgba(15,27,20,0.75);
+    line-height: 1.7;
+  }
+
+  .daily-note strong { color: var(--ink); font-weight: 700; }
+
+  /* ============ 報名費用區（行銷優化版）============ */
   .pricing-tabs {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -557,7 +762,6 @@
     text-align: center;
     cursor: pointer;
     transition: all 0.25s;
-    font-family: 'Noto Sans TC', sans-serif;
   }
 
   .price-tab .tab-icon { font-size: 22px; margin-bottom: 4px; line-height: 1; }
@@ -569,39 +773,23 @@
     line-height: 1.3;
   }
 
-  .price-tab.active {
-    background: var(--court-green);
-    border-color: var(--court-deep);
-  }
-
+  .price-tab.active { background: var(--court-green); border-color: var(--court-deep); }
   .price-tab.active .tab-label { color: white; }
-  .price-tab.active[data-tab="2"] {
-    background: var(--racket-red);
-    border-color: var(--racket-red-deep);
-  }
-  .price-tab.active[data-tab="3"] {
-    background: var(--racket-blue);
-    border-color: var(--racket-blue-deep);
-  }
+  .price-tab.active[data-tab="2"] { background: var(--racket-red); border-color: var(--racket-red-deep); }
+  .price-tab.active[data-tab="3"] { background: var(--racket-blue); border-color: var(--racket-blue-deep); }
 
-  .price-panel {
-    background: white;
-    border: 1px solid var(--line);
-    border-radius: 22px;
-    padding: 24px 22px;
-    display: none;
-    animation: fadeIn 0.4s ease-out;
-  }
-
+  .price-panel { display: none; animation: fadeIn 0.4s ease-out; }
   .price-panel.active { display: block; }
 
   .price-panel .panel-header {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 16px 20px;
+    margin-bottom: 14px;
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 18px;
-    padding-bottom: 16px;
-    border-bottom: 1px dashed var(--line);
   }
 
   .price-panel .panel-icon {
@@ -621,7 +809,7 @@
 
   .price-panel h4 {
     font-family: 'Fraunces', 'Noto Serif TC', serif;
-    font-size: 19px;
+    font-size: 18px;
     font-weight: 600;
     color: var(--ink);
   }
@@ -634,7 +822,245 @@
     margin-top: 2px;
   }
 
-  .price-options { display: grid; gap: 10px; }
+  /* 全梯主打卡片（最上方） */
+  .price-hero-card {
+    background: linear-gradient(135deg, var(--court-deep) 0%, var(--court-green) 100%);
+    color: white;
+    border-radius: 22px;
+    padding: 24px 22px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(46,139,87,0.35);
+    margin-bottom: 14px;
+    border: 2px solid rgba(232,184,108,0.5);
+  }
+
+  .price-hero-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -30%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(232,184,108,0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-card-inner { position: relative; z-index: 2; }
+
+  .recommend-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--shuttle-cork);
+    color: var(--ink);
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 12px rgba(232,184,108,0.4);
+    animation: badgePulse 2s ease-in-out infinite;
+  }
+
+  @keyframes badgePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  .price-hero-title {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .price-hero-title .em-yellow {
+    color: var(--shuttle-cork);
+    font-style: italic;
+  }
+
+  .price-hero-sub {
+    font-size: 13px;
+    opacity: 0.92;
+    margin-bottom: 18px;
+  }
+
+  .hero-price-body {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+
+  .original-price {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    text-decoration: line-through;
+    text-decoration-color: var(--racket-red);
+    text-decoration-thickness: 2px;
+    margin-bottom: 4px;
+  }
+
+  .original-price .label {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 2px;
+    margin-right: 6px;
+    font-size: 11px;
+  }
+
+  .main-price {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 6px;
+  }
+
+  .main-price .currency {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--shuttle-cork);
+  }
+
+  .main-price .num {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--shuttle-cork);
+    letter-spacing: -2px;
+  }
+
+  .price-breakdown {
+    font-size: 12.5px;
+    opacity: 0.92;
+    line-height: 1.6;
+  }
+
+  .price-breakdown strong {
+    color: var(--shuttle-cork);
+    font-weight: 700;
+  }
+
+  .savings-box {
+    background: rgba(214,54,54,0.95);
+    border-radius: 14px;
+    padding: 14px 18px;
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 6px 16px rgba(214,54,54,0.4);
+    border: 1.5px solid rgba(255,255,255,0.25);
+  }
+
+  .savings-icon { font-size: 28px; flex-shrink: 0; }
+
+  .savings-text { flex: 1; }
+
+  .savings-text .savings-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--shuttle-cork);
+    margin-bottom: 2px;
+  }
+
+  .savings-text .savings-amount {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+  }
+
+  .savings-text .savings-amount .big-num {
+    font-size: 22px;
+    color: var(--shuttle-cork);
+    margin: 0 4px;
+  }
+
+  .hero-benefits {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed rgba(255,255,255,0.25);
+  }
+
+  .hero-benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    margin-bottom: 6px;
+    opacity: 0.95;
+  }
+
+  .hero-benefit-item:last-child { margin-bottom: 0; }
+
+  .hero-benefit-item .check {
+    width: 18px;
+    height: 18px;
+    background: var(--shuttle-cork);
+    color: var(--ink);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 900;
+    flex-shrink: 0;
+  }
+
+  .hero-card-cta {
+    width: 100%;
+    background: var(--shuttle-cork);
+    color: var(--ink);
+    border: none;
+    padding: 14px;
+    border-radius: 50px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-top: 16px;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(232,184,108,0.4);
+    transition: all 0.2s;
+  }
+
+  .hero-card-cta:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 8px rgba(232,184,108,0.4);
+  }
+
+  /* 單梯方案副選項 */
+  .price-options-secondary {
+    background: white;
+    border-radius: 18px;
+    padding: 18px 20px;
+    border: 1px solid var(--line);
+  }
+
+  .price-options-secondary .options-header {
+    text-align: center;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed var(--line);
+    margin-bottom: 12px;
+  }
+
+  .price-options-secondary .options-header .or {
+    background: var(--bg-warm);
+    padding: 4px 14px;
+    border-radius: 50px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: rgba(15,27,20,0.6);
+    font-family: 'Bebas Neue', sans-serif;
+  }
 
   .price-option {
     background: var(--bg-warm);
@@ -644,16 +1070,19 @@
     justify-content: space-between;
     align-items: center;
     gap: 8px;
+    margin-bottom: 8px;
   }
 
+  .price-option:last-child { margin-bottom: 0; }
+
   .price-option .opt-label {
-    font-size: 13.5px;
+    font-size: 14px;
     font-weight: 600;
     color: var(--ink);
   }
 
   .price-option .opt-sub {
-    font-size: 11px;
+    font-size: 11.5px;
     color: rgba(15,27,20,0.55);
     margin-top: 2px;
   }
@@ -662,7 +1091,7 @@
     font-family: 'Fraunces', serif;
     font-weight: 600;
     font-size: 22px;
-    color: var(--court-green);
+    color: var(--ink);
     line-height: 1;
     text-align: right;
   }
@@ -673,31 +1102,7 @@
     opacity: 0.7;
   }
 
-  .price-option.highlight {
-    background: var(--ink);
-    color: white;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .price-option.highlight::before {
-    content: '最划算';
-    position: absolute;
-    top: 8px;
-    right: -22px;
-    background: var(--shuttle-cork);
-    color: var(--ink);
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    padding: 2px 24px;
-    transform: rotate(35deg);
-  }
-
-  .price-option.highlight .opt-label { color: white; }
-  .price-option.highlight .opt-sub { color: var(--shuttle-cork); }
-  .price-option.highlight .opt-price { color: var(--shuttle-cork); }
-
+  /* 注意事項 */
   .notice-section {
     background: var(--bg-warm);
     border-top: 1px solid var(--line);
@@ -739,10 +1144,7 @@
     padding-top: 4px;
   }
 
-  .notice-text strong {
-    color: var(--ink);
-    font-weight: 700;
-  }
+  .notice-text strong { color: var(--ink); font-weight: 700; }
 
   .final-cta {
     background: linear-gradient(135deg, var(--court-deep) 0%, var(--court-green) 100%);
@@ -756,13 +1158,7 @@
     box-shadow: 0 12px 40px rgba(46,139,87,0.25);
   }
 
-  .final-cta-bg {
-    position: absolute;
-    inset: 0;
-    opacity: 0.15;
-    pointer-events: none;
-  }
-
+  .final-cta-bg { position: absolute; inset: 0; opacity: 0.15; pointer-events: none; }
   .final-cta-inner { position: relative; z-index: 2; }
 
   .final-cta .urgency-badge {
@@ -845,9 +1241,11 @@
     gap: 8px;
     margin-bottom: 20px;
     opacity: 0.7;
+    align-items: center;
   }
 
-  footer .footer-ornament svg { width: 18px; height: 18px; }
+  footer .footer-ornament svg.racket { width: 22px; height: 22px; }
+  footer .footer-ornament svg.shuttle-icon { width: 20px; height: 28px; }
 
   footer h4 {
     font-family: 'Fraunces', 'Noto Serif TC', serif;
@@ -912,14 +1310,9 @@
     font-family: 'Noto Sans TC', sans-serif;
   }
 
-  .float-cta.show {
-    opacity: 1;
-    pointer-events: all;
-  }
+  .float-cta.show { opacity: 1; pointer-events: all; }
 
-  .float-cta:active {
-    transform: translateX(-50%) translateY(2px);
-  }
+  .float-cta:active { transform: translateX(-50%) translateY(2px); }
 
   .float-cta .badge-mini {
     background: var(--shuttle-cork);
@@ -945,10 +1338,7 @@
     padding: 20px 0;
   }
 
-  .modal-overlay.show {
-    display: flex;
-    animation: fadeIn 0.3s ease-out;
-  }
+  .modal-overlay.show { display: flex; animation: fadeIn 0.3s ease-out; }
 
   .modal {
     background: white;
@@ -988,12 +1378,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s;
-  }
-
-  .modal-close:active {
-    transform: scale(0.92);
-    background: rgba(255,255,255,0.3);
   }
 
   .modal-header h3 {
@@ -1009,11 +1393,7 @@
     line-height: 1.6;
   }
 
-  .modal-body {
-    padding: 24px 22px;
-    max-height: 70vh;
-    overflow-y: auto;
-  }
+  .modal-body { padding: 24px 22px; max-height: 70vh; overflow-y: auto; }
 
   .form-group { margin-bottom: 18px; }
 
@@ -1023,17 +1403,11 @@
     font-weight: 700;
     color: var(--ink);
     margin-bottom: 6px;
-    letter-spacing: 0.5px;
   }
 
-  .form-label .required {
-    color: var(--racket-red);
-    margin-left: 4px;
-  }
+  .form-label .required { color: var(--racket-red); margin-left: 4px; }
 
-  .form-input,
-  .form-select,
-  .form-textarea {
+  .form-input, .form-select, .form-textarea {
     width: 100%;
     padding: 12px 14px;
     border: 1.5px solid var(--line);
@@ -1042,14 +1416,11 @@
     font-family: 'Noto Sans TC', sans-serif;
     background: var(--bg);
     color: var(--ink);
-    transition: all 0.2s;
     -webkit-appearance: none;
     appearance: none;
   }
 
-  .form-input:focus,
-  .form-select:focus,
-  .form-textarea:focus {
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
     outline: none;
     border-color: var(--court-green);
     background: white;
@@ -1069,11 +1440,7 @@
     font-family: 'Noto Sans TC', sans-serif;
   }
 
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
   .form-helper {
     font-size: 11.5px;
@@ -1095,19 +1462,7 @@
     cursor: pointer;
     margin-top: 10px;
     box-shadow: 0 6px 16px rgba(46,139,87,0.3);
-    transition: all 0.2s;
     font-family: 'Noto Sans TC', sans-serif;
-  }
-
-  .form-submit:active {
-    transform: translateY(2px);
-    box-shadow: 0 3px 8px rgba(46,139,87,0.3);
-  }
-
-  .form-submit:disabled {
-    background: rgba(15,27,20,0.3);
-    cursor: not-allowed;
-    box-shadow: none;
   }
 
   .form-section-title {
@@ -1126,12 +1481,7 @@
   .form-section-title:first-child { margin-top: 0; }
   .form-section-title .icon { font-size: 18px; }
 
-  .success-screen {
-    padding: 40px 28px;
-    text-align: center;
-    display: none;
-  }
-
+  .success-screen { padding: 40px 28px; text-align: center; display: none; }
   .success-screen.show { display: block; }
 
   .success-icon {
@@ -1168,12 +1518,7 @@
     margin-bottom: 24px;
   }
 
-  .form-loading {
-    display: none;
-    text-align: center;
-    padding: 40px 20px;
-  }
-
+  .form-loading { display: none; text-align: center; padding: 40px 20px; }
   .form-loading.show { display: block; }
 
   .spinner {
@@ -1192,10 +1537,38 @@
     .container { max-width: 520px; }
   }
 </style>
+
+<svg width="0" height="0" style="position:absolute" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <symbol id="shuttle-white" viewBox="0 0 60 80">
+      <g stroke="white" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" fill="white" opacity="0.9">
+        <path d="M 22 50 L 6 8 L 18 46 Z"/>
+        <path d="M 26 48 L 16 4 L 24 46 Z"/>
+        <path d="M 30 47 L 30 2 L 33 46 Z"/>
+        <path d="M 34 48 L 44 4 L 36 46 Z"/>
+        <path d="M 38 50 L 54 8 L 42 46 Z"/>
+      </g>
+      <ellipse cx="30" cy="52" rx="9" ry="2.5" fill="#E8B86C" opacity="0.9"/>
+      <ellipse cx="30" cy="62" rx="10" ry="9" fill="white" opacity="0.95"/>
+    </symbol>
+  </defs>
+</svg>
 </head>
 <body>
 
-<header class="hero">
+<nav class="navbar" id="navbar">
+  <div class="nav-scroll">
+    <a href="#top" class="nav-link"><span class="nav-icon">🏠</span><span>首頁</span></a>
+    <a href="#why" class="nav-link"><span class="nav-icon">💪</span><span>課程亮點</span></a>
+    <a href="#camps" class="nav-link"><span class="nav-icon">📅</span><span>梯次時間</span></a>
+    <a href="#daily" class="nav-link"><span class="nav-icon">📋</span><span>每日課表</span></a>
+    <a href="#tuition" class="nav-link"><span class="nav-icon">💰</span><span>報名費用</span></a>
+    <a href="#notice" class="nav-link"><span class="nav-icon">⚠️</span><span>注意事項</span></a>
+    <a href="javascript:openModal()" class="nav-link cta"><span class="nav-icon">🏸</span><span>立即報名</span></a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
   <svg class="court-lines" viewBox="0 0 400 600" preserveAspectRatio="none">
     <rect x="20" y="20" width="360" height="560" fill="none" stroke="white" stroke-width="2"/>
     <line x1="20" y1="300" x2="380" y2="300" stroke="white" stroke-width="2"/>
@@ -1206,40 +1579,22 @@
     <line x1="340" y1="120" x2="340" y2="480" stroke="white" stroke-width="1.5"/>
   </svg>
 
-  <svg class="float-item f1" width="32" height="32" viewBox="0 0 32 32">
-    <ellipse cx="16" cy="22" rx="5" ry="3.5" fill="#E8B86C" stroke="#0F1B14" stroke-width="1"/>
-    <path d="M11 21 L7 8 L13 18 Z" fill="white" stroke="#0F1B14" stroke-width="0.8"/>
-    <path d="M13 19 L11 5 L15 17 Z" fill="white" stroke="#0F1B14" stroke-width="0.8"/>
-    <path d="M16 18 L17 4 L18 17 Z" fill="white" stroke="#0F1B14" stroke-width="0.8"/>
-    <path d="M19 18 L21 5 L20 19 Z" fill="white" stroke="#0F1B14" stroke-width="0.8"/>
-    <path d="M21 19 L25 8 L23 21 Z" fill="white" stroke="#0F1B14" stroke-width="0.8"/>
-  </svg>
+  <svg class="float-item f1" width="40" height="54" viewBox="0 0 60 80"><use href="#shuttle-white"/></svg>
 
-  <svg class="float-item f2" width="36" height="36" viewBox="0 0 36 36">
+  <svg class="float-item f2" width="40" height="40" viewBox="0 0 36 36">
     <g transform="translate(18,12) rotate(15)">
       <ellipse cx="0" cy="0" rx="9" ry="11" fill="none" stroke="#D63636" stroke-width="2.5"/>
       <g stroke="#D63636" stroke-width="0.6">
-        <line x1="-7" y1="-7" x2="-7" y2="7"/>
-        <line x1="-3" y1="-9" x2="-3" y2="9"/>
-        <line x1="0" y1="-10" x2="0" y2="10"/>
-        <line x1="3" y1="-9" x2="3" y2="9"/>
-        <line x1="7" y1="-7" x2="7" y2="7"/>
-        <line x1="-7" y1="-4" x2="7" y2="-4"/>
-        <line x1="-8" y1="0" x2="8" y2="0"/>
-        <line x1="-7" y1="4" x2="7" y2="4"/>
+        <line x1="-7" y1="-7" x2="-7" y2="7"/><line x1="-3" y1="-9" x2="-3" y2="9"/>
+        <line x1="0" y1="-10" x2="0" y2="10"/><line x1="3" y1="-9" x2="3" y2="9"/>
+        <line x1="7" y1="-7" x2="7" y2="7"/><line x1="-7" y1="-4" x2="7" y2="-4"/>
+        <line x1="-8" y1="0" x2="8" y2="0"/><line x1="-7" y1="4" x2="7" y2="4"/>
       </g>
     </g>
     <line x1="22" y1="20" x2="32" y2="34" stroke="#D63636" stroke-width="2.5" stroke-linecap="round"/>
   </svg>
 
-  <svg class="float-item f3" width="28" height="28" viewBox="0 0 32 32">
-    <ellipse cx="16" cy="22" rx="5" ry="3.5" fill="#E8B86C" stroke="#0F1B14" stroke-width="1"/>
-    <path d="M11 21 L7 8 L13 18 Z" fill="white" stroke="#0F1B14" stroke-width="0.8"/>
-    <path d="M13 19 L11 5 L15 17 Z" fill="white" stroke="#0F1B14" stroke-width="0.8"/>
-    <path d="M16 18 L17 4 L18 17 Z" fill="white" stroke="#0F1B14" stroke-width="0.8"/>
-    <path d="M19 18 L21 5 L20 19 Z" fill="white" stroke="#0F1B14" stroke-width="0.8"/>
-    <path d="M21 19 L25 8 L23 21 Z" fill="white" stroke="#0F1B14" stroke-width="0.8"/>
-  </svg>
+  <svg class="float-item f3" width="34" height="46" viewBox="0 0 60 80"><use href="#shuttle-white"/></svg>
 
   <div class="container">
     <div class="badge-top">
@@ -1272,29 +1627,27 @@
           <ellipse cx="0" cy="0" rx="22" ry="26" fill="none" stroke="#D63636" stroke-width="3"/>
           <ellipse cx="0" cy="0" rx="20" ry="24" fill="#F8F8F5" opacity="0.6"/>
           <g stroke="#D63636" stroke-width="0.7" opacity="0.85">
-            <line x1="-15" y1="-18" x2="-15" y2="18"/>
-            <line x1="-10" y1="-20" x2="-10" y2="20"/>
-            <line x1="-5" y1="-21" x2="-5" y2="21"/>
-            <line x1="0" y1="-22" x2="0" y2="22"/>
-            <line x1="5" y1="-21" x2="5" y2="21"/>
-            <line x1="10" y1="-20" x2="10" y2="20"/>
-            <line x1="15" y1="-18" x2="15" y2="18"/>
-            <line x1="-17" y1="-12" x2="17" y2="-12"/>
-            <line x1="-17" y1="-6" x2="17" y2="-6"/>
-            <line x1="-18" y1="0" x2="18" y2="0"/>
-            <line x1="-17" y1="6" x2="17" y2="6"/>
-            <line x1="-17" y1="12" x2="17" y2="12"/>
+            <line x1="-15" y1="-18" x2="-15" y2="18"/><line x1="-10" y1="-20" x2="-10" y2="20"/>
+            <line x1="-5" y1="-21" x2="-5" y2="21"/><line x1="0" y1="-22" x2="0" y2="22"/>
+            <line x1="5" y1="-21" x2="5" y2="21"/><line x1="10" y1="-20" x2="10" y2="20"/>
+            <line x1="15" y1="-18" x2="15" y2="18"/><line x1="-17" y1="-12" x2="17" y2="-12"/>
+            <line x1="-17" y1="-6" x2="17" y2="-6"/><line x1="-18" y1="0" x2="18" y2="0"/>
+            <line x1="-17" y1="6" x2="17" y2="6"/><line x1="-17" y1="12" x2="17" y2="12"/>
           </g>
           <rect x="-2.2" y="22" width="4.4" height="34" fill="#0F1B14"/>
           <rect x="-2.8" y="50" width="5.6" height="9" fill="#D63636" stroke="#0F1B14" stroke-width="0.8"/>
         </g>
 
-        <g transform="translate(140, 68)">
-          <ellipse cx="0" cy="6" rx="6" ry="4" fill="#E8B86C" stroke="#0F1B14" stroke-width="1"/>
-          <path d="M -5 4 L -10 -8 L -2 -2 Z" fill="#F8F8F5" stroke="#0F1B14" stroke-width="0.7"/>
-          <path d="M -1 2 L -4 -12 L 2 -2 Z" fill="#F8F8F5" stroke="#0F1B14" stroke-width="0.7"/>
-          <path d="M 3 2 L 4 -12 L 6 -2 Z" fill="#F8F8F5" stroke="#0F1B14" stroke-width="0.7"/>
-          <path d="M 6 4 L 12 -8 L 8 -1 Z" fill="#F8F8F5" stroke="#0F1B14" stroke-width="0.7"/>
+        <g transform="translate(140, 60) rotate(20)">
+          <g stroke="#0F1B14" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" fill="#F8F8F5">
+            <path d="M -7 14 L -13 -10 L -4 12 Z"/>
+            <path d="M -3 13 L -6 -14 L -1 12 Z"/>
+            <path d="M 0 12 L 0 -16 L 2 12 Z"/>
+            <path d="M 3 13 L 6 -14 L 1 12 Z"/>
+            <path d="M 7 14 L 13 -10 L 4 12 Z"/>
+          </g>
+          <ellipse cx="0" cy="15" rx="5" ry="1.5" fill="#2E8B57" stroke="#0F1B14" stroke-width="0.6"/>
+          <ellipse cx="0" cy="20" rx="5.5" ry="5" fill="#F8F8F5" stroke="#0F1B14" stroke-width="0.8"/>
         </g>
 
         <g transform="translate(110, 118)">
@@ -1400,7 +1753,7 @@
   </div>
 </section>
 
-<section class="features-section">
+<section class="features-section" id="why">
   <div class="container">
     <div class="section-header">
       <div class="section-tag">WHY CHOOSE US</div>
@@ -1440,7 +1793,7 @@
   </div>
 </section>
 
-<section>
+<section id="camps">
   <div class="container">
     <div class="section-header">
       <div class="section-tag">SUMMER SCHEDULE</div>
@@ -1507,7 +1860,179 @@
   </div>
 </section>
 
-<section style="padding-top: 0;">
+<section class="daily-section" id="daily">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">DAILY SCHEDULE</div>
+      <h2 class="section-title">每日<span class="em">課程安排</span></h2>
+      <p class="section-subtitle">系統化、結構化的訓練流程<br>讓孩子的每一天都充實又有收穫</p>
+    </div>
+
+    <div class="daily-tabs">
+      <div class="daily-tab active" data-daily="half" onclick="switchDaily('half')">
+        <span class="tab-icon-emoji">☀️</span>
+        <div>
+          <div class="tab-text">半天班</div>
+          <span class="tab-sub">3 HOURS</span>
+        </div>
+      </div>
+      <div class="daily-tab" data-daily="full" onclick="switchDaily('full')">
+        <span class="tab-icon-emoji">🌤️</span>
+        <div>
+          <div class="tab-text">全天班</div>
+          <span class="tab-sub">FULL DAY</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="daily-panel active" data-panel-daily="half">
+      <div class="timeline">
+        <div class="timeline-item warm">
+          <span class="time-time">08:30 – 08:50</span>
+          <div class="time-content">
+            <h4><span class="item-emoji">🤸</span>暖身集合</h4>
+            <p>動態伸展、慢跑、肌肉啟動，預防運動傷害</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="time-time">08:50 – 09:30</span>
+          <div class="time-content">
+            <h4><span class="item-emoji">🎯</span>基本動作訓練</h4>
+            <p>握拍、發球、揮拍動作分解教學，扎實基本功</p>
+          </div>
+        </div>
+        <div class="timeline-item highlight">
+          <span class="time-time">09:30 – 10:30</span>
+          <div class="time-content">
+            <h4><span class="item-emoji">🏸</span>技術訓練</h4>
+            <p>分組進行步法、高遠球、切球、殺球技巧訓練</p>
+          </div>
+        </div>
+        <div class="timeline-item rest">
+          <span class="time-time">10:30 – 10:45</span>
+          <div class="time-content">
+            <h4><span class="item-emoji">💧</span>休息補水</h4>
+            <p>適度休息，補充水分，避免中暑與脫水</p>
+          </div>
+        </div>
+        <div class="timeline-item highlight">
+          <span class="time-time">10:45 – 11:20</span>
+          <div class="time-content">
+            <h4><span class="item-emoji">⚡</span>對打實戰</h4>
+            <p>分組對打或趣味比賽，將所學應用於實戰</p>
+          </div>
+        </div>
+        <div class="timeline-item warm">
+          <span class="time-time">11:20 – 11:30</span>
+          <div class="time-content">
+            <h4><span class="item-emoji">🧘</span>收操放鬆</h4>
+            <p>靜態伸展、緩和放鬆，幫助肌肉恢復</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="daily-note">
+        💡 <strong>小提醒：</strong>下午班為 14:00 – 17:00，課程內容相同，只是時段不同，可依家長作息選擇。
+      </div>
+    </div>
+
+    <div class="daily-panel" data-panel-daily="full">
+      <div class="timeline">
+        <div class="timeline-item warm">
+          <span class="time-time">08:30 – 08:50</span>
+          <div class="time-content">
+            <h4><span class="item-emoji">🤸</span>暖身集合</h4>
+            <p>動態伸展、慢跑、肌肉啟動，預防運動傷害</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="time-time">08:50 – 09:30</span>
+          <div class="time-content">
+            <h4><span class="item-emoji">🎯</span>基本動作訓練</h4>
+            <p>握拍、發球、揮拍動作分解教學，扎實基本功</p>
+          </div>
+        </div>
+        <div class="timeline-item highlight">
+          <span class="time-time">09:30 – 10:30</span>
+          <div class="time-content">
+            <h4><span class="item-emoji">🏸</span>技術訓練</h4>
+            <p>分組進行步法、高遠球、切球、殺球技巧訓練</p>
+          </div>
+        </div>
+        <div class="timeline-item rest">
+          <span class="time-time">10:30 – 10:45</span>
+          <div class="time-content">
+            <h4><span class="item-emoji">💧</span>休息補水</h4>
+            <p>適度休息，補充水分，避免中暑與脫水</p>
+          </div>
+        </div>
+        <div class="timeline-item highlight">
+          <span class="time-time">10:45 – 11:30</span>
+          <div class="time-content">
+            <h4><span class="item-emoji">⚡</span>上午對打實戰</h4>
+            <p>分組對打或趣味比賽，將所學應用於實戰</p>
+          </div>
+        </div>
+        <div class="timeline-item lunch">
+          <span class="time-time">11:30 – 13:00</span>
+          <div class="time-content">
+            <h4><span class="item-emoji">🍱</span>午餐時間</h4>
+            <p>享用營養午餐，補充能量；可選訂餐或自備餐點</p>
+          </div>
+        </div>
+        <div class="timeline-item lunch">
+          <span class="time-time">13:00 – 14:00</span>
+          <div class="time-content">
+            <h4><span class="item-emoji">😴</span>午休時間</h4>
+            <p>於活動中心短暫午休，恢復體力（請自備午睡用品）</p>
+          </div>
+        </div>
+        <div class="timeline-item warm">
+          <span class="time-time">14:00 – 14:20</span>
+          <div class="time-content">
+            <h4><span class="item-emoji">🤸</span>下午暖身</h4>
+            <p>輕度伸展與動作喚醒，準備下午課程</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="time-time">14:20 – 15:30</span>
+          <div class="time-content">
+            <h4><span class="item-emoji">🧠</span>戰術與步法</h4>
+            <p>進階步法移位、雙打配合、攻防戰術解析</p>
+          </div>
+        </div>
+        <div class="timeline-item rest">
+          <span class="time-time">15:30 – 15:45</span>
+          <div class="time-content">
+            <h4><span class="item-emoji">💧</span>休息補水</h4>
+            <p>下午第二次補水休息，調整呼吸與專注力</p>
+          </div>
+        </div>
+        <div class="timeline-item highlight">
+          <span class="time-time">15:45 – 16:40</span>
+          <div class="time-content">
+            <h4><span class="item-emoji">🎮</span>體能遊戲 ＆ 比賽</h4>
+            <p>趣味體能挑戰、模擬比賽，培養運動精神與團隊默契</p>
+          </div>
+        </div>
+        <div class="timeline-item warm">
+          <span class="time-time">16:40 – 17:00</span>
+          <div class="time-content">
+            <h4><span class="item-emoji">🧘</span>收操 ＆ 心得分享</h4>
+            <p>靜態伸展、教練回顧今日重點、孩子互相鼓勵</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="daily-note">
+        💡 <strong>家長安心：</strong>全天班由教練全程陪同，含午餐用餐、午休管理、補水提醒，孩子的安全與健康我們全程把關。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 報名費用（行銷優化版）========== -->
+<section id="tuition" style="padding-top: 50px;">
   <div class="container">
     <div class="section-header">
       <div class="section-tag">TUITION</div>
@@ -1530,72 +2055,249 @@
       </div>
     </div>
 
+    <!-- 球隊學生 -->
     <div class="price-panel active" data-panel="1">
       <div class="panel-header">
         <div class="panel-icon">🏸</div>
         <div><h4>球隊學生</h4><div class="panel-sub">TEAM STUDENT</div></div>
       </div>
-      <div class="price-options">
-        <div class="price-option">
-          <div><div class="opt-label">一梯 · 半天</div><div class="opt-sub">兩週 / 早上或下午</div></div>
-          <div class="opt-price"><span class="currency">NT$</span>3,500</div>
+
+      <div class="price-hero-card">
+        <div class="hero-card-inner">
+          <div class="recommend-badge">
+            <span>⭐</span>
+            <span>家長 90% 推薦</span>
+          </div>
+
+          <div class="price-hero-title">全梯<span class="em-yellow">最超值</span>方案</div>
+          <div class="price-hero-sub">4 梯全包 · 整個暑假動起來</div>
+
+          <div class="hero-price-body">
+            <div class="original-price">
+              <span class="label">原價</span>NT$18,000
+            </div>
+            <div class="main-price">
+              <span class="currency">NT$</span>
+              <span class="num">11,500</span>
+            </div>
+            <div class="price-breakdown">
+              平均一梯只要 <strong>NT$2,750</strong>，含 <strong>4 梯次完整訓練</strong>
+            </div>
+          </div>
+
+          <div class="savings-box">
+            <div class="savings-icon">💰</div>
+            <div class="savings-text">
+              <div class="savings-label">VS 單梯各報</div>
+              <div class="savings-amount">
+                直接省下 <span class="big-num">$6,500</span> 元！
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-benefits">
+            <div class="hero-benefit-item">
+              <span class="check">✓</span>
+              <span>完整 8 週系統化訓練，效果最佳</span>
+            </div>
+            <div class="hero-benefit-item">
+              <span class="check">✓</span>
+              <span>報名優先保留名額，免擔心額滿</span>
+            </div>
+            <div class="hero-benefit-item">
+              <span class="check">✓</span>
+              <span>全梯學員可享請假補課優惠</span>
+            </div>
+          </div>
+
+          <button onclick="openModal()" class="hero-card-cta">🏸 立即報名全梯</button>
+        </div>
+      </div>
+
+      <div class="price-options-secondary">
+        <div class="options-header">
+          <span class="or">— 或單梯報名 —</span>
         </div>
         <div class="price-option">
-          <div><div class="opt-label">一梯 · 全天</div><div class="opt-sub">兩週 / 含中午活動</div></div>
+          <div>
+            <div class="opt-label">一梯 · 全天</div>
+            <div class="opt-sub">兩週 / 含中午活動</div>
+          </div>
           <div class="opt-price"><span class="currency">NT$</span>4,500</div>
         </div>
-        <div class="price-option highlight">
-          <div><div class="opt-label">全梯 · 4 梯全包</div><div class="opt-sub">平均一梯僅 NT$2,750</div></div>
-          <div class="opt-price"><span class="currency">NT$</span>11,500</div>
+        <div class="price-option">
+          <div>
+            <div class="opt-label">一梯 · 半天</div>
+            <div class="opt-sub">兩週 / 早上或下午</div>
+          </div>
+          <div class="opt-price"><span class="currency">NT$</span>3,500</div>
         </div>
       </div>
     </div>
 
+    <!-- 在校生 -->
     <div class="price-panel" data-panel="2">
       <div class="panel-header">
         <div class="panel-icon">🎒</div>
         <div><h4>在校生</h4><div class="panel-sub">CURRENT STUDENT</div></div>
       </div>
-      <div class="price-options">
-        <div class="price-option">
-          <div><div class="opt-label">一梯 · 半天</div><div class="opt-sub">兩週 / 早上或下午</div></div>
-          <div class="opt-price"><span class="currency">NT$</span>4,500</div>
+
+      <div class="price-hero-card">
+        <div class="hero-card-inner">
+          <div class="recommend-badge">
+            <span>⭐</span>
+            <span>家長 90% 推薦</span>
+          </div>
+
+          <div class="price-hero-title">全梯<span class="em-yellow">最超值</span>方案</div>
+          <div class="price-hero-sub">4 梯全包 · 整個暑假動起來</div>
+
+          <div class="hero-price-body">
+            <div class="original-price">
+              <span class="label">原價</span>NT$23,200
+            </div>
+            <div class="main-price">
+              <span class="currency">NT$</span>
+              <span class="num">15,000</span>
+            </div>
+            <div class="price-breakdown">
+              平均一梯只要 <strong>NT$3,750</strong>，含 <strong>4 梯次完整訓練</strong>
+            </div>
+          </div>
+
+          <div class="savings-box">
+            <div class="savings-icon">💰</div>
+            <div class="savings-text">
+              <div class="savings-label">VS 單梯各報</div>
+              <div class="savings-amount">
+                直接省下 <span class="big-num">$8,200</span> 元！
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-benefits">
+            <div class="hero-benefit-item">
+              <span class="check">✓</span>
+              <span>完整 8 週系統化訓練，效果最佳</span>
+            </div>
+            <div class="hero-benefit-item">
+              <span class="check">✓</span>
+              <span>報名優先保留名額，免擔心額滿</span>
+            </div>
+            <div class="hero-benefit-item">
+              <span class="check">✓</span>
+              <span>全梯學員可享請假補課優惠</span>
+            </div>
+          </div>
+
+          <button onclick="openModal()" class="hero-card-cta">🏸 立即報名全梯</button>
+        </div>
+      </div>
+
+      <div class="price-options-secondary">
+        <div class="options-header">
+          <span class="or">— 或單梯報名 —</span>
         </div>
         <div class="price-option">
-          <div><div class="opt-label">一梯 · 全天</div><div class="opt-sub">兩週 / 含中午活動</div></div>
+          <div>
+            <div class="opt-label">一梯 · 全天</div>
+            <div class="opt-sub">兩週 / 含中午活動</div>
+          </div>
           <div class="opt-price"><span class="currency">NT$</span>5,800</div>
         </div>
-        <div class="price-option highlight">
-          <div><div class="opt-label">全梯 · 4 梯全包</div><div class="opt-sub">平均一梯僅 NT$3,750</div></div>
-          <div class="opt-price"><span class="currency">NT$</span>15,000</div>
+        <div class="price-option">
+          <div>
+            <div class="opt-label">一梯 · 半天</div>
+            <div class="opt-sub">兩週 / 早上或下午</div>
+          </div>
+          <div class="opt-price"><span class="currency">NT$</span>4,500</div>
         </div>
       </div>
     </div>
 
+    <!-- 校外生 -->
     <div class="price-panel" data-panel="3">
       <div class="panel-header">
         <div class="panel-icon">👋</div>
         <div><h4>校外生</h4><div class="panel-sub">畢業生 / 球隊兄弟姊妹</div></div>
       </div>
-      <div class="price-options">
-        <div class="price-option">
-          <div><div class="opt-label">一梯 · 半天</div><div class="opt-sub">兩週 / 早上或下午</div></div>
-          <div class="opt-price"><span class="currency">NT$</span>5,000</div>
+
+      <div class="price-hero-card">
+        <div class="hero-card-inner">
+          <div class="recommend-badge">
+            <span>⭐</span>
+            <span>家長 90% 推薦</span>
+          </div>
+
+          <div class="price-hero-title">全梯<span class="em-yellow">最超值</span>方案</div>
+          <div class="price-hero-sub">4 梯全包 · 整個暑假動起來</div>
+
+          <div class="hero-price-body">
+            <div class="original-price">
+              <span class="label">原價</span>NT$26,000
+            </div>
+            <div class="main-price">
+              <span class="currency">NT$</span>
+              <span class="num">17,000</span>
+            </div>
+            <div class="price-breakdown">
+              平均一梯只要 <strong>NT$4,250</strong>，含 <strong>4 梯次完整訓練</strong>
+            </div>
+          </div>
+
+          <div class="savings-box">
+            <div class="savings-icon">💰</div>
+            <div class="savings-text">
+              <div class="savings-label">VS 單梯各報</div>
+              <div class="savings-amount">
+                直接省下 <span class="big-num">$9,000</span> 元！
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-benefits">
+            <div class="hero-benefit-item">
+              <span class="check">✓</span>
+              <span>完整 8 週系統化訓練，效果最佳</span>
+            </div>
+            <div class="hero-benefit-item">
+              <span class="check">✓</span>
+              <span>報名優先保留名額，免擔心額滿</span>
+            </div>
+            <div class="hero-benefit-item">
+              <span class="check">✓</span>
+              <span>全梯學員可享請假補課優惠</span>
+            </div>
+          </div>
+
+          <button onclick="openModal()" class="hero-card-cta">🏸 立即報名全梯</button>
+        </div>
+      </div>
+
+      <div class="price-options-secondary">
+        <div class="options-header">
+          <span class="or">— 或單梯報名 —</span>
         </div>
         <div class="price-option">
-          <div><div class="opt-label">一梯 · 全天</div><div class="opt-sub">兩週 / 含中午活動</div></div>
+          <div>
+            <div class="opt-label">一梯 · 全天</div>
+            <div class="opt-sub">兩週 / 含中午活動</div>
+          </div>
           <div class="opt-price"><span class="currency">NT$</span>6,500</div>
         </div>
-        <div class="price-option highlight">
-          <div><div class="opt-label">全梯 · 4 梯全包</div><div class="opt-sub">平均一梯僅 NT$4,250</div></div>
-          <div class="opt-price"><span class="currency">NT$</span>17,000</div>
+        <div class="price-option">
+          <div>
+            <div class="opt-label">一梯 · 半天</div>
+            <div class="opt-sub">兩週 / 早上或下午</div>
+          </div>
+          <div class="opt-price"><span class="currency">NT$</span>5,000</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="notice-section">
+<section class="notice-section" id="notice">
   <div class="container">
     <div class="section-header">
       <div class="section-tag">IMPORTANT NOTICE</div>
@@ -1652,15 +2354,12 @@
 
 <footer>
   <div class="footer-ornament">
-    <svg viewBox="0 0 24 24">
+    <svg class="racket" viewBox="0 0 24 24">
       <ellipse cx="12" cy="9" rx="5" ry="6" fill="none" stroke="#F8F8F5" stroke-width="1.5"/>
       <line x1="12" y1="15" x2="12" y2="22" stroke="#F8F8F5" stroke-width="1.5"/>
     </svg>
-    <svg viewBox="0 0 24 24">
-      <ellipse cx="12" cy="16" rx="3" ry="2" fill="#E8B86C"/>
-      <path d="M9 15 L7 5 L11 13 Z M12 13 L13 3 L14 13 Z M15 13 L17 5 L16 15 Z" fill="#F8F8F5"/>
-    </svg>
-    <svg viewBox="0 0 24 24">
+    <svg class="shuttle-icon" viewBox="0 0 60 80"><use href="#shuttle-white"/></svg>
+    <svg class="racket" viewBox="0 0 24 24">
       <ellipse cx="12" cy="9" rx="5" ry="6" fill="none" stroke="#F8F8F5" stroke-width="1.5"/>
       <line x1="12" y1="15" x2="12" y2="22" stroke="#F8F8F5" stroke-width="1.5"/>
     </svg>
@@ -1672,9 +2371,7 @@
     <div><strong>信箱</strong>badminton@kyes.tn.edu.tw</div>
     <div><strong>地址</strong>臺南市北區開元路 XXX 號</div>
   </div>
-  <div class="copyright">
-    © 2026 KAIYUAN BADMINTON SUMMER CAMP
-  </div>
+  <div class="copyright">© 2026 KAIYUAN BADMINTON SUMMER CAMP</div>
 </footer>
 
 <button onclick="openModal()" class="float-cta" id="floatCta">
@@ -1682,7 +2379,6 @@
   <span>立即報名</span>
 </button>
 
-<!-- 報名表單 Modal -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeModalBg(event)">
   <div class="modal">
     <div class="modal-header">
@@ -1700,14 +2396,11 @@
       <div class="success-icon">✓</div>
       <h3>報名成功！</h3>
       <p>感謝您為孩子報名開元羽球暑期營<br>球隊將盡快與您聯繫確認報名資訊<br>並通知繳費方式</p>
-      <button onclick="closeModal()" class="form-submit" style="background: var(--ink);">
-        關閉視窗
-      </button>
+      <button onclick="closeModal()" class="form-submit" style="background: var(--ink);">關閉視窗</button>
     </div>
 
     <div class="modal-body" id="formBody">
       <form id="signupForm" onsubmit="submitForm(event)">
-
         <div class="form-section-title"><span class="icon">👦</span>學生資料</div>
 
         <div class="form-group">
@@ -1769,11 +2462,11 @@
           <label class="form-label">報名梯次 <span class="required">*</span></label>
           <select class="form-select" name="camp" required>
             <option value="">請選擇梯次</option>
+            <option value="全梯（4梯全包）">🌟 全梯（4 梯全包，最划算）</option>
             <option value="第一梯（7/1-7/11）">第一梯（7/1 – 7/11）</option>
             <option value="第二梯（7/14-7/25）">第二梯（7/14 – 7/25）</option>
             <option value="第三梯（7/28-8/8）">第三梯（7/28 – 8/8）</option>
             <option value="第四梯（8/11-8/22）">第四梯（8/11 – 8/22）</option>
-            <option value="全梯（4梯全包）">🌟 全梯（4 梯全包，最划算）</option>
           </select>
         </div>
 
@@ -1781,9 +2474,9 @@
           <label class="form-label">上課時段 <span class="required">*</span></label>
           <select class="form-select" name="timeSlot" required>
             <option value="">請選擇時段</option>
+            <option value="全天（08:30-17:00）">全天（08:30 – 17:00）</option>
             <option value="半天-早上（08:30-11:30）">半天 · 早上（08:30 – 11:30）</option>
             <option value="半天-下午（14:00-17:00）">半天 · 下午（14:00 – 17:00）</option>
-            <option value="全天（08:30-17:00）">全天（08:30 – 17:00）</option>
           </select>
         </div>
 
@@ -1804,9 +2497,7 @@
           <textarea class="form-textarea" name="notes" placeholder="例：過敏體質、特殊飲食需求、其他需教練留意事項..."></textarea>
         </div>
 
-        <button type="submit" class="form-submit" id="submitBtn">
-          確認送出報名
-        </button>
+        <button type="submit" class="form-submit">確認送出報名</button>
 
         <p style="text-align: center; font-size: 12px; color: rgba(15,27,20,0.5); margin-top: 12px;">
           送出後球隊將於 1–2 天內聯繫您確認資訊
@@ -1817,10 +2508,10 @@
 </div>
 
 <script>
-  // ✅ 您的 Google Apps Script 網址（已正確設定）
   const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxD72uv-9Ulqqz5TFZOmFBlrGFrS089Q31vvZeVdDv2ncRTc-xMSZTCnsJSTr_KYRq_ng/exec';
 
   const floatCta = document.getElementById('floatCta');
+
   window.addEventListener('scroll', () => {
     if (window.scrollY > 600) {
       floatCta.classList.add('show');
@@ -1834,6 +2525,13 @@
     document.querySelectorAll('.price-panel').forEach(panel => panel.classList.remove('active'));
     document.querySelector(`.price-tab[data-tab="${tabId}"]`).classList.add('active');
     document.querySelector(`.price-panel[data-panel="${tabId}"]`).classList.add('active');
+  }
+
+  function switchDaily(type) {
+    document.querySelectorAll('.daily-tab').forEach(tab => tab.classList.remove('active'));
+    document.querySelectorAll('.daily-panel').forEach(panel => panel.classList.remove('active'));
+    document.querySelector(`.daily-tab[data-daily="${type}"]`).classList.add('active');
+    document.querySelector(`.daily-panel[data-panel-daily="${type}"]`).classList.add('active');
   }
 
   function openModal() {
@@ -1856,7 +2554,6 @@
 
   async function submitForm(e) {
     e.preventDefault();
-
     const form = e.target;
     const formData = new FormData(form);
     const data = {
