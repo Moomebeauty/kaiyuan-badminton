@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>開元羽球隊 · 2026 暑期營招生中</title>
+<title>開元國小羽球暑期班 · 2026 招生中</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Noto+Sans+TC:wght@400;500;600;700;900&family=Noto+Serif+TC:wght@500;600;700;900&display=swap" rel="stylesheet">
@@ -63,7 +63,6 @@
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255,255,255,0.08);
     padding: 10px 0;
-    transition: transform 0.3s;
   }
 
   .nav-scroll {
@@ -120,7 +119,7 @@
     position: relative;
     background: var(--court-green);
     color: var(--court-line);
-    padding: 28px 22px 80px;
+    padding: 32px 22px 80px;
     text-align: center;
     overflow: hidden;
     isolation: isolate;
@@ -142,19 +141,164 @@
     pointer-events: none;
   }
 
-  .float-item {
+  .float-emoji {
     position: absolute;
     z-index: 0;
     animation: floatAnim 5s ease-in-out infinite;
+    user-select: none;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
   }
-  .float-item.f1 { top: 8%; left: 6%; animation-delay: 0s; }
-  .float-item.f2 { top: 18%; right: 5%; animation-delay: 1.5s; }
-  .float-item.f3 { bottom: 18%; left: 8%; animation-delay: 3s; }
+
+  .float-emoji.f1 { top: 5%; left: 4%; font-size: 50px; animation-delay: 0s; opacity: 0.8; }
+  .float-emoji.f2 { top: 12%; right: 5%; font-size: 38px; animation-delay: 1s; opacity: 0.7; }
+  .float-emoji.f3 { bottom: 18%; left: 6%; font-size: 30px; animation-delay: 2s; opacity: 0.65; }
+  .float-emoji.f4 { bottom: 25%; right: 7%; font-size: 24px; animation-delay: 3s; opacity: 0.55; }
 
   @keyframes floatAnim {
-    0%, 100% { transform: translateY(0) rotate(-10deg); }
-    50% { transform: translateY(-18px) rotate(10deg); }
+    0%, 100% { transform: translateY(0) rotate(-12deg); }
+    50% { transform: translateY(-22px) rotate(12deg); }
   }
+
+  /* ========== 文字版主標題 ========== */
+  .school-mark {
+    margin-bottom: 18px;
+    animation: fadeUp 1s cubic-bezier(0.25, 0.1, 0.25, 1) 0.1s both;
+  }
+
+  /* 上方英文 + 年份 */
+  .school-mark-top {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .school-mark-top .line {
+    width: 24px;
+    height: 1px;
+    background: var(--shuttle-cork);
+    opacity: 0.7;
+  }
+
+  .school-mark-top .en {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: var(--shuttle-cork);
+    font-weight: 500;
+  }
+
+  /* 學校名稱（中文小字）*/
+  .school-name {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed rgba(232,184,108,0.4);
+    position: relative;
+  }
+
+  /* 主標題：羽球暑期班 */
+  .main-title-block {
+    position: relative;
+    padding: 8px 0;
+  }
+
+  .main-title-block .deco-emoji {
+    font-size: 32px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 4px;
+    animation: bounce 3s ease-in-out infinite;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+  }
+
+  .main-title-block .deco-emoji.right {
+    animation-delay: 1.5s;
+  }
+
+  .main-title {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: clamp(36px, 9vw, 46px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: 1px;
+    color: white;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .main-title .gold {
+    color: var(--shuttle-cork);
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  /* SUMMER CAMP 標籤 */
+  .summer-tag-block {
+    margin-top: 18px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    animation: fadeUp 1s ease-out 0.3s both;
+  }
+
+  .summer-tag {
+    display: inline-block;
+    background: var(--shuttle-cork);
+    color: var(--ink);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 4px;
+    padding: 8px 22px;
+    border-radius: 4px;
+    transform: rotate(-2deg);
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.25);
+    font-weight: 700;
+  }
+
+  .year-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 6px;
+    color: white;
+    font-weight: 500;
+    opacity: 0.95;
+  }
+
+  /* 訊息區 */
+  .info-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    animation: fadeUp 1s ease-out 0.4s both;
+  }
+
+  .info-pill {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .info-pill .ico { font-size: 14px; }
 
   .badge-top {
     display: inline-flex;
@@ -168,7 +312,7 @@
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 3px;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     border: 1px solid rgba(255,255,255,0.35);
     animation: fadeIn 0.8s ease-out;
   }
@@ -192,63 +336,42 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .summer-tag {
-    display: inline-block;
-    background: var(--shuttle-cork);
-    color: var(--ink);
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 14px;
-    letter-spacing: 4px;
-    padding: 6px 16px;
-    border-radius: 4px;
-    margin-bottom: 14px;
-    transform: rotate(-2deg);
-    animation: fadeIn 0.8s ease-out 0.1s both;
-    box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
-  }
-
-  .logo-wrap {
-    width: 180px;
-    height: 180px;
-    margin: 0 auto 20px;
-    position: relative;
-    animation: fadeUp 1s cubic-bezier(0.25, 0.1, 0.25, 1) 0.2s both;
-    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.25));
-  }
-
   @keyframes fadeUp {
     from { opacity: 0; transform: scale(0.92) translateY(15px); }
     to { opacity: 1; transform: scale(1) translateY(0); }
   }
 
-  .logo-wrap svg { width: 100%; height: 100%; }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-8px) scale(1.1); }
+  }
 
-  .hero h1 {
+  .hero h1.tagline {
     font-family: 'Fraunces', 'Noto Serif TC', serif;
-    font-size: clamp(38px, 10vw, 50px);
-    line-height: 1.1;
+    font-size: clamp(28px, 7vw, 36px);
+    line-height: 1.25;
     color: var(--court-line);
     margin-bottom: 14px;
-    letter-spacing: -1px;
+    letter-spacing: -0.5px;
     font-weight: 600;
-    animation: fadeUp 1s ease-out 0.4s both;
+    animation: fadeUp 1s ease-out 0.5s both;
     text-shadow: 0 2px 12px rgba(0,0,0,0.2);
   }
 
-  .hero h1 .accent {
+  .hero h1.tagline .accent {
     font-style: italic;
     font-weight: 500;
     color: var(--shuttle-cork);
   }
 
   .hero-sub {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 400;
     color: rgba(255,255,255,0.92);
     margin-bottom: 28px;
     letter-spacing: 1px;
     line-height: 1.8;
-    animation: fadeUp 1s ease-out 0.5s both;
+    animation: fadeUp 1s ease-out 0.6s both;
   }
 
   .hero-sub strong {
@@ -271,7 +394,7 @@
     text-decoration: none;
     box-shadow: 0 8px 24px rgba(0,0,0,0.25);
     transition: all 0.3s ease;
-    animation: fadeUp 1s ease-out 0.6s both;
+    animation: fadeUp 1s ease-out 0.7s both;
     border: none;
     cursor: pointer;
   }
@@ -1006,12 +1129,6 @@
     letter-spacing: -2px;
   }
 
-  .main-price .unit {
-    font-size: 14px;
-    opacity: 0.85;
-    margin-left: 2px;
-  }
-
   .price-breakdown {
     font-size: 12.5px;
     opacity: 0.92;
@@ -1040,9 +1157,7 @@
     flex-shrink: 0;
   }
 
-  .savings-text {
-    flex: 1;
-  }
+  .savings-text { flex: 1; }
 
   .savings-text .savings-label {
     font-family: 'Bebas Neue', sans-serif;
@@ -1105,10 +1220,6 @@
   }
 
   .price-options-secondary .options-header {
-    font-family: 'Fraunces', 'Noto Serif TC', serif;
-    font-size: 14px;
-    font-weight: 600;
-    color: rgba(15,27,20,0.6);
     text-align: center;
     padding-bottom: 12px;
     border-bottom: 1px dashed var(--line);
@@ -1253,6 +1364,25 @@
 
   .final-cta-inner { position: relative; z-index: 2; }
 
+  .final-cta-emojis {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .final-cta-emojis span {
+    font-size: 36px;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+  }
+
+  .final-cta-emojis span:nth-child(1),
+  .final-cta-emojis span:nth-child(3) {
+    font-size: 26px;
+    opacity: 0.7;
+  }
+
   .final-cta .urgency-badge {
     display: inline-block;
     background: var(--racket-red);
@@ -1327,17 +1457,24 @@
     text-align: center;
   }
 
-  footer .footer-ornament {
+  .footer-emojis {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-    opacity: 0.85;
     align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
   }
 
-  footer .footer-ornament svg.racket { width: 26px; height: 36px; }
-  footer .footer-ornament svg.shuttle-icon { width: 24px; height: 32px; }
+  .footer-emojis span {
+    font-size: 28px;
+    filter: drop-shadow(0 4px 10px rgba(232,184,108,0.3));
+  }
+
+  .footer-emojis span:nth-child(1),
+  .footer-emojis span:nth-child(3) {
+    font-size: 22px;
+    opacity: 0.7;
+  }
 
   footer h4 {
     font-family: 'Fraunces', 'Noto Serif TC', serif;
@@ -1402,14 +1539,8 @@
     font-family: 'Noto Sans TC', sans-serif;
   }
 
-  .float-cta.show {
-    opacity: 1;
-    pointer-events: all;
-  }
-
-  .float-cta:active {
-    transform: translateX(-50%) translateY(2px);
-  }
+  .float-cta.show { opacity: 1; pointer-events: all; }
+  .float-cta:active { transform: translateX(-50%) translateY(2px); }
 
   .float-cta .badge-mini {
     background: var(--shuttle-cork);
@@ -1671,160 +1802,6 @@
     .container { max-width: 520px; }
   }
 </style>
-
-<!-- ========================================== -->
-<!-- 修正版 SVG 元件：羽球與球拍（更接近真實照片）-->
-<!-- ========================================== -->
-<svg width="0" height="0" style="position:absolute" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <!-- 真實版羽球：拉長的橢圓羽毛裙 + 圓球頭 -->
-    <symbol id="shuttle-real" viewBox="0 0 80 110">
-      <!-- 羽毛裙（橢圓輪廓）-->
-      <ellipse cx="40" cy="40" rx="28" ry="36" fill="#FAFAFA" stroke="#0F1B14" stroke-width="1.5"/>
-      <!-- 羽毛分隔線（從球頭往上放射狀展開）-->
-      <g stroke="#0F1B14" stroke-width="1" stroke-linecap="round" fill="none">
-        <line x1="40" y1="76" x2="14" y2="20"/>
-        <line x1="40" y1="76" x2="22" y2="10"/>
-        <line x1="40" y1="76" x2="32" y2="5"/>
-        <line x1="40" y1="76" x2="40" y2="3"/>
-        <line x1="40" y1="76" x2="48" y2="5"/>
-        <line x1="40" y1="76" x2="58" y2="10"/>
-        <line x1="40" y1="76" x2="66" y2="20"/>
-      </g>
-      <!-- 羽毛上端弧形邊（鋸齒感）-->
-      <path d="M 12 30 Q 20 18 28 14 Q 35 8 40 6 Q 45 8 52 14 Q 60 18 68 30"
-            fill="none" stroke="#0F1B14" stroke-width="1.2" stroke-linejoin="round"/>
-      <!-- 中段橫線（綁繩交叉）-->
-      <ellipse cx="40" cy="58" rx="22" ry="3" fill="none" stroke="#0F1B14" stroke-width="0.8" opacity="0.5"/>
-      <ellipse cx="40" cy="50" rx="24" ry="3" fill="none" stroke="#0F1B14" stroke-width="0.8" opacity="0.5"/>
-      <!-- 綠色綁帶 -->
-      <ellipse cx="40" cy="74" rx="13" ry="3" fill="#2E8B57" stroke="#0F1B14" stroke-width="1"/>
-      <!-- 軟木球頭（白色圓球）-->
-      <ellipse cx="40" cy="88" rx="14" ry="13" fill="#FAFAFA" stroke="#0F1B14" stroke-width="1.5"/>
-      <!-- 球頭陰影 -->
-      <ellipse cx="36" cy="86" rx="6" ry="5" fill="white" opacity="0.7"/>
-    </symbol>
-
-    <!-- 純白簡化版（深色背景用）-->
-    <symbol id="shuttle-on-dark" viewBox="0 0 80 110">
-      <ellipse cx="40" cy="40" rx="28" ry="36" fill="white" stroke="white" stroke-width="1.5" opacity="0.95"/>
-      <g stroke="rgba(15,27,20,0.6)" stroke-width="1" stroke-linecap="round" fill="none">
-        <line x1="40" y1="76" x2="14" y2="20"/>
-        <line x1="40" y1="76" x2="22" y2="10"/>
-        <line x1="40" y1="76" x2="32" y2="5"/>
-        <line x1="40" y1="76" x2="40" y2="3"/>
-        <line x1="40" y1="76" x2="48" y2="5"/>
-        <line x1="40" y1="76" x2="58" y2="10"/>
-        <line x1="40" y1="76" x2="66" y2="20"/>
-      </g>
-      <path d="M 12 30 Q 20 18 28 14 Q 35 8 40 6 Q 45 8 52 14 Q 60 18 68 30"
-            fill="none" stroke="rgba(15,27,20,0.5)" stroke-width="1.2" stroke-linejoin="round"/>
-      <ellipse cx="40" cy="74" rx="13" ry="3" fill="#2E8B57" opacity="0.95"/>
-      <ellipse cx="40" cy="88" rx="14" ry="13" fill="white" opacity="0.98"/>
-    </symbol>
-
-    <!-- 紅色羽球拍（拉長橢圓 + 細握把）-->
-    <symbol id="racket-red" viewBox="0 0 60 160">
-      <!-- 球拍框（拉長橢圓）-->
-      <ellipse cx="30" cy="45" rx="24" ry="38" fill="white" stroke="#D63636" stroke-width="4"/>
-      <!-- 球拍內框 -->
-      <ellipse cx="30" cy="45" rx="20" ry="34" fill="white" stroke="#D63636" stroke-width="0.8" opacity="0.4"/>
-      <!-- 弦線（橫向）-->
-      <g stroke="#0F1B14" stroke-width="0.6" opacity="0.65">
-        <line x1="11" y1="20" x2="49" y2="20"/>
-        <line x1="9" y1="28" x2="51" y2="28"/>
-        <line x1="8" y1="36" x2="52" y2="36"/>
-        <line x1="7" y1="45" x2="53" y2="45"/>
-        <line x1="8" y1="54" x2="52" y2="54"/>
-        <line x1="9" y1="62" x2="51" y2="62"/>
-        <line x1="11" y1="70" x2="49" y2="70"/>
-      </g>
-      <!-- 弦線（垂直）-->
-      <g stroke="#0F1B14" stroke-width="0.6" opacity="0.65">
-        <line x1="14" y1="13" x2="14" y2="77"/>
-        <line x1="20" y1="9" x2="20" y2="81"/>
-        <line x1="26" y1="7" x2="26" y2="83"/>
-        <line x1="30" y1="6" x2="30" y2="84"/>
-        <line x1="34" y1="7" x2="34" y2="83"/>
-        <line x1="40" y1="9" x2="40" y2="81"/>
-        <line x1="46" y1="13" x2="46" y2="77"/>
-      </g>
-      <!-- 球拍頸（T 型連接處）-->
-      <path d="M 22 80 Q 30 88 38 80 L 36 95 L 24 95 Z" fill="#D63636"/>
-      <!-- 握把 -->
-      <rect x="26" y="93" width="8" height="50" fill="#0F1B14"/>
-      <!-- 握把紋路 -->
-      <g stroke="#666" stroke-width="0.6" opacity="0.4">
-        <line x1="26" y1="100" x2="34" y2="103"/>
-        <line x1="26" y1="108" x2="34" y2="111"/>
-        <line x1="26" y1="116" x2="34" y2="119"/>
-        <line x1="26" y1="124" x2="34" y2="127"/>
-        <line x1="26" y1="132" x2="34" y2="135"/>
-      </g>
-      <!-- 握把底端 -->
-      <rect x="24" y="141" width="12" height="6" rx="1.5" fill="#0F1B14"/>
-      <rect x="25" y="143" width="10" height="2" fill="#D63636"/>
-    </symbol>
-
-    <!-- 藍色羽球拍 -->
-    <symbol id="racket-blue" viewBox="0 0 60 160">
-      <ellipse cx="30" cy="45" rx="24" ry="38" fill="white" stroke="#2C5FAF" stroke-width="4"/>
-      <ellipse cx="30" cy="45" rx="20" ry="34" fill="white" stroke="#2C5FAF" stroke-width="0.8" opacity="0.4"/>
-      <g stroke="#0F1B14" stroke-width="0.6" opacity="0.65">
-        <line x1="11" y1="20" x2="49" y2="20"/>
-        <line x1="9" y1="28" x2="51" y2="28"/>
-        <line x1="8" y1="36" x2="52" y2="36"/>
-        <line x1="7" y1="45" x2="53" y2="45"/>
-        <line x1="8" y1="54" x2="52" y2="54"/>
-        <line x1="9" y1="62" x2="51" y2="62"/>
-        <line x1="11" y1="70" x2="49" y2="70"/>
-      </g>
-      <g stroke="#0F1B14" stroke-width="0.6" opacity="0.65">
-        <line x1="14" y1="13" x2="14" y2="77"/>
-        <line x1="20" y1="9" x2="20" y2="81"/>
-        <line x1="26" y1="7" x2="26" y2="83"/>
-        <line x1="30" y1="6" x2="30" y2="84"/>
-        <line x1="34" y1="7" x2="34" y2="83"/>
-        <line x1="40" y1="9" x2="40" y2="81"/>
-        <line x1="46" y1="13" x2="46" y2="77"/>
-      </g>
-      <path d="M 22 80 Q 30 88 38 80 L 36 95 L 24 95 Z" fill="#2C5FAF"/>
-      <rect x="26" y="93" width="8" height="50" fill="#0F1B14"/>
-      <g stroke="#666" stroke-width="0.6" opacity="0.4">
-        <line x1="26" y1="100" x2="34" y2="103"/>
-        <line x1="26" y1="108" x2="34" y2="111"/>
-        <line x1="26" y1="116" x2="34" y2="119"/>
-        <line x1="26" y1="124" x2="34" y2="127"/>
-        <line x1="26" y1="132" x2="34" y2="135"/>
-      </g>
-      <rect x="24" y="141" width="12" height="6" rx="1.5" fill="#0F1B14"/>
-      <rect x="25" y="143" width="10" height="2" fill="#2C5FAF"/>
-    </symbol>
-
-    <!-- 白色版球拍（深色背景用）-->
-    <symbol id="racket-white" viewBox="0 0 60 160">
-      <ellipse cx="30" cy="45" rx="24" ry="38" fill="none" stroke="white" stroke-width="3.5"/>
-      <g stroke="white" stroke-width="0.5" opacity="0.5">
-        <line x1="11" y1="20" x2="49" y2="20"/>
-        <line x1="9" y1="28" x2="51" y2="28"/>
-        <line x1="8" y1="36" x2="52" y2="36"/>
-        <line x1="7" y1="45" x2="53" y2="45"/>
-        <line x1="8" y1="54" x2="52" y2="54"/>
-        <line x1="9" y1="62" x2="51" y2="62"/>
-        <line x1="11" y1="70" x2="49" y2="70"/>
-        <line x1="14" y1="13" x2="14" y2="77"/>
-        <line x1="20" y1="9" x2="20" y2="81"/>
-        <line x1="26" y1="7" x2="26" y2="83"/>
-        <line x1="30" y1="6" x2="30" y2="84"/>
-        <line x1="34" y1="7" x2="34" y2="83"/>
-        <line x1="40" y1="9" x2="40" y2="81"/>
-        <line x1="46" y1="13" x2="46" y2="77"/>
-      </g>
-      <path d="M 22 80 Q 30 88 38 80 L 36 95 L 24 95 Z" fill="white" opacity="0.85"/>
-      <rect x="26" y="93" width="8" height="50" fill="white" opacity="0.9"/>
-    </symbol>
-  </defs>
-</svg>
 </head>
 <body>
 
@@ -1851,20 +1828,10 @@
     <line x1="340" y1="120" x2="340" y2="480" stroke="white" stroke-width="1.5"/>
   </svg>
 
-  <!-- 飄浮羽球（左上） -->
-  <svg class="float-item f1" width="44" height="60" viewBox="0 0 80 110">
-    <use href="#shuttle-on-dark"/>
-  </svg>
-
-  <!-- 飄浮紅球拍（右上） -->
-  <svg class="float-item f2" width="38" height="100" viewBox="0 0 60 160">
-    <use href="#racket-white"/>
-  </svg>
-
-  <!-- 飄浮羽球（左下） -->
-  <svg class="float-item f3" width="36" height="50" viewBox="0 0 80 110">
-    <use href="#shuttle-on-dark"/>
-  </svg>
+  <span class="float-emoji f1">🏸</span>
+  <span class="float-emoji f2">🏸</span>
+  <span class="float-emoji f3">🏸</span>
+  <span class="float-emoji f4">🏸</span>
 
   <div class="container">
     <div class="badge-top">
@@ -1872,66 +1839,37 @@
       <span>2026 暑期招生 · 開始報名</span>
     </div>
 
-    <div class="summer-tag">SUMMER CAMP 2026</div>
+    <!-- ========== 純文字主標題（取代 LOGO） ========== -->
+    <div class="school-mark">
+      <!-- 上方英文線條裝飾 -->
+      <div class="school-mark-top">
+        <span class="line"></span>
+        <span class="en">EST. KAIYUAN BADMINTON</span>
+        <span class="line"></span>
+      </div>
 
-    <div class="logo-wrap">
-      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="100" cy="100" r="96" fill="#0F1B14"/>
-        <circle cx="100" cy="100" r="92" fill="#F8F8F5"/>
-        <circle cx="100" cy="100" r="86" fill="none" stroke="#0F1B14" stroke-width="0.8" stroke-dasharray="2,2" opacity="0.4"/>
+      <!-- 學校全名（小字） -->
+      <div class="school-name">
+        臺南市北區開元國民小學
+      </div>
 
-        <defs>
-          <path id="topArc" d="M 32 100 A 68 68 0 0 1 168 100" fill="none"/>
-          <path id="bottomArc" d="M 32 110 A 68 68 0 0 0 168 110" fill="none"/>
-        </defs>
-
-        <text font-family="'Bebas Neue', sans-serif" font-size="13" font-weight="500" fill="#2E8B57" letter-spacing="2">
-          <textPath href="#topArc" startOffset="50%" text-anchor="middle">TAINAN KAIYUAN ELEMENTARY</textPath>
-        </text>
-
-        <text font-family="'Noto Serif TC', serif" font-size="11" font-weight="600" fill="#0F1B14" letter-spacing="3">
-          <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">開元國民小學羽球隊</textPath>
-        </text>
-
-        <!-- LOGO 中的紅色球拍（用真實版） -->
-        <g transform="translate(45, 50) rotate(-25) scale(0.6)">
-          <use href="#racket-red"/>
-        </g>
-
-        <!-- LOGO 中的羽球（用真實版） -->
-        <g transform="translate(132, 56) rotate(20) scale(0.45)">
-          <use href="#shuttle-real"/>
-        </g>
-
-        <!-- 熊熊頭 -->
-        <g transform="translate(110, 118)">
-          <circle cx="-26" cy="-22" r="11" fill="#0F1B14"/>
-          <circle cx="-26" cy="-22" r="5" fill="#FFB5BA"/>
-          <circle cx="26" cy="-22" r="11" fill="#0F1B14"/>
-          <circle cx="26" cy="-22" r="5" fill="#FFB5BA"/>
-          <ellipse cx="0" cy="0" rx="32" ry="29" fill="#0F1B14"/>
-          <ellipse cx="0" cy="10" rx="18" ry="14" fill="#F8F8F5"/>
-          <circle cx="-11" cy="-3" r="3.5" fill="#F8F8F5"/>
-          <circle cx="-10.5" cy="-3" r="2" fill="#0F1B14"/>
-          <circle cx="-10" cy="-3.8" r="0.7" fill="#F8F8F5"/>
-          <circle cx="11" cy="-3" r="3.5" fill="#F8F8F5"/>
-          <circle cx="11.5" cy="-3" r="2" fill="#0F1B14"/>
-          <circle cx="12" cy="-3.8" r="0.7" fill="#F8F8F5"/>
-          <ellipse cx="-20" cy="6" rx="4.5" ry="2.8" fill="#FFB5BA" opacity="0.85"/>
-          <ellipse cx="20" cy="6" rx="4.5" ry="2.8" fill="#FFB5BA" opacity="0.85"/>
-          <ellipse cx="0" cy="6" rx="2.5" ry="2" fill="#0F1B14"/>
-          <path d="M -4 11 Q 0 15 4 11" stroke="#0F1B14" stroke-width="1.3" fill="none" stroke-linecap="round"/>
-          <path d="M 0 11 L 0 13" stroke="#0F1B14" stroke-width="1"/>
-          <g stroke="#0F1B14" stroke-width="0.6" fill="none" stroke-linecap="round" opacity="0.7">
-            <line x1="22" y1="2" x2="28" y2="0"/>
-            <line x1="22" y1="6" x2="28" y2="6"/>
-            <line x1="22" y1="10" x2="28" y2="12"/>
-          </g>
-        </g>
-      </svg>
+      <!-- 主標題：羽球暑期班 -->
+      <div class="main-title-block">
+        <span class="deco-emoji">🏸</span>
+        <h1 class="main-title">
+          羽球<span class="gold">暑期班</span>
+        </h1>
+        <span class="deco-emoji right">🏸</span>
+      </div>
     </div>
 
-    <h1>這個暑假<br><span class="accent">讓孩子動起來</span></h1>
+    <!-- SUMMER CAMP 2026 標籤 -->
+    <div class="summer-tag-block">
+      <div class="summer-tag">SUMMER CAMP</div>
+      <div class="year-label">2 0 2 6</div>
+    </div>
+
+    <h1 class="tagline">這個暑假<br><span class="accent">讓孩子動起來</span></h1>
     <p class="hero-sub">
       <strong>4 梯次 × 8 週</strong>專業羽球訓練營<br>讓孩子告別 3C，揮灑汗水長身高長智慧
     </p>
@@ -2598,6 +2536,12 @@
       </svg>
 
       <div class="final-cta-inner">
+        <div class="final-cta-emojis">
+          <span>🏸</span>
+          <span>🏸</span>
+          <span>🏸</span>
+        </div>
+
         <span class="urgency-badge">名額有限 · 額滿即止</span>
         <h2>讓孩子的暑假<br><span class="em">不一樣</span></h2>
         <p>3 分鐘填表完成報名<br>給孩子一個揮灑汗水、結交朋友的夏天</p>
@@ -2612,16 +2556,10 @@
 </section>
 
 <footer>
-  <div class="footer-ornament">
-    <svg class="racket" viewBox="0 0 60 160">
-      <use href="#racket-white"/>
-    </svg>
-    <svg class="shuttle-icon" viewBox="0 0 80 110">
-      <use href="#shuttle-on-dark"/>
-    </svg>
-    <svg class="racket" viewBox="0 0 60 160">
-      <use href="#racket-white"/>
-    </svg>
+  <div class="footer-emojis">
+    <span>🏸</span>
+    <span>🏸</span>
+    <span>🏸</span>
   </div>
   <h4>臺南市北區開元國民小學</h4>
   <div class="school-en">TAINAN MUNICIPAL KAIYUAN ELEMENTARY SCHOOL</div>
