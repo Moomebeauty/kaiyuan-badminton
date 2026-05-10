@@ -1812,6 +1812,336 @@
   @media (min-width: 600px) {
     .container { max-width: 520px; }
   }
+
+  /* ========== 全新方案卡片設計 ========== */
+  .plan-card {
+    background: white;
+    border-radius: 20px;
+    padding: 22px 20px;
+    margin-bottom: 14px;
+    border: 1.5px solid var(--line);
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    transition: all 0.3s ease;
+  }
+
+  /* 全梯主打卡片：金色華麗版 */
+  .plan-hero {
+    background: linear-gradient(135deg, var(--court-deep) 0%, var(--court-green) 100%);
+    color: white;
+    padding-top: 38px;
+    border: 2px solid var(--shuttle-cork);
+    box-shadow: 0 12px 32px rgba(46,139,87,0.3);
+  }
+
+  .plan-ribbon {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--shuttle-cork);
+    color: var(--ink);
+    padding: 6px 18px;
+    border-radius: 0 0 12px 12px;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    box-shadow: 0 4px 12px rgba(232,184,108,0.4);
+    animation: ribbonShine 2s ease-in-out infinite;
+  }
+
+  @keyframes ribbonShine {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.05); }
+  }
+
+  /* 卡片標題列（圖示 + 標題 + 價格）*/
+  .plan-header-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .plan-icon-big {
+    font-size: 36px;
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.15);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+  }
+
+  .plan-icon-mid {
+    font-size: 28px;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-warm);
+    border-radius: 14px;
+  }
+
+  .plan-fullday .plan-icon-mid { background: rgba(44,95,175,0.12); }
+  .plan-halfday .plan-icon-mid { background: rgba(46,139,87,0.12); }
+
+  .plan-title-group { flex: 1; min-width: 0; }
+
+  .plan-title {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: white;
+    margin-bottom: 3px;
+  }
+
+  .plan-title-mid {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .plan-tagline {
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.4;
+  }
+
+  .plan-tagline-mid {
+    font-size: 12px;
+    color: rgba(15,27,20,0.6);
+    line-height: 1.4;
+  }
+
+  /* 全梯價格區塊（大字、置中、明顯）*/
+  .plan-price-row {
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    text-align: center;
+    position: relative;
+  }
+
+  .plan-original {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 4px;
+  }
+
+  .plan-original s {
+    text-decoration-color: var(--racket-red);
+    text-decoration-thickness: 2px;
+  }
+
+  .plan-price-big {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+
+  .plan-price-big .cur {
+    font-size: 18px;
+    color: var(--shuttle-cork);
+    font-weight: 700;
+  }
+
+  .plan-price-big .amt {
+    font-family: 'Fraunces', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--shuttle-cork);
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+
+  .plan-save-tag {
+    display: inline-block;
+    background: var(--racket-red);
+    color: white;
+    padding: 4px 14px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(214,54,54,0.4);
+  }
+
+  /* 全梯福利清單 */
+  .plan-features {
+    margin-bottom: 16px;
+    padding-top: 14px;
+    border-top: 1px dashed rgba(255,255,255,0.25);
+  }
+
+  .plan-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    margin-bottom: 7px;
+    color: rgba(255,255,255,0.95);
+    line-height: 1.5;
+  }
+
+  .plan-feature:last-child { margin-bottom: 0; }
+
+  .plan-feature .ico {
+    width: 18px;
+    height: 18px;
+    background: var(--shuttle-cork);
+    color: var(--ink);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 900;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* 單梯卡片價格（右側顯示） */
+  .plan-price-side {
+    flex-shrink: 0;
+    text-align: right;
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+  }
+
+  .plan-price-side .cur {
+    font-size: 12px;
+    color: rgba(15,27,20,0.6);
+    font-weight: 600;
+  }
+
+  .plan-fullday .plan-price-side .amt-mid { color: var(--racket-blue); }
+  .plan-halfday .plan-price-side .amt-mid { color: var(--court-green); }
+
+  .plan-price-side .amt-mid {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.5px;
+  }
+
+  /* 單梯卡片：標籤列（時段 / 內容） */
+  .plan-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--line);
+  }
+
+  .plan-tag {
+    background: var(--bg-warm);
+    color: var(--ink);
+    padding: 5px 11px;
+    border-radius: 50px;
+    font-size: 11.5px;
+    font-weight: 600;
+    border: 1px solid var(--line);
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .plan-tag.tag-lunch {
+    background: rgba(232,184,108,0.18);
+    border-color: rgba(232,184,108,0.4);
+    color: #8a6428;
+  }
+
+  .plan-tag.tag-suit {
+    background: rgba(46,139,87,0.1);
+    border-color: rgba(46,139,87,0.25);
+    color: var(--court-deep);
+  }
+
+  /* CTA 按鈕 */
+  .plan-cta {
+    width: 100%;
+    padding: 14px;
+    border-radius: 50px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 14.5px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+  }
+
+  .plan-cta-gold {
+    background: var(--shuttle-cork);
+    color: var(--ink);
+    box-shadow: 0 6px 16px rgba(232,184,108,0.4);
+  }
+
+  .plan-cta-blue {
+    background: var(--racket-blue);
+    color: white;
+    box-shadow: 0 4px 12px rgba(44,95,175,0.3);
+  }
+
+  .plan-cta-green {
+    background: var(--court-green);
+    color: white;
+    box-shadow: 0 4px 12px rgba(46,139,87,0.3);
+  }
+
+  .plan-cta:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+
+  /* 分隔線 */
+  .plan-divider {
+    text-align: center;
+    margin: 22px 0 14px;
+    position: relative;
+  }
+
+  .plan-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--line);
+    z-index: 0;
+  }
+
+  .plan-divider span {
+    display: inline-block;
+    background: var(--bg);
+    padding: 0 16px;
+    position: relative;
+    z-index: 1;
+    font-size: 12.5px;
+    color: rgba(15,27,20,0.55);
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
 </style>
 </head>
 <body>
@@ -2242,6 +2572,7 @@
       <p class="section-subtitle">點選身份切換對應價格 · 全梯報名最划算</p>
     </div>
 
+    <!-- 身份切換 Tab -->
     <div class="pricing-tabs">
       <div class="price-tab active" data-tab="1" onclick="switchTab(1)">
         <div class="tab-icon">🏸</div>
@@ -2257,249 +2588,247 @@
       </div>
     </div>
 
+    <!-- ============ 球隊學生 ============ -->
     <div class="price-panel active" data-panel="1">
-      <div class="panel-header">
-        <div class="panel-icon">🏸</div>
-        <div><h4>球隊學生</h4><div class="panel-sub">TEAM STUDENT</div></div>
+
+      <!-- 全梯主打方案 -->
+      <div class="plan-card plan-hero">
+        <div class="plan-ribbon">⭐ 最划算 · 推薦</div>
+        <div class="plan-header-row">
+          <div class="plan-icon-big">🏆</div>
+          <div class="plan-title-group">
+            <h3 class="plan-title">全梯 · 4 梯全包</h3>
+            <p class="plan-tagline">整個暑假完整 8 週訓練</p>
+          </div>
+        </div>
+
+        <div class="plan-price-row">
+          <div class="plan-original">原價 <s>NT$18,000</s></div>
+          <div class="plan-price-big">
+            <span class="cur">NT$</span><span class="amt">11,500</span>
+          </div>
+          <div class="plan-save-tag">省 $6,500 元</div>
+        </div>
+
+        <div class="plan-features">
+          <div class="plan-feature"><span class="ico">✓</span>含 4 梯次完整訓練（共 8 週）</div>
+          <div class="plan-feature"><span class="ico">✓</span>平均一梯只要 NT$2,750</div>
+          <div class="plan-feature"><span class="ico">✓</span>優先保留名額，免擔心額滿</div>
+          <div class="plan-feature"><span class="ico">✓</span>專屬請假補課優惠</div>
+        </div>
+
+        <button onclick="openModal()" class="plan-cta plan-cta-gold">
+          🏸 立即報名全梯
+        </button>
       </div>
 
-      <div class="price-hero-card">
-        <div class="hero-card-inner">
-          <div class="recommend-badge">
-            <span>⭐</span>
-            <span>家長 90% 推薦</span>
-          </div>
-          <div class="price-hero-title">
-            全梯<span class="em-yellow">最超值</span>方案
-          </div>
-          <div class="price-hero-sub">4 梯全包 · 整個暑假動起來</div>
-
-          <div class="hero-price-body">
-            <div class="original-price">
-              <span class="label">原價</span>NT$18,000
-            </div>
-            <div class="main-price">
-              <span class="currency">NT$</span>
-              <span class="num">11,500</span>
-            </div>
-            <div class="price-breakdown">
-              平均一梯只要 <strong>NT$2,750</strong>，含 <strong>4 梯次完整訓練</strong>
-            </div>
-          </div>
-
-          <div class="savings-box">
-            <div class="savings-icon">💰</div>
-            <div class="savings-text">
-              <div class="savings-label">VS 單梯各報</div>
-              <div class="savings-amount">
-                直接省下 <span class="big-num">$6,500</span> 元！
-              </div>
-            </div>
-          </div>
-
-          <div class="hero-benefits">
-            <div class="hero-benefit-item">
-              <span class="check">✓</span>
-              <span>完整 8 週系統化訓練，效果最佳</span>
-            </div>
-            <div class="hero-benefit-item">
-              <span class="check">✓</span>
-              <span>報名優先保留名額，免擔心額滿</span>
-            </div>
-            <div class="hero-benefit-item">
-              <span class="check">✓</span>
-              <span>全梯學員可享請假補課優惠</span>
-            </div>
-          </div>
-
-          <button onclick="openModal()" class="hero-card-cta">
-            🏸 立即報名全梯
-          </button>
-        </div>
+      <!-- 單梯方案分隔線 -->
+      <div class="plan-divider">
+        <span>單梯報名也可以</span>
       </div>
 
-      <div class="price-options-secondary">
-        <div class="options-header">
-          <span class="or">— 或單梯報名 —</span>
-        </div>
-        <div class="price-option">
-          <div>
-            <div class="opt-label">一梯 · 全天</div>
-            <div class="opt-sub">兩週 / 含中午活動</div>
+      <!-- 單梯全天 -->
+      <div class="plan-card plan-fullday">
+        <div class="plan-header-row">
+          <div class="plan-icon-mid">🌤️</div>
+          <div class="plan-title-group">
+            <h3 class="plan-title-mid">單梯 · 全天班</h3>
+            <p class="plan-tagline-mid">兩週訓練 · 含中午活動</p>
           </div>
-          <div class="opt-price"><span class="currency">NT$</span>4,500</div>
-        </div>
-        <div class="price-option">
-          <div>
-            <div class="opt-label">一梯 · 半天</div>
-            <div class="opt-sub">兩週 / 早上或下午</div>
+          <div class="plan-price-side">
+            <span class="cur">NT$</span><span class="amt-mid">4,500</span>
           </div>
-          <div class="opt-price"><span class="currency">NT$</span>3,500</div>
         </div>
+        <div class="plan-tags">
+          <span class="plan-tag tag-time">⏰ 08:30–17:00</span>
+          <span class="plan-tag tag-lunch">🍱 含午餐午休</span>
+          <span class="plan-tag tag-suit">💼 適合雙薪家庭</span>
+        </div>
+        <button onclick="openModal()" class="plan-cta plan-cta-blue">
+          報名單梯全天班
+        </button>
+      </div>
+
+      <!-- 單梯半天 -->
+      <div class="plan-card plan-halfday">
+        <div class="plan-header-row">
+          <div class="plan-icon-mid">☀️</div>
+          <div class="plan-title-group">
+            <h3 class="plan-title-mid">單梯 · 半天班</h3>
+            <p class="plan-tagline-mid">兩週訓練 · 早上或下午</p>
+          </div>
+          <div class="plan-price-side">
+            <span class="cur">NT$</span><span class="amt-mid">3,500</span>
+          </div>
+        </div>
+        <div class="plan-tags">
+          <span class="plan-tag tag-time">☀️ 08:30–11:30</span>
+          <span class="plan-tag tag-time">🌤️ 14:00–17:00</span>
+          <span class="plan-tag tag-suit">⚡ 體驗最輕鬆</span>
+        </div>
+        <button onclick="openModal()" class="plan-cta plan-cta-green">
+          報名單梯半天班
+        </button>
       </div>
     </div>
 
+    <!-- ============ 在校生 ============ -->
     <div class="price-panel" data-panel="2">
-      <div class="panel-header">
-        <div class="panel-icon">🎒</div>
-        <div><h4>在校生</h4><div class="panel-sub">CURRENT STUDENT</div></div>
+
+      <div class="plan-card plan-hero">
+        <div class="plan-ribbon">⭐ 最划算 · 推薦</div>
+        <div class="plan-header-row">
+          <div class="plan-icon-big">🏆</div>
+          <div class="plan-title-group">
+            <h3 class="plan-title">全梯 · 4 梯全包</h3>
+            <p class="plan-tagline">整個暑假完整 8 週訓練</p>
+          </div>
+        </div>
+
+        <div class="plan-price-row">
+          <div class="plan-original">原價 <s>NT$23,200</s></div>
+          <div class="plan-price-big">
+            <span class="cur">NT$</span><span class="amt">15,000</span>
+          </div>
+          <div class="plan-save-tag">省 $8,200 元</div>
+        </div>
+
+        <div class="plan-features">
+          <div class="plan-feature"><span class="ico">✓</span>含 4 梯次完整訓練（共 8 週）</div>
+          <div class="plan-feature"><span class="ico">✓</span>平均一梯只要 NT$3,750</div>
+          <div class="plan-feature"><span class="ico">✓</span>優先保留名額，免擔心額滿</div>
+          <div class="plan-feature"><span class="ico">✓</span>專屬請假補課優惠</div>
+        </div>
+
+        <button onclick="openModal()" class="plan-cta plan-cta-gold">
+          🏸 立即報名全梯
+        </button>
       </div>
 
-      <div class="price-hero-card">
-        <div class="hero-card-inner">
-          <div class="recommend-badge">
-            <span>⭐</span>
-            <span>家長 90% 推薦</span>
-          </div>
-          <div class="price-hero-title">
-            全梯<span class="em-yellow">最超值</span>方案
-          </div>
-          <div class="price-hero-sub">4 梯全包 · 整個暑假動起來</div>
-
-          <div class="hero-price-body">
-            <div class="original-price">
-              <span class="label">原價</span>NT$23,200
-            </div>
-            <div class="main-price">
-              <span class="currency">NT$</span>
-              <span class="num">15,000</span>
-            </div>
-            <div class="price-breakdown">
-              平均一梯只要 <strong>NT$3,750</strong>，含 <strong>4 梯次完整訓練</strong>
-            </div>
-          </div>
-
-          <div class="savings-box">
-            <div class="savings-icon">💰</div>
-            <div class="savings-text">
-              <div class="savings-label">VS 單梯各報</div>
-              <div class="savings-amount">
-                直接省下 <span class="big-num">$8,200</span> 元！
-              </div>
-            </div>
-          </div>
-
-          <div class="hero-benefits">
-            <div class="hero-benefit-item">
-              <span class="check">✓</span>
-              <span>完整 8 週系統化訓練，效果最佳</span>
-            </div>
-            <div class="hero-benefit-item">
-              <span class="check">✓</span>
-              <span>報名優先保留名額，免擔心額滿</span>
-            </div>
-            <div class="hero-benefit-item">
-              <span class="check">✓</span>
-              <span>全梯學員可享請假補課優惠</span>
-            </div>
-          </div>
-
-          <button onclick="openModal()" class="hero-card-cta">
-            🏸 立即報名全梯
-          </button>
-        </div>
+      <div class="plan-divider">
+        <span>單梯報名也可以</span>
       </div>
 
-      <div class="price-options-secondary">
-        <div class="options-header">
-          <span class="or">— 或單梯報名 —</span>
-        </div>
-        <div class="price-option">
-          <div>
-            <div class="opt-label">一梯 · 全天</div>
-            <div class="opt-sub">兩週 / 含中午活動</div>
+      <div class="plan-card plan-fullday">
+        <div class="plan-header-row">
+          <div class="plan-icon-mid">🌤️</div>
+          <div class="plan-title-group">
+            <h3 class="plan-title-mid">單梯 · 全天班</h3>
+            <p class="plan-tagline-mid">兩週訓練 · 含中午活動</p>
           </div>
-          <div class="opt-price"><span class="currency">NT$</span>5,800</div>
-        </div>
-        <div class="price-option">
-          <div>
-            <div class="opt-label">一梯 · 半天</div>
-            <div class="opt-sub">兩週 / 早上或下午</div>
+          <div class="plan-price-side">
+            <span class="cur">NT$</span><span class="amt-mid">5,800</span>
           </div>
-          <div class="opt-price"><span class="currency">NT$</span>4,500</div>
         </div>
+        <div class="plan-tags">
+          <span class="plan-tag tag-time">⏰ 08:30–17:00</span>
+          <span class="plan-tag tag-lunch">🍱 含午餐午休</span>
+          <span class="plan-tag tag-suit">💼 適合雙薪家庭</span>
+        </div>
+        <button onclick="openModal()" class="plan-cta plan-cta-blue">
+          報名單梯全天班
+        </button>
+      </div>
+
+      <div class="plan-card plan-halfday">
+        <div class="plan-header-row">
+          <div class="plan-icon-mid">☀️</div>
+          <div class="plan-title-group">
+            <h3 class="plan-title-mid">單梯 · 半天班</h3>
+            <p class="plan-tagline-mid">兩週訓練 · 早上或下午</p>
+          </div>
+          <div class="plan-price-side">
+            <span class="cur">NT$</span><span class="amt-mid">4,500</span>
+          </div>
+        </div>
+        <div class="plan-tags">
+          <span class="plan-tag tag-time">☀️ 08:30–11:30</span>
+          <span class="plan-tag tag-time">🌤️ 14:00–17:00</span>
+          <span class="plan-tag tag-suit">⚡ 體驗最輕鬆</span>
+        </div>
+        <button onclick="openModal()" class="plan-cta plan-cta-green">
+          報名單梯半天班
+        </button>
       </div>
     </div>
 
+    <!-- ============ 校外生 ============ -->
     <div class="price-panel" data-panel="3">
-      <div class="panel-header">
-        <div class="panel-icon">👋</div>
-        <div><h4>校外生</h4><div class="panel-sub">畢業生 / 球隊兄弟姊妹</div></div>
+
+      <div class="plan-card plan-hero">
+        <div class="plan-ribbon">⭐ 最划算 · 推薦</div>
+        <div class="plan-header-row">
+          <div class="plan-icon-big">🏆</div>
+          <div class="plan-title-group">
+            <h3 class="plan-title">全梯 · 4 梯全包</h3>
+            <p class="plan-tagline">整個暑假完整 8 週訓練</p>
+          </div>
+        </div>
+
+        <div class="plan-price-row">
+          <div class="plan-original">原價 <s>NT$26,000</s></div>
+          <div class="plan-price-big">
+            <span class="cur">NT$</span><span class="amt">17,000</span>
+          </div>
+          <div class="plan-save-tag">省 $9,000 元</div>
+        </div>
+
+        <div class="plan-features">
+          <div class="plan-feature"><span class="ico">✓</span>含 4 梯次完整訓練（共 8 週）</div>
+          <div class="plan-feature"><span class="ico">✓</span>平均一梯只要 NT$4,250</div>
+          <div class="plan-feature"><span class="ico">✓</span>優先保留名額，免擔心額滿</div>
+          <div class="plan-feature"><span class="ico">✓</span>專屬請假補課優惠</div>
+        </div>
+
+        <button onclick="openModal()" class="plan-cta plan-cta-gold">
+          🏸 立即報名全梯
+        </button>
       </div>
 
-      <div class="price-hero-card">
-        <div class="hero-card-inner">
-          <div class="recommend-badge">
-            <span>⭐</span>
-            <span>家長 90% 推薦</span>
-          </div>
-          <div class="price-hero-title">
-            全梯<span class="em-yellow">最超值</span>方案
-          </div>
-          <div class="price-hero-sub">4 梯全包 · 整個暑假動起來</div>
-
-          <div class="hero-price-body">
-            <div class="original-price">
-              <span class="label">原價</span>NT$26,000
-            </div>
-            <div class="main-price">
-              <span class="currency">NT$</span>
-              <span class="num">17,000</span>
-            </div>
-            <div class="price-breakdown">
-              平均一梯只要 <strong>NT$4,250</strong>，含 <strong>4 梯次完整訓練</strong>
-            </div>
-          </div>
-
-          <div class="savings-box">
-            <div class="savings-icon">💰</div>
-            <div class="savings-text">
-              <div class="savings-label">VS 單梯各報</div>
-              <div class="savings-amount">
-                直接省下 <span class="big-num">$9,000</span> 元！
-              </div>
-            </div>
-          </div>
-
-          <div class="hero-benefits">
-            <div class="hero-benefit-item">
-              <span class="check">✓</span>
-              <span>完整 8 週系統化訓練，效果最佳</span>
-            </div>
-            <div class="hero-benefit-item">
-              <span class="check">✓</span>
-              <span>報名優先保留名額，免擔心額滿</span>
-            </div>
-            <div class="hero-benefit-item">
-              <span class="check">✓</span>
-              <span>全梯學員可享請假補課優惠</span>
-            </div>
-          </div>
-
-          <button onclick="openModal()" class="hero-card-cta">
-            🏸 立即報名全梯
-          </button>
-        </div>
+      <div class="plan-divider">
+        <span>單梯報名也可以</span>
       </div>
 
-      <div class="price-options-secondary">
-        <div class="options-header">
-          <span class="or">— 或單梯報名 —</span>
-        </div>
-        <div class="price-option">
-          <div>
-            <div class="opt-label">一梯 · 全天</div>
-            <div class="opt-sub">兩週 / 含中午活動</div>
+      <div class="plan-card plan-fullday">
+        <div class="plan-header-row">
+          <div class="plan-icon-mid">🌤️</div>
+          <div class="plan-title-group">
+            <h3 class="plan-title-mid">單梯 · 全天班</h3>
+            <p class="plan-tagline-mid">兩週訓練 · 含中午活動</p>
           </div>
-          <div class="opt-price"><span class="currency">NT$</span>6,500</div>
-        </div>
-        <div class="price-option">
-          <div>
-            <div class="opt-label">一梯 · 半天</div>
-            <div class="opt-sub">兩週 / 早上或下午</div>
+          <div class="plan-price-side">
+            <span class="cur">NT$</span><span class="amt-mid">6,500</span>
           </div>
-          <div class="opt-price"><span class="currency">NT$</span>5,000</div>
         </div>
+        <div class="plan-tags">
+          <span class="plan-tag tag-time">⏰ 08:30–17:00</span>
+          <span class="plan-tag tag-lunch">🍱 含午餐午休</span>
+          <span class="plan-tag tag-suit">💼 適合雙薪家庭</span>
+        </div>
+        <button onclick="openModal()" class="plan-cta plan-cta-blue">
+          報名單梯全天班
+        </button>
+      </div>
+
+      <div class="plan-card plan-halfday">
+        <div class="plan-header-row">
+          <div class="plan-icon-mid">☀️</div>
+          <div class="plan-title-group">
+            <h3 class="plan-title-mid">單梯 · 半天班</h3>
+            <p class="plan-tagline-mid">兩週訓練 · 早上或下午</p>
+          </div>
+          <div class="plan-price-side">
+            <span class="cur">NT$</span><span class="amt-mid">5,000</span>
+          </div>
+        </div>
+        <div class="plan-tags">
+          <span class="plan-tag tag-time">☀️ 08:30–11:30</span>
+          <span class="plan-tag tag-time">🌤️ 14:00–17:00</span>
+          <span class="plan-tag tag-suit">⚡ 體驗最輕鬆</span>
+        </div>
+        <button onclick="openModal()" class="plan-cta plan-cta-green">
+          報名單梯半天班
+        </button>
       </div>
     </div>
   </div>
