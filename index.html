@@ -141,22 +141,33 @@
     pointer-events: none;
   }
 
-  .float-emoji {
-    position: absolute;
-    z-index: 0;
-    animation: floatAnim 5s ease-in-out infinite;
-    user-select: none;
-    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+  /* ========== 開元熊 LOGO ========== */
+  .school-logo {
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: white;
+    padding: 6px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.3),
+                0 0 0 3px rgba(232,184,108,0.5);
+    animation: logoIn 1s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+    display: block;
+    position: relative;
+    z-index: 2;
   }
 
-  .float-emoji.f1 { top: 5%; left: 4%; font-size: 50px; animation-delay: 0s; opacity: 0.8; }
-  .float-emoji.f2 { top: 12%; right: 5%; font-size: 38px; animation-delay: 1s; opacity: 0.7; }
-  .float-emoji.f3 { bottom: 18%; left: 6%; font-size: 30px; animation-delay: 2s; opacity: 0.65; }
-  .float-emoji.f4 { bottom: 25%; right: 7%; font-size: 24px; animation-delay: 3s; opacity: 0.55; }
+  .school-logo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+  }
 
-  @keyframes floatAnim {
-    0%, 100% { transform: translateY(0) rotate(-12deg); }
-    50% { transform: translateY(-22px) rotate(12deg); }
+  @keyframes logoIn {
+    from { opacity: 0; transform: scale(0.7) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
   }
 
   /* ========== 文字版主標題 ========== */
@@ -1828,18 +1839,18 @@
     <line x1="340" y1="120" x2="340" y2="480" stroke="white" stroke-width="1.5"/>
   </svg>
 
-  <span class="float-emoji f1">🏸</span>
-  <span class="float-emoji f2">🏸</span>
-  <span class="float-emoji f3">🏸</span>
-  <span class="float-emoji f4">🏸</span>
-
   <div class="container">
     <div class="badge-top">
       <span class="dot"></span>
       <span>2026 暑期招生 · 開始報名</span>
     </div>
 
-    <!-- ========== 純文字主標題（取代 LOGO） ========== -->
+    <!-- ========== 開元熊 LOGO ========== -->
+    <div class="school-logo">
+      <img src="logo.jpg" alt="臺南市北區開元國民小學羽球隊">
+    </div>
+
+    <!-- ========== 純文字主標題 ========== -->
     <div class="school-mark">
       <!-- 上方英文線條裝飾 -->
       <div class="school-mark-top">
