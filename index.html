@@ -467,8 +467,9 @@
   }
 
   .section-subtitle {
-    font-size: 14px;
-    color: rgba(15,27,20,0.65);
+    font-size: 15px;
+    color: rgba(15,27,20,0.85);
+    font-weight: 500;
     margin-top: 12px;
     line-height: 1.7;
   }
@@ -2585,6 +2586,606 @@
     color: var(--ink);
     font-weight: 700;
   }
+
+  /* ========== 提示橫幅（取代灰色小字） ========== */
+  .hint-banner {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(46,139,87,0.12);
+    border: 1.5px solid rgba(46,139,87,0.35);
+    color: var(--court-deep);
+    padding: 10px 18px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 14px;
+    box-shadow: 0 4px 12px rgba(46,139,87,0.15);
+  }
+
+  .hint-banner .hint-icon {
+    font-size: 18px;
+    animation: bounceDown 1.5s ease-in-out infinite;
+  }
+
+  .hint-banner strong {
+    color: var(--court-deep);
+    font-weight: 800;
+  }
+
+  @keyframes bounceDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(4px); }
+  }
+
+  /* 梯次區塊副標題加粗版 */
+  .section-subtitle-bold {
+    font-size: 15.5px;
+    color: var(--ink);
+    margin-top: 14px;
+    line-height: 1.9;
+    font-weight: 500;
+  }
+
+  .section-subtitle-bold strong {
+    font-weight: 800;
+  }
+
+  /* ========== 報名狀態緊迫感區塊 ========== */
+  .status-section {
+    background: var(--bg);
+    padding: 30px 0 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .status-card {
+    background: white;
+    border-radius: 22px;
+    padding: 22px 18px;
+    border: 2px solid var(--racket-red);
+    box-shadow: 0 12px 32px rgba(214,54,54,0.18);
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+
+  .status-deadline,
+  .status-quota {
+    text-align: center;
+  }
+
+  .sd-label,
+  .sq-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(15,27,20,0.65);
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  .sd-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    color: var(--racket-red);
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .sq-value {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 15px;
+    color: var(--ink);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+
+  .sq-value .big-red {
+    color: var(--racket-red);
+    font-size: 20px;
+    font-weight: 900;
+  }
+
+  .sd-sub,
+  .sq-sub {
+    font-size: 11px;
+    color: rgba(15,27,20,0.55);
+    line-height: 1.4;
+  }
+
+  .status-divider {
+    width: 1px;
+    height: 60px;
+    background: var(--line);
+  }
+
+  .enrollment-status {
+    background: linear-gradient(135deg, rgba(232,184,108,0.2) 0%, rgba(232,184,108,0.08) 100%);
+    border: 1.5px solid rgba(232,184,108,0.5);
+    border-radius: 18px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .es-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+    animation: fireFlicker 1.5s ease-in-out infinite;
+  }
+
+  @keyframes fireFlicker {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+  }
+
+  .es-text { flex: 1; }
+
+  .es-title {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .es-tip {
+    font-size: 12px;
+    color: rgba(15,27,20,0.7);
+    line-height: 1.5;
+  }
+
+  /* ========== 繳費地點卡片 ========== */
+  .payment-location {
+    margin-top: 14px;
+    padding: 16px 18px;
+    background: white;
+    border-radius: 16px;
+    border: 1.5px solid rgba(46,139,87,0.3);
+    box-shadow: 0 4px 12px rgba(46,139,87,0.08);
+  }
+
+  .pl-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--court-deep);
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .pl-place {
+    font-size: 14.5px;
+    color: var(--ink);
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+
+  .pl-place strong {
+    font-weight: 700;
+  }
+
+  .pl-time {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .pl-time-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: var(--bg-warm);
+    border-radius: 10px;
+    font-size: 13px;
+  }
+
+  .pl-time-item.pl-no {
+    background: rgba(214,54,54,0.08);
+    border: 1px solid rgba(214,54,54,0.25);
+  }
+
+  .pl-day {
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .pl-time-item.pl-no .pl-day {
+    color: var(--racket-red-deep);
+  }
+
+  .pl-hours {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: var(--court-deep);
+    font-weight: 600;
+  }
+
+  .pl-time-item.pl-no .pl-hours {
+    color: var(--racket-red-deep);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+  }
+
+  /* ========== LINE 群組按鈕 ========== */
+  .line-group-btn {
+    margin-top: 14px;
+    background: linear-gradient(135deg, #06C755 0%, #00B900 100%);
+    color: white;
+    border-radius: 16px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(6,199,85,0.3);
+    transition: all 0.2s;
+  }
+
+  .line-group-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px 10px rgba(6,199,85,0.3);
+  }
+
+  .line-icon {
+    font-size: 30px;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+  }
+
+  .line-text { flex: 1; }
+
+  .line-title {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .line-sub {
+    font-size: 12px;
+    opacity: 0.95;
+    line-height: 1.4;
+  }
+
+  .line-arrow {
+    font-size: 24px;
+    font-weight: 300;
+    opacity: 0.85;
+  }
+
+  /* ========== 步驟列表強化 ========== */
+  .ni-detail {
+    font-size: 12.5px;
+    color: rgba(15,27,20,0.7);
+    line-height: 1.6;
+    display: block;
+    margin-top: 3px;
+  }
+
+  /* ========== 請假規則卡片 ========== */
+  .leave-rules {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .leave-rule {
+    background: white;
+    border-radius: 16px;
+    padding: 16px 18px;
+    border: 1.5px solid var(--line);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  }
+
+  .leave-rule-full {
+    border-left: 4px solid var(--shuttle-cork);
+  }
+
+  .leave-rule-single {
+    border-left: 4px solid var(--court-green);
+  }
+
+  .lr-badge {
+    display: inline-block;
+    background: var(--shuttle-cork);
+    color: var(--ink);
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  .lr-badge-single {
+    background: var(--court-green);
+    color: white;
+  }
+
+  .lr-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .lr-rule {
+    font-size: 14px;
+    font-weight: 700;
+    padding: 8px 12px;
+    border-radius: 10px;
+  }
+
+  .rule-no {
+    background: rgba(214,54,54,0.08);
+    color: var(--racket-red-deep);
+  }
+
+  .rule-yes {
+    background: rgba(46,139,87,0.1);
+    color: var(--court-deep);
+  }
+
+  .lr-note {
+    font-size: 12.5px;
+    color: rgba(15,27,20,0.7);
+    line-height: 1.6;
+    padding: 10px 12px;
+    background: var(--bg-warm);
+    border-radius: 10px;
+  }
+
+  .lr-note strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .notice-group-leave .notice-group-title {
+    background: linear-gradient(135deg, rgba(44,95,175,0.08) 0%, rgba(44,95,175,0.02) 100%);
+    border-color: rgba(44,95,175,0.3);
+  }
+
+  /* ========== 重要規定警示卡片 ========== */
+  .notice-group-rules .notice-group-title {
+    background: linear-gradient(135deg, rgba(214,54,54,0.1) 0%, rgba(214,54,54,0.03) 100%);
+    border-color: rgba(214,54,54,0.4);
+  }
+
+  .rule-warning {
+    background: white;
+    border-radius: 16px;
+    padding: 18px 20px;
+    border: 2px solid var(--racket-red);
+    box-shadow: 0 6px 20px rgba(214,54,54,0.15);
+    position: relative;
+  }
+
+  .rw-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--line);
+    color: var(--racket-red-deep);
+    font-size: 15.5px;
+    font-weight: 800;
+  }
+
+  .rw-icon {
+    font-size: 24px;
+  }
+
+  .rw-content p {
+    font-size: 13.5px;
+    color: rgba(15,27,20,0.85);
+    line-height: 1.75;
+    margin-bottom: 10px;
+  }
+
+  .rw-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  .rw-content strong {
+    color: var(--ink);
+    font-weight: 700;
+    background: rgba(214,54,54,0.08);
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+
+  .rw-tip {
+    background: rgba(232,184,108,0.18);
+    padding: 10px 12px !important;
+    border-radius: 10px;
+    border-left: 3px solid var(--shuttle-cork);
+    font-size: 13px !important;
+    color: var(--ink) !important;
+  }
+
+  /* ========== 各梯次報名熱度看板 ========== */
+  .enrollment-board {
+    margin-top: 16px;
+    background: white;
+    border-radius: 20px;
+    padding: 20px 18px;
+    border: 2px solid var(--shuttle-cork);
+    box-shadow: 0 10px 28px rgba(232,184,108,0.25);
+  }
+
+  .eb-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .eb-flame {
+    font-size: 32px;
+    flex-shrink: 0;
+    animation: fireFlicker 1.5s ease-in-out infinite;
+  }
+
+  .eb-title-group { flex: 1; }
+
+  .eb-title {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 2px;
+    line-height: 1.2;
+  }
+
+  .eb-sub {
+    font-size: 12px;
+    color: rgba(15,27,20,0.65);
+    line-height: 1.4;
+  }
+
+  .eb-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .eb-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+    align-items: center;
+    padding: 12px;
+    background: var(--bg);
+    border-radius: 14px;
+    border: 1px solid var(--line);
+  }
+
+  .eb-row[data-status="hot"] {
+    background: linear-gradient(135deg, rgba(214,54,54,0.08) 0%, rgba(214,54,54,0.02) 100%);
+    border-color: rgba(214,54,54,0.25);
+  }
+
+  .eb-camp {
+    min-width: 60px;
+  }
+
+  .eb-camp-num {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+
+  .eb-camp-date {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 10.5px;
+    letter-spacing: 0.5px;
+    color: rgba(15,27,20,0.6);
+    margin-top: 2px;
+  }
+
+  .eb-progress {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .eb-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(15,27,20,0.08);
+    border-radius: 50px;
+    overflow: hidden;
+    margin-bottom: 4px;
+  }
+
+  .eb-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--court-green) 0%, var(--shuttle-cork) 100%);
+    border-radius: 50px;
+    transition: width 1s ease;
+  }
+
+  .eb-row[data-status="hot"] .eb-fill {
+    background: linear-gradient(90deg, var(--shuttle-cork) 0%, var(--racket-red) 100%);
+  }
+
+  .eb-count {
+    font-size: 11.5px;
+    color: rgba(15,27,20,0.7);
+    text-align: right;
+    font-weight: 600;
+  }
+
+  .eb-count strong {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+    color: var(--ink);
+    margin-right: 1px;
+    font-weight: 700;
+  }
+
+  .eb-status {
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
+
+  .status-hot {
+    background: var(--racket-red);
+    color: white;
+    animation: hotPulse 1.5s ease-in-out infinite;
+  }
+
+  .status-filling {
+    background: var(--shuttle-cork);
+    color: var(--ink);
+  }
+
+  .status-open {
+    background: rgba(46,139,87,0.15);
+    color: var(--court-deep);
+    border: 1px solid rgba(46,139,87,0.3);
+  }
+
+  @keyframes hotPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  .eb-update-time {
+    margin-top: 14px;
+    text-align: center;
+    font-size: 11.5px;
+    color: rgba(15,27,20,0.55);
+  }
 </style>
 </head>
 <body>
@@ -2668,6 +3269,29 @@
     <path d="M0,32 L0,16 Q100,0 200,16 T400,16 L400,32 Z" fill="#EDE8DC"/>
   </svg>
 </header>
+
+<!-- ===== 報名狀態緊迫感區塊 ===== -->
+<section class="status-section">
+  <div class="container">
+    <div class="status-card">
+      <div class="status-deadline">
+        <div class="sd-label">📅 報名截止日</div>
+        <div class="sd-value">2026 / 6 / 20</div>
+        <div class="sd-sub">逾期將不再受理報名</div>
+      </div>
+
+      <div class="status-divider"></div>
+
+      <div class="status-quota">
+        <div class="sq-label">⚠️ 名額狀態</div>
+        <div class="sq-value">每班滿 <span class="big-red">10 人</span> 開班</div>
+        <div class="sq-sub">額滿即截止，請盡早報名</div>
+      </div>
+    </div>
+
+
+  </div>
+</section>
 
 <section class="pain-section">
   <div class="container">
@@ -2774,10 +3398,9 @@
     <div class="section-header">
       <div class="section-tag">SUMMER SCHEDULE</div>
       <h2 class="section-title">暑期<span class="em">四大梯次</span></h2>
-      <p class="section-subtitle">
-        每梯次兩週紮實訓練<br>
-        自由選擇 <strong style="color:var(--court-green)">單梯半天</strong>、<strong style="color:var(--racket-blue)">單梯全天</strong>，<br>
-        或最划算的 <strong style="color:#B8860B">4 梯全包</strong> 方案
+      <p class="section-subtitle-bold">
+        每梯次<strong>兩週紮實訓練</strong><br>
+        可選 <strong style="color:var(--court-green)">單梯半天</strong> / <strong style="color:var(--racket-blue)">單梯全天</strong> / <strong style="color:#B8860B">4 梯全包</strong>
       </p>
     </div>
 
@@ -2911,7 +3534,10 @@
     <div class="section-header">
       <div class="section-tag">TUITION</div>
       <h2 class="section-title">報名<span class="em">費用方案</span></h2>
-      <p class="section-subtitle">點選身份切換對應價格 · 全梯報名最划算</p>
+      <div class="hint-banner">
+        <span class="hint-icon">👇</span>
+        <span class="hint-text">請先選擇<strong>學生身份</strong>查看對應價格</span>
+      </div>
     </div>
 
     <!-- 身份切換 Tab -->
@@ -3187,30 +3813,67 @@
         <span class="ng-icon">💰</span>
         <div class="ng-text">
           <h3>繳費流程</h3>
-          <p>採現金繳費 · 分訂金與尾款兩階段</p>
+          <p>採現金繳費 · 6/20 截止日前完成才算報名成功</p>
         </div>
       </div>
 
       <div class="notice-card">
         <div class="notice-item">
           <div class="notice-icon">📝</div>
-          <div class="notice-text">線上填表後，球隊將於 <strong>1–2 天內主動聯繫</strong>家長，確認報名資訊</div>
+          <div class="notice-text">
+            <strong>Step 1 線上填表</strong><br>
+            <span class="ni-detail">完成填表後，<strong style="color: var(--court-deep);">請主動加入 LINE 群組</strong>並聯繫球隊約定繳交訂金時間</span>
+          </div>
         </div>
         <div class="notice-item">
           <div class="notice-icon">💵</div>
           <div class="notice-text">
-            繳交 <strong style="color: var(--racket-red); font-size: 15px;">訂金 NT$1,000</strong> 保留名額<br>
-            <span style="font-size: 12.5px; color: rgba(15,27,20,0.6);">約定時間至學校面交，球隊開立手寫收據</span>
+            <strong>Step 2 繳交訂金 NT$1,000</strong><br>
+            <span class="ni-detail">於 <strong style="color: var(--racket-red);">6/20 報名截止日前</strong>繳清才算報名成功，保留名額</span>
           </div>
         </div>
         <div class="notice-item">
           <div class="notice-icon">🏸</div>
           <div class="notice-text">
-            <strong>開課前 2 週繳清尾款</strong>，方式同訂金（現金面交）<br>
-            <span style="font-size: 12.5px; color: rgba(15,27,20,0.6);">球隊將另行通知繳費時間與地點</span>
+            <strong>Step 3 繳交尾款</strong><br>
+            <span class="ni-detail">可於繳訂金時一併繳清，或最晚於<strong>第一天上課日</strong>繳清</span>
           </div>
         </div>
       </div>
+
+      <!-- 繳費地點 + 時間 -->
+      <div class="payment-location">
+        <div class="pl-title">
+          <span>📍</span> 繳費地點 ＆ 時間
+        </div>
+        <div class="pl-place">
+          <strong>開元國小・開元館・羽球隊</strong>
+        </div>
+        <div class="pl-time">
+          <div class="pl-time-item">
+            <span class="pl-day">平日早上</span>
+            <span class="pl-hours">08:00 – 08:30</span>
+          </div>
+          <div class="pl-time-item">
+            <span class="pl-day">平日傍晚</span>
+            <span class="pl-hours">17:00 – 19:00</span>
+          </div>
+          <div class="pl-time-item pl-no">
+            <span class="pl-day">⛔ 週三</span>
+            <span class="pl-hours">不辦理繳費業務</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- LINE 群組連結 -->
+      <a href="https://line.me/ti/g/8xCPL-yz9M" target="_blank" class="line-group-btn">
+        <div class="line-icon">💬</div>
+        <div class="line-text">
+          <div class="line-title">加入 LINE 群組</div>
+          <div class="line-sub">報名完成後請加入，方便接收最新訊息</div>
+        </div>
+        <div class="line-arrow">→</div>
+      </a>
     </div>
 
     <!-- ===== 群組 2：退費規則 ===== -->
@@ -3219,7 +3882,7 @@
         <span class="ng-icon">🔄</span>
         <div class="ng-text">
           <h3>退費規則</h3>
-          <p>依消保會夏令營退費規範訂定</p>
+          <p>取消時間越早，退費比例越高</p>
         </div>
       </div>
 
@@ -3268,17 +3931,71 @@
           <div class="refund-arrow">→</div>
           <div class="refund-result refund-bad">
             <div class="rr-label">不予退費</div>
-            <div class="rr-sub">可請假補課</div>
+            <div class="rr-sub">0%</div>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="refund-note">
-        💡 <strong>關於請假補課：</strong>暑假期間請假不退費，但請假部分將於開學後 <strong>2 個月內安排補課</strong>，不浪費家長付出的學費。
+    <!-- ===== 群組 3：請假與補課 ===== -->
+    <div class="notice-group notice-group-leave">
+      <div class="notice-group-title">
+        <span class="ng-icon">📅</span>
+        <div class="ng-text">
+          <h3>請假與補課規則</h3>
+          <p>不同方案請假規則不同，請特別注意</p>
+        </div>
+      </div>
+
+      <div class="leave-rules">
+        <div class="leave-rule leave-rule-full">
+          <div class="lr-badge">全梯方案</div>
+          <div class="lr-content">
+            <div class="lr-rule rule-no">❌ 請假不退費</div>
+            <div class="lr-rule rule-no">❌ 不安排補課</div>
+          </div>
+          <div class="lr-note">
+            因為全梯為最優惠方案，已折扣到極致，故無法再提供補課
+          </div>
+        </div>
+
+        <div class="leave-rule leave-rule-single">
+          <div class="lr-badge lr-badge-single">單梯方案</div>
+          <div class="lr-content">
+            <div class="lr-rule rule-no">❌ 請假不退費</div>
+            <div class="lr-rule rule-yes">✅ 可安排補課</div>
+          </div>
+          <div class="lr-note">
+            請假部分將於<strong>暑假期間內</strong>補課完畢
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- ===== 群組 3：上課須知 ===== -->
+    <!-- ===== 群組 4：重要規定（禁止拆班）===== -->
+    <div class="notice-group notice-group-rules">
+      <div class="notice-group-title">
+        <span class="ng-icon">⚠️</span>
+        <div class="ng-text">
+          <h3>重要規定</h3>
+          <p>請仔細閱讀以下規則，避免後續爭議</p>
+        </div>
+      </div>
+
+      <div class="rule-warning">
+        <div class="rw-header">
+          <span class="rw-icon">🚫</span>
+          <strong>方案不可拆分使用</strong>
+        </div>
+        <div class="rw-content">
+          <p><strong>報名「單梯全天班」者，不可拆成兩個半天班使用</strong>（例如：第一梯上半天 + 第二梯上半天）。</p>
+          <p>每位學員報名的梯次與時段為<strong>整體方案</strong>，請依報名內容上課，恕無法拆分或調整。</p>
+          <p class="rw-tip">💡 若需彈性安排，建議直接報名「單梯半天班」</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 群組 5：上課須知 ===== -->
     <div class="notice-group notice-group-class">
       <div class="notice-group-title">
         <span class="ng-icon">🎒</span>
@@ -3349,9 +4066,8 @@
   <h4>臺南市北區開元國民小學</h4>
   <div class="school-en">TAINAN MUNICIPAL KAIYUAN ELEMENTARY SCHOOL</div>
   <div class="contact-info">
-    <div><strong>電話</strong>(06) 237-XXXX 分機 XXX</div>
-    <div><strong>信箱</strong>badminton@kyes.tn.edu.tw</div>
-    <div><strong>地址</strong>臺南市北區開元路 XXX 號</div>
+    <div>📍 開元國小・開元館・羽球隊</div>
+    <div><a href="https://line.me/ti/g/8xCPL-yz9M" target="_blank" style="color: var(--shuttle-cork); text-decoration: none; font-weight: 600;">💬 加入 LINE 群組</a></div>
   </div>
   <div class="copyright">
     © 2026 KAIYUAN BADMINTON SUMMER CAMP
@@ -3379,7 +4095,10 @@
     <div class="success-screen" id="successScreen">
       <div class="success-icon">✓</div>
       <h3>報名成功！</h3>
-      <p>感謝您為孩子報名開元羽球暑期營<br>球隊將盡快與您聯繫確認報名資訊<br>並通知繳費方式</p>
+      <p>感謝您為孩子完成線上報名<br><strong style="color: var(--court-deep);">請主動加入 LINE 群組</strong><br>並聯繫球隊約定繳交訂金時間<br>於 6/20 前完成繳費才算報名成功</p>
+      <a href="https://line.me/ti/g/8xCPL-yz9M" target="_blank" class="form-submit" style="background: linear-gradient(135deg, #06C755 0%, #00B900 100%); color: white; text-decoration: none; display: block; text-align: center; margin-bottom: 10px;">
+        💬 立即加入 LINE 群組
+      </a>
       <button onclick="closeModal()" class="form-submit" style="background: var(--ink);">
         關閉視窗
       </button>
@@ -3572,7 +4291,7 @@
       document.getElementById('formLoading').classList.remove('show');
       document.getElementById('successScreen').classList.add('show');
     } catch (error) {
-      alert('報名送出失敗，請稍後再試或直接聯絡球隊：(06) 237-XXXX');
+      alert('報名送出失敗，請稍後再試或加入 LINE 群組聯繫球隊');
       document.getElementById('formLoading').classList.remove('show');
       document.getElementById('formBody').style.display = 'block';
     }
