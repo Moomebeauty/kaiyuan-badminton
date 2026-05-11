@@ -3186,6 +3186,53 @@
     font-size: 11.5px;
     color: rgba(15,27,20,0.55);
   }
+
+  /* ========== 表單提醒框（送出按鈕下方）========== */
+  .form-reminder {
+    margin-top: 14px;
+    padding: 14px 16px;
+    background: linear-gradient(135deg, rgba(214,54,54,0.08) 0%, rgba(232,184,108,0.12) 100%);
+    border: 1.5px solid rgba(214,54,54,0.3);
+    border-radius: 14px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .fr-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 2px;
+    animation: warningBlink 2s ease-in-out infinite;
+  }
+
+  @keyframes warningBlink {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.75; transform: scale(1.05); }
+  }
+
+  .fr-content { flex: 1; }
+
+  .fr-title {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 14.5px;
+    font-weight: 800;
+    color: var(--racket-red-deep);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .fr-text {
+    font-size: 12.5px;
+    color: rgba(15,27,20,0.8);
+    line-height: 1.7;
+  }
+
+  .fr-text strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
 </style>
 </head>
 <body>
@@ -4207,9 +4254,17 @@
           確認送出報名
         </button>
 
-        <p style="text-align: center; font-size: 12px; color: rgba(15,27,20,0.5); margin-top: 12px;">
-          送出後球隊將於 1–2 天內聯繫您確認資訊
-        </p>
+        <div class="form-reminder">
+          <div class="fr-icon">⚠️</div>
+          <div class="fr-content">
+            <div class="fr-title">填表完成 ≠ 報名成功</div>
+            <div class="fr-text">
+              送出後請<strong>加入 LINE 群組</strong>聯繫球隊<br>
+              並於 <strong style="color: var(--racket-red);">6/20 前繳交訂金 NT$1,000</strong><br>
+              才算<strong>名額保留成功</strong>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   </div>
