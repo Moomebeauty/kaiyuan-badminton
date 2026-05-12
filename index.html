@@ -4396,6 +4396,145 @@
     font-weight: 700;
     color: var(--court-deep);
   }
+
+  /* ========== 特殊情況協助 - 友善版補充樣式 ========== */
+  .re-note {
+    margin-top: 12px;
+    padding: 12px 14px !important;
+    background: linear-gradient(135deg, rgba(46,139,87,0.08) 0%, rgba(232,184,108,0.06) 100%) !important;
+    border-radius: 10px;
+    border-left: 4px solid var(--court-green);
+    font-size: 13px !important;
+    color: var(--ink) !important;
+    line-height: 1.7 !important;
+  }
+
+  .re-note strong {
+    color: var(--court-deep);
+    font-weight: 700;
+  }
+
+  /* ========== 可協助 / 不予協助 區塊 ========== */
+  .re-can {
+    margin: 14px 0;
+    padding: 14px 16px;
+    background: linear-gradient(135deg, rgba(46,139,87,0.08) 0%, rgba(46,139,87,0.02) 100%);
+    border-radius: 12px;
+    border-left: 4px solid var(--court-green);
+  }
+
+  .re-can-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed rgba(46,139,87,0.25);
+    font-size: 14px;
+    color: var(--court-deep);
+  }
+
+  .re-can-title strong {
+    font-weight: 800;
+    font-size: 14.5px;
+  }
+
+  .re-can-icon {
+    font-size: 18px;
+  }
+
+  .re-can-list {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .re-can-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 10px;
+    background: white;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .rc-emoji {
+    font-size: 18px;
+    flex-shrink: 0;
+    line-height: 1.3;
+  }
+
+  /* 不予協助樣式 */
+  .re-cannot {
+    margin: 14px 0;
+    padding: 14px 16px;
+    background: linear-gradient(135deg, rgba(214,54,54,0.06) 0%, rgba(214,54,54,0.02) 100%);
+    border-radius: 12px;
+    border-left: 4px solid var(--racket-red);
+  }
+
+  .re-cannot-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed rgba(214,54,54,0.25);
+    font-size: 14px;
+    color: var(--racket-red-deep);
+  }
+
+  .re-cannot-title strong {
+    font-weight: 800;
+    font-size: 14.5px;
+  }
+
+  .re-cannot-icon {
+    font-size: 18px;
+  }
+
+  .re-cannot-list {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 12px;
+  }
+
+  .re-cannot-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 10px;
+    background: white;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .rcn-emoji {
+    font-size: 18px;
+    flex-shrink: 0;
+    line-height: 1.3;
+  }
+
+  .re-cannot-note {
+    padding: 10px 12px;
+    background: rgba(232,184,108,0.18);
+    border-radius: 8px;
+    border-left: 3px solid var(--shuttle-cork);
+    font-size: 12px;
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  .re-cannot-note strong {
+    color: var(--racket-red-deep);
+    font-weight: 700;
+  }
 </style>
 </head>
 <body>
@@ -5386,35 +5525,75 @@
 
       </div>
 
-      <!-- 不可抗力例外條款 -->
+      <!-- 特殊情況協助說明（溫暖但有界線版） -->
       <div class="refund-exception">
         <div class="re-header">
           <span class="re-icon">💝</span>
           <div class="re-title-group">
-            <div class="re-title">不可抗力例外條款</div>
-            <div class="re-subtitle">遇到特殊情況我們會彈性處理</div>
+            <div class="re-title">特殊情況協助</div>
+            <div class="re-subtitle">針對「真的無法上課」的家庭，球隊會彈性處理</div>
           </div>
         </div>
         <div class="re-content">
-          <p>若家庭遇到以下狀況，<strong>請主動聯繫球隊</strong>說明，我們會視個案彈性處理：</p>
-          <div class="re-cases">
-            <div class="re-case">
-              <span class="re-emoji">🏥</span>
-              <div>學員<strong>重大傷病</strong>（需醫師證明）</div>
+          <p>每個家庭都可能遇到突發狀況，<br>
+          以下情況請<strong>主動聯繫球隊</strong>，我們會視個案彈性協調 🙏</p>
+
+          <!-- ✅ 可協助情況 -->
+          <div class="re-can">
+            <div class="re-can-title">
+              <span class="re-can-icon">✅</span>
+              <strong>可申請協助的狀況</strong>
             </div>
-            <div class="re-case">
-              <span class="re-emoji">👨‍👩‍👧</span>
-              <div>家庭<strong>重大事故</strong>或變故</div>
-            </div>
-            <div class="re-case">
-              <span class="re-emoji">🌪️</span>
-              <div><strong>不可抗力</strong>因素（天災、疫情等）</div>
+            <div class="re-can-list">
+              <div class="re-can-item">
+                <span class="rc-emoji">🏥</span>
+                <span>學員生病或受傷無法上課（需診斷證明）</span>
+              </div>
+              <div class="re-can-item">
+                <span class="rc-emoji">👨‍👩‍👧</span>
+                <span>家庭緊急事件需處理</span>
+              </div>
+              <div class="re-can-item">
+                <span class="rc-emoji">🌪️</span>
+                <span>天災、疫情等不可控因素</span>
+              </div>
             </div>
           </div>
-          <p class="re-tip">
-            💬 球隊會以「關心孩子」的角度與家長個別協調，<br>
-            可能的處理方式：部分退費 / 延期 / 補課等，<br>
-            視實際情況協商。
+
+          <!-- ❌ 不予協助情況 -->
+          <div class="re-cannot">
+            <div class="re-cannot-title">
+              <span class="re-cannot-icon">⚠️</span>
+              <strong>以下情況恕無法協助退費</strong>
+            </div>
+            <div class="re-cannot-list">
+              <div class="re-cannot-item">
+                <span class="rcn-emoji">✈️</span>
+                <span>家庭旅遊、出國行程（請於報名前規劃）</span>
+              </div>
+              <div class="re-cannot-item">
+                <span class="rcn-emoji">😴</span>
+                <span>孩子覺得累、體力不適應</span>
+              </div>
+              <div class="re-cannot-item">
+                <span class="rcn-emoji">📚</span>
+                <span>臨時新增補習、才藝課程</span>
+              </div>
+              <div class="re-cannot-item">
+                <span class="rcn-emoji">🎯</span>
+                <span>個人偏好改變、不想繼續上課</span>
+              </div>
+            </div>
+            <div class="re-cannot-note">
+              💡 請<strong>報名前充分評估</strong>孩子的體力與家庭暑期規劃<br>
+              避免造成球隊師資安排與其他學員的權益損失
+            </div>
+          </div>
+
+          <p class="re-note">
+            🌱 我們相信「<strong>互相體諒</strong>」是雙向的，<br>
+            球隊願意在「<strong>真正需要</strong>」時伸出援手，<br>
+            也請家長理解「<strong>預先規劃</strong>」是對所有人的尊重 🙏
           </p>
         </div>
       </div>
