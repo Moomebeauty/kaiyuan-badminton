@@ -4178,6 +4178,207 @@
     padding: 6px 14px;
     box-shadow: 0 4px 12px rgba(232,184,108,0.4);
   }
+
+  /* ========== 訂金退費規則（緊湊版） ========== */
+  .deposit-refund-compact {
+    margin-top: 14px;
+    padding: 14px 16px;
+    background: linear-gradient(135deg, rgba(214,54,54,0.04) 0%, rgba(232,184,108,0.06) 100%);
+    border-radius: 14px;
+    border: 1.5px dashed rgba(214,54,54,0.3);
+  }
+
+  .drc-title {
+    font-size: 13.5px;
+    color: var(--ink);
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed rgba(214,54,54,0.2);
+    line-height: 1.5;
+  }
+
+  .drc-title strong {
+    color: var(--racket-red-deep);
+    font-weight: 800;
+    font-size: 14px;
+  }
+
+  .drc-subtitle {
+    display: block;
+    margin-top: 2px;
+    font-size: 11.5px;
+    color: rgba(15,27,20,0.6);
+    font-weight: 500;
+  }
+
+  .drc-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .drc-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 12.5px;
+  }
+
+  .drc-row-good {
+    background: rgba(46,139,87,0.08);
+  }
+
+  .drc-row-mid {
+    background: rgba(232,184,108,0.13);
+  }
+
+  .drc-row-bad {
+    background: rgba(214,54,54,0.07);
+  }
+
+  .drc-time {
+    flex: 1;
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .drc-arrow {
+    color: rgba(15,27,20,0.4);
+    font-weight: 300;
+  }
+
+  .drc-result {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .drc-result strong {
+    font-weight: 800;
+    font-size: 13px;
+  }
+
+  .drc-result-good strong { color: var(--court-deep); }
+  .drc-result-good { color: var(--court-deep); }
+
+  .drc-result-mid strong { color: #8a6428; }
+  .drc-result-mid { color: #8a6428; }
+
+  .drc-result-bad strong { color: var(--racket-red-deep); }
+  .drc-result-bad { color: var(--racket-red-deep); }
+
+  .drc-note {
+    background: white;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border-left: 3px solid var(--shuttle-cork);
+    font-size: 11.5px;
+    color: rgba(15,27,20,0.75);
+    line-height: 1.6;
+  }
+
+  .drc-note strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  /* ========== 報名表單規則勾選區 ========== */
+  .form-agreement {
+    margin-top: 18px;
+    padding: 16px;
+    background: linear-gradient(135deg, rgba(214,54,54,0.04) 0%, rgba(232,184,108,0.06) 100%);
+    border-radius: 14px;
+    border: 1.5px solid rgba(214,54,54,0.25);
+  }
+
+  .fa-title {
+    font-size: 14px;
+    color: var(--ink);
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed rgba(214,54,54,0.2);
+    line-height: 1.5;
+  }
+
+  .fa-title strong {
+    font-weight: 800;
+    color: var(--racket-red-deep);
+  }
+
+  .fa-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+    cursor: pointer;
+    border-bottom: 1px dashed rgba(15,27,20,0.08);
+    transition: background 0.2s;
+  }
+
+  .fa-checkbox:last-child {
+    border-bottom: none;
+  }
+
+  .fa-checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .fa-checkmark {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    background: white;
+    border: 2px solid rgba(15,27,20,0.25);
+    border-radius: 6px;
+    transition: all 0.2s;
+    position: relative;
+    margin-top: 2px;
+  }
+
+  .fa-checkbox input[type="checkbox"]:checked + .fa-checkmark {
+    background: var(--court-green);
+    border-color: var(--court-green);
+  }
+
+  .fa-checkbox input[type="checkbox"]:checked + .fa-checkmark::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2.5px 2.5px 0;
+    transform: rotate(45deg);
+  }
+
+  .fa-text {
+    flex: 1;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+
+  .fa-text strong {
+    font-weight: 700;
+  }
+
+  .fa-detail {
+    display: block;
+    margin-top: 4px;
+    font-size: 11.5px;
+    color: rgba(15,27,20,0.65);
+    line-height: 1.7;
+    padding: 8px 10px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 8px;
+    border-left: 3px solid rgba(15,27,20,0.15);
+  }
 </style>
 </head>
 <body>
@@ -5068,57 +5269,31 @@
         </div>
       </div>
 
-      <!-- 🆕 訂金退費規則（針對「報名後但還沒上課」的家長） -->
-      <div class="deposit-refund">
-        <div class="dr-header">
-          <span class="dr-icon">💴</span>
-          <div class="dr-title-group">
-            <div class="dr-title">訂金退費規則</div>
-            <div class="dr-subtitle">針對「報名後尚未開課」的情況</div>
+      <!-- 🆕 訂金退費規則（簡化版 - 緊湊整合在繳費流程裡） -->
+      <div class="deposit-refund-compact">
+        <div class="drc-title">
+          💴 <strong>訂金退費規則</strong>
+          <span class="drc-subtitle">（報名後尚未開課前如需取消）</span>
+        </div>
+        <div class="drc-rows">
+          <div class="drc-row drc-row-good">
+            <span class="drc-time">開課 14 天前</span>
+            <span class="drc-arrow">→</span>
+            <span class="drc-result drc-result-good"><strong>全額退費</strong> NT$1,000</span>
+          </div>
+          <div class="drc-row drc-row-mid">
+            <span class="drc-time">開課 7–14 天前</span>
+            <span class="drc-arrow">→</span>
+            <span class="drc-result drc-result-mid"><strong>退一半</strong> NT$500</span>
+          </div>
+          <div class="drc-row drc-row-bad">
+            <span class="drc-time">開課 7 天內 / 開課後</span>
+            <span class="drc-arrow">→</span>
+            <span class="drc-result drc-result-bad"><strong>不予退費</strong></span>
           </div>
         </div>
-
-        <div class="dr-table">
-          <div class="dr-row dr-row-good">
-            <div class="dr-time">
-              <div class="dr-time-label">開課 14 天前取消</div>
-              <div class="dr-time-sub">最早取消</div>
-            </div>
-            <div class="dr-arrow">→</div>
-            <div class="dr-result dr-result-good">
-              <div class="dr-result-label">全額退費</div>
-              <div class="dr-result-sub">退 NT$1,000</div>
-            </div>
-          </div>
-
-          <div class="dr-row dr-row-mid">
-            <div class="dr-time">
-              <div class="dr-time-label">開課 7–14 天前</div>
-              <div class="dr-time-sub">中間取消</div>
-            </div>
-            <div class="dr-arrow">→</div>
-            <div class="dr-result dr-result-mid">
-              <div class="dr-result-label">退一半</div>
-              <div class="dr-result-sub">退 NT$500</div>
-            </div>
-          </div>
-
-          <div class="dr-row dr-row-bad">
-            <div class="dr-time">
-              <div class="dr-time-label">開課 7 天內</div>
-              <div class="dr-time-sub">最後取消</div>
-            </div>
-            <div class="dr-arrow">→</div>
-            <div class="dr-result dr-result-bad">
-              <div class="dr-result-label">不予退費</div>
-              <div class="dr-result-sub">已預訂教練、保險</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="dr-note">
-          💡 訂金退費僅限「<strong>尚未開課前</strong>」申請；<br>
-          已開課後的退費請參考<strong>「課程退費規則」</strong>區塊
+        <div class="drc-note">
+          💡 已開課後的退費請參考下方<strong>「課程退費規則」</strong>
         </div>
       </div>
 
@@ -5457,6 +5632,48 @@
         <div class="form-group">
           <label class="form-label">特殊狀況或備註</label>
           <textarea class="form-textarea" name="notes" placeholder="例：過敏體質、特殊飲食需求、其他需教練留意事項..."></textarea>
+        </div>
+
+        <!-- 🆕 規則確認勾選區 -->
+        <div class="form-agreement">
+          <div class="fa-title">
+            📋 <strong>送出報名前，請確認以下規則</strong>
+          </div>
+
+          <label class="fa-checkbox">
+            <input type="checkbox" name="agree_deposit" required>
+            <span class="fa-checkmark"></span>
+            <span class="fa-text">
+              我已了解 <strong style="color: var(--racket-red-deep);">訂金退費規則</strong><br>
+              <span class="fa-detail">
+                • 開課 14 天前取消 → 全額退費<br>
+                • 開課 7-14 天前 → 退一半<br>
+                • 開課 7 天內 / 開課後 → 不予退費
+              </span>
+            </span>
+          </label>
+
+          <label class="fa-checkbox">
+            <input type="checkbox" name="agree_course" required>
+            <span class="fa-checkmark"></span>
+            <span class="fa-text">
+              我已了解 <strong style="color: var(--court-deep);">課程退費 & 請假補課規則</strong><br>
+              <span class="fa-detail">
+                • 全梯方案：請假不退費、不安排補課<br>
+                • 單梯方案：請假不退費，可暑假期間內補課<br>
+                • 補課須使用相同時段（半天不可換全天）
+              </span>
+            </span>
+          </label>
+
+          <label class="fa-checkbox">
+            <input type="checkbox" name="agree_payment" required>
+            <span class="fa-checkmark"></span>
+            <span class="fa-text">
+              我同意於 <strong style="color: var(--racket-red-deep);">2026/6/20 報名截止日前</strong>繳交訂金 NT$1,000，<br>
+              並了解 <strong>填表 ≠ 報名成功，繳交訂金才算名額保留成功</strong>
+            </span>
+          </label>
         </div>
 
         <button type="submit" class="form-submit" id="submitBtn">
