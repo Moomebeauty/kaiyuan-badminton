@@ -4379,6 +4379,23 @@
     border-radius: 8px;
     border-left: 3px solid rgba(15,27,20,0.15);
   }
+
+  /* ========== 表單欄位提示框 ========== */
+  .form-hint {
+    margin-top: 8px;
+    padding: 10px 12px;
+    background: rgba(232,184,108,0.12);
+    border-radius: 10px;
+    border-left: 3px solid var(--shuttle-cork);
+    font-size: 12.5px;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  .form-hint strong {
+    font-weight: 700;
+    color: var(--court-deep);
+  }
 </style>
 </head>
 <body>
@@ -5554,14 +5571,18 @@
             <label class="form-label">年級 <span class="required">*</span></label>
             <select class="form-select" name="grade" required>
               <option value="">請選擇</option>
-              <option value="1年級">1 年級</option>
-              <option value="2年級">2 年級</option>
-              <option value="3年級">3 年級</option>
-              <option value="4年級">4 年級</option>
-              <option value="5年級">5 年級</option>
-              <option value="6年級">6 年級</option>
-              <option value="畢業生">畢業生</option>
+              <option value="1年級">即將升 1 年級</option>
+              <option value="2年級">即將升 2 年級</option>
+              <option value="3年級">即將升 3 年級</option>
+              <option value="4年級">即將升 4 年級</option>
+              <option value="5年級">即將升 5 年級</option>
+              <option value="6年級">即將升 6 年級</option>
+              <option value="畢業生">畢業生（升國中）</option>
             </select>
+            <div class="form-hint">
+              💡 請以孩子<strong>新學期年級</strong>為主<br>
+              <span style="color: rgba(15,27,20,0.6); font-size: 11.5px;">例：目前 4 年級、9月升 5 年級 → 請選「即將升 5 年級」</span>
+            </div>
           </div>
         </div>
 
@@ -5745,6 +5766,19 @@
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
+
+    // 取得當下時間戳記（台灣時區）
+    const now = new Date();
+    const timestamp = now.toLocaleString('zh-TW', {
+      timeZone: 'Asia/Taipei',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit'
+    });
+
     const data = {
       studentName: formData.get('studentName'),
       schoolGrade: formData.get('school') + ' ' + formData.get('grade'),
@@ -5755,7 +5789,15 @@
       camp: formData.get('camp'),
       timeSlot: formData.get('timeSlot'),
       lunch: formData.get('lunch'),
-      notes: formData.get('notes') || '無'
+      notes: formData.get('notes') || '無',
+      // 🛡️ 規則勾選紀錄（法律保障用）
+      agreeDeposit: formData.get('agree_deposit') === 'on' ? '✅ 已同意' : '❌ 未同意',
+      agreeCourse: formData.get('agree_course') === 'on' ? '✅ 已同意' : '❌ 未同意',
+      agreePayment: formData.get('agree_payment') === 'on' ? '✅ 已同意' : '❌ 未同意',
+      submitTime: timestamp,
+      // 額外裝置資訊（電子契約輔證）
+      userAgent: navigator.userAgent.substring(0, 200),
+      screenSize: window.screen.width + 'x' + window.screen.height
     };
 
     document.getElementById('formBody').style.display = 'none';
