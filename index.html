@@ -3233,6 +3233,586 @@
     color: var(--ink);
     font-weight: 700;
   }
+
+  /* ========== 梯次解說卡片 ========== */
+  .camp-intro-card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px 18px;
+    margin: 20px auto 28px;
+    border: 2px solid var(--shuttle-cork);
+    box-shadow: 0 12px 28px rgba(232,184,108,0.2);
+    max-width: 600px;
+  }
+
+  .cic-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .cic-icon {
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+
+  .cic-title {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+
+  .cic-content p {
+    font-size: 14.5px;
+    color: var(--ink);
+    line-height: 1.8;
+    margin-bottom: 14px;
+  }
+
+  .cic-content p strong {
+    font-weight: 700;
+  }
+
+  .cic-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 14px 8px;
+    background: var(--bg-warm);
+    border-radius: 14px;
+    margin-bottom: 14px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .cic-block {
+    flex-shrink: 0;
+    background: white;
+    border-radius: 10px;
+    padding: 8px 10px;
+    text-align: center;
+    border: 1.5px solid var(--shuttle-cork);
+    min-width: 56px;
+  }
+
+  .cic-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: var(--court-deep);
+    line-height: 1;
+    font-weight: 700;
+  }
+
+  .cic-text {
+    font-size: 9.5px;
+    color: rgba(15,27,20,0.7);
+    margin-top: 2px;
+    line-height: 1.3;
+    font-weight: 600;
+  }
+
+  .cic-arrow {
+    font-size: 14px;
+    color: var(--court-deep);
+    font-weight: 300;
+    flex-shrink: 0;
+  }
+
+  .cic-note {
+    background: linear-gradient(135deg, rgba(232,184,108,0.18) 0%, rgba(232,184,108,0.08) 100%);
+    padding: 10px 14px !important;
+    border-radius: 12px;
+    border-left: 4px solid var(--shuttle-cork);
+    font-size: 13px !important;
+    margin-bottom: 0 !important;
+    color: var(--ink) !important;
+  }
+
+  /* ========== 方案場景卡片 ========== */
+  .scenario-section {
+    margin: 20px auto 28px;
+    max-width: 720px;
+  }
+
+  .scenario-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    padding: 12px 16px;
+    background: var(--ink);
+    color: white;
+    border-radius: 50px;
+  }
+
+  .ss-icon {
+    font-size: 20px;
+  }
+
+  .ss-title {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .scenario-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .scenario-card {
+    background: white;
+    border-radius: 18px;
+    padding: 18px 16px;
+    border: 1.5px solid var(--line);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+    position: relative;
+  }
+
+  .scenario-card-recommend {
+    border: 2px solid var(--shuttle-cork);
+    background: linear-gradient(135deg, rgba(232,184,108,0.06) 0%, white 100%);
+    box-shadow: 0 12px 28px rgba(232,184,108,0.2);
+  }
+
+  .scenario-card-recommend-silver {
+    border: 2px solid #95a5a6;
+    background: linear-gradient(135deg, rgba(149,165,166,0.05) 0%, white 100%);
+  }
+
+  .sc-tag {
+    display: inline-block;
+    background: rgba(46,139,87,0.12);
+    color: var(--court-deep);
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+  }
+
+  .sc-tag-blue {
+    background: rgba(44,95,175,0.12);
+    color: var(--racket-blue);
+  }
+
+  .sc-tag-silver {
+    background: #95a5a6;
+    color: white;
+  }
+
+  .sc-tag-gold {
+    background: linear-gradient(135deg, var(--shuttle-cork) 0%, #d4a85a 100%);
+    color: var(--ink);
+    font-size: 11.5px;
+    box-shadow: 0 3px 8px rgba(232,184,108,0.3);
+  }
+
+  .sc-emoji {
+    font-size: 40px;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+
+  .sc-title {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .sc-desc {
+    font-size: 13.5px;
+    color: rgba(15,27,20,0.85);
+    line-height: 1.8;
+    margin-bottom: 12px;
+  }
+
+  .sc-desc strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .sc-suitable {
+    background: var(--bg-warm);
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 12.5px;
+    color: rgba(15,27,20,0.75);
+    line-height: 1.5;
+    border-left: 3px solid var(--shuttle-cork);
+  }
+
+  .sc-suitable strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .scenario-tip {
+    background: linear-gradient(135deg, rgba(46,139,87,0.1) 0%, rgba(46,139,87,0.03) 100%);
+    border: 1.5px solid rgba(46,139,87,0.3);
+    border-radius: 14px;
+    padding: 12px 14px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  .scenario-tip strong {
+    color: var(--court-deep);
+    font-weight: 700;
+  }
+
+  /* ========== 課程退費卡片（全梯 vs 單梯） ========== */
+  .course-refund-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+
+  .crc-card {
+    background: white;
+    border-radius: 16px;
+    padding: 18px;
+    border: 1.5px solid var(--line);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+
+  .crc-card-premium {
+    border: 2px solid var(--shuttle-cork);
+    background: linear-gradient(135deg, rgba(232,184,108,0.05) 0%, white 100%);
+  }
+
+  .crc-card-flex {
+    border-left: 4px solid var(--court-green);
+  }
+
+  .crc-header {
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .crc-badge {
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+
+  .crc-badge-gold {
+    background: linear-gradient(135deg, var(--shuttle-cork) 0%, #d4a85a 100%);
+    color: var(--ink);
+  }
+
+  .crc-badge-blue {
+    background: var(--court-green);
+    color: white;
+  }
+
+  .crc-subtitle {
+    font-size: 12px;
+    color: rgba(15,27,20,0.65);
+    font-weight: 500;
+  }
+
+  .crc-rules {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .crc-rule {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: var(--bg-warm);
+    border-radius: 10px;
+  }
+
+  .crc-icon-bad {
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .crc-icon-good {
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .crc-text {
+    flex: 1;
+    font-size: 13.5px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .crc-text strong {
+    font-weight: 700;
+  }
+
+  .crc-note {
+    background: rgba(232,184,108,0.12);
+    padding: 11px 13px;
+    border-radius: 10px;
+    border-left: 3px solid var(--shuttle-cork);
+    font-size: 12.5px;
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  .crc-note-warn {
+    background: rgba(214,54,54,0.06);
+    border-left-color: var(--racket-red);
+  }
+
+  .crc-note strong {
+    font-weight: 700;
+  }
+
+  .crc-note-sub {
+    display: block;
+    margin-top: 4px;
+    font-size: 11.5px;
+    color: var(--racket-red-deep);
+    font-weight: 600;
+  }
+
+  /* ========== 不可抗力例外條款 ========== */
+  .refund-exception {
+    background: linear-gradient(135deg, rgba(46,139,87,0.06) 0%, rgba(46,139,87,0.02) 100%);
+    border: 1.5px solid rgba(46,139,87,0.3);
+    border-radius: 16px;
+    padding: 18px;
+  }
+
+  .re-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed rgba(46,139,87,0.25);
+  }
+
+  .re-icon {
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+
+  .re-title-group { flex: 1; }
+
+  .re-title {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 15.5px;
+    font-weight: 800;
+    color: var(--court-deep);
+    margin-bottom: 2px;
+  }
+
+  .re-subtitle {
+    font-size: 12px;
+    color: rgba(15,27,20,0.65);
+    line-height: 1.4;
+  }
+
+  .re-content p {
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  .re-content p strong {
+    color: var(--court-deep);
+    font-weight: 700;
+  }
+
+  .re-cases {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .re-case {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    background: white;
+    border-radius: 10px;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .re-emoji {
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .re-case strong {
+    color: var(--court-deep);
+    font-weight: 700;
+  }
+
+  .re-tip {
+    background: white;
+    padding: 12px 14px !important;
+    border-radius: 10px;
+    border-left: 4px solid var(--court-green);
+    font-size: 12.5px !important;
+    color: rgba(15,27,20,0.85) !important;
+    line-height: 1.7 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* ========== 訂金退費規則 ========== */
+  .deposit-refund {
+    margin-top: 16px;
+    padding: 16px;
+    background: white;
+    border-radius: 16px;
+    border: 1.5px solid rgba(214,54,54,0.2);
+    box-shadow: 0 4px 12px rgba(214,54,54,0.08);
+  }
+
+  .dr-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .dr-icon {
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+
+  .dr-title-group { flex: 1; }
+
+  .dr-title {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--racket-red-deep);
+    margin-bottom: 2px;
+  }
+
+  .dr-subtitle {
+    font-size: 11.5px;
+    color: rgba(15,27,20,0.6);
+    line-height: 1.4;
+  }
+
+  .dr-table {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .dr-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 12px;
+    border-radius: 10px;
+  }
+
+  .dr-row-good { background: rgba(46,139,87,0.06); }
+  .dr-row-mid { background: rgba(232,184,108,0.1); }
+  .dr-row-bad { background: rgba(214,54,54,0.05); }
+
+  .dr-time-label {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 1px;
+  }
+
+  .dr-time-sub {
+    font-size: 10px;
+    color: rgba(15,27,20,0.55);
+  }
+
+  .dr-arrow {
+    font-size: 16px;
+    color: rgba(15,27,20,0.35);
+  }
+
+  .dr-result {
+    text-align: right;
+    padding: 4px 10px;
+    border-radius: 8px;
+  }
+
+  .dr-result-good {
+    background: rgba(46,139,87,0.15);
+  }
+  .dr-result-mid {
+    background: rgba(232,184,108,0.25);
+  }
+  .dr-result-bad {
+    background: rgba(214,54,54,0.1);
+  }
+
+  .dr-result-label {
+    font-size: 12.5px;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  .dr-result-good .dr-result-label { color: var(--court-deep); }
+  .dr-result-mid .dr-result-label { color: #8a6428; }
+  .dr-result-bad .dr-result-label { color: var(--racket-red-deep); }
+
+  .dr-result-sub {
+    font-size: 10px;
+    margin-top: 1px;
+    opacity: 0.75;
+  }
+
+  .dr-result-good .dr-result-sub { color: var(--court-deep); }
+  .dr-result-mid .dr-result-sub { color: #8a6428; }
+  .dr-result-bad .dr-result-sub { color: var(--racket-red-deep); }
+
+  .dr-note {
+    background: var(--bg-warm);
+    padding: 10px 12px;
+    border-radius: 10px;
+    border-left: 3px solid var(--racket-red);
+    font-size: 11.5px;
+    color: rgba(15,27,20,0.8);
+    line-height: 1.6;
+  }
+
+  .dr-note strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
 </style>
 </head>
 <body>
@@ -3446,9 +4026,121 @@
       <div class="section-tag">SUMMER SCHEDULE</div>
       <h2 class="section-title">暑期<span class="em">四大梯次</span></h2>
       <p class="section-subtitle-bold">
-        每梯次<strong>兩週紮實訓練</strong><br>
-        可選 <strong style="color:var(--court-green)">單梯半天</strong> / <strong style="color:var(--racket-blue)">單梯全天</strong> / <strong style="color:#B8860B">4 梯全包</strong>
+        整個暑假分為 <strong>4 個梯次</strong><br>
+        每個梯次為 <strong>連續 2 週</strong>的密集訓練
       </p>
+    </div>
+
+    <!-- 🆕 梯次解說卡片（給不懂的家長看） -->
+    <div class="camp-intro-card">
+      <div class="cic-header">
+        <span class="cic-icon">💡</span>
+        <span class="cic-title">什麼是「梯次」？</span>
+      </div>
+      <div class="cic-content">
+        <p>
+          整個暑假從 7/6 開始到 8/28 結束，<br>
+          我們把這段時間切成 <strong>4 段</strong>，每段 <strong>2 週</strong>，<br>
+          就是「<strong style="color: var(--court-deep);">4 個梯次</strong>」🏸
+        </p>
+        <div class="cic-visual">
+          <div class="cic-block">
+            <div class="cic-num">1</div>
+            <div class="cic-text">第一梯<br>7/6-7/17</div>
+          </div>
+          <div class="cic-arrow">→</div>
+          <div class="cic-block">
+            <div class="cic-num">2</div>
+            <div class="cic-text">第二梯<br>7/20-7/31</div>
+          </div>
+          <div class="cic-arrow">→</div>
+          <div class="cic-block">
+            <div class="cic-num">3</div>
+            <div class="cic-text">第三梯<br>8/3-8/14</div>
+          </div>
+          <div class="cic-arrow">→</div>
+          <div class="cic-block">
+            <div class="cic-num">4</div>
+            <div class="cic-text">第四梯<br>8/17-8/28</div>
+          </div>
+        </div>
+        <p class="cic-note">
+          ✨ 您可以選 <strong>1 梯</strong>，也可以 <strong>4 梯全包</strong>（最划算）
+        </p>
+      </div>
+    </div>
+
+    <!-- 🆕 方案場景卡片（讓家長有畫面） -->
+    <div class="scenario-section">
+      <div class="scenario-header">
+        <span class="ss-icon">🎯</span>
+        <span class="ss-title">4 種報名方案，總有一款適合您</span>
+      </div>
+
+      <div class="scenario-grid">
+        <!-- 單梯半天 -->
+        <div class="scenario-card">
+          <div class="sc-tag">輕鬆體驗</div>
+          <div class="sc-emoji">🌅</div>
+          <h4 class="sc-title">單梯 · 半天班</h4>
+          <p class="sc-desc">
+            想讓孩子<strong>先試試水溫</strong>嗎？<br>
+            只報 <strong>2 週、半天</strong>，下午還能安排其他活動！
+          </p>
+          <div class="sc-suitable">
+            <strong>適合：</strong>下午有補習 / 才藝 / 旅遊計畫的家庭
+          </div>
+        </div>
+
+        <!-- 單梯全天 -->
+        <div class="scenario-card">
+          <div class="sc-tag sc-tag-blue">完整體驗</div>
+          <div class="sc-emoji">🌞</div>
+          <h4 class="sc-title">單梯 · 全天班</h4>
+          <p class="sc-desc">
+            上班族家長最愛！<br>
+            <strong>2 週整天有人帶</strong>，含中午管理，<br>
+            完全不用擔心孩子去哪裡 🏸
+          </p>
+          <div class="sc-suitable">
+            <strong>適合：</strong>雙薪家庭、需要全天托管的家長
+          </div>
+        </div>
+
+        <!-- 4 梯半天（半日全梯）-->
+        <div class="scenario-card scenario-card-recommend-silver">
+          <div class="sc-tag sc-tag-silver">⭐ 第二推薦</div>
+          <div class="sc-emoji">☀️</div>
+          <h4 class="sc-title">4 梯全包 · 半天班</h4>
+          <p class="sc-desc">
+            <strong>整個暑假上午都來打球</strong>，<br>
+            下午可以補習、休息、玩耍！<br>
+            學球不中斷，<strong>下午自由安排</strong> ✨
+          </p>
+          <div class="sc-suitable">
+            <strong>適合：</strong>低年級孩子、下午有固定活動的家庭
+          </div>
+        </div>
+
+        <!-- 4 梯全天（全梯全日）-->
+        <div class="scenario-card scenario-card-recommend">
+          <div class="sc-tag sc-tag-gold">🏆 最推薦</div>
+          <div class="sc-emoji">🌟</div>
+          <h4 class="sc-title">4 梯全包 · 全天班 · 學到飽</h4>
+          <p class="sc-desc">
+            <strong>整個暑假完全交給我們！</strong><br>
+            🏸 專業學球 · 👫 隊友玩樂 · 📚 也有讀書時間<br>
+            家長零擔心，孩子<strong>進步最快</strong>！
+          </p>
+          <div class="sc-suitable">
+            <strong>適合：</strong>想孩子充實過暑假 / 雙薪家庭最划算
+          </div>
+        </div>
+      </div>
+
+      <div class="scenario-tip">
+        💡 不知道怎麼選？看下方<strong>「報名費用方案」</strong>，每個方案都有清楚標示適合對象！
+      </div>
     </div>
 
     <!-- 上課時段說明卡片（醒目） -->
@@ -3627,12 +4319,52 @@
 
         <div class="plan-features">
           <div class="plan-feature"><span class="ico">✓</span>含 4 梯次完整訓練（共 8 週）</div>
-          <div class="plan-feature"><span class="ico">✓</span>平均一梯只要 NT$2,750</div>
+          <div class="plan-feature"><span class="ico">✓</span>平均一梯只要 NT$2,875</div>
           <div class="plan-feature"><span class="ico">✓</span>優先保留名額，免擔心額滿</div>
                   </div>
 
         <button onclick="openModal()" class="plan-cta plan-cta-gold">
           🏸 立即報名全梯
+        </button>
+      </div>
+
+      <!-- 🆕 半日全梯次主推方案 -->
+      <div class="plan-card plan-half-hero">
+        <div class="plan-ribbon plan-ribbon-silver">🌟 彈性方案 · 第二推薦</div>
+        <div class="plan-header-row">
+          <div class="plan-icon-big">🌅</div>
+          <div class="plan-title-group">
+            <h3 class="plan-title">半日 · 全梯方案</h3>
+            <p class="plan-tagline">適合低年級、下午有補習的孩子</p>
+          </div>
+        </div>
+
+        <div class="plan-price-row">
+          <div class="plan-original">原價 <s>NT$14,000</s></div>
+          <div class="plan-price-big plan-price-silver">
+            <span class="cur">NT$</span><span class="amt">9,500</span>
+          </div>
+          <div class="plan-save-tag plan-save-tag-silver">省 $4,500 元</div>
+        </div>
+
+        <div class="plan-features">
+          <div class="plan-feature"><span class="ico ico-silver">✓</span>含 4 梯次半日訓練（共 8 週）</div>
+          <div class="plan-feature"><span class="ico ico-silver">✓</span>平均一梯只要 NT$2,375</div>
+          <div class="plan-feature"><span class="ico ico-silver">✓</span>適合低年級 / 下午有補習</div>
+        </div>
+
+        <div class="plan-restriction">
+          <div class="pr-title">⚠️ 方案限制（請務必詳閱）</div>
+          <div class="pr-content">
+            • 每梯次限額 <strong>5 名</strong>，額滿為止<br>
+            • 報名時固定時段（早上 OR 下午），不可中途更換<br>
+            • 請假<strong>不退費</strong>、<strong>不安排補課</strong><br>
+            • <strong>不可</strong>使用另一半時段上課
+          </div>
+        </div>
+
+        <button onclick="openModal()" class="plan-cta plan-cta-silver">
+          🌅 申請半日全梯
         </button>
       </div>
 
@@ -3912,6 +4644,60 @@
         </div>
       </div>
 
+      <!-- 🆕 訂金退費規則（針對「報名後但還沒上課」的家長） -->
+      <div class="deposit-refund">
+        <div class="dr-header">
+          <span class="dr-icon">💴</span>
+          <div class="dr-title-group">
+            <div class="dr-title">訂金退費規則</div>
+            <div class="dr-subtitle">針對「報名後尚未開課」的情況</div>
+          </div>
+        </div>
+
+        <div class="dr-table">
+          <div class="dr-row dr-row-good">
+            <div class="dr-time">
+              <div class="dr-time-label">開課 14 天前取消</div>
+              <div class="dr-time-sub">最早取消</div>
+            </div>
+            <div class="dr-arrow">→</div>
+            <div class="dr-result dr-result-good">
+              <div class="dr-result-label">全額退費</div>
+              <div class="dr-result-sub">退 NT$1,000</div>
+            </div>
+          </div>
+
+          <div class="dr-row dr-row-mid">
+            <div class="dr-time">
+              <div class="dr-time-label">開課 7–14 天前</div>
+              <div class="dr-time-sub">中間取消</div>
+            </div>
+            <div class="dr-arrow">→</div>
+            <div class="dr-result dr-result-mid">
+              <div class="dr-result-label">退一半</div>
+              <div class="dr-result-sub">退 NT$500</div>
+            </div>
+          </div>
+
+          <div class="dr-row dr-row-bad">
+            <div class="dr-time">
+              <div class="dr-time-label">開課 7 天內</div>
+              <div class="dr-time-sub">最後取消</div>
+            </div>
+            <div class="dr-arrow">→</div>
+            <div class="dr-result dr-result-bad">
+              <div class="dr-result-label">不予退費</div>
+              <div class="dr-result-sub">已預訂教練、保險</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dr-note">
+          💡 訂金退費僅限「<strong>尚未開課前</strong>」申請；<br>
+          已開課後的退費請參考<strong>「課程退費規則」</strong>區塊
+        </div>
+      </div>
+
       <!-- LINE 群組連結 -->
       <a href="https://line.me/ti/g/8xCPL-yz9M" target="_blank" class="line-group-btn">
         <div class="line-icon">💬</div>
@@ -3923,98 +4709,97 @@
       </a>
     </div>
 
-    <!-- ===== 群組 2：退費規則 ===== -->
+    <!-- ===== 群組 2：課程退費規則（已繳清尾款後） ===== -->
     <div class="notice-group notice-group-refund">
       <div class="notice-group-title">
         <span class="ng-icon">🔄</span>
         <div class="ng-text">
-          <h3>退費規則</h3>
-          <p>取消時間越早，退費比例越高</p>
+          <h3>課程退費規則</h3>
+          <p>已繳清尾款後，因故無法上課的退費規定</p>
         </div>
       </div>
 
-      <div class="refund-table">
-        <div class="refund-row refund-row-full">
-          <div class="refund-time">
-            <div class="rt-label">開課 14 天前</div>
-            <div class="rt-sub">最早取消</div>
+      <!-- 不同方案的退費規則卡片 -->
+      <div class="course-refund-cards">
+
+        <!-- 全梯方案 -->
+        <div class="crc-card crc-card-premium">
+          <div class="crc-header">
+            <div class="crc-badge crc-badge-gold">🏆 全梯方案</div>
+            <div class="crc-subtitle">最優惠價格 · 已折扣至極致</div>
           </div>
-          <div class="refund-arrow">→</div>
-          <div class="refund-result refund-good">
-            <div class="rr-label">全額退費</div>
-            <div class="rr-sub">100%</div>
+          <div class="crc-rules">
+            <div class="crc-rule">
+              <span class="crc-icon-bad">❌</span>
+              <div class="crc-text"><strong>請假不退費</strong></div>
+            </div>
+            <div class="crc-rule">
+              <span class="crc-icon-bad">❌</span>
+              <div class="crc-text"><strong>不安排補課</strong></div>
+            </div>
+          </div>
+          <div class="crc-note">
+            💡 全梯方案享有最大優惠（省 $4,500-9,000），<br>
+            已是市場最低價，故無法再提供退費或補課
           </div>
         </div>
 
-        <div class="refund-row refund-row-half">
-          <div class="refund-time">
-            <div class="rt-label">開課 7–14 天前</div>
-            <div class="rt-sub">中間取消</div>
+        <!-- 單梯方案 -->
+        <div class="crc-card crc-card-flex">
+          <div class="crc-header">
+            <div class="crc-badge crc-badge-blue">📅 單梯方案</div>
+            <div class="crc-subtitle">標準費率 · 享有補課彈性</div>
           </div>
-          <div class="refund-arrow">→</div>
-          <div class="refund-result refund-mid">
-            <div class="rr-label">退一半</div>
-            <div class="rr-sub">50%</div>
+          <div class="crc-rules">
+            <div class="crc-rule">
+              <span class="crc-icon-bad">❌</span>
+              <div class="crc-text"><strong>請假不退費</strong></div>
+            </div>
+            <div class="crc-rule">
+              <span class="crc-icon-good">✅</span>
+              <div class="crc-text"><strong>可安排補課</strong>（暑假期間內補完）</div>
+            </div>
+          </div>
+          <div class="crc-note crc-note-warn">
+            ⚠️ <strong>重要：</strong>補課須使用<strong>相同時段</strong><br>
+            ・報名半天班 → 只能在半天班時段補課<br>
+            ・報名全天班 → 只能在全天班時段補課<br>
+            <span class="crc-note-sub">不可將「半天班 1 堂」換成「全天班 1 堂」</span>
           </div>
         </div>
 
-        <div class="refund-row refund-row-no">
-          <div class="refund-time">
-            <div class="rt-label">開課 7 天內</div>
-            <div class="rt-sub">最後取消</div>
-          </div>
-          <div class="refund-arrow">→</div>
-          <div class="refund-result refund-bad">
-            <div class="rr-label">不予退費</div>
-            <div class="rr-sub">0%</div>
-          </div>
-        </div>
-
-        <div class="refund-row refund-row-no">
-          <div class="refund-time">
-            <div class="rt-label">開課後</div>
-            <div class="rt-sub">課程已開始</div>
-          </div>
-          <div class="refund-arrow">→</div>
-          <div class="refund-result refund-bad">
-            <div class="rr-label">不予退費</div>
-            <div class="rr-sub">0%</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ===== 群組 3：請假與補課 ===== -->
-    <div class="notice-group notice-group-leave">
-      <div class="notice-group-title">
-        <span class="ng-icon">📅</span>
-        <div class="ng-text">
-          <h3>請假與補課規則</h3>
-          <p>不同方案請假規則不同，請特別注意</p>
-        </div>
       </div>
 
-      <div class="leave-rules">
-        <div class="leave-rule leave-rule-full">
-          <div class="lr-badge">全梯方案</div>
-          <div class="lr-content">
-            <div class="lr-rule rule-no">❌ 請假不退費</div>
-            <div class="lr-rule rule-no">❌ 不安排補課</div>
-          </div>
-          <div class="lr-note">
-            因為全梯為最優惠方案，已折扣到極致，故無法再提供補課
+      <!-- 不可抗力例外條款 -->
+      <div class="refund-exception">
+        <div class="re-header">
+          <span class="re-icon">💝</span>
+          <div class="re-title-group">
+            <div class="re-title">不可抗力例外條款</div>
+            <div class="re-subtitle">遇到特殊情況我們會彈性處理</div>
           </div>
         </div>
-
-        <div class="leave-rule leave-rule-single">
-          <div class="lr-badge lr-badge-single">單梯方案</div>
-          <div class="lr-content">
-            <div class="lr-rule rule-no">❌ 請假不退費</div>
-            <div class="lr-rule rule-yes">✅ 可安排補課</div>
+        <div class="re-content">
+          <p>若家庭遇到以下狀況，<strong>請主動聯繫球隊</strong>說明，我們會視個案彈性處理：</p>
+          <div class="re-cases">
+            <div class="re-case">
+              <span class="re-emoji">🏥</span>
+              <div>學員<strong>重大傷病</strong>（需醫師證明）</div>
+            </div>
+            <div class="re-case">
+              <span class="re-emoji">👨‍👩‍👧</span>
+              <div>家庭<strong>重大事故</strong>或變故</div>
+            </div>
+            <div class="re-case">
+              <span class="re-emoji">🌪️</span>
+              <div><strong>不可抗力</strong>因素（天災、疫情等）</div>
+            </div>
           </div>
-          <div class="lr-note">
-            請假部分將於<strong>暑假期間內</strong>補課完畢
-          </div>
+          <p class="re-tip">
+            💬 球隊會以「關心孩子」的角度與家長個別協調，<br>
+            可能的處理方式：部分退費 / 延期 / 補課等，<br>
+            視實際情況協商。
+          </p>
         </div>
       </div>
     </div>
