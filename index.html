@@ -3813,6 +3813,107 @@
     color: var(--ink);
     font-weight: 700;
   }
+
+  /* ========== 梯次關鍵資訊（合併版） ========== */
+  .camp-key-info {
+    background: white;
+    border-radius: 20px;
+    padding: 20px 18px;
+    margin: 18px auto 0;
+    max-width: 540px;
+    border: 2px solid var(--shuttle-cork);
+    box-shadow: 0 10px 24px rgba(232,184,108,0.18);
+  }
+
+  .cki-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 8px;
+  }
+
+  .cki-row:not(:last-child):not(.cki-tip) {
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .cki-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-warm);
+    border-radius: 14px;
+  }
+
+  .cki-text {
+    flex: 1;
+    font-size: 15.5px;
+    color: var(--ink);
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: left;
+  }
+
+  .cki-highlight {
+    display: inline-block;
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--court-deep);
+    background: linear-gradient(120deg, transparent 0%, transparent 30%, rgba(232,184,108,0.4) 30%, rgba(232,184,108,0.4) 95%, transparent 95%);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding: 0 6px;
+    margin: 0 3px;
+    line-height: 1.2;
+  }
+
+  .cki-tip {
+    margin-top: 12px;
+    padding: 12px 14px;
+    background: linear-gradient(135deg, rgba(232,184,108,0.15) 0%, rgba(232,184,108,0.05) 100%);
+    border-radius: 12px;
+    border-left: 4px solid var(--shuttle-cork);
+    font-size: 13.5px;
+    color: var(--ink);
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  .cki-tip strong {
+    color: var(--court-deep);
+    font-weight: 800;
+  }
+
+  /* ========== 全梯半天班卡片（簡化版） ========== */
+  .plan-halfday-allcamp {
+    border: 1.5px solid #95a5a6 !important;
+    background: linear-gradient(135deg, rgba(149,165,166,0.04) 0%, white 100%) !important;
+  }
+
+  .plan-halfday-allcamp .plan-price-side .amt-mid {
+    color: #6b7c7d !important;
+  }
+
+  .plan-tag.tag-save {
+    background: var(--racket-red) !important;
+    color: white !important;
+    font-weight: 700;
+    box-shadow: 0 2px 6px rgba(214,54,54,0.25);
+  }
+
+  .plan-cta-silver {
+    background: linear-gradient(135deg, #95a5a6 0%, #7a8a8b 100%) !important;
+    color: white !important;
+  }
+
+  .plan-cta-silver:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
 </style>
 </head>
 <body>
@@ -4025,48 +4126,22 @@
     <div class="section-header">
       <div class="section-tag">SUMMER SCHEDULE</div>
       <h2 class="section-title">暑期<span class="em">四大梯次</span></h2>
-      <p class="section-subtitle-bold">
-        整個暑假分為 <strong>4 個梯次</strong><br>
-        每個梯次為 <strong>連續 2 週</strong>的密集訓練
-      </p>
-    </div>
-
-    <!-- 🆕 梯次解說卡片（給不懂的家長看） -->
-    <div class="camp-intro-card">
-      <div class="cic-header">
-        <span class="cic-icon">💡</span>
-        <span class="cic-title">什麼是「梯次」？</span>
-      </div>
-      <div class="cic-content">
-        <p>
-          整個暑假從 7/6 開始到 8/28 結束，<br>
-          我們把這段時間切成 <strong>4 段</strong>，每段 <strong>2 週</strong>，<br>
-          就是「<strong style="color: var(--court-deep);">4 個梯次</strong>」🏸
-        </p>
-        <div class="cic-visual">
-          <div class="cic-block">
-            <div class="cic-num">1</div>
-            <div class="cic-text">第一梯<br>7/6-7/17</div>
-          </div>
-          <div class="cic-arrow">→</div>
-          <div class="cic-block">
-            <div class="cic-num">2</div>
-            <div class="cic-text">第二梯<br>7/20-7/31</div>
-          </div>
-          <div class="cic-arrow">→</div>
-          <div class="cic-block">
-            <div class="cic-num">3</div>
-            <div class="cic-text">第三梯<br>8/3-8/14</div>
-          </div>
-          <div class="cic-arrow">→</div>
-          <div class="cic-block">
-            <div class="cic-num">4</div>
-            <div class="cic-text">第四梯<br>8/17-8/28</div>
+      <div class="camp-key-info">
+        <div class="cki-row">
+          <div class="cki-icon">📅</div>
+          <div class="cki-text">
+            整個暑假分為 <span class="cki-highlight">4 個梯次</span>
           </div>
         </div>
-        <p class="cic-note">
+        <div class="cki-row">
+          <div class="cki-icon">⏰</div>
+          <div class="cki-text">
+            每個梯次為 <span class="cki-highlight">連續 2 週</span>密集訓練
+          </div>
+        </div>
+        <div class="cki-tip">
           ✨ 您可以選 <strong>1 梯</strong>，也可以 <strong>4 梯全包</strong>（最划算）
-        </p>
+        </div>
       </div>
     </div>
 
@@ -4085,10 +4160,11 @@
           <h4 class="sc-title">單梯 · 半天班</h4>
           <p class="sc-desc">
             想讓孩子<strong>先試試水溫</strong>嗎？<br>
-            只報 <strong>2 週、半天</strong>，下午還能安排其他活動！
+            只報 <strong>2 週、半天</strong><br>
+            可選上午或下午班 ✨
           </p>
           <div class="sc-suitable">
-            <strong>適合：</strong>下午有補習 / 才藝 / 旅遊計畫的家庭
+            <strong>適合：</strong>第一次參加 / 想體驗看看的家庭
           </div>
         </div>
 
@@ -4108,17 +4184,18 @@
         </div>
 
         <!-- 4 梯半天（半日全梯）-->
-        <div class="scenario-card scenario-card-recommend-silver">
-          <div class="sc-tag sc-tag-silver">⭐ 第二推薦</div>
+        <div class="scenario-card">
+          <div class="sc-tag sc-tag-silver">划算彈性</div>
           <div class="sc-emoji">☀️</div>
           <h4 class="sc-title">4 梯全包 · 半天班</h4>
           <p class="sc-desc">
-            <strong>整個暑假上午都來打球</strong>，<br>
-            下午可以補習、休息、玩耍！<br>
-            學球不中斷，<strong>下午自由安排</strong> ✨
+            <strong>整個暑假打球不中斷</strong>！<br>
+            可選 <strong>上午班</strong>（08:30-11:30）<br>
+            或 <strong>下午班</strong>（14:00-17:00）<br>
+            另一半時間自由安排 ✨
           </p>
           <div class="sc-suitable">
-            <strong>適合：</strong>低年級孩子、下午有固定活動的家庭
+            <strong>適合：</strong>低年級孩子、有補習或才藝課的家庭
           </div>
         </div>
 
@@ -4214,7 +4291,7 @@
     <!-- 四大梯次卡片（更新日期）-->
     <div class="camp-section-title">
       <span class="csl-line"></span>
-      <span class="csl-text">📅 四大梯次日期</span>
+      <span class="csl-text">🗓️ 四大梯次時間表</span>
       <span class="csl-line"></span>
     </div>
 
@@ -4328,43 +4405,25 @@
         </button>
       </div>
 
-      <!-- 🆕 半日全梯次主推方案 -->
-      <div class="plan-card plan-half-hero">
-        <div class="plan-ribbon plan-ribbon-silver">🌟 彈性方案 · 第二推薦</div>
+      <!-- 半日全梯方案（簡化版 - 與單梯方案同樣呈現） -->
+      <div class="plan-card plan-halfday-allcamp">
         <div class="plan-header-row">
-          <div class="plan-icon-big">🌅</div>
+          <div class="plan-icon-mid">🌅</div>
           <div class="plan-title-group">
-            <h3 class="plan-title">半日 · 全梯方案</h3>
-            <p class="plan-tagline">適合低年級、下午有補習的孩子</p>
+            <h3 class="plan-title-mid">全梯 · 半天班</h3>
+            <p class="plan-tagline-mid">4 梯次半天 · 上午或下午</p>
+          </div>
+          <div class="plan-price-side">
+            <span class="cur">NT$</span><span class="amt-mid">9,500</span>
           </div>
         </div>
-
-        <div class="plan-price-row">
-          <div class="plan-original">原價 <s>NT$14,000</s></div>
-          <div class="plan-price-big plan-price-silver">
-            <span class="cur">NT$</span><span class="amt">9,500</span>
-          </div>
-          <div class="plan-save-tag plan-save-tag-silver">省 $4,500 元</div>
+        <div class="plan-tags">
+          <span class="plan-tag tag-time">☀️ 08:30–11:30</span>
+          <span class="plan-tag tag-time">🌤️ 14:00–17:00</span>
+          <span class="plan-tag tag-save">省 $4,500</span>
         </div>
-
-        <div class="plan-features">
-          <div class="plan-feature"><span class="ico ico-silver">✓</span>含 4 梯次半日訓練（共 8 週）</div>
-          <div class="plan-feature"><span class="ico ico-silver">✓</span>平均一梯只要 NT$2,375</div>
-          <div class="plan-feature"><span class="ico ico-silver">✓</span>適合低年級 / 下午有補習</div>
-        </div>
-
-        <div class="plan-restriction">
-          <div class="pr-title">⚠️ 方案限制（請務必詳閱）</div>
-          <div class="pr-content">
-            • 每梯次限額 <strong>5 名</strong>，額滿為止<br>
-            • 報名時固定時段（早上 OR 下午），不可中途更換<br>
-            • 請假<strong>不退費</strong>、<strong>不安排補課</strong><br>
-            • <strong>不可</strong>使用另一半時段上課
-          </div>
-        </div>
-
         <button onclick="openModal()" class="plan-cta plan-cta-silver">
-          🌅 申請半日全梯
+          報名全梯半天班
         </button>
       </div>
 
@@ -4450,21 +4509,31 @@
         </button>
       </div>
 
+      <!-- 在校生 - 半日全梯方案（簡化版） -->
+      <div class="plan-card plan-halfday-allcamp">
+        <div class="plan-header-row">
+          <div class="plan-icon-mid">🌅</div>
+          <div class="plan-title-group">
+            <h3 class="plan-title-mid">全梯 · 半天班</h3>
+            <p class="plan-tagline-mid">4 梯次半天 · 上午或下午</p>
+          </div>
+          <div class="plan-price-side">
+            <span class="cur">NT$</span><span class="amt-mid">12,000</span>
+          </div>
+        </div>
+        <div class="plan-tags">
+          <span class="plan-tag tag-time">☀️ 08:30–11:30</span>
+          <span class="plan-tag tag-time">🌤️ 14:00–17:00</span>
+          <span class="plan-tag tag-save">省 $6,000</span>
+        </div>
+        <button onclick="openModal()" class="plan-cta plan-cta-silver">
+          報名全梯半天班
+        </button>
+      </div>
+
       <div class="plan-divider">
         <span>單梯報名也可以</span>
       </div>
-
-      <div class="plan-card plan-fullday">
-        <div class="plan-header-row">
-          <div class="plan-icon-mid">🌤️</div>
-          <div class="plan-title-group">
-            <h3 class="plan-title-mid">單梯 · 全天班</h3>
-            <p class="plan-tagline-mid">兩週訓練 · 含中午管理</p>
-          </div>
-          <div class="plan-price-side">
-            <span class="cur">NT$</span><span class="amt-mid">5,800</span>
-          </div>
-        </div>
         <div class="plan-tags">
           <span class="plan-tag tag-time">⏰ 08:30–17:00</span>
           <span class="plan-tag tag-lunch">👨‍🏫 教練全程陪同</span>
@@ -4526,6 +4595,28 @@
 
         <button onclick="openModal()" class="plan-cta plan-cta-gold">
           🏸 立即報名全梯
+        </button>
+      </div>
+
+      <!-- 校外生 - 半日全梯方案（簡化版） -->
+      <div class="plan-card plan-halfday-allcamp">
+        <div class="plan-header-row">
+          <div class="plan-icon-mid">🌅</div>
+          <div class="plan-title-group">
+            <h3 class="plan-title-mid">全梯 · 半天班</h3>
+            <p class="plan-tagline-mid">4 梯次半天 · 上午或下午</p>
+          </div>
+          <div class="plan-price-side">
+            <span class="cur">NT$</span><span class="amt-mid">13,500</span>
+          </div>
+        </div>
+        <div class="plan-tags">
+          <span class="plan-tag tag-time">☀️ 08:30–11:30</span>
+          <span class="plan-tag tag-time">🌤️ 14:00–17:00</span>
+          <span class="plan-tag tag-save">省 $6,500</span>
+        </div>
+        <button onclick="openModal()" class="plan-cta plan-cta-silver">
+          報名全梯半天班
         </button>
       </div>
 
