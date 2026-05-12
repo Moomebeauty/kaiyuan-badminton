@@ -3914,6 +3914,270 @@
     transform: translateY(2px);
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   }
+
+  /* ========== 時段選擇卡（STEP 1） ========== */
+  .time-choice-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 600px;
+    margin: 20px auto 0;
+  }
+
+  .tcc-card {
+    background: white;
+    border-radius: 20px;
+    padding: 18px;
+    border: 2px solid var(--line);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    transition: all 0.3s;
+  }
+
+  .tcc-half {
+    border-color: rgba(46,139,87,0.3);
+    background: linear-gradient(135deg, rgba(46,139,87,0.03) 0%, white 100%);
+  }
+
+  .tcc-full {
+    border-color: rgba(44,95,175,0.35);
+    background: linear-gradient(135deg, rgba(44,95,175,0.04) 0%, white 100%);
+  }
+
+  .tcc-header {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .tcc-icon-big {
+    font-size: 44px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .tcc-title-group { flex: 1; }
+
+  .tcc-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+
+  .tcc-tag-green {
+    background: rgba(46,139,87,0.12);
+    color: var(--court-deep);
+  }
+
+  .tcc-tag-blue {
+    background: rgba(44,95,175,0.12);
+    color: var(--racket-blue);
+  }
+
+  .tcc-title {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+
+  .tcc-subtitle {
+    font-size: 13px;
+    color: rgba(15,27,20,0.7);
+    line-height: 1.5;
+  }
+
+  .tcc-times {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .tcc-time-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: var(--bg-warm);
+    border-radius: 12px;
+  }
+
+  .tcc-time-row-highlight {
+    background: linear-gradient(135deg, rgba(232,184,108,0.15) 0%, rgba(232,184,108,0.05) 100%);
+    border: 1px solid rgba(232,184,108,0.4);
+  }
+
+  .tcc-time-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .tcc-time-info { flex: 1; }
+
+  .tcc-time-label {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .tcc-time-hours {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: var(--court-deep);
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  .tcc-full .tcc-time-hours { color: var(--racket-blue); }
+
+  .tcc-note {
+    padding: 10px 14px;
+    background: rgba(46,139,87,0.06);
+    border-radius: 10px;
+    border-left: 3px solid var(--court-green);
+    font-size: 12.5px;
+    color: rgba(15,27,20,0.8);
+    line-height: 1.6;
+  }
+
+  .tcc-note-blue {
+    background: rgba(44,95,175,0.05);
+    border-left-color: var(--racket-blue);
+  }
+
+  /* ========== 分隔線（STEP 之間） ========== */
+  .step-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    max-width: 480px;
+    margin: 36px auto;
+  }
+
+  .sd-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--shuttle-cork) 50%, transparent 100%);
+  }
+
+  .sd-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--shuttle-cork);
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 800;
+    box-shadow: 0 4px 12px rgba(232,184,108,0.35);
+    animation: arrowBounce 2s ease-in-out infinite;
+  }
+
+  @keyframes arrowBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(4px); }
+  }
+
+  /* ========== 全梯方案的心理暗示 ========== */
+  .scenario-card-allcamp-half {
+    border: 2px solid #95a5a6 !important;
+    background: linear-gradient(135deg, rgba(149,165,166,0.04) 0%, white 100%) !important;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scenario-card-allcamp-half::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #95a5a6 0%, #7a8a8b 100%);
+  }
+
+  .scenario-card-allcamp-full {
+    border: 3px solid var(--shuttle-cork) !important;
+    background: linear-gradient(135deg, rgba(232,184,108,0.08) 0%, white 60%, rgba(232,184,108,0.06) 100%) !important;
+    box-shadow: 0 14px 32px rgba(232,184,108,0.25) !important;
+    position: relative;
+    overflow: hidden;
+    transform: scale(1.02);
+  }
+
+  .scenario-card-allcamp-full::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -30%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(232,184,108,0.3) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .scenario-card-allcamp-full::after {
+    content: '✨';
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 20px;
+    animation: sparkle 1.5s ease-in-out infinite;
+  }
+
+  @keyframes sparkle {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+
+  /* 省錢提示徽章 */
+  .sc-discount-hint {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: linear-gradient(135deg, rgba(214,54,54,0.08) 0%, rgba(232,184,108,0.12) 100%);
+    border-radius: 12px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--racket-red-deep);
+    border: 1px dashed rgba(214,54,54,0.3);
+  }
+
+  .sc-discount-hint-gold {
+    background: linear-gradient(135deg, var(--shuttle-cork) 0%, #d4a85a 100%);
+    color: var(--ink);
+    border: 2px solid #b8923a;
+    font-size: 14px;
+    font-weight: 800;
+    box-shadow: 0 4px 12px rgba(232,184,108,0.4);
+    animation: goldPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes goldPulse {
+    0%, 100% { box-shadow: 0 4px 12px rgba(232,184,108,0.4); }
+    50% { box-shadow: 0 6px 20px rgba(232,184,108,0.6); }
+  }
+
+  /* 加大「最推薦」徽章 */
+  .scenario-card-allcamp-full .sc-tag-gold {
+    font-size: 12.5px;
+    padding: 6px 14px;
+    box-shadow: 0 4px 12px rgba(232,184,108,0.4);
+  }
 </style>
 </head>
 <body>
@@ -4123,9 +4387,118 @@
 
 <section id="camps">
   <div class="container">
+
+    <!-- ========== STEP 1：上課時段選擇 ========== -->
     <div class="section-header">
-      <div class="section-tag">SUMMER SCHEDULE</div>
-      <h2 class="section-title">暑期<span class="em">四大梯次</span></h2>
+      <div class="section-tag">STEP 1 · TIME</div>
+      <h2 class="section-title">先選<span class="em">上課時段</span></h2>
+      <p class="section-subtitle-bold">
+        每天有 <strong>2 種時段</strong>可選<br>
+        依孩子作息與家長接送時間自由選擇
+      </p>
+    </div>
+
+    <!-- 時段選擇卡（半天 vs 全天） -->
+    <div class="time-choice-cards">
+
+      <!-- 半天班（含上午/下午） -->
+      <div class="tcc-card tcc-half">
+        <div class="tcc-header">
+          <div class="tcc-icon-big">☀️</div>
+          <div class="tcc-title-group">
+            <div class="tcc-tag tcc-tag-green">輕量訓練</div>
+            <h3 class="tcc-title">半天班</h3>
+            <p class="tcc-subtitle">每天 3 小時 · 上午或下午擇一</p>
+          </div>
+        </div>
+        <div class="tcc-times">
+          <div class="tcc-time-row">
+            <div class="tcc-time-icon">☀️</div>
+            <div class="tcc-time-info">
+              <div class="tcc-time-label">上午班</div>
+              <div class="tcc-time-hours">08:30 – 11:30</div>
+            </div>
+          </div>
+          <div class="tcc-time-row">
+            <div class="tcc-time-icon">🌤️</div>
+            <div class="tcc-time-info">
+              <div class="tcc-time-label">下午班</div>
+              <div class="tcc-time-hours">14:00 – 17:00</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcc-note">
+          💡 適合下午有補習、才藝課，或低年級的孩子
+        </div>
+      </div>
+
+      <!-- 全天班 -->
+      <div class="tcc-card tcc-full">
+        <div class="tcc-header">
+          <div class="tcc-icon-big">🌞</div>
+          <div class="tcc-title-group">
+            <div class="tcc-tag tcc-tag-blue">完整托管</div>
+            <h3 class="tcc-title">全天班</h3>
+            <p class="tcc-subtitle">每天 8.5 小時 · 教練全程陪同</p>
+          </div>
+        </div>
+        <div class="tcc-times">
+          <div class="tcc-time-row tcc-time-row-highlight">
+            <div class="tcc-time-icon">🌞</div>
+            <div class="tcc-time-info">
+              <div class="tcc-time-label">全天課程</div>
+              <div class="tcc-time-hours">08:30 – 17:00</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcc-note tcc-note-blue">
+          💡 適合雙薪家庭、需要全天托管的家長
+        </div>
+      </div>
+    </div>
+
+    <!-- 全天班中午時段詳細說明（保留） -->
+    <div class="fullday-detail">
+      <div class="fd-title">
+        <span class="fd-icon">🌞</span>
+        <span>全天班中午時段安排</span>
+      </div>
+      <div class="fd-items">
+        <div class="fd-item">
+          <span class="fd-emoji">👨‍🏫</span>
+          <div class="fd-text">
+            <strong>11:30–14:00 教練全程陪同</strong>
+            <p>專業教練負責管理孩子用餐、午休及活動，家長安心放心</p>
+          </div>
+        </div>
+        <div class="fd-item">
+          <span class="fd-emoji">🍱</span>
+          <div class="fd-text">
+            <strong>午餐方案任選</strong>
+            <p>可向球隊一起加購訂餐<span class="fd-tag">費用另計</span>，或孩子自備午餐皆可</p>
+          </div>
+        </div>
+        <div class="fd-item">
+          <span class="fd-emoji">😴</span>
+          <div class="fd-text">
+            <strong>活動中心午休</strong>
+            <p>飯後可於活動中心休息恢復體力，<span class="fd-highlight">請自備午睡用品</span>（小毯子、墊子）</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 分隔線 -->
+    <div class="step-divider">
+      <span class="sd-line"></span>
+      <span class="sd-icon">↓</span>
+      <span class="sd-line"></span>
+    </div>
+
+    <!-- ========== STEP 2：梯次解說 ========== -->
+    <div class="section-header">
+      <div class="section-tag">STEP 2 · SCHEDULE</div>
+      <h2 class="section-title">再選<span class="em">幾個梯次</span></h2>
       <div class="camp-key-info">
         <div class="cki-row">
           <div class="cki-icon">📅</div>
@@ -4140,155 +4513,12 @@
           </div>
         </div>
         <div class="cki-tip">
-          ✨ 您可以選 <strong>1 梯</strong>，也可以 <strong>4 梯全包</strong>（最划算）
+          ✨ 您可以選 <strong>1 個梯次</strong>，也可以 <strong>整個暑假都來</strong>（更划算）
         </div>
       </div>
     </div>
 
-    <!-- 🆕 方案場景卡片（讓家長有畫面） -->
-    <div class="scenario-section">
-      <div class="scenario-header">
-        <span class="ss-icon">🎯</span>
-        <span class="ss-title">4 種報名方案，總有一款適合您</span>
-      </div>
-
-      <div class="scenario-grid">
-        <!-- 單梯半天 -->
-        <div class="scenario-card">
-          <div class="sc-tag">輕鬆體驗</div>
-          <div class="sc-emoji">🌅</div>
-          <h4 class="sc-title">單梯 · 半天班</h4>
-          <p class="sc-desc">
-            想讓孩子<strong>先試試水溫</strong>嗎？<br>
-            只報 <strong>2 週、半天</strong><br>
-            可選上午或下午班 ✨
-          </p>
-          <div class="sc-suitable">
-            <strong>適合：</strong>第一次參加 / 想體驗看看的家庭
-          </div>
-        </div>
-
-        <!-- 單梯全天 -->
-        <div class="scenario-card">
-          <div class="sc-tag sc-tag-blue">完整體驗</div>
-          <div class="sc-emoji">🌞</div>
-          <h4 class="sc-title">單梯 · 全天班</h4>
-          <p class="sc-desc">
-            上班族家長最愛！<br>
-            <strong>2 週整天有人帶</strong>，含中午管理，<br>
-            完全不用擔心孩子去哪裡 🏸
-          </p>
-          <div class="sc-suitable">
-            <strong>適合：</strong>雙薪家庭、需要全天托管的家長
-          </div>
-        </div>
-
-        <!-- 4 梯半天（半日全梯）-->
-        <div class="scenario-card">
-          <div class="sc-tag sc-tag-silver">划算彈性</div>
-          <div class="sc-emoji">☀️</div>
-          <h4 class="sc-title">4 梯全包 · 半天班</h4>
-          <p class="sc-desc">
-            <strong>整個暑假打球不中斷</strong>！<br>
-            可選 <strong>上午班</strong>（08:30-11:30）<br>
-            或 <strong>下午班</strong>（14:00-17:00）<br>
-            另一半時間自由安排 ✨
-          </p>
-          <div class="sc-suitable">
-            <strong>適合：</strong>低年級孩子、有補習或才藝課的家庭
-          </div>
-        </div>
-
-        <!-- 4 梯全天（全梯全日）-->
-        <div class="scenario-card scenario-card-recommend">
-          <div class="sc-tag sc-tag-gold">🏆 最推薦</div>
-          <div class="sc-emoji">🌟</div>
-          <h4 class="sc-title">4 梯全包 · 全天班 · 學到飽</h4>
-          <p class="sc-desc">
-            <strong>整個暑假完全交給我們！</strong><br>
-            🏸 專業學球 · 👫 隊友玩樂 · 📚 也有讀書時間<br>
-            家長零擔心，孩子<strong>進步最快</strong>！
-          </p>
-          <div class="sc-suitable">
-            <strong>適合：</strong>想孩子充實過暑假 / 雙薪家庭最划算
-          </div>
-        </div>
-      </div>
-
-      <div class="scenario-tip">
-        💡 不知道怎麼選？看下方<strong>「報名費用方案」</strong>，每個方案都有清楚標示適合對象！
-      </div>
-    </div>
-
-    <!-- 上課時段說明卡片（醒目） -->
-    <div class="time-explain-card">
-      <div class="time-explain-title">
-        <span class="te-icon">⏰</span>
-        <div>
-          <div class="te-main">每天 3 種上課時段選擇</div>
-          <div class="te-sub">家長可依孩子作息與接送時間，自由選擇</div>
-        </div>
-      </div>
-
-      <div class="time-options">
-        <div class="time-opt time-opt-morning">
-          <div class="to-icon">☀️</div>
-          <div class="to-info">
-            <div class="to-label">半天 · 上午班</div>
-            <div class="to-time">08:30 – 11:30</div>
-          </div>
-        </div>
-
-        <div class="time-opt time-opt-afternoon">
-          <div class="to-icon">🌤️</div>
-          <div class="to-info">
-            <div class="to-label">半天 · 下午班</div>
-            <div class="to-time">14:00 – 17:00</div>
-          </div>
-        </div>
-
-        <div class="time-opt time-opt-fullday">
-          <div class="to-icon">🌞</div>
-          <div class="to-info">
-            <div class="to-label">全天班 <span class="to-recommend">教練全程陪同</span></div>
-            <div class="to-time">08:30 – 17:00</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 全天班中午時段詳細說明 -->
-      <div class="fullday-detail">
-        <div class="fd-title">
-          <span class="fd-icon">🌞</span>
-          <span>全天班中午時段安排</span>
-        </div>
-        <div class="fd-items">
-          <div class="fd-item">
-            <span class="fd-emoji">👨‍🏫</span>
-            <div class="fd-text">
-              <strong>11:30–14:00 教練全程陪同</strong>
-              <p>專業教練負責管理孩子用餐、午休及活動，家長安心放心</p>
-            </div>
-          </div>
-          <div class="fd-item">
-            <span class="fd-emoji">🍱</span>
-            <div class="fd-text">
-              <strong>午餐方案任選</strong>
-              <p>可向球隊一起加購訂餐<span class="fd-tag">費用另計</span>，或孩子自備午餐皆可</p>
-            </div>
-          </div>
-          <div class="fd-item">
-            <span class="fd-emoji">😴</span>
-            <div class="fd-text">
-              <strong>活動中心午休</strong>
-              <p>飯後可於活動中心休息恢復體力，<span class="fd-highlight">請自備午睡用品</span>（小毯子、墊子）</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 四大梯次卡片（更新日期）-->
+    <!-- 四大梯次卡片 -->
     <div class="camp-section-title">
       <span class="csl-line"></span>
       <span class="csl-text">🗓️ 四大梯次時間表</span>
@@ -4338,6 +4568,94 @@
       </div>
     </div>
 
+    <!-- 分隔線 -->
+    <div class="step-divider">
+      <span class="sd-line"></span>
+      <span class="sd-icon">↓</span>
+      <span class="sd-line"></span>
+    </div>
+
+    <!-- ========== STEP 3：4 種報名方案 ========== -->
+    <div class="section-header">
+      <div class="section-tag">STEP 3 · PLAN</div>
+      <h2 class="section-title">最後選<span class="em">報名方案</span></h2>
+      <p class="section-subtitle-bold">
+        時段 × 梯次 = <strong>4 種方案</strong>任您搭配
+      </p>
+    </div>
+
+    <div class="scenario-section">
+      <div class="scenario-grid">
+
+        <!-- 1. 半天班 · 單梯 -->
+        <div class="scenario-card">
+          <div class="sc-tag">輕鬆體驗</div>
+          <div class="sc-emoji">🌅</div>
+          <h4 class="sc-title">半天班 · 單梯</h4>
+          <p class="sc-desc">
+            想讓孩子<strong>先試試水溫</strong>嗎？<br>
+            只報 <strong>2 週、半天</strong><br>
+            可選上午或下午班 ✨
+          </p>
+          <div class="sc-suitable">
+            <strong>適合：</strong>第一次參加 / 想體驗看看的家庭
+          </div>
+        </div>
+
+        <!-- 2. 半天班 · 全梯（心理暗示：金邊+省錢徽章） -->
+        <div class="scenario-card scenario-card-allcamp-half">
+          <div class="sc-tag sc-tag-silver">📈 划算彈性</div>
+          <div class="sc-emoji">☀️</div>
+          <h4 class="sc-title">半天班 · 全梯</h4>
+          <p class="sc-desc">
+            <strong>整個暑假打球不中斷</strong>！<br>
+            可選 <strong>上午班</strong>（08:30-11:30）<br>
+            或 <strong>下午班</strong>（14:00-17:00）<br>
+            另一半時間自由安排 ✨
+          </p>
+          <div class="sc-suitable">
+            <strong>適合：</strong>低年級孩子、有補習或才藝課的家庭
+          </div>
+          <div class="sc-discount-hint">💰 比單梯×4 還省 $5,000 元</div>
+        </div>
+
+        <!-- 3. 全天班 · 單梯 -->
+        <div class="scenario-card">
+          <div class="sc-tag sc-tag-blue">完整體驗</div>
+          <div class="sc-emoji">🌞</div>
+          <h4 class="sc-title">全天班 · 單梯</h4>
+          <p class="sc-desc">
+            上班族家長最愛！<br>
+            <strong>2 週整天有人帶</strong>，含中午管理，<br>
+            完全不用擔心孩子去哪裡 🏸
+          </p>
+          <div class="sc-suitable">
+            <strong>適合：</strong>雙薪家庭、需要全天托管的家長
+          </div>
+        </div>
+
+        <!-- 4. 全天班 · 全梯（心理暗示：最大、金色光環、最推薦徽章） -->
+        <div class="scenario-card scenario-card-allcamp-full">
+          <div class="sc-tag sc-tag-gold">🏆 最推薦・學到飽</div>
+          <div class="sc-emoji">🌟</div>
+          <h4 class="sc-title">全天班 · 全梯</h4>
+          <p class="sc-desc">
+            <strong>整個暑假完全交給我們！</strong><br>
+            🏸 專業學球 · 👫 隊友玩樂 · 📚 也有讀書時間<br>
+            家長零擔心，孩子<strong>進步最快</strong>！
+          </p>
+          <div class="sc-suitable">
+            <strong>適合：</strong>想孩子充實過暑假 / 雙薪家庭最划算
+          </div>
+          <div class="sc-discount-hint sc-discount-hint-gold">🎯 比單梯×4 還省 $6,500 元！</div>
+        </div>
+      </div>
+
+      <div class="scenario-tip">
+        💡 不知道怎麼選？看下方<strong>「報名費用方案」</strong>，每個方案都有清楚標示適合對象！
+      </div>
+    </div>
+
     <!-- 引導往下到費用 -->
     <a href="#tuition" class="scroll-to-price">
       <span>👇 看完梯次，往下查看詳細費用</span>
@@ -4381,8 +4699,8 @@
         <div class="plan-header-row">
           <div class="plan-icon-big">🏆</div>
           <div class="plan-title-group">
-            <h3 class="plan-title">全梯 · 4 梯全包</h3>
-            <p class="plan-tagline">整個暑假完整 8 週訓練</p>
+            <h3 class="plan-title">全天班 · 全梯</h3>
+            <p class="plan-tagline">整個暑假完整 8 週訓練 · 學到飽</p>
           </div>
         </div>
 
@@ -4395,13 +4713,13 @@
         </div>
 
         <div class="plan-features">
-          <div class="plan-feature"><span class="ico">✓</span>含 4 梯次完整訓練（共 8 週）</div>
+          <div class="plan-feature"><span class="ico">✓</span>完整 8 週訓練 · 學到飽</div>
           <div class="plan-feature"><span class="ico">✓</span>平均一梯只要 NT$2,875</div>
           <div class="plan-feature"><span class="ico">✓</span>優先保留名額，免擔心額滿</div>
                   </div>
 
         <button onclick="openModal()" class="plan-cta plan-cta-gold">
-          🏸 立即報名全梯
+          🏸 立即報名 · 學到飽方案
         </button>
       </div>
 
@@ -4410,7 +4728,7 @@
         <div class="plan-header-row">
           <div class="plan-icon-mid">🌅</div>
           <div class="plan-title-group">
-            <h3 class="plan-title-mid">全梯 · 半天班</h3>
+            <h3 class="plan-title-mid">半天班 · 全梯</h3>
             <p class="plan-tagline-mid">4 梯次半天 · 上午或下午</p>
           </div>
           <div class="plan-price-side">
@@ -4423,7 +4741,7 @@
           <span class="plan-tag tag-save">省 $4,500</span>
         </div>
         <button onclick="openModal()" class="plan-cta plan-cta-silver">
-          報名全梯半天班
+          報名半天班 · 全梯
         </button>
       </div>
 
@@ -4437,7 +4755,7 @@
         <div class="plan-header-row">
           <div class="plan-icon-mid">🌤️</div>
           <div class="plan-title-group">
-            <h3 class="plan-title-mid">單梯 · 全天班</h3>
+            <h3 class="plan-title-mid">全天班 · 單梯</h3>
             <p class="plan-tagline-mid">兩週訓練 · 含中午管理</p>
           </div>
           <div class="plan-price-side">
@@ -4450,7 +4768,7 @@
           
         </div>
         <button onclick="openModal()" class="plan-cta plan-cta-blue">
-          報名單梯全天班
+          報名全天班 · 單梯
         </button>
       </div>
 
@@ -4459,7 +4777,7 @@
         <div class="plan-header-row">
           <div class="plan-icon-mid">☀️</div>
           <div class="plan-title-group">
-            <h3 class="plan-title-mid">單梯 · 半天班</h3>
+            <h3 class="plan-title-mid">半天班 · 單梯</h3>
             <p class="plan-tagline-mid">兩週訓練 · 早上或下午</p>
           </div>
           <div class="plan-price-side">
@@ -4472,7 +4790,7 @@
           
         </div>
         <button onclick="openModal()" class="plan-cta plan-cta-green">
-          報名單梯半天班
+          報名半天班 · 單梯
         </button>
       </div>
     </div>
@@ -4485,8 +4803,8 @@
         <div class="plan-header-row">
           <div class="plan-icon-big">🏆</div>
           <div class="plan-title-group">
-            <h3 class="plan-title">全梯 · 4 梯全包</h3>
-            <p class="plan-tagline">整個暑假完整 8 週訓練</p>
+            <h3 class="plan-title">全天班 · 全梯</h3>
+            <p class="plan-tagline">整個暑假完整 8 週訓練 · 學到飽</p>
           </div>
         </div>
 
@@ -4499,13 +4817,13 @@
         </div>
 
         <div class="plan-features">
-          <div class="plan-feature"><span class="ico">✓</span>含 4 梯次完整訓練（共 8 週）</div>
+          <div class="plan-feature"><span class="ico">✓</span>完整 8 週訓練 · 學到飽</div>
           <div class="plan-feature"><span class="ico">✓</span>平均一梯只要 NT$3,750</div>
           <div class="plan-feature"><span class="ico">✓</span>優先保留名額，免擔心額滿</div>
                   </div>
 
         <button onclick="openModal()" class="plan-cta plan-cta-gold">
-          🏸 立即報名全梯
+          🏸 立即報名 · 學到飽方案
         </button>
       </div>
 
@@ -4514,7 +4832,7 @@
         <div class="plan-header-row">
           <div class="plan-icon-mid">🌅</div>
           <div class="plan-title-group">
-            <h3 class="plan-title-mid">全梯 · 半天班</h3>
+            <h3 class="plan-title-mid">半天班 · 全梯</h3>
             <p class="plan-tagline-mid">4 梯次半天 · 上午或下午</p>
           </div>
           <div class="plan-price-side">
@@ -4527,7 +4845,7 @@
           <span class="plan-tag tag-save">省 $6,000</span>
         </div>
         <button onclick="openModal()" class="plan-cta plan-cta-silver">
-          報名全梯半天班
+          報名半天班 · 全梯
         </button>
       </div>
 
@@ -4540,7 +4858,7 @@
           
         </div>
         <button onclick="openModal()" class="plan-cta plan-cta-blue">
-          報名單梯全天班
+          報名全天班 · 單梯
         </button>
       </div>
 
@@ -4548,7 +4866,7 @@
         <div class="plan-header-row">
           <div class="plan-icon-mid">☀️</div>
           <div class="plan-title-group">
-            <h3 class="plan-title-mid">單梯 · 半天班</h3>
+            <h3 class="plan-title-mid">半天班 · 單梯</h3>
             <p class="plan-tagline-mid">兩週訓練 · 早上或下午</p>
           </div>
           <div class="plan-price-side">
@@ -4561,7 +4879,7 @@
           
         </div>
         <button onclick="openModal()" class="plan-cta plan-cta-green">
-          報名單梯半天班
+          報名半天班 · 單梯
         </button>
       </div>
     </div>
@@ -4574,8 +4892,8 @@
         <div class="plan-header-row">
           <div class="plan-icon-big">🏆</div>
           <div class="plan-title-group">
-            <h3 class="plan-title">全梯 · 4 梯全包</h3>
-            <p class="plan-tagline">整個暑假完整 8 週訓練</p>
+            <h3 class="plan-title">全天班 · 全梯</h3>
+            <p class="plan-tagline">整個暑假完整 8 週訓練 · 學到飽</p>
           </div>
         </div>
 
@@ -4588,13 +4906,13 @@
         </div>
 
         <div class="plan-features">
-          <div class="plan-feature"><span class="ico">✓</span>含 4 梯次完整訓練（共 8 週）</div>
+          <div class="plan-feature"><span class="ico">✓</span>完整 8 週訓練 · 學到飽</div>
           <div class="plan-feature"><span class="ico">✓</span>平均一梯只要 NT$4,250</div>
           <div class="plan-feature"><span class="ico">✓</span>優先保留名額，免擔心額滿</div>
                   </div>
 
         <button onclick="openModal()" class="plan-cta plan-cta-gold">
-          🏸 立即報名全梯
+          🏸 立即報名 · 學到飽方案
         </button>
       </div>
 
@@ -4603,7 +4921,7 @@
         <div class="plan-header-row">
           <div class="plan-icon-mid">🌅</div>
           <div class="plan-title-group">
-            <h3 class="plan-title-mid">全梯 · 半天班</h3>
+            <h3 class="plan-title-mid">半天班 · 全梯</h3>
             <p class="plan-tagline-mid">4 梯次半天 · 上午或下午</p>
           </div>
           <div class="plan-price-side">
@@ -4616,7 +4934,7 @@
           <span class="plan-tag tag-save">省 $6,500</span>
         </div>
         <button onclick="openModal()" class="plan-cta plan-cta-silver">
-          報名全梯半天班
+          報名半天班 · 全梯
         </button>
       </div>
 
@@ -4628,7 +4946,7 @@
         <div class="plan-header-row">
           <div class="plan-icon-mid">🌤️</div>
           <div class="plan-title-group">
-            <h3 class="plan-title-mid">單梯 · 全天班</h3>
+            <h3 class="plan-title-mid">全天班 · 單梯</h3>
             <p class="plan-tagline-mid">兩週訓練 · 含中午管理</p>
           </div>
           <div class="plan-price-side">
@@ -4641,7 +4959,7 @@
           
         </div>
         <button onclick="openModal()" class="plan-cta plan-cta-blue">
-          報名單梯全天班
+          報名全天班 · 單梯
         </button>
       </div>
 
@@ -4649,7 +4967,7 @@
         <div class="plan-header-row">
           <div class="plan-icon-mid">☀️</div>
           <div class="plan-title-group">
-            <h3 class="plan-title-mid">單梯 · 半天班</h3>
+            <h3 class="plan-title-mid">半天班 · 單梯</h3>
             <p class="plan-tagline-mid">兩週訓練 · 早上或下午</p>
           </div>
           <div class="plan-price-side">
@@ -4662,7 +4980,7 @@
           
         </div>
         <button onclick="openModal()" class="plan-cta plan-cta-green">
-          報名單梯半天班
+          報名半天班 · 單梯
         </button>
       </div>
     </div>
