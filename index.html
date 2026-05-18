@@ -5377,6 +5377,221 @@
     .sc-value { font-size: 15px; }
     .ch-hint { display: none; } /* 手機隱藏 hint */
   }
+
+  /* ========== 想了解更多·折疊區 ========== */
+  .learn-more-section {
+    max-width: 600px;
+    margin: 28px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .learn-more-card {
+    background: white;
+    border-radius: 14px;
+    border: 1.5px solid var(--line);
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    transition: all 0.2s;
+  }
+
+  .learn-more-card[open] {
+    border-color: var(--court-green);
+    box-shadow: 0 8px 20px rgba(46,139,87,0.1);
+  }
+
+  .lm-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 18px;
+    cursor: pointer;
+    list-style: none;
+    transition: all 0.2s;
+    background: linear-gradient(135deg, var(--bg-warm) 0%, white 100%);
+  }
+
+  .lm-header::-webkit-details-marker {
+    display: none;
+  }
+
+  .lm-header:hover {
+    background: linear-gradient(135deg, #FFF0D0 0%, var(--bg-warm) 100%);
+  }
+
+  .lm-icon {
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+
+  .lm-title {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--ink);
+    flex-shrink: 0;
+  }
+
+  .lm-hint {
+    font-size: 11.5px;
+    color: rgba(15,27,20,0.6);
+    flex: 1;
+    line-height: 1.4;
+  }
+
+  .lm-arrow {
+    font-size: 12px;
+    color: rgba(15,27,20,0.5);
+    transition: transform 0.3s;
+    flex-shrink: 0;
+  }
+
+  .learn-more-card[open] .lm-arrow {
+    transform: rotate(180deg);
+  }
+
+  .lm-body {
+    padding: 20px 18px;
+    border-top: 1px solid var(--line);
+    animation: slideDown 0.3s ease;
+    background: white;
+  }
+
+  /* 痛點區塊（迷你版） */
+  .pain-intro-mini {
+    text-align: center;
+    margin-bottom: 16px;
+    padding: 16px;
+    background: var(--bg-warm);
+    border-radius: 12px;
+    position: relative;
+  }
+
+  .pain-intro-mini .quote-mark {
+    font-size: 40px;
+    font-family: 'Fraunces', serif;
+    color: var(--shuttle-cork);
+    line-height: 0.5;
+    margin-bottom: 6px;
+  }
+
+  .pain-intro-mini h3 {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 6px;
+    line-height: 1.3;
+  }
+
+  .pain-intro-mini p {
+    font-size: 12.5px;
+    color: rgba(15,27,20,0.7);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .pain-list-mini {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .pain-item-mini {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: rgba(214,54,54,0.05);
+    border-left: 3px solid var(--racket-red);
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--ink);
+  }
+
+  .pi-emoji {
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .pi-text {
+    line-height: 1.5;
+  }
+
+  .pain-promise {
+    text-align: center;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--court-deep) 0%, var(--ink) 100%);
+    border-radius: 12px;
+    color: white;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .pain-promise strong {
+    color: var(--shuttle-cork);
+    font-size: 14px;
+  }
+
+  .pp-icon {
+    font-size: 22px;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* 特色卡片（迷你版） */
+  .feature-grid-mini {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .feature-card-mini {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px;
+    background: var(--bg-warm);
+    border-radius: 12px;
+    border-left: 4px solid var(--court-green);
+  }
+
+  .fm-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--court-green);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .fm-text h4 {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 4px;
+    line-height: 1.3;
+  }
+
+  .fm-text p {
+    font-size: 12.5px;
+    color: rgba(15,27,20,0.7);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* 手機優化 */
+  @media (max-width: 480px) {
+    .lm-hint { display: none; }
+    .pain-intro-mini h3 { font-size: 15px; }
+    .pain-item-mini { font-size: 12.5px; }
+    .feature-card-mini { padding: 12px; gap: 12px; }
+    .fm-num { font-size: 28px; }
+    .fm-text h4 { font-size: 14px; }
+  }
 </style>
 </head>
 <body>
@@ -5487,7 +5702,7 @@
 <section class="summary-section" id="why">
   <div class="container">
     <div class="summary-header">
-      <h2 class="summary-title">🏸 3 分鐘看完<span class="summary-em">這個暑期班</span></h2>
+      <h2 class="summary-title">📋 <span class="summary-em">暑期班重點整理</span></h2>
       <p class="summary-subtitle">家長最在意的 6 件事，一次告訴您</p>
     </div>
 
@@ -5538,6 +5753,89 @@
       <a href="#signup" class="summary-cta-btn secondary">
         📝 直接報名
       </a>
+    </div>
+
+    <!-- 🆕 想了解更多 · 折疊區 -->
+    <div class="learn-more-section">
+      <details class="learn-more-card">
+        <summary class="lm-header">
+          <span class="lm-icon">🤔</span>
+          <span class="lm-title">您是否也在煩惱？</span>
+          <span class="lm-hint">暑假該怎麼安排孩子？</span>
+          <span class="lm-arrow">▼</span>
+        </summary>
+        <div class="lm-body">
+          <div class="pain-intro-mini">
+            <div class="quote-mark">"</div>
+            <h3>放暑假最怕孩子……</h3>
+            <p>整天黏在沙發上滑手機<br>體力越來越差、視力越來越糟、性格越來越孤僻</p>
+          </div>
+          <div class="pain-list-mini">
+            <div class="pain-item-mini">
+              <span class="pi-emoji">😟</span>
+              <span class="pi-text">擔心孩子整天看 3C，視力與專注力下降</span>
+            </div>
+            <div class="pain-item-mini">
+              <span class="pi-emoji">🏃</span>
+              <span class="pi-text">想讓孩子多運動，卻找不到合適的活動</span>
+            </div>
+            <div class="pain-item-mini">
+              <span class="pi-emoji">💼</span>
+              <span class="pi-text">雙薪家庭沒人照顧，又不放心送安親班</span>
+            </div>
+            <div class="pain-item-mini">
+              <span class="pi-emoji">💰</span>
+              <span class="pi-text">不想花太多錢在「只是打發時間」的活動</span>
+            </div>
+          </div>
+          <div class="pain-promise">
+            <span class="pp-icon">🏸</span>
+            <strong>這個暑假，把孩子交給我們</strong><br>
+            還您一個更健康、更開朗、更專注的他
+          </div>
+        </div>
+      </details>
+
+      <details class="learn-more-card">
+        <summary class="lm-header">
+          <span class="lm-icon">⭐</span>
+          <span class="lm-title">為什麼選開元羽球？</span>
+          <span class="lm-hint">4 大特色一次看</span>
+          <span class="lm-arrow">▼</span>
+        </summary>
+        <div class="lm-body">
+          <div class="feature-grid-mini">
+            <div class="feature-card-mini">
+              <div class="fm-num">01</div>
+              <div class="fm-text">
+                <h4>專業教練團隊</h4>
+                <p>國家級認證教練親自指導，從基礎握拍到進階戰術，循序漸進培養每位孩子的羽球底蘊</p>
+              </div>
+            </div>
+            <div class="feature-card-mini">
+              <div class="fm-num">02</div>
+              <div class="fm-text">
+                <h4>分齡分級教學</h4>
+                <p>低、中、高年級各自編組，依孩子的程度與體能量身打造合適的訓練菜單</p>
+              </div>
+            </div>
+            <div class="feature-card-mini">
+              <div class="fm-num">03</div>
+              <div class="fm-text">
+                <h4>校隊舞台機會</h4>
+                <p>表現優異者可加入校隊，代表學校參加市賽、全國賽，累積寶貴的比賽經驗</p>
+              </div>
+            </div>
+            <div class="feature-card-mini">
+              <div class="fm-num">04</div>
+              <div class="fm-text">
+                <h4>體能與專注力提升</h4>
+                <p>強化心肺、協調與反應力，運動讓孩子更專注、更開朗，學習也更有效率</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
     </div>
   </div>
 </section>
