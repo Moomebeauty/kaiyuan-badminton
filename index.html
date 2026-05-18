@@ -6182,6 +6182,30 @@
     color: var(--racket-red-deep);
     font-weight: 700;
   }
+
+  /* 贈品橫幅的廣告風格分行 */
+  .gift-banner-text {
+    text-align: center;
+    margin-bottom: 14px;
+  }
+
+  .gift-banner-text .gbt-line {
+    display: block;
+    line-height: 1.8;
+  }
+
+  .gift-banner-text .gbt-highlight {
+    font-weight: 700;
+    color: var(--court-deep);
+    font-size: 15px;
+  }
+
+  .gift-banner-text .gbt-final {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 17px;
+    font-weight: 700;
+    margin-top: 4px;
+  }
 </style>
 </head>
 <body>
@@ -6385,8 +6409,7 @@
 <section class="summary-section" id="why">
   <div class="container">
     <div class="summary-header">
-      <h2 class="summary-title">📋 <span class="summary-em">暑期班重點整理</span></h2>
-      <p class="summary-subtitle">家長最在意的 6 件事，一次告訴您</p>
+      <h2 class="summary-title">📋 暑期班重點整理</h2>
     </div>
 
     <div class="summary-grid">
@@ -6630,7 +6653,9 @@
         </div>
         <div class="gift-banner-body">
           <div class="gift-banner-text">
-            報名以下方案的學員，<strong>新學期續報「羽球隊培訓班」</strong>，送<strong style="color: var(--racket-red-deep);">精選球拍</strong>乙支！🏸
+            <span class="gbt-line">報名以下方案的學員</span>
+            <span class="gbt-line gbt-highlight">新學期續報「羽球隊培訓班」</span>
+            <span class="gbt-line gbt-final">送 <strong style="color: var(--racket-red-deep);">精選球拍</strong> 乙支！🏸</span>
           </div>
           <div class="gift-eligible-list">
             <div class="gift-eligible-item">
