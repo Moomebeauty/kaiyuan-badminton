@@ -5119,6 +5119,264 @@
       bottom: 68px;
     }
   }
+
+  /* ========== 3 分鐘看完摘要卡 ========== */
+  .summary-section {
+    padding: 40px 0 30px;
+    background: linear-gradient(180deg, var(--bg-warm) 0%, white 100%);
+  }
+
+  .summary-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .summary-title {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 0 0 6px;
+    line-height: 1.3;
+  }
+
+  .summary-em {
+    color: var(--racket-red-deep);
+    position: relative;
+    display: inline-block;
+  }
+
+  .summary-em::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(135deg, var(--shuttle-cork) 0%, transparent 100%);
+    opacity: 0.4;
+    z-index: -1;
+  }
+
+  .summary-subtitle {
+    font-size: 13.5px;
+    color: rgba(15,27,20,0.7);
+    margin: 0;
+  }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    max-width: 600px;
+    margin: 0 auto 24px;
+  }
+
+  .summary-card {
+    background: white;
+    border-radius: 16px;
+    padding: 18px 14px;
+    text-align: center;
+    border: 1.5px solid var(--line);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    transition: all 0.2s;
+  }
+
+  .summary-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    border-color: var(--court-green);
+  }
+
+  .sc-emoji-big {
+    font-size: 36px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .sc-label {
+    font-size: 11px;
+    color: rgba(15,27,20,0.55);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  .sc-value {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+
+  .sc-sub {
+    font-size: 11px;
+    color: rgba(15,27,20,0.6);
+    line-height: 1.4;
+  }
+
+  .summary-card.sc-gift {
+    background: linear-gradient(135deg, #FFF4D6 0%, #FFE8B5 100%);
+    border: 2px solid var(--shuttle-cork);
+  }
+
+  .summary-card.sc-gift .sc-value {
+    color: var(--racket-red-deep);
+  }
+
+  .summary-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .summary-cta-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-family: 'Microsoft JhengHei', 'Noto Sans TC', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .summary-cta-btn.primary {
+    background: linear-gradient(135deg, var(--court-green) 0%, var(--court-deep) 100%);
+    color: white;
+    box-shadow: 0 6px 16px rgba(46,139,87,0.3);
+  }
+
+  .summary-cta-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(46,139,87,0.4);
+  }
+
+  .summary-cta-btn.secondary {
+    background: white;
+    color: var(--court-deep);
+    border: 2px solid var(--court-green);
+  }
+
+  .summary-cta-btn.secondary:hover {
+    background: var(--bg-warm);
+  }
+
+  .cta-arrow {
+    transition: transform 0.2s;
+  }
+
+  .summary-cta-btn:hover .cta-arrow {
+    transform: translateX(4px);
+  }
+
+  /* ========== 折疊式注意事項 ========== */
+  .collapsible-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .collapsible-card {
+    background: white;
+    border-radius: 14px;
+    border: 1.5px solid var(--line);
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    transition: all 0.2s;
+  }
+
+  .collapsible-card[open] {
+    border-color: var(--court-green);
+    box-shadow: 0 8px 20px rgba(46,139,87,0.1);
+  }
+
+  .collapsible-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 18px;
+    cursor: pointer;
+    list-style: none;
+    transition: all 0.2s;
+  }
+
+  .collapsible-header::-webkit-details-marker {
+    display: none;
+  }
+
+  .collapsible-header:hover {
+    background: var(--bg-warm);
+  }
+
+  .ch-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+
+  .ch-title {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    flex-shrink: 0;
+  }
+
+  .ch-hint {
+    font-size: 11.5px;
+    color: rgba(15,27,20,0.6);
+    flex: 1;
+    line-height: 1.4;
+  }
+
+  .ch-arrow {
+    font-size: 12px;
+    color: rgba(15,27,20,0.5);
+    transition: transform 0.3s;
+    flex-shrink: 0;
+  }
+
+  .collapsible-card[open] .ch-arrow {
+    transform: rotate(180deg);
+  }
+
+  .collapsible-body {
+    padding: 0 18px 18px;
+    border-top: 1px solid var(--line);
+    animation: slideDown 0.3s ease;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* 簡化 section header 在 notice-section 內 */
+  .notice-section .section-header {
+    margin-bottom: 24px;
+  }
+
+  /* 手機優化 */
+  @media (max-width: 480px) {
+    .summary-title { font-size: 22px; }
+    .summary-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .summary-card { padding: 14px 10px; }
+    .sc-emoji-big { font-size: 30px; }
+    .sc-value { font-size: 15px; }
+    .ch-hint { display: none; } /* 手機隱藏 hint */
+  }
 </style>
 </head>
 <body>
@@ -5222,427 +5480,103 @@
       </div>
     </div>
 
-
   </div>
 </section>
 
-<section class="pain-section">
+<!-- ✨ 3 分鐘看完摘要卡 -->
+<section class="summary-section" id="why">
   <div class="container">
-    <div class="pain-intro">
-      <div class="quote-mark">"</div>
-      <h2>這個暑假，您是否也在<span class="highlight">煩惱</span>？</h2>
-      <p>放暑假最怕孩子整天黏在沙發上滑手機<br>體力越來越差、視力越來越糟、性格越來越孤僻……</p>
+    <div class="summary-header">
+      <h2 class="summary-title">🏸 3 分鐘看完<span class="summary-em">這個暑期班</span></h2>
+      <p class="summary-subtitle">家長最在意的 6 件事，一次告訴您</p>
     </div>
 
-    <div class="pain-grid">
-      <div class="pain-card">
-        <div class="pain-emoji">📱</div>
-        <div class="pain-text">
-          <div class="pain-q">「在家整天滑手機、看平板？」</div>
-          <div class="pain-a">高強度的羽球訓練，讓孩子下課累到自動放下 3C，回家洗澡吃飯倒頭就睡，作息自然規律。</div>
-        </div>
+    <div class="summary-grid">
+      <div class="summary-card">
+        <div class="sc-emoji-big">📅</div>
+        <div class="sc-label">上課時間</div>
+        <div class="sc-value">7/6 - 8/28</div>
+        <div class="sc-sub">分 4 梯次，可彈性選擇</div>
       </div>
-      <div class="pain-card">
-        <div class="pain-emoji">👀</div>
-        <div class="pain-text">
-          <div class="pain-q">「視力一直惡化、近視又加深？」</div>
-          <div class="pain-a">羽球需要追蹤高速移動的球，是公認最能訓練眼球肌肉的運動之一，幫助孩子放鬆眼睛、預防度數惡化。</div>
-        </div>
+      <div class="summary-card">
+        <div class="sc-emoji-big">⏰</div>
+        <div class="sc-label">上課時段</div>
+        <div class="sc-value">8:30 - 17:00</div>
+        <div class="sc-sub">全天 / 半天皆可</div>
       </div>
-      <div class="pain-card">
-        <div class="pain-emoji">💼</div>
-        <div class="pain-text">
-          <div class="pain-q">「雙薪家庭，暑假沒人陪？」</div>
-          <div class="pain-a">全天班從早 8:30 到下午 5:00，安心托付給專業教練，孩子有人帶、有人教、有同伴玩，比安親班更有意義。</div>
-        </div>
+      <div class="summary-card">
+        <div class="sc-emoji-big">💰</div>
+        <div class="sc-label">最低費用</div>
+        <div class="sc-value">$3,000</div>
+        <div class="sc-sub">球隊家長享優惠</div>
       </div>
-      <div class="pain-card">
-        <div class="pain-emoji">📏</div>
-        <div class="pain-text">
-          <div class="pain-q">「擔心孩子長不高、體能差？」</div>
-          <div class="pain-a">羽球是跳躍類運動，刺激生長板促進長高；強化心肺與爆發力，讓孩子體能升級、不再氣喘吁吁。</div>
-        </div>
+      <div class="summary-card">
+        <div class="sc-emoji-big">👨‍🏫</div>
+        <div class="sc-label">師資配置</div>
+        <div class="sc-value">教練全程陪同</div>
+        <div class="sc-sub">含中午管理</div>
       </div>
-      <div class="pain-card">
-        <div class="pain-emoji">😟</div>
-        <div class="pain-text">
-          <div class="pain-q">「孩子內向害羞、不太合群？」</div>
-          <div class="pain-a">團體訓練培養運動精神，雙打互動建立默契，讓孩子自然交到志同道合的朋友，個性越來越開朗。</div>
-        </div>
+      <div class="summary-card">
+        <div class="sc-emoji-big">🏸</div>
+        <div class="sc-label">內容重點</div>
+        <div class="sc-value">基礎到進階</div>
+        <div class="sc-sub">分級教學、循序漸進</div>
       </div>
-      <div class="pain-card">
-        <div class="pain-emoji">📚</div>
-        <div class="pain-text">
-          <div class="pain-q">「擔心開學專注力跟不上？」</div>
-          <div class="pain-a">運動科學證實，規律運動能促進大腦 BDNF 分泌，提升學習力與專注力，開學後課業反而更輕鬆。</div>
-        </div>
+      <div class="summary-card sc-gift">
+        <div class="sc-emoji-big">🎁</div>
+        <div class="sc-label">新學員好禮</div>
+        <div class="sc-value">送球拍</div>
+        <div class="sc-sub">在校生限定</div>
       </div>
     </div>
 
-    <div class="pain-conclusion">
-      <div class="label">— OUR PROMISE —</div>
-      <p>這個暑假，把孩子交給我們<br>還您一個更健康、更開朗、更專注的他</p>
+    <div class="summary-cta">
+      <a href="#tuition" class="summary-cta-btn primary">
+        💰 看完整費用方案
+        <span class="cta-arrow">→</span>
+      </a>
+      <a href="#signup" class="summary-cta-btn secondary">
+        📝 直接報名
+      </a>
     </div>
-  </div>
-</section>
-
-<section class="features-section" id="why">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">WHY CHOOSE US</div>
-      <h2 class="section-title">為什麼選<span class="em">開元羽球</span></h2>
-    </div>
-
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div class="feature-num">01</div>
-        <div class="feature-text">
-          <h3>專業教練團隊</h3>
-          <p>國家級認證教練親自指導，從基礎握拍到進階戰術，循序漸進培養每位孩子的羽球底蘊</p>
-        </div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-num">02</div>
-        <div class="feature-text">
-          <h3>分齡分級教學</h3>
-          <p>低、中、高年級各自編組，依孩子的程度與體能量身打造合適的訓練菜單</p>
-        </div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-num">03</div>
-        <div class="feature-text">
-          <h3>校隊舞台機會</h3>
-          <p>表現優異者可加入校隊，代表學校參加市賽、全國賽，累積寶貴的比賽經驗</p>
-        </div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-num">04</div>
-        <div class="feature-text">
-          <h3>體能與專注力提升</h3>
-          <p>強化心肺、協調與反應力，運動讓孩子更專注、更開朗，學習也更有效率</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="camps">
-  <div class="container">
-
-    <!-- ========== STEP 1：上課時段選擇 ========== -->
-    <div class="section-header">
-      <div class="section-tag">STEP 1 · TIME</div>
-      <h2 class="section-title">先選<span class="em">上課時段</span></h2>
-      <p class="section-subtitle-bold">
-        每天有 <strong>2 種時段</strong>可選<br>
-        依孩子作息與家長接送時間自由選擇
-      </p>
-    </div>
-
-    <!-- 時段選擇卡（半天 vs 全天） -->
-    <div class="time-choice-cards">
-
-      <!-- 半天班（含上午/下午） -->
-      <div class="tcc-card tcc-half">
-        <div class="tcc-header">
-          <div class="tcc-icon-big">☀️</div>
-          <div class="tcc-title-group">
-            <div class="tcc-tag tcc-tag-green">輕量訓練</div>
-            <h3 class="tcc-title">半天班</h3>
-            <p class="tcc-subtitle">每天 3 小時 · 上午或下午擇一</p>
-          </div>
-        </div>
-        <div class="tcc-times">
-          <div class="tcc-time-row">
-            <div class="tcc-time-icon">☀️</div>
-            <div class="tcc-time-info">
-              <div class="tcc-time-label">上午班</div>
-              <div class="tcc-time-hours">08:30 – 11:30</div>
-            </div>
-          </div>
-          <div class="tcc-time-row">
-            <div class="tcc-time-icon">🌤️</div>
-            <div class="tcc-time-info">
-              <div class="tcc-time-label">下午班</div>
-              <div class="tcc-time-hours">14:00 – 17:00</div>
-            </div>
-          </div>
-        </div>
-        <div class="tcc-note">
-          💡 適合有其他補習、才藝課，或低年級的孩子
-        </div>
-      </div>
-
-      <!-- 全天班 -->
-      <div class="tcc-card tcc-full">
-        <div class="tcc-header">
-          <div class="tcc-icon-big">🌞</div>
-          <div class="tcc-title-group">
-            <div class="tcc-tag tcc-tag-blue">充實學習</div>
-            <h3 class="tcc-title">全天班</h3>
-            <p class="tcc-subtitle">教練全程陪同 · 隊友陪伴學習</p>
-          </div>
-        </div>
-        <div class="tcc-times">
-          <div class="tcc-time-row tcc-time-row-highlight">
-            <div class="tcc-time-icon">🌞</div>
-            <div class="tcc-time-info">
-              <div class="tcc-time-label">全天課程</div>
-              <div class="tcc-time-hours">08:30 – 17:00</div>
-            </div>
-          </div>
-        </div>
-        <div class="tcc-note tcc-note-blue">
-          💡 適合雙薪家庭、需要全天托管的家長
-        </div>
-      </div>
-    </div>
-
-    <!-- 全天班中午時段詳細說明（保留） -->
-    <div class="fullday-detail">
-      <div class="fd-title">
-        <span class="fd-icon">🌞</span>
-        <span>全天班中午時段安排</span>
-      </div>
-      <div class="fd-items">
-        <div class="fd-item">
-          <span class="fd-emoji">👨‍🏫</span>
-          <div class="fd-text">
-            <strong>11:30–14:00 教練全程陪同</strong>
-            <p>專業教練負責管理孩子用餐、午休及活動，家長安心放心</p>
-          </div>
-        </div>
-        <div class="fd-item">
-          <span class="fd-emoji">🍱</span>
-          <div class="fd-text">
-            <strong>午餐方案任選</strong>
-            <p>可向球隊一起加購訂餐<span class="fd-tag">費用另計</span>，或孩子自備午餐皆可</p>
-          </div>
-        </div>
-        <div class="fd-item">
-          <span class="fd-emoji">😴</span>
-          <div class="fd-text">
-            <strong>活動中心午休</strong>
-            <p>飯後可於活動中心休息恢復體力，<span class="fd-highlight">請自備午睡用品</span>（小毯子、墊子）</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 分隔線 -->
-    <div class="step-divider">
-      <span class="sd-line"></span>
-      <span class="sd-icon">↓</span>
-      <span class="sd-line"></span>
-    </div>
-
-    <!-- ========== STEP 2：梯次解說 ========== -->
-    <div class="section-header">
-      <div class="section-tag">STEP 2 · SCHEDULE</div>
-      <h2 class="section-title">再選<span class="em">幾個梯次</span></h2>
-      <div class="camp-key-info">
-        <div class="cki-row">
-          <div class="cki-icon">📅</div>
-          <div class="cki-text">
-            整個暑假分為 <span class="cki-highlight">4 個梯次</span>
-          </div>
-        </div>
-        <div class="cki-row">
-          <div class="cki-icon">⏰</div>
-          <div class="cki-text">
-            每個梯次為 <span class="cki-highlight">連續 2 週</span>上課
-          </div>
-        </div>
-        <div class="cki-tip">
-          ✨ 您可以選：<br>
-          ▸ <strong>1 個梯次</strong>（2 週）<br>
-          ▸ <strong>2 個梯次</strong>（4 週）<br>
-          ▸ <strong>整個暑假都來</strong>（全梯更划算）
-        </div>
-      </div>
-    </div>
-
-    <!-- 四大梯次卡片 -->
-    <div class="camp-section-title">
-      <span class="csl-line"></span>
-      <span class="csl-text">🗓️ 四大梯次時間表</span>
-      <span class="csl-line"></span>
-    </div>
-
-    <div class="schedule-grid">
-      <div class="schedule-card">
-        <div class="schedule-num"><span class="label-en">CAMP</span><span class="num">01</span></div>
-        <div class="schedule-info">
-          <h4>第一梯次</h4>
-          <div class="schedule-dates">
-            <span class="schedule-date">7/6 – 7/10</span>
-            <span class="schedule-date">7/13 – 7/17</span>
-          </div>
-        </div>
-      </div>
-      <div class="schedule-card">
-        <div class="schedule-num"><span class="label-en">CAMP</span><span class="num">02</span></div>
-        <div class="schedule-info">
-          <h4>第二梯次</h4>
-          <div class="schedule-dates">
-            <span class="schedule-date">7/20 – 7/24</span>
-            <span class="schedule-date">7/27 – 7/31</span>
-          </div>
-        </div>
-      </div>
-      <div class="schedule-card">
-        <div class="schedule-num"><span class="label-en">CAMP</span><span class="num">03</span></div>
-        <div class="schedule-info">
-          <h4>第三梯次</h4>
-          <div class="schedule-dates">
-            <span class="schedule-date">8/3 – 8/7</span>
-            <span class="schedule-date">8/10 – 8/14</span>
-          </div>
-        </div>
-      </div>
-      <div class="schedule-card">
-        <div class="schedule-num"><span class="label-en">CAMP</span><span class="num">04</span></div>
-        <div class="schedule-info">
-          <h4>第四梯次</h4>
-          <div class="schedule-dates">
-            <span class="schedule-date">8/17 – 8/21</span>
-            <span class="schedule-date">8/24 – 8/28</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 分隔線 -->
-    <div class="step-divider">
-      <span class="sd-line"></span>
-      <span class="sd-icon">↓</span>
-      <span class="sd-line"></span>
-    </div>
-
-    <!-- ========== STEP 3：4 種報名方案 ========== -->
-    <div class="section-header">
-      <div class="section-tag">STEP 3 · PLAN</div>
-      <h2 class="section-title">最後選<span class="em">報名方案</span></h2>
-      <p class="section-subtitle-bold">
-        時段 × 梯次 = <strong>4 種方案</strong>任您搭配
-      </p>
-    </div>
-
-    <div class="scenario-section">
-      <div class="scenario-grid">
-
-        <!-- 1. 半天班 · 單梯 -->
-        <div class="scenario-card">
-          <div class="sc-tag">輕鬆體驗</div>
-          <div class="sc-emoji">🌅</div>
-          <h4 class="sc-title">半天班 · 單梯</h4>
-          <p class="sc-desc">
-            想讓孩子<strong>先試試水溫</strong>嗎？<br>
-            只報 <strong>2 週、半天</strong><br>
-            可選上午或下午班 ✨
-          </p>
-          <div class="sc-suitable">
-            <strong>適合：</strong>第一次參加 / 想體驗看看的家庭
-          </div>
-        </div>
-
-        <!-- 2. 半天班 · 全梯（心理暗示：金邊+省錢徽章） -->
-        <div class="scenario-card scenario-card-allcamp-half">
-          <div class="sc-tag sc-tag-silver">📈 划算彈性</div>
-          <div class="sc-emoji">☀️</div>
-          <h4 class="sc-title">半天班 · 全梯</h4>
-          <p class="sc-desc">
-            <strong>整個暑假打球不中斷</strong>！<br>
-            可選 <strong>上午班</strong>（08:30-11:30）<br>
-            或 <strong>下午班</strong>（14:00-17:00）<br>
-            另一半時間自由安排 ✨
-          </p>
-          <div class="sc-suitable">
-            <strong>適合：</strong>低年級孩子、有補習或才藝課的家庭
-          </div>
-          <div class="sc-discount-hint">💰 比單梯×4 還省 $6,000 元</div>
-          <div class="sc-gift-hint">🎁 在校生續報培訓班 · 送球拍</div>
-        </div>
-
-        <!-- 3. 全天班 · 單梯 -->
-        <div class="scenario-card">
-          <div class="sc-tag sc-tag-blue">完整體驗</div>
-          <div class="sc-emoji">🌞</div>
-          <h4 class="sc-title">全天班 · 單梯</h4>
-          <p class="sc-desc">
-            上班族家長最愛！<br>
-            <strong>2 週整天有人帶</strong>，含中午管理，<br>
-            完全不用擔心孩子去哪裡 🏸
-          </p>
-          <div class="sc-suitable">
-            <strong>適合：</strong>雙薪家庭、需要全天托管的家長
-          </div>
-        </div>
-
-        <!-- 4. 全天班 · 全梯（心理暗示：最大、金色光環、最推薦徽章） -->
-        <div class="scenario-card scenario-card-allcamp-full">
-          <div class="sc-tag sc-tag-gold">🏆 最推薦・學到飽</div>
-          <div class="sc-emoji">🌟</div>
-          <h4 class="sc-title">全天班 · 全梯</h4>
-          <p class="sc-desc">
-            <strong>整個暑假完全交給我們！</strong><br>
-            🏸 專業學球 · 👫 隊友玩樂<br>
-            家長零擔心，孩子<strong>進步最快</strong>！
-          </p>
-          <div class="sc-suitable">
-            <strong>適合：</strong>想孩子充實過暑假 / 雙薪家庭最划算
-          </div>
-          <div class="sc-discount-hint sc-discount-hint-gold">🎯 比單梯×4 還省 $6,000 元！</div>
-          <div class="sc-gift-hint sc-gift-hint-gold">🎁 在校生續報培訓班 · 送精選球拍</div>
-        </div>
-      </div>
-
-      <div class="scenario-tip">
-        💡 不知道怎麼選？看下方<strong>「報名費用方案」</strong>，每個方案都有清楚標示適合對象！
-      </div>
-
-      <!-- 🎁 結業好禮橫幅(限新學員) -->
-      <div class="gift-banner">
-        <div class="gift-banner-header">
-          <span class="gift-banner-icon">🎁</span>
-          <div class="gift-banner-title-group">
-            <div class="gift-banner-title">新學員專屬好禮 · 加入球隊送球拍</div>
-            <div class="gift-banner-subtitle">在校生限定 · 新學期報培訓班即贈</div>
-          </div>
-          <span class="gift-banner-emoji">🏸</span>
-        </div>
-        <div class="gift-banner-body">
-          <div class="gift-banner-text">
-            報名以下方案，<strong>新學期續報「課後培訓班」</strong>，<br>
-            即可獲得<strong>精選球拍</strong>乙支！🏸
-          </div>
-          <div class="gift-eligible-list">
-            <div class="gift-eligible-item">
-              <span class="gift-check">✅</span>
-              <span><strong>半天班 · 全梯</strong></span>
-            </div>
-            <div class="gift-eligible-item">
-              <span class="gift-check">✅</span>
-              <span><strong>全天班 · 2 梯以上</strong></span>
-            </div>
-            <div class="gift-eligible-item gift-eligible-best">
-              <span class="gift-check">🏆</span>
-              <span><strong>全天班 · 全梯(最划算)</strong></span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 引導往下到費用 -->
-    <a href="#tuition" class="scroll-to-price">
-      <span>👇 看完梯次，往下查看詳細費用</span>
-    </a>
   </div>
 </section>
 
 <section id="tuition" style="padding-top: 50px;">
   <div class="container">
+
+    <!-- 🎁 結業好禮橫幅(限新學員) -->
+    <div class="gift-banner">
+      <div class="gift-banner-header">
+        <span class="gift-banner-icon">🎁</span>
+        <div class="gift-banner-title-group">
+          <div class="gift-banner-title">新學員專屬好禮 · 加入球隊送球拍</div>
+          <div class="gift-banner-subtitle">在校生限定 · 新學期報培訓班即贈</div>
+        </div>
+        <span class="gift-banner-emoji">🏸</span>
+      </div>
+      <div class="gift-banner-body">
+        <div class="gift-banner-text">
+          報名以下方案，<strong>新學期續報「課後培訓班」</strong>，<br>
+          即可獲得<strong>精選球拍</strong>乙支！🏸
+        </div>
+        <div class="gift-eligible-list">
+          <div class="gift-eligible-item">
+            <span class="gift-check">✅</span>
+            <span><strong>半天班 · 全梯</strong></span>
+          </div>
+          <div class="gift-eligible-item">
+            <span class="gift-check">✅</span>
+            <span><strong>全天班 · 2 梯以上</strong></span>
+          </div>
+          <div class="gift-eligible-item gift-eligible-best">
+            <span class="gift-check">🏆</span>
+            <span><strong>全天班 · 全梯(最划算)</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="section-header">
       <div class="section-tag">TUITION</div>
       <h2 class="section-title">報名<span class="em">費用方案</span></h2>
@@ -5980,14 +5914,25 @@
 <section class="notice-section" id="notice">
   <div class="container">
     <div class="section-header">
-      <div class="section-tag">IMPORTANT NOTICE</div>
+      <div class="section-tag">NOTICE</div>
       <h2 class="section-title">報名<span class="em">注意事項</span></h2>
-      <p class="section-subtitle">為保障雙方權益<br>請務必詳閱以下規則後再報名</p>
+      <p class="section-subtitle">點選下方項目查看詳細規則</p>
     </div>
 
-    <!-- ===== 群組 1：繳費流程 ===== -->
-    <div class="notice-group notice-group-payment">
-      <div class="notice-group-title">
+    <!-- 🆕 折疊式規則卡 -->
+    <div class="collapsible-list">
+      <details class="collapsible-card">
+        <summary class="collapsible-header">
+          <span class="ch-icon">💰</span>
+          <span class="ch-title">繳費流程</span>
+          <span class="ch-hint">採現金繳費 · 6/20 截止</span>
+          <span class="ch-arrow">▼</span>
+        </summary>
+        <div class="collapsible-body">
+
+      <!-- ===== 群組 1：繳費流程（原內容開始） ===== -->
+    <div class="notice-group notice-group-payment" style="margin-top: 0;">
+      <div class="notice-group-title" style="display:none;">
         <span class="ng-icon">💰</span>
         <div class="ng-text">
           <h3>繳費流程</h3>
@@ -6081,10 +6026,21 @@
         <div class="line-arrow">→</div>
       </a>
     </div>
+        </div>
+      </details>
 
-    <!-- ===== 群組 2：課程退費規則（已繳清尾款後） ===== -->
-    <div class="notice-group notice-group-refund">
-      <div class="notice-group-title">
+      <details class="collapsible-card">
+        <summary class="collapsible-header">
+          <span class="ch-icon">🔄</span>
+          <span class="ch-title">課程退費規則</span>
+          <span class="ch-hint">已繳清尾款後的退費規定</span>
+          <span class="ch-arrow">▼</span>
+        </summary>
+        <div class="collapsible-body">
+
+    <!-- ===== 群組 2：課程退費規則 ===== -->
+    <div class="notice-group notice-group-refund" style="margin-top: 0;">
+      <div class="notice-group-title" style="display:none;">
         <span class="ng-icon">🔄</span>
         <div class="ng-text">
           <h3>課程退費規則</h3>
@@ -6210,10 +6166,21 @@
         </div>
       </div>
     </div>
+        </div>
+      </details>
 
-    <!-- ===== 群組 4：重要規定（禁止拆班）===== -->
-    <div class="notice-group notice-group-rules">
-      <div class="notice-group-title">
+      <details class="collapsible-card">
+        <summary class="collapsible-header">
+          <span class="ch-icon">⚠️</span>
+          <span class="ch-title">重要規定</span>
+          <span class="ch-hint">請仔細閱讀，避免後續爭議</span>
+          <span class="ch-arrow">▼</span>
+        </summary>
+        <div class="collapsible-body">
+
+    <!-- ===== 群組 4：重要規定 ===== -->
+    <div class="notice-group notice-group-rules" style="margin-top: 0;">
+      <div class="notice-group-title" style="display:none;">
         <span class="ng-icon">⚠️</span>
         <div class="ng-text">
           <h3>重要規定</h3>
@@ -6233,10 +6200,21 @@
         </div>
       </div>
     </div>
+        </div>
+      </details>
+
+      <details class="collapsible-card">
+        <summary class="collapsible-header">
+          <span class="ch-icon">🎒</span>
+          <span class="ch-title">上課須知</span>
+          <span class="ch-hint">幫助孩子順利參與每堂課</span>
+          <span class="ch-arrow">▼</span>
+        </summary>
+        <div class="collapsible-body">
 
     <!-- ===== 群組 5：上課須知 ===== -->
-    <div class="notice-group notice-group-class">
-      <div class="notice-group-title">
+    <div class="notice-group notice-group-class" style="margin-top: 0;">
+      <div class="notice-group-title" style="display:none;">
         <span class="ng-icon">🎒</span>
         <div class="ng-text">
           <h3>上課須知</h3>
@@ -6263,6 +6241,9 @@
         </div>
       </div>
     </div>
+        </div>
+      </details>
+    </div><!-- collapsible-list end -->
 
   </div>
 </section>
@@ -6916,7 +6897,6 @@
     }
   }
 </script>
-
 
 <!-- 🆕 浮動快速導覽 -->
 <div class="quick-nav" id="quickNav">
