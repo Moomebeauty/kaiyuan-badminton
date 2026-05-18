@@ -5123,7 +5123,7 @@
   /* ========== 3 分鐘看完摘要卡 ========== */
   .summary-section {
     padding: 40px 0 30px;
-    background: linear-gradient(180deg, var(--bg-warm) 0%, white 100%);
+    background: var(--bg);
   }
 
   .summary-header {
@@ -6053,7 +6053,7 @@
   /* ========== Why 區塊（為什麼選我們） ========== */
   .why-section {
     padding: 30px 0 20px;
-    background: linear-gradient(180deg, white 0%, var(--bg-warm) 100%);
+    background: var(--bg);
   }
 
   .why-header {
@@ -6110,6 +6110,77 @@
   /* 方案描述不分行（短文字） */
   .pt-plan-sub-nowrap {
     white-space: nowrap !important;
+  }
+
+  /* ========== 新版「今年限定」橫幅(移到費用方案下) ========== */
+  .gift-banner-bottom {
+    margin-top: 24px;
+  }
+
+  .gift-banner-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    background: var(--racket-red);
+    color: white;
+    font-family: 'Microsoft JhengHei', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    margin-bottom: 4px;
+    box-shadow: 0 2px 6px rgba(214,54,54,0.3);
+  }
+
+  /* 規則區塊 */
+  .gift-rules {
+    margin-top: 16px;
+    padding: 14px 16px;
+    background: rgba(214,54,54,0.05);
+    border-left: 3px solid var(--racket-red);
+    border-radius: 10px;
+  }
+
+  .gift-rules-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--racket-red-deep);
+    margin-bottom: 10px;
+  }
+
+  .gr-icon {
+    font-size: 16px;
+  }
+
+  .gift-rules-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .gift-rules-list li {
+    position: relative;
+    padding: 6px 0 6px 16px;
+    font-size: 12.5px;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  .gift-rules-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--racket-red);
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .gift-rules-list strong {
+    color: var(--racket-red-deep);
+    font-weight: 700;
   }
 </style>
 </head>
@@ -6191,7 +6262,7 @@
   </div>
 
   <svg class="hero-wave" viewBox="0 0 400 32" preserveAspectRatio="none">
-    <path d="M0,32 L0,16 Q100,0 200,16 T400,16 L400,32 Z" fill="#EDE8DC"/>
+    <path d="M0,32 L0,16 Q100,0 200,16 T400,16 L400,32 Z" fill="#F4F1EA"/>
   </svg>
 </header>
 
@@ -6373,38 +6444,6 @@
 <section id="tuition" style="padding-top: 50px;">
   <div class="container">
 
-    <!-- 🎁 結業好禮橫幅(限新學員) -->
-    <div class="gift-banner">
-      <div class="gift-banner-header">
-        <span class="gift-banner-icon">🎁</span>
-        <div class="gift-banner-title-group">
-          <div class="gift-banner-title">新學員專屬好禮 · 加入球隊送球拍</div>
-          <div class="gift-banner-subtitle">在校生限定 · 新學期報培訓班即贈</div>
-        </div>
-        <span class="gift-banner-emoji">🏸</span>
-      </div>
-      <div class="gift-banner-body">
-        <div class="gift-banner-text">
-          報名以下方案，<strong>新學期續報「課後培訓班」</strong>，<br>
-          即可獲得<strong>精選球拍</strong>乙支！🏸
-        </div>
-        <div class="gift-eligible-list">
-          <div class="gift-eligible-item">
-            <span class="gift-check">✅</span>
-            <span><strong>半天班 · 全梯</strong></span>
-          </div>
-          <div class="gift-eligible-item">
-            <span class="gift-check">✅</span>
-            <span><strong>全天班 · 2 梯以上</strong></span>
-          </div>
-          <div class="gift-eligible-item gift-eligible-best">
-            <span class="gift-check">🏆</span>
-            <span><strong>全天班 · 全梯(最划算)</strong></span>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="section-header">
       <div class="section-tag">TUITION</div>
       <h2 class="section-title">報名<span class="em">費用方案</span></h2>
@@ -6578,6 +6617,53 @@
         <span class="pcb-text">看完了，直接報名</span>
         <span class="pcb-arrow">→</span>
       </a>
+
+      <!-- 🎁 今年限定·新學員專屬好禮(移到費用方案下方) -->
+      <div class="gift-banner gift-banner-bottom">
+        <div class="gift-banner-header">
+          <span class="gift-banner-icon">🎁</span>
+          <div class="gift-banner-title-group">
+            <div class="gift-banner-badge">今年限定</div>
+            <div class="gift-banner-title">新學員專屬好禮</div>
+          </div>
+          <span class="gift-banner-emoji">🏸</span>
+        </div>
+        <div class="gift-banner-body">
+          <div class="gift-banner-text">
+            報名以下方案的學員，<strong>新學期續報「羽球隊培訓班」</strong>，送<strong style="color: var(--racket-red-deep);">精選球拍</strong>乙支！🏸
+          </div>
+          <div class="gift-eligible-list">
+            <div class="gift-eligible-item">
+              <span class="gift-check">✅</span>
+              <span><strong>半天班 · 全梯</strong></span>
+            </div>
+            <div class="gift-eligible-item">
+              <span class="gift-check">✅</span>
+              <span><strong>全天班 · 2 梯以上</strong></span>
+            </div>
+            <div class="gift-eligible-item gift-eligible-best">
+              <span class="gift-check">🏆</span>
+              <span><strong>全天班 · 全梯(最划算)</strong></span>
+            </div>
+          </div>
+          
+          <!-- 🛡️ 重要規則(預防爭議) -->
+          <div class="gift-rules">
+            <div class="gift-rules-title">
+              <span class="gr-icon">⚠️</span>
+              <span>領取規則</span>
+            </div>
+            <ul class="gift-rules-list">
+              <li><strong>僅限新學員：</strong>非開元羽球隊現有學員</li>
+              <li><strong>需續報培訓班：</strong>新學期報「羽球隊培訓班」才能領取</li>
+              <li><strong>不可折換：</strong>球拍不得折換現金、其他禮物或抵扣學費</li>
+              <li><strong>不可轉讓：</strong>限學員本人使用，不可轉讓他人</li>
+              <li><strong>款式統一：</strong>由球隊統一採購，不挑款</li>
+              <li><strong>視同放棄：</strong>未報培訓班、未於指定時間領取，視同自願放棄</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -6781,8 +6867,7 @@
           </div>
         </div>
         <div class="re-content">
-          <p>每個家庭都可能遇到突發狀況，<br>
-          以下情況請<strong>主動聯繫球隊</strong>，我們會視個案彈性協調 🙏</p>
+          <p>每個家庭都可能遇到突發狀況，以下情況請<strong>主動聯繫球隊</strong>，我們會視個案彈性協調 🙏</p>
 
           <!-- ✅ 可協助情況 -->
           <div class="re-can">
@@ -6831,8 +6916,7 @@
               </div>
             </div>
             <div class="re-cannot-note">
-              💡 請<strong>報名前充分評估</strong>孩子的體力與家庭暑期規劃<br>
-              避免造成球隊師資安排與其他學員的權益損失
+              💡 請<strong>報名前充分評估</strong>孩子的體力與家庭暑期規劃，避免造成球隊師資安排與其他學員的權益損失
             </div>
           </div>
         </div>
