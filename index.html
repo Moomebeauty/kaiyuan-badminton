@@ -4933,6 +4933,192 @@
     line-height: 1.6;
     font-weight: 600;
   }
+
+  /* ========== 浮動快速導覽 ========== */
+  .quick-nav {
+    position: fixed;
+    right: 16px;
+    bottom: 80px;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .quick-nav-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .quick-nav-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--court-green) 0%, var(--court-deep) 100%);
+    color: white;
+    border: 3px solid white;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25), 0 0 0 4px rgba(46,139,87,0.15);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    font-family: 'Microsoft JhengHei', 'Noto Sans TC', sans-serif;
+    transition: all 0.2s;
+    position: relative;
+    animation: pulseGreen 2.5s ease-in-out infinite;
+  }
+
+  @keyframes pulseGreen {
+    0%, 100% { box-shadow: 0 8px 24px rgba(0,0,0,0.25), 0 0 0 4px rgba(46,139,87,0.15); }
+    50% { box-shadow: 0 8px 28px rgba(46,139,87,0.4), 0 0 0 8px rgba(46,139,87,0.08); }
+  }
+
+  .quick-nav-toggle:hover {
+    transform: scale(1.08);
+  }
+
+  .qn-icon {
+    font-size: 22px;
+    line-height: 1;
+  }
+
+  .qn-label {
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0.5px;
+  }
+
+  .quick-nav-menu {
+    position: absolute;
+    right: 0;
+    bottom: 76px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.04);
+    width: 220px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px) scale(0.95);
+    transform-origin: bottom right;
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .quick-nav-open .quick-nav-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+  }
+
+  .qn-menu-header {
+    background: linear-gradient(135deg, var(--ink) 0%, var(--court-deep) 100%);
+    color: var(--shuttle-cork);
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .qn-menu-title {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+  .qn-close {
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .qn-close:hover {
+    background: rgba(255,255,255,0.25);
+    transform: rotate(90deg);
+  }
+
+  .qn-menu-list {
+    list-style: none;
+    padding: 8px;
+    margin: 0;
+  }
+
+  .qn-menu-list li {
+    margin: 0;
+  }
+
+  .qn-menu-list a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: all 0.2s;
+  }
+
+  .qn-menu-list a:hover {
+    background: var(--bg-warm);
+    color: var(--court-deep);
+    transform: translateX(2px);
+  }
+
+  .qn-emoji {
+    font-size: 16px;
+    width: 22px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .qn-cta-item {
+    margin-top: 6px !important;
+    padding-top: 8px;
+    border-top: 1px dashed var(--line);
+  }
+
+  .qn-cta {
+    background: linear-gradient(135deg, var(--racket-red) 0%, var(--racket-red-deep) 100%);
+    color: white !important;
+    font-weight: 800 !important;
+    text-align: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(214,54,54,0.25);
+  }
+
+  .qn-cta:hover {
+    background: linear-gradient(135deg, var(--racket-red-deep) 0%, #a82828 100%) !important;
+    color: white !important;
+    transform: translateX(0) translateY(-1px) !important;
+  }
+
+  /* 手機優化 */
+  @media (max-width: 480px) {
+    .quick-nav {
+      right: 12px;
+      bottom: 70px;
+    }
+    .quick-nav-toggle {
+      width: 54px;
+      height: 54px;
+    }
+    .qn-icon { font-size: 19px; }
+    .qn-label { font-size: 8px; }
+    .quick-nav-menu {
+      width: 200px;
+      bottom: 68px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -5342,43 +5528,6 @@
       </p>
     </div>
 
-    <!-- 🎁 結業好禮橫幅（限新學員） -->
-    <div class="gift-banner">
-      <div class="gift-banner-header">
-        <span class="gift-banner-icon">🎁</span>
-        <div class="gift-banner-title-group">
-          <div class="gift-banner-title">新學員專屬好禮 · 加入球隊送球拍</div>
-          <div class="gift-banner-subtitle">在校生 / 校外生限定 · 新學期報培訓班即贈</div>
-        </div>
-        <span class="gift-banner-emoji">🏸</span>
-      </div>
-      <div class="gift-banner-body">
-        <div class="gift-banner-text">
-          <strong style="color: var(--racket-red-deep);">非球隊現有學員</strong>（在校生 / 校外生）<br>
-          報名以下方案，<strong>新學期續報「課後培訓班」</strong>，<br>
-          即可獲得<strong>精選球拍</strong>乙支！🏸
-        </div>
-        <div class="gift-eligible-list">
-          <div class="gift-eligible-item">
-            <span class="gift-check">✅</span>
-            <span><strong>半天班 · 全梯</strong></span>
-          </div>
-          <div class="gift-eligible-item">
-            <span class="gift-check">✅</span>
-            <span><strong>全天班 · 2 梯以上</strong></span>
-          </div>
-          <div class="gift-eligible-item gift-eligible-best">
-            <span class="gift-check">🏆</span>
-            <span><strong>全天班 · 全梯（最划算）</strong></span>
-          </div>
-        </div>
-        <div class="gift-note">
-          ⚠️ 本方案限「在校生 / 校外生」（非現有球隊學員）<br>
-          球隊家長已享 8 折優惠費率，故不適用
-        </div>
-      </div>
-    </div>
-
     <div class="scenario-section">
       <div class="scenario-grid">
 
@@ -5412,7 +5561,7 @@
             <strong>適合：</strong>低年級孩子、有補習或才藝課的家庭
           </div>
           <div class="sc-discount-hint">💰 比單梯×4 還省 $6,000 元</div>
-          <div class="sc-gift-hint">🎁 在校 / 校外生續報培訓班 · 送球拍</div>
+          <div class="sc-gift-hint">🎁 在校生續報培訓班 · 送球拍</div>
         </div>
 
         <!-- 3. 全天班 · 單梯 -->
@@ -5444,12 +5593,44 @@
             <strong>適合：</strong>想孩子充實過暑假 / 雙薪家庭最划算
           </div>
           <div class="sc-discount-hint sc-discount-hint-gold">🎯 比單梯×4 還省 $6,000 元！</div>
-          <div class="sc-gift-hint sc-gift-hint-gold">🎁 在校 / 校外生續報培訓班 · 送精選球拍</div>
+          <div class="sc-gift-hint sc-gift-hint-gold">🎁 在校生續報培訓班 · 送精選球拍</div>
         </div>
       </div>
 
       <div class="scenario-tip">
         💡 不知道怎麼選？看下方<strong>「報名費用方案」</strong>，每個方案都有清楚標示適合對象！
+      </div>
+
+      <!-- 🎁 結業好禮橫幅(限新學員) -->
+      <div class="gift-banner">
+        <div class="gift-banner-header">
+          <span class="gift-banner-icon">🎁</span>
+          <div class="gift-banner-title-group">
+            <div class="gift-banner-title">新學員專屬好禮 · 加入球隊送球拍</div>
+            <div class="gift-banner-subtitle">在校生限定 · 新學期報培訓班即贈</div>
+          </div>
+          <span class="gift-banner-emoji">🏸</span>
+        </div>
+        <div class="gift-banner-body">
+          <div class="gift-banner-text">
+            報名以下方案，<strong>新學期續報「課後培訓班」</strong>，<br>
+            即可獲得<strong>精選球拍</strong>乙支！🏸
+          </div>
+          <div class="gift-eligible-list">
+            <div class="gift-eligible-item">
+              <span class="gift-check">✅</span>
+              <span><strong>半天班 · 全梯</strong></span>
+            </div>
+            <div class="gift-eligible-item">
+              <span class="gift-check">✅</span>
+              <span><strong>全天班 · 2 梯以上</strong></span>
+            </div>
+            <div class="gift-eligible-item gift-eligible-best">
+              <span class="gift-check">🏆</span>
+              <span><strong>全天班 · 全梯(最划算)</strong></span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -6086,7 +6267,7 @@
   </div>
 </section>
 
-<section style="padding: 0;">
+<section style="padding: 0;" id="signup">
   <div class="container">
     <div class="final-cta">
       <svg class="final-cta-bg" viewBox="0 0 400 280" preserveAspectRatio="none">
@@ -6399,13 +6580,13 @@
             <span class="fa-text">
               <span style="color: var(--shuttle-cork); font-weight: 700;">🎁 我已了解「新學員贈拍」方案（選填）</span><br>
               <span class="fa-detail">
-                • <strong>適用對象：</strong>限「在校生 / 校外生」（非球隊現有學員）<br>
+                • <strong>適用對象：</strong>限「在校生」(非球隊現有學員)<br>
                 • <strong>適用方案：</strong>半天全梯 / 全天 2 梯以上 / 全天全梯<br>
                 • <strong>領取條件：</strong>於新學期報名「課後培訓班」<br>
                 • <strong>球拍款式：</strong>由球隊統一採購（不挑款）<br>
                 • 若未報培訓班，視同放棄贈拍<br>
                 • 球拍不可折現、不可轉讓<br>
-                • 球隊學生因已享優惠費率，不適用本方案
+                • 球隊學生已享優惠費率，不適用本方案
               </span>
             </span>
           </label>
@@ -6660,24 +6841,22 @@
     // 條件 2：半天班·全梯 / 全天班·2梯以上 / 全天班·全梯
     const isAllCamp = checkedCamps.includes('全梯');
     const isFullDay = timeSlot && timeSlot.includes('全天');
-    const isNewStudent = (identity === '在校生' || identity === '校外生');
+    const isNewStudent = (identity === '在校生');
     
     let giftEligible = '否';
     let giftReason = '';
     
-    if (!isNewStudent) {
-      // 球隊學生不適用
-      giftReason = '球隊學生不適用（已享優惠費率）';
+    if (identity === '球隊學生') {
+      giftReason = '球隊學生已享優惠費率';
+    } else if (identity === '校外生') {
+      giftReason = '校外生不適用';
     } else if (isAllCamp) {
-      // 新學員 + 全梯
       giftEligible = '✅ 符合';
       giftReason = isFullDay ? '全天班·全梯' : '半天班·全梯';
     } else if (isFullDay && checkedCamps.length >= 2) {
-      // 新學員 + 全天 2 梯以上
       giftEligible = '✅ 符合';
       giftReason = `全天班·${checkedCamps.length}梯`;
     } else {
-      // 新學員但方案不符
       giftReason = '單梯方案不符合';
     }
 
@@ -6736,6 +6915,48 @@
       document.getElementById('formBody').style.display = 'block';
     }
   }
+</script>
+
+
+<!-- 🆕 浮動快速導覽 -->
+<div class="quick-nav" id="quickNav">
+  <button class="quick-nav-toggle" id="quickNavToggle" onclick="toggleQuickNav()" aria-label="快速導覽">
+    <span class="qn-icon">📑</span>
+    <span class="qn-label">快速<br>導覽</span>
+  </button>
+  <div class="quick-nav-menu" id="quickNavMenu">
+    <div class="qn-menu-header">
+      <span class="qn-menu-title">🏸 快速跳轉</span>
+      <button class="qn-close" onclick="toggleQuickNav()" aria-label="關閉">✕</button>
+    </div>
+    <ul class="qn-menu-list">
+      <li><a href="#top" onclick="closeQuickNav()"><span class="qn-emoji">🏠</span>回到頂部</a></li>
+      <li><a href="#why" onclick="closeQuickNav()"><span class="qn-emoji">⭐</span>為什麼選我們</a></li>
+      <li><a href="#camps" onclick="closeQuickNav()"><span class="qn-emoji">📅</span>梯次與方案</a></li>
+      <li><a href="#tuition" onclick="closeQuickNav()"><span class="qn-emoji">💰</span>費用方案</a></li>
+      <li><a href="#notice" onclick="closeQuickNav()"><span class="qn-emoji">📋</span>退費規則</a></li>
+      <li class="qn-cta-item"><a href="#signup" onclick="closeQuickNav()" class="qn-cta"><span class="qn-emoji">🚀</span>立刻報名</a></li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  function toggleQuickNav() {
+    const nav = document.getElementById('quickNav');
+    nav.classList.toggle('quick-nav-open');
+  }
+  function closeQuickNav() {
+    document.getElementById('quickNav').classList.remove('quick-nav-open');
+  }
+  // 滾動 200px 後顯示
+  window.addEventListener('scroll', function() {
+    const nav = document.getElementById('quickNav');
+    if (window.scrollY > 300) {
+      nav.classList.add('quick-nav-visible');
+    } else {
+      nav.classList.remove('quick-nav-visible');
+    }
+  });
 </script>
 
 </body>
