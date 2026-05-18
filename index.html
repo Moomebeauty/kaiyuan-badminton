@@ -4535,6 +4535,404 @@
     color: var(--racket-red-deep);
     font-weight: 700;
   }
+
+  /* ========== 梯次複選樣式 ========== */
+  .form-hint-inline {
+    font-size: 12px;
+    color: var(--court-deep);
+    font-weight: 600;
+    margin-left: 6px;
+  }
+
+  .camp-checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  .camp-checkbox {
+    display: block;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .camp-checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .camp-cb-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: white;
+    border: 2px solid var(--line);
+    border-radius: 14px;
+    transition: all 0.2s;
+  }
+
+  .camp-checkbox:hover .camp-cb-content {
+    border-color: var(--court-green);
+    transform: translateY(-1px);
+  }
+
+  .camp-checkbox input:checked + .camp-cb-content {
+    border-color: var(--court-green);
+    background: linear-gradient(135deg, rgba(46,139,87,0.06) 0%, white 100%);
+    box-shadow: 0 6px 16px rgba(46,139,87,0.15);
+  }
+
+  /* 全梯特殊樣式 */
+  .camp-checkbox-allcamp .camp-cb-content {
+    border: 2.5px solid var(--shuttle-cork);
+    background: linear-gradient(135deg, rgba(232,184,108,0.06) 0%, white 100%);
+  }
+
+  .camp-checkbox-allcamp input:checked + .camp-cb-content {
+    border-color: var(--shuttle-cork);
+    background: linear-gradient(135deg, rgba(232,184,108,0.15) 0%, rgba(232,184,108,0.05) 100%);
+    box-shadow: 0 8px 20px rgba(232,184,108,0.25);
+  }
+
+  .camp-cb-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+
+  .camp-cb-num {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--bg-warm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--court-deep);
+    flex-shrink: 0;
+  }
+
+  .camp-checkbox input:checked + .camp-cb-content .camp-cb-num {
+    background: var(--court-green);
+    color: white;
+  }
+
+  .camp-cb-info {
+    flex: 1;
+  }
+
+  .camp-cb-title {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  .camp-cb-desc {
+    font-size: 12px;
+    color: rgba(15,27,20,0.65);
+    margin-top: 2px;
+  }
+
+  .camp-cb-badge {
+    background: linear-gradient(135deg, var(--shuttle-cork) 0%, #d4a85a 100%);
+    color: var(--ink);
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+  }
+
+  .camp-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 4px 0;
+    color: rgba(15,27,20,0.5);
+    font-size: 12px;
+  }
+
+  .camp-divider::before,
+  .camp-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .camp-error {
+    margin-top: 8px;
+    padding: 10px 12px;
+    background: rgba(214,54,54,0.08);
+    border-left: 3px solid var(--racket-red);
+    border-radius: 8px;
+    color: var(--racket-red-deep);
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  /* ========== 即時費用試算卡 ========== */
+  .fee-calculator {
+    margin: 20px 0;
+    background: linear-gradient(135deg, rgba(232,184,108,0.08) 0%, white 100%);
+    border: 2px solid var(--shuttle-cork);
+    border-radius: 16px;
+    overflow: hidden;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fc-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    background: linear-gradient(135deg, var(--shuttle-cork) 0%, #d4a85a 100%);
+    color: var(--ink);
+  }
+
+  .fc-icon {
+    font-size: 22px;
+  }
+
+  .fc-title {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 15px;
+    font-weight: 800;
+  }
+
+  .fc-body {
+    padding: 14px 16px;
+  }
+
+  .fc-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    font-size: 13.5px;
+    color: var(--ink);
+  }
+
+  .fc-label {
+    color: rgba(15,27,20,0.7);
+    font-weight: 500;
+  }
+
+  .fc-value {
+    font-weight: 600;
+    text-align: right;
+    max-width: 60%;
+  }
+
+  .fc-divider {
+    height: 1px;
+    background: var(--line);
+    margin: 8px 0;
+  }
+
+  .fc-total {
+    padding: 8px 0 4px;
+    font-size: 16px;
+  }
+
+  .fc-total .fc-label {
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .fc-value-total {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-weight: 900;
+    color: var(--racket-red-deep);
+    font-size: 24px;
+  }
+
+  .fc-cur {
+    font-size: 13px;
+    margin-right: 2px;
+  }
+
+  .fc-suggestion {
+    margin-top: 10px;
+    padding: 10px 12px;
+    background: rgba(46,139,87,0.1);
+    border-left: 3px solid var(--court-green);
+    border-radius: 8px;
+    font-size: 12.5px;
+    color: var(--court-deep);
+    line-height: 1.6;
+  }
+
+  .fc-suggestion strong {
+    color: var(--racket-red-deep);
+    font-weight: 700;
+  }
+
+  /* ========== 結業好禮橫幅 ========== */
+  .gift-banner {
+    margin: 24px 0;
+    background: linear-gradient(135deg, #FFF4D6 0%, #FFE8B5 50%, #FFF4D6 100%);
+    border: 2.5px solid var(--shuttle-cork);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 28px rgba(232,184,108,0.3);
+    position: relative;
+  }
+
+  .gift-banner::before {
+    content: '✨';
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    font-size: 22px;
+    animation: sparkle 1.5s ease-in-out infinite;
+    opacity: 0.6;
+  }
+
+  .gift-banner-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 18px;
+    background: linear-gradient(135deg, var(--shuttle-cork) 0%, #d4a85a 100%);
+    color: var(--ink);
+  }
+
+  .gift-banner-icon {
+    font-size: 36px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .gift-banner-emoji {
+    font-size: 28px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .gift-banner-title-group {
+    flex: 1;
+  }
+
+  .gift-banner-title {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 2px;
+  }
+
+  .gift-banner-subtitle {
+    font-size: 13px;
+    font-weight: 600;
+    opacity: 0.85;
+  }
+
+  .gift-banner-body {
+    padding: 18px 20px;
+  }
+
+  .gift-banner-text {
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.7;
+    margin-bottom: 14px;
+    text-align: center;
+  }
+
+  .gift-banner-text strong {
+    color: var(--racket-red-deep);
+    font-weight: 700;
+  }
+
+  .gift-eligible-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .gift-eligible-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: white;
+    border-radius: 12px;
+    font-size: 13.5px;
+    color: var(--ink);
+    border: 1.5px solid rgba(232,184,108,0.4);
+  }
+
+  .gift-eligible-best {
+    background: linear-gradient(135deg, #FFF4D6 0%, white 100%);
+    border-color: var(--shuttle-cork);
+    box-shadow: 0 4px 12px rgba(232,184,108,0.2);
+  }
+
+  .gift-check {
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .gift-eligible-item strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .gift-eligible-best strong {
+    color: var(--racket-red-deep);
+    font-weight: 800;
+  }
+
+  /* ========== 方案卡片內的贈拍提示 ========== */
+  .sc-gift-hint {
+    margin-top: 8px;
+    padding: 10px 12px;
+    background: linear-gradient(135deg, rgba(232,184,108,0.18) 0%, rgba(232,184,108,0.08) 100%);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #8a6428;
+    border: 1px dashed var(--shuttle-cork);
+  }
+
+  .sc-gift-hint-gold {
+    background: linear-gradient(135deg, var(--shuttle-cork) 0%, #d4a85a 100%);
+    color: var(--ink);
+    border: 2px solid #b8923a;
+    font-size: 13px;
+    font-weight: 800;
+    box-shadow: 0 4px 12px rgba(232,184,108,0.4);
+    animation: goldPulse 2s ease-in-out infinite;
+  }
+
+  /* 贈拍方案的「限定提醒」 */
+  .gift-note {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: rgba(214,54,54,0.06);
+    border-left: 3px solid var(--racket-red);
+    border-radius: 8px;
+    font-size: 12px;
+    color: var(--racket-red-deep);
+    line-height: 1.6;
+    font-weight: 600;
+  }
 </style>
 </head>
 <body>
@@ -4944,6 +5342,43 @@
       </p>
     </div>
 
+    <!-- 🎁 結業好禮橫幅（限新學員） -->
+    <div class="gift-banner">
+      <div class="gift-banner-header">
+        <span class="gift-banner-icon">🎁</span>
+        <div class="gift-banner-title-group">
+          <div class="gift-banner-title">新學員專屬好禮 · 加入球隊送球拍</div>
+          <div class="gift-banner-subtitle">在校生 / 校外生限定 · 新學期報培訓班即贈</div>
+        </div>
+        <span class="gift-banner-emoji">🏸</span>
+      </div>
+      <div class="gift-banner-body">
+        <div class="gift-banner-text">
+          <strong style="color: var(--racket-red-deep);">非球隊現有學員</strong>（在校生 / 校外生）<br>
+          報名以下方案，<strong>新學期續報「課後培訓班」</strong>，<br>
+          即可獲得<strong>精選球拍</strong>乙支！🏸
+        </div>
+        <div class="gift-eligible-list">
+          <div class="gift-eligible-item">
+            <span class="gift-check">✅</span>
+            <span><strong>半天班 · 全梯</strong></span>
+          </div>
+          <div class="gift-eligible-item">
+            <span class="gift-check">✅</span>
+            <span><strong>全天班 · 2 梯以上</strong></span>
+          </div>
+          <div class="gift-eligible-item gift-eligible-best">
+            <span class="gift-check">🏆</span>
+            <span><strong>全天班 · 全梯（最划算）</strong></span>
+          </div>
+        </div>
+        <div class="gift-note">
+          ⚠️ 本方案限「在校生 / 校外生」（非現有球隊學員）<br>
+          球隊家長已享 8 折優惠費率，故不適用
+        </div>
+      </div>
+    </div>
+
     <div class="scenario-section">
       <div class="scenario-grid">
 
@@ -4976,7 +5411,8 @@
           <div class="sc-suitable">
             <strong>適合：</strong>低年級孩子、有補習或才藝課的家庭
           </div>
-          <div class="sc-discount-hint">💰 比單梯×4 還省 $5,000 元</div>
+          <div class="sc-discount-hint">💰 比單梯×4 還省 $6,000 元</div>
+          <div class="sc-gift-hint">🎁 在校 / 校外生續報培訓班 · 送球拍</div>
         </div>
 
         <!-- 3. 全天班 · 單梯 -->
@@ -5007,7 +5443,8 @@
           <div class="sc-suitable">
             <strong>適合：</strong>想孩子充實過暑假 / 雙薪家庭最划算
           </div>
-          <div class="sc-discount-hint sc-discount-hint-gold">🎯 比單梯×4 還省 $6,500 元！</div>
+          <div class="sc-discount-hint sc-discount-hint-gold">🎯 比單梯×4 還省 $6,000 元！</div>
+          <div class="sc-gift-hint sc-gift-hint-gold">🎁 在校 / 校外生續報培訓班 · 送精選球拍</div>
         </div>
       </div>
 
@@ -5065,16 +5502,16 @@
         </div>
 
         <div class="plan-price-row">
-          <div class="plan-original">原價 <s>NT$18,000</s></div>
+          <div class="plan-original">原價 <s>NT$16,000</s></div>
           <div class="plan-price-big">
-            <span class="cur">NT$</span><span class="amt">11,500</span>
+            <span class="cur">NT$</span><span class="amt">10,000</span>
           </div>
-          <div class="plan-save-tag">省 $6,500 元</div>
+          <div class="plan-save-tag">省 $6,000 元</div>
         </div>
 
         <div class="plan-features">
           <div class="plan-feature"><span class="ico">✓</span>完整 8 週訓練 · 學到飽</div>
-          <div class="plan-feature"><span class="ico">✓</span>平均一梯只要 NT$2,875</div>
+          <div class="plan-feature"><span class="ico">✓</span>平均一梯只要 NT$2,500</div>
           <div class="plan-feature"><span class="ico">✓</span>優先保留名額，免擔心額滿</div>
                   </div>
 
@@ -5092,13 +5529,13 @@
             <p class="plan-tagline-mid">4 梯次半天 · 上午或下午</p>
           </div>
           <div class="plan-price-side">
-            <span class="cur">NT$</span><span class="amt-mid">9,500</span>
+            <span class="cur">NT$</span><span class="amt-mid">8,000</span>
           </div>
         </div>
         <div class="plan-tags">
           <span class="plan-tag tag-time">☀️ 08:30–11:30</span>
           <span class="plan-tag tag-time">🌤️ 14:00–17:00</span>
-          <span class="plan-tag tag-save">省 $4,500</span>
+          <span class="plan-tag tag-save">省 $4,000</span>
         </div>
         <button onclick="openModal()" class="plan-cta plan-cta-silver">
           報名半天班 · 全梯
@@ -5119,7 +5556,7 @@
             <p class="plan-tagline-mid">兩週訓練 · 含中午管理</p>
           </div>
           <div class="plan-price-side">
-            <span class="cur">NT$</span><span class="amt-mid">4,500</span>
+            <span class="cur">NT$</span><span class="amt-mid">4,000</span>
           </div>
         </div>
         <div class="plan-tags">
@@ -5141,7 +5578,7 @@
             <p class="plan-tagline-mid">兩週訓練 · 早上或下午</p>
           </div>
           <div class="plan-price-side">
-            <span class="cur">NT$</span><span class="amt-mid">3,500</span>
+            <span class="cur">NT$</span><span class="amt-mid">3,000</span>
           </div>
         </div>
         <div class="plan-tags">
@@ -5169,16 +5606,16 @@
         </div>
 
         <div class="plan-price-row">
-          <div class="plan-original">原價 <s>NT$23,200</s></div>
+          <div class="plan-original">原價 <s>NT$20,000</s></div>
           <div class="plan-price-big">
-            <span class="cur">NT$</span><span class="amt">15,000</span>
+            <span class="cur">NT$</span><span class="amt">14,000</span>
           </div>
           <div class="plan-save-tag">省 $8,200 元</div>
         </div>
 
         <div class="plan-features">
           <div class="plan-feature"><span class="ico">✓</span>完整 8 週訓練 · 學到飽</div>
-          <div class="plan-feature"><span class="ico">✓</span>平均一梯只要 NT$3,750</div>
+          <div class="plan-feature"><span class="ico">✓</span>平均一梯只要 NT$3,500</div>
           <div class="plan-feature"><span class="ico">✓</span>優先保留名額，免擔心額滿</div>
                   </div>
 
@@ -5196,13 +5633,13 @@
             <p class="plan-tagline-mid">4 梯次半天 · 上午或下午</p>
           </div>
           <div class="plan-price-side">
-            <span class="cur">NT$</span><span class="amt-mid">12,000</span>
+            <span class="cur">NT$</span><span class="amt-mid">11,000</span>
           </div>
         </div>
         <div class="plan-tags">
           <span class="plan-tag tag-time">☀️ 08:30–11:30</span>
           <span class="plan-tag tag-time">🌤️ 14:00–17:00</span>
-          <span class="plan-tag tag-save">省 $6,000</span>
+          <span class="plan-tag tag-save">省 $4,200</span>
         </div>
         <button onclick="openModal()" class="plan-cta plan-cta-silver">
           報名半天班 · 全梯
@@ -5221,7 +5658,7 @@
             <p class="plan-tagline-mid">兩週訓練 · 含中午管理</p>
           </div>
           <div class="plan-price-side">
-            <span class="cur">NT$</span><span class="amt-mid">5,800</span>
+            <span class="cur">NT$</span><span class="amt-mid">5,000</span>
           </div>
         </div>
         <div class="plan-tags">
@@ -5242,7 +5679,7 @@
             <p class="plan-tagline-mid">兩週訓練 · 早上或下午</p>
           </div>
           <div class="plan-price-side">
-            <span class="cur">NT$</span><span class="amt-mid">4,500</span>
+            <span class="cur">NT$</span><span class="amt-mid">3,800</span>
           </div>
         </div>
         <div class="plan-tags">
@@ -5270,16 +5707,16 @@
         </div>
 
         <div class="plan-price-row">
-          <div class="plan-original">原價 <s>NT$26,000</s></div>
+          <div class="plan-original">原價 <s>NT$22,000</s></div>
           <div class="plan-price-big">
-            <span class="cur">NT$</span><span class="amt">17,000</span>
+            <span class="cur">NT$</span><span class="amt">15,000</span>
           </div>
           <div class="plan-save-tag">省 $9,000 元</div>
         </div>
 
         <div class="plan-features">
           <div class="plan-feature"><span class="ico">✓</span>完整 8 週訓練 · 學到飽</div>
-          <div class="plan-feature"><span class="ico">✓</span>平均一梯只要 NT$4,250</div>
+          <div class="plan-feature"><span class="ico">✓</span>平均一梯只要 NT$3,750</div>
           <div class="plan-feature"><span class="ico">✓</span>優先保留名額，免擔心額滿</div>
                   </div>
 
@@ -5297,13 +5734,13 @@
             <p class="plan-tagline-mid">4 梯次半天 · 上午或下午</p>
           </div>
           <div class="plan-price-side">
-            <span class="cur">NT$</span><span class="amt-mid">13,500</span>
+            <span class="cur">NT$</span><span class="amt-mid">12,000</span>
           </div>
         </div>
         <div class="plan-tags">
           <span class="plan-tag tag-time">☀️ 08:30–11:30</span>
           <span class="plan-tag tag-time">🌤️ 14:00–17:00</span>
-          <span class="plan-tag tag-save">省 $6,500</span>
+          <span class="plan-tag tag-save">省 $4,000</span>
         </div>
         <button onclick="openModal()" class="plan-cta plan-cta-silver">
           報名半天班 · 全梯
@@ -5322,7 +5759,7 @@
             <p class="plan-tagline-mid">兩週訓練 · 含中午管理</p>
           </div>
           <div class="plan-price-side">
-            <span class="cur">NT$</span><span class="amt-mid">6,500</span>
+            <span class="cur">NT$</span><span class="amt-mid">5,500</span>
           </div>
         </div>
         <div class="plan-tags">
@@ -5343,7 +5780,7 @@
             <p class="plan-tagline-mid">兩週訓練 · 早上或下午</p>
           </div>
           <div class="plan-price-side">
-            <span class="cur">NT$</span><span class="amt-mid">5,000</span>
+            <span class="cur">NT$</span><span class="amt-mid">4,000</span>
           </div>
         </div>
         <div class="plan-tags">
@@ -5494,7 +5931,7 @@
             </div>
           </div>
           <div class="crc-note">
-            💡 全梯方案享有最大優惠（省 $4,500-9,000），<br>
+            💡 全梯方案享有最大優惠（省 $4,000-7,000），<br>
             已是市場最低價，故無法再提供退費或補課
           </div>
         </div>
@@ -5761,7 +6198,7 @@
 
         <div class="form-group">
           <label class="form-label">學生身份 <span class="required">*</span></label>
-          <select class="form-select" name="identity" required>
+          <select class="form-select" name="identity" required onchange="updateFeeCalculation()">
             <option value="">請選擇身份</option>
             <option value="球隊學生">球隊學生</option>
             <option value="在校生">開元在校生</option>
@@ -5790,20 +6227,8 @@
         <div class="form-section-title"><span class="icon">🏸</span>選擇梯次與時段</div>
 
         <div class="form-group">
-          <label class="form-label">報名梯次 <span class="required">*</span></label>
-          <select class="form-select" name="camp" required>
-            <option value="">請選擇梯次</option>
-            <option value="全梯（4梯全包）">🌟 全梯（4 梯全包，最划算）</option>
-            <option value="第一梯（7/6-7/17）">第一梯（7/6 – 7/17）</option>
-            <option value="第二梯（7/20-7/31）">第二梯（7/20 – 7/31）</option>
-            <option value="第三梯（8/3-8/14）">第三梯（8/3 – 8/14）</option>
-            <option value="第四梯（8/17-8/28）">第四梯（8/17 – 8/28）</option>
-          </select>
-        </div>
-
-        <div class="form-group">
           <label class="form-label">上課時段 <span class="required">*</span></label>
-          <select class="form-select" name="timeSlot" required>
+          <select class="form-select" name="timeSlot" required onchange="updateFeeCalculation()">
             <option value="">請選擇時段</option>
             <option value="全天（08:30-17:00）">全天（08:30 – 17:00）</option>
             <option value="半天-早上（08:30-11:30）">半天 · 早上（08:30 – 11:30）</option>
@@ -5812,11 +6237,110 @@
         </div>
 
         <div class="form-group">
+          <label class="form-label">報名梯次 <span class="required">*</span><span class="form-hint-inline">（可複選）</span></label>
+          
+          <div class="camp-checkbox-group">
+            <!-- 全梯選項（特別樣式） -->
+            <label class="camp-checkbox camp-checkbox-allcamp">
+              <input type="checkbox" name="camps" value="全梯" id="camp_all" onchange="handleAllCampChange(this)">
+              <div class="camp-cb-content">
+                <div class="camp-cb-icon">🏆</div>
+                <div class="camp-cb-info">
+                  <div class="camp-cb-title">全梯（4 梯全包）</div>
+                  <div class="camp-cb-desc">整個暑假最划算 · 學到飽</div>
+                </div>
+                <div class="camp-cb-badge">最推薦</div>
+              </div>
+            </label>
+
+            <div class="camp-divider"><span>或選擇單梯（可多選）</span></div>
+
+            <label class="camp-checkbox">
+              <input type="checkbox" name="camps" value="第一梯（7/6-7/17）" onchange="handleSingleCampChange()">
+              <div class="camp-cb-content">
+                <div class="camp-cb-num">1</div>
+                <div class="camp-cb-info">
+                  <div class="camp-cb-title">第一梯</div>
+                  <div class="camp-cb-desc">7/6 – 7/17（連續 2 週）</div>
+                </div>
+              </div>
+            </label>
+
+            <label class="camp-checkbox">
+              <input type="checkbox" name="camps" value="第二梯（7/20-7/31）" onchange="handleSingleCampChange()">
+              <div class="camp-cb-content">
+                <div class="camp-cb-num">2</div>
+                <div class="camp-cb-info">
+                  <div class="camp-cb-title">第二梯</div>
+                  <div class="camp-cb-desc">7/20 – 7/31（連續 2 週）</div>
+                </div>
+              </div>
+            </label>
+
+            <label class="camp-checkbox">
+              <input type="checkbox" name="camps" value="第三梯（8/3-8/14）" onchange="handleSingleCampChange()">
+              <div class="camp-cb-content">
+                <div class="camp-cb-num">3</div>
+                <div class="camp-cb-info">
+                  <div class="camp-cb-title">第三梯</div>
+                  <div class="camp-cb-desc">8/3 – 8/14(連續 2 週)</div>
+                </div>
+              </div>
+            </label>
+
+            <label class="camp-checkbox">
+              <input type="checkbox" name="camps" value="第四梯（8/17-8/28）" onchange="handleSingleCampChange()">
+              <div class="camp-cb-content">
+                <div class="camp-cb-num">4</div>
+                <div class="camp-cb-info">
+                  <div class="camp-cb-title">第四梯</div>
+                  <div class="camp-cb-desc">8/17 – 8/28（連續 2 週）</div>
+                </div>
+              </div>
+            </label>
+          </div>
+
+          <div id="campError" class="camp-error" style="display:none;">請至少選擇 1 個梯次</div>
+        </div>
+
+        <!-- 🆕 即時費用試算卡 -->
+        <div id="feeCalculator" class="fee-calculator" style="display:none;">
+          <div class="fc-header">
+            <span class="fc-icon">💰</span>
+            <span class="fc-title">您的報名費試算</span>
+          </div>
+          <div class="fc-body">
+            <div class="fc-row">
+              <span class="fc-label">身份：</span>
+              <span class="fc-value" id="fc_identity">—</span>
+            </div>
+            <div class="fc-row">
+              <span class="fc-label">時段：</span>
+              <span class="fc-value" id="fc_timeslot">—</span>
+            </div>
+            <div class="fc-row">
+              <span class="fc-label">梯次：</span>
+              <span class="fc-value" id="fc_camps">—</span>
+            </div>
+            <div class="fc-row">
+              <span class="fc-label">方案：</span>
+              <span class="fc-value" id="fc_plan">—</span>
+            </div>
+            <div class="fc-divider"></div>
+            <div class="fc-row fc-total">
+              <span class="fc-label">總計：</span>
+              <span class="fc-value-total"><span class="fc-cur">NT$</span><span id="fc_total">0</span></span>
+            </div>
+            <div id="fc_suggestion" class="fc-suggestion" style="display:none;"></div>
+          </div>
+        </div>
+
+        <div class="form-group">
           <label class="form-label">是否需要訂購午餐</label>
           <select class="form-select" name="lunch">
-            <option value="不需要">不需要（半天班 / 中午自行返家）</option>
-            <option value="加購訂餐">加購訂餐（球隊統一訂購，費用另計）</option>
-            <option value="自備午餐">自備午餐（家長自行準備）</option>
+            <option value="不需要">不需要(半天班 / 中午自行返家)</option>
+            <option value="加購訂餐">加購訂餐(球隊統一訂購，費用另計)</option>
+            <option value="自備午餐">自備午餐(家長自行準備)</option>
           </select>
           <div class="form-helper">全天班學員適用 · 訂餐費用會由球隊另行通知</div>
         </div>
@@ -5866,6 +6390,23 @@
             <span class="fa-text">
               我同意於 <strong style="color: var(--racket-red-deep);">2026/6/20 報名截止日前</strong>繳交訂金 NT$1,000，<br>
               並了解 <strong>填表 ≠ 報名成功，繳交訂金才算名額保留成功</strong>
+            </span>
+          </label>
+
+          <label class="fa-checkbox">
+            <input type="checkbox" name="agree_gift">
+            <span class="fa-checkmark"></span>
+            <span class="fa-text">
+              <span style="color: var(--shuttle-cork); font-weight: 700;">🎁 我已了解「新學員贈拍」方案（選填）</span><br>
+              <span class="fa-detail">
+                • <strong>適用對象：</strong>限「在校生 / 校外生」（非球隊現有學員）<br>
+                • <strong>適用方案：</strong>半天全梯 / 全天 2 梯以上 / 全天全梯<br>
+                • <strong>領取條件：</strong>於新學期報名「課後培訓班」<br>
+                • <strong>球拍款式：</strong>由球隊統一採購（不挑款）<br>
+                • 若未報培訓班，視同放棄贈拍<br>
+                • 球拍不可折現、不可轉讓<br>
+                • 球隊學生因已享優惠費率，不適用本方案
+              </span>
             </span>
           </label>
         </div>
@@ -5935,10 +6476,160 @@
     if (e.target.id === 'modalOverlay') closeModal();
   }
 
+  // ========== 費用對照表（2026 暑期班）==========
+  const PRICE_TABLE = {
+    '球隊學生': {
+      '半天班·單梯': 3000,
+      '半天班·全梯': 8000,
+      '全天班·單梯': 4000,
+      '全天班·全梯': 10000
+    },
+    '在校生': {
+      '半天班·單梯': 3800,
+      '半天班·全梯': 11000,
+      '全天班·單梯': 5000,
+      '全天班·全梯': 14000
+    },
+    '校外生': {
+      '半天班·單梯': 4000,
+      '半天班·全梯': 12000,
+      '全天班·單梯': 5500,
+      '全天班·全梯': 15000
+    }
+  };
+
+  // 費用結構拆解比例
+  const FEE_STRUCTURE = {
+    '球隊學生': { 教練: 0.70, 場地: 0.10, 經理: 0.10, 隊費: 0.10 },
+    '在校生':   { 教練: 0.85, 場地: 0.10, 經理: 0.05, 隊費: 0 },
+    '校外生':   { 教練: 0.85, 場地: 0.10, 經理: 0.05, 隊費: 0 }
+  };
+
+  // ========== 梯次複選互斥邏輯 ==========
+  function handleAllCampChange(checkbox) {
+    // 點「全梯」時，取消所有單梯選項
+    if (checkbox.checked) {
+      const singleCamps = document.querySelectorAll('input[name="camps"]:not(#camp_all)');
+      singleCamps.forEach(cb => cb.checked = false);
+    }
+    updateFeeCalculation();
+  }
+
+  function handleSingleCampChange() {
+    // 點單梯時，取消「全梯」
+    const allCamp = document.getElementById('camp_all');
+    const singleCamps = document.querySelectorAll('input[name="camps"]:not(#camp_all)');
+    const checkedSingles = Array.from(singleCamps).filter(cb => cb.checked);
+    
+    if (checkedSingles.length > 0) {
+      allCamp.checked = false;
+    }
+    
+    // 如果勾選了 4 個單梯，提示改選全梯
+    updateFeeCalculation();
+  }
+
+  // ========== 即時費用計算 ==========
+  function updateFeeCalculation() {
+    const identity = document.querySelector('select[name="identity"]')?.value;
+    const timeSlot = document.querySelector('select[name="timeSlot"]')?.value;
+    const checkedCamps = Array.from(document.querySelectorAll('input[name="camps"]:checked'));
+    
+    const feeCalculator = document.getElementById('feeCalculator');
+    
+    // 任一未選 → 隱藏試算
+    if (!identity || !timeSlot || checkedCamps.length === 0) {
+      feeCalculator.style.display = 'none';
+      return;
+    }
+    
+    feeCalculator.style.display = 'block';
+    
+    // 判斷是否全梯
+    const isAllCamp = checkedCamps.some(cb => cb.value === '全梯');
+    const isHalfDay = timeSlot.includes('半天');
+    
+    // 計算費用
+    let planName = '';
+    let totalFee = 0;
+    let campNames = [];
+    
+    if (isAllCamp) {
+      // 全梯方案
+      planName = isHalfDay ? '半天班·全梯' : '全天班·全梯';
+      totalFee = PRICE_TABLE[identity][planName];
+      campNames = ['🏆 全梯（4 梯全包）'];
+    } else {
+      // 單梯方案（可能多個）
+      planName = isHalfDay ? '半天班·單梯' : '全天班·單梯';
+      const singlePrice = PRICE_TABLE[identity][planName];
+      totalFee = singlePrice * checkedCamps.length;
+      campNames = checkedCamps.map(cb => cb.value);
+    }
+    
+    // 更新顯示
+    document.getElementById('fc_identity').textContent = identity;
+    document.getElementById('fc_timeslot').textContent = timeSlot;
+    document.getElementById('fc_camps').textContent = campNames.join('、');
+    document.getElementById('fc_plan').textContent = planName + (checkedCamps.length > 1 && !isAllCamp ? ` × ${checkedCamps.length} 梯` : '');
+    document.getElementById('fc_total').textContent = totalFee.toLocaleString();
+    
+    // 建議改選全梯（如果單梯選 4 個或省超過 2,000）
+    const suggestionDiv = document.getElementById('fc_suggestion');
+    if (!isAllCamp && checkedCamps.length >= 3) {
+      const allCampPrice = PRICE_TABLE[identity][isHalfDay ? '半天班·全梯' : '全天班·全梯'];
+      const saving = totalFee - allCampPrice;
+      if (saving > 0) {
+        suggestionDiv.innerHTML = `💡 改選「<strong>全梯</strong>」只要 <strong>NT$${allCampPrice.toLocaleString()}</strong>，可省 <strong>NT$${saving.toLocaleString()}</strong>！`;
+        suggestionDiv.style.display = 'block';
+      } else {
+        suggestionDiv.style.display = 'none';
+      }
+    } else {
+      suggestionDiv.style.display = 'none';
+    }
+  }
+
+  // 根據表單內容計算費用（送出時呼叫）
+  function calculateFee(identity, camps, timeSlot) {
+    if (!identity || !camps || camps.length === 0 || !timeSlot) return { total: 0, planName: '', campList: '' };
+    
+    const isAllCamp = camps.includes('全梯');
+    const isHalfDay = timeSlot.includes('半天');
+    
+    let planName = '';
+    let total = 0;
+    let campList = '';
+    
+    if (isAllCamp) {
+      planName = isHalfDay ? '半天班·全梯' : '全天班·全梯';
+      total = PRICE_TABLE[identity][planName] || 0;
+      campList = '全梯（4 梯全包）';
+    } else {
+      planName = isHalfDay ? '半天班·單梯' : '全天班·單梯';
+      const singlePrice = PRICE_TABLE[identity][planName] || 0;
+      total = singlePrice * camps.length;
+      campList = camps.join('、');
+    }
+    
+    return { total, planName, campList, campCount: isAllCamp ? 4 : camps.length };
+  }
+
   async function submitForm(e) {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
+
+    // 🆕 取得勾選的梯次（複選）
+    const checkedCamps = Array.from(document.querySelectorAll('input[name="camps"]:checked')).map(cb => cb.value);
+    
+    // 驗證：至少要選一個梯次
+    if (checkedCamps.length === 0) {
+      document.getElementById('campError').style.display = 'block';
+      document.querySelector('.camp-checkbox-group').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    document.getElementById('campError').style.display = 'none';
 
     // 取得當下時間戳記（台灣時區）
     const now = new Date();
@@ -5952,23 +6643,76 @@
       second: '2-digit'
     });
 
+    // 🆕 計算費用（用複選版）
+    const identity = formData.get('identity');
+    const timeSlot = formData.get('timeSlot');
+    const feeInfo = calculateFee(identity, checkedCamps, timeSlot);
+    
+    // 🆕 拆解費用結構
+    const structure = FEE_STRUCTURE[identity] || {};
+    const 教練費 = Math.round(feeInfo.total * (structure.教練 || 0));
+    const 場地費 = Math.round(feeInfo.total * (structure.場地 || 0));
+    const 經理費 = Math.round(feeInfo.total * (structure.經理 || 0));
+    const 隊費 = Math.round(feeInfo.total * (structure.隊費 || 0));
+
+    // 🎁 判斷「贈拍資格」（限新學員）
+    // 條件 1：身份必須是「在校生」或「校外生」（不含球隊學生）
+    // 條件 2：半天班·全梯 / 全天班·2梯以上 / 全天班·全梯
+    const isAllCamp = checkedCamps.includes('全梯');
+    const isFullDay = timeSlot && timeSlot.includes('全天');
+    const isNewStudent = (identity === '在校生' || identity === '校外生');
+    
+    let giftEligible = '否';
+    let giftReason = '';
+    
+    if (!isNewStudent) {
+      // 球隊學生不適用
+      giftReason = '球隊學生不適用（已享優惠費率）';
+    } else if (isAllCamp) {
+      // 新學員 + 全梯
+      giftEligible = '✅ 符合';
+      giftReason = isFullDay ? '全天班·全梯' : '半天班·全梯';
+    } else if (isFullDay && checkedCamps.length >= 2) {
+      // 新學員 + 全天 2 梯以上
+      giftEligible = '✅ 符合';
+      giftReason = `全天班·${checkedCamps.length}梯`;
+    } else {
+      // 新學員但方案不符
+      giftReason = '單梯方案不符合';
+    }
+
     const data = {
       studentName: formData.get('studentName'),
       schoolGrade: formData.get('school') + ' ' + formData.get('grade'),
-      identity: formData.get('identity'),
+      identity: identity,
       parentName: formData.get('parentName'),
       phone: formData.get('phone'),
       contact: formData.get('contact') || '未填',
-      camp: formData.get('camp'),
-      timeSlot: formData.get('timeSlot'),
+      // 🆕 梯次資訊
+      campList: feeInfo.campList,           // 「第一梯、第二梯」或「全梯」
+      campCount: feeInfo.campCount,         // 1, 2, 3 或 4
+      isAllCamp: checkedCamps.includes('全梯') ? '是' : '否',
+      timeSlot: timeSlot,
       lunch: formData.get('lunch'),
       notes: formData.get('notes') || '無',
-      // 🛡️ 規則勾選紀錄（法律保障用）
+      // 🆕 費用資訊
+      planName: feeInfo.planName,
+      totalFee: feeInfo.total,
+      coachFee: 教練費,
+      venueFee: 場地費,
+      managerFee: 經理費,
+      teamFee: 隊費,
+      depositReceived: '否',
+      remarks: '',
+      // 🎁 贈拍資格
+      giftEligible: giftEligible,
+      giftReason: giftReason,
+      giftReceived: '否',  // 預設未發放（手動標記）
+      // 🛡️ 規則勾選紀錄
       agreeDeposit: formData.get('agree_deposit') === 'on' ? '✅ 已同意' : '❌ 未同意',
       agreeCourse: formData.get('agree_course') === 'on' ? '✅ 已同意' : '❌ 未同意',
       agreePayment: formData.get('agree_payment') === 'on' ? '✅ 已同意' : '❌ 未同意',
       submitTime: timestamp,
-      // 額外裝置資訊（電子契約輔證）
       userAgent: navigator.userAgent.substring(0, 200),
       screenSize: window.screen.width + 'x' + window.screen.height
     };
