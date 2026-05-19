@@ -6206,6 +6206,39 @@
     font-weight: 700;
     margin-top: 4px;
   }
+
+  /* 🆕 小一新生提示 */
+  .freshman-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, rgba(46,139,87,0.08) 0%, rgba(232,184,108,0.08) 100%);
+    border: 1.5px dashed var(--court-green);
+    border-radius: 50px;
+    font-size: 13px;
+    color: var(--ink);
+  }
+
+  .fn-emoji {
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .fn-text {
+    line-height: 1.5;
+  }
+
+  @media (max-width: 480px) {
+    .freshman-note {
+      font-size: 12px;
+      padding: 8px 12px;
+    }
+    .fn-emoji {
+      font-size: 16px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -6473,6 +6506,14 @@
       <div class="hint-banner">
         <span class="hint-icon">📋</span>
         <span class="hint-text">依<strong>學生身分</strong>查看對應報名費</span>
+      </div>
+      
+      <!-- 🆕 小一新生提示 -->
+      <div class="freshman-note">
+        <span class="fn-emoji">🎒</span>
+        <span class="fn-text">
+          <strong>2026 小一新生</strong>適用「<strong style="color: var(--court-deep);">在校生</strong>」優惠價格
+        </span>
       </div>
     </div>
 
@@ -7144,9 +7185,12 @@
           <select class="form-select" name="identity" required onchange="updateFeeCalculation()">
             <option value="">請選擇身份</option>
             <option value="球隊學生">球隊學生</option>
-            <option value="在校生">開元在校生</option>
+            <option value="在校生">開元在校生（含 2026 小一新生 🆕）</option>
             <option value="校外生">校外生（畢業生 / 球隊兄弟姊妹）</option>
           </select>
+          <div class="form-hint" style="margin-top: 6px; padding: 8px 12px; background: rgba(46,139,87,0.08); border-radius: 8px; font-size: 12px; color: var(--court-deep); line-height: 1.5;">
+            💡 <strong>2026 年 9 月入學的小一新生</strong>，可享「開元在校生」優惠價！
+          </div>
         </div>
 
         <div class="form-section-title"><span class="icon">📞</span>家長聯絡資料</div>
