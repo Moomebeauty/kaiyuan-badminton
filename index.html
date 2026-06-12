@@ -6239,6 +6239,60 @@
       font-size: 16px;
     }
   }
+
+  /* 🆕 v8: 名額狀態顯示 */
+  .camp-cb-quota {
+    margin-left: auto;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  
+  .camp-cb-quota.q-available {
+    background: rgba(46,139,87,0.12);
+    color: var(--court-deep);
+  }
+  
+  .camp-cb-quota.q-warning {
+    background: rgba(232,184,108,0.18);
+    color: #B8860B;
+  }
+  
+  .camp-cb-quota.q-full {
+    background: rgba(214,54,54,0.12);
+    color: var(--racket-red-deep);
+  }
+  
+  /* 滿額禁用樣式 */
+  .camp-checkbox.is-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #F5F5F5;
+  }
+  
+  .camp-checkbox.is-disabled input {
+    cursor: not-allowed;
+  }
+  
+  .camp-checkbox.is-disabled .camp-cb-content {
+    pointer-events: none;
+  }
+  
+  /* 時段下拉的滿額提示 */
+  .form-select option:disabled {
+    color: #999;
+  }
+  
+  /* 名額載入中 */
+  .quota-loading {
+    text-align: center;
+    padding: 12px;
+    font-size: 13px;
+    color: #999;
+    font-style: italic;
+  }
 </style>
 </head>
 <body>
@@ -7242,7 +7296,7 @@
 
             <div class="camp-divider"><span>或選擇單梯（可多選）</span></div>
 
-            <label class="camp-checkbox">
+            <label class="camp-checkbox" data-camp="第一梯">
               <input type="checkbox" name="camps" value="第一梯（7/6-7/17）" onchange="handleSingleCampChange()">
               <div class="camp-cb-content">
                 <div class="camp-cb-num">1</div>
@@ -7250,10 +7304,11 @@
                   <div class="camp-cb-title">第一梯</div>
                   <div class="camp-cb-desc">7/6 – 7/17（連續 2 週）</div>
                 </div>
+                <div class="camp-cb-quota" data-camp-quota="第一梯"></div>
               </div>
             </label>
 
-            <label class="camp-checkbox">
+            <label class="camp-checkbox" data-camp="第二梯">
               <input type="checkbox" name="camps" value="第二梯（7/20-7/31）" onchange="handleSingleCampChange()">
               <div class="camp-cb-content">
                 <div class="camp-cb-num">2</div>
@@ -7261,10 +7316,11 @@
                   <div class="camp-cb-title">第二梯</div>
                   <div class="camp-cb-desc">7/20 – 7/31（連續 2 週）</div>
                 </div>
+                <div class="camp-cb-quota" data-camp-quota="第二梯"></div>
               </div>
             </label>
 
-            <label class="camp-checkbox">
+            <label class="camp-checkbox" data-camp="第三梯">
               <input type="checkbox" name="camps" value="第三梯（8/3-8/14）" onchange="handleSingleCampChange()">
               <div class="camp-cb-content">
                 <div class="camp-cb-num">3</div>
@@ -7272,10 +7328,11 @@
                   <div class="camp-cb-title">第三梯</div>
                   <div class="camp-cb-desc">8/3 – 8/14(連續 2 週)</div>
                 </div>
+                <div class="camp-cb-quota" data-camp-quota="第三梯"></div>
               </div>
             </label>
 
-            <label class="camp-checkbox">
+            <label class="camp-checkbox" data-camp="第四梯">
               <input type="checkbox" name="camps" value="第四梯（8/17-8/28）" onchange="handleSingleCampChange()">
               <div class="camp-cb-content">
                 <div class="camp-cb-num">4</div>
@@ -7283,6 +7340,7 @@
                   <div class="camp-cb-title">第四梯</div>
                   <div class="camp-cb-desc">8/17 – 8/28（連續 2 週）</div>
                 </div>
+                <div class="camp-cb-quota" data-camp-quota="第四梯"></div>
               </div>
             </label>
           </div>
@@ -7706,6 +7764,18 @@
     document.getElementById('formLoading').classList.add('show');
 
     try {
+      // 🆕 v8: 送出前再撈最新名額，避免剛好撞滿
+      await refreshQuotaBeforeSubmit();
+      const quotaCheckResult = checkQuotaBeforeSubmit(checkedCamps, timeSlot);
+      
+      if (!quotaCheckResult.ok) {
+        document.getElementById('formLoading').classList.remove('show');
+        document.getElementById('formBody').style.display = 'block';
+        alert('抱歉！以下班次剛剛被搶報滿額了：\n\n' + quotaCheckResult.fullList.join('\n') + '\n\n請重新選擇梯次或時段，謝謝！');
+        applyQuotaUI();  // 重新刷新 UI
+        return;
+      }
+      
       await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
@@ -7720,6 +7790,50 @@
       document.getElementById('formLoading').classList.remove('show');
       document.getElementById('formBody').style.display = 'block';
     }
+  }
+  
+  // 🆕 v8: 送出前的最終名額檢查
+  function checkQuotaBeforeSubmit(checkedCamps, timeSlot) {
+    if (!QUOTA_DATA) return { ok: true };
+    
+    const camps = ['第一梯', '第二梯', '第三梯', '第四梯'];
+    
+    // 該學員會佔的梯次
+    let registeredCamps = [];
+    if (checkedCamps.includes('全梯')) {
+      registeredCamps = camps;
+    } else {
+      camps.forEach(c => {
+        checkedCamps.forEach(cc => {
+          if (cc.includes(c)) registeredCamps.push(c);
+        });
+      });
+    }
+    
+    // 該學員會佔的時段
+    let occupySlots = [];
+    if (timeSlot.includes('早上') || timeSlot.includes('上午')) {
+      occupySlots = ['上午'];
+    } else if (timeSlot.includes('下午')) {
+      occupySlots = ['下午'];
+    } else if (timeSlot.includes('全天')) {
+      occupySlots = ['上午', '下午'];
+    }
+    
+    const fullList = [];
+    registeredCamps.forEach(camp => {
+      occupySlots.forEach(slot => {
+        const data = QUOTA_DATA[camp + '-' + slot];
+        if (data && data.count >= data.limit) {
+          fullList.push('・ ' + camp + ' · ' + slot + '班');
+        }
+      });
+    });
+    
+    if (fullList.length > 0) {
+      return { ok: false, fullList: fullList };
+    }
+    return { ok: true };
   }
 </script>
 
@@ -7762,6 +7876,152 @@
       nav.classList.remove('quick-nav-visible');
     }
   });
+
+// ============================================
+// 🆕 v8: 即時名額查詢系統
+// ============================================
+let QUOTA_DATA = null;  // 全域名額資料
+
+async function loadQuota() {
+  try {
+    const url = GOOGLE_SCRIPT_URL + '?action=quota';
+    const resp = await fetch(url);
+    const data = await resp.json();
+    QUOTA_DATA = data;
+    console.log('[名額] 載入完成', data);
+    applyQuotaUI();
+  } catch (err) {
+    console.warn('[名額] 載入失敗', err);
+  }
+}
+
+function applyQuotaUI() {
+  if (!QUOTA_DATA) return;
+  
+  const camps = ['第一梯', '第二梯', '第三梯', '第四梯'];
+  const timeSlotSelect = document.querySelector('select[name="timeSlot"]');
+  const selectedTimeSlot = timeSlotSelect ? timeSlotSelect.value : '';
+  
+  // 判斷當前選的時段會佔哪些時段
+  let occupySlots = [];
+  if (selectedTimeSlot.includes('早上') || selectedTimeSlot.includes('上午')) {
+    occupySlots = ['上午'];
+  } else if (selectedTimeSlot.includes('下午')) {
+    occupySlots = ['下午'];
+  } else if (selectedTimeSlot.includes('全天')) {
+    occupySlots = ['上午', '下午'];
+  }
+  
+  // 每個梯次顯示名額狀態
+  camps.forEach(camp => {
+    const cardEl = document.querySelector('.camp-checkbox[data-camp="' + camp + '"]');
+    const quotaEl = document.querySelector('[data-camp-quota="' + camp + '"]');
+    if (!cardEl || !quotaEl) return;
+    
+    const amCount = (QUOTA_DATA[camp + '-上午'] && QUOTA_DATA[camp + '-上午'].count) || 0;
+    const pmCount = (QUOTA_DATA[camp + '-下午'] && QUOTA_DATA[camp + '-下午'].count) || 0;
+    const limit = (QUOTA_DATA[camp + '-上午'] && QUOTA_DATA[camp + '-上午'].limit) || 30;
+    
+    const checkbox = cardEl.querySelector('input[type="checkbox"]');
+    
+    if (occupySlots.length === 0) {
+      // 還沒選時段：顯示上午/下午雙數字
+      const amText = amCount >= limit ? '上午滿' : '上午 ' + amCount + '/' + limit;
+      const pmText = pmCount >= limit ? '下午滿' : '下午 ' + pmCount + '/' + limit;
+      const amFull = amCount >= limit;
+      const pmFull = pmCount >= limit;
+      
+      quotaEl.textContent = amText + ' · ' + pmText;
+      quotaEl.className = 'camp-cb-quota ' + (
+        (amFull && pmFull) ? 'q-full' : 
+        (amFull || pmFull) ? 'q-warning' : 
+        'q-available'
+      );
+      cardEl.classList.remove('is-disabled');
+      if (checkbox) checkbox.disabled = false;
+    } else {
+      // 已選時段：根據選的時段判斷是否滿
+      let fullForThisSlot = false;
+      let maxCount = 0;
+      occupySlots.forEach(slot => {
+        const cnt = (QUOTA_DATA[camp + '-' + slot] && QUOTA_DATA[camp + '-' + slot].count) || 0;
+        if (cnt >= limit) fullForThisSlot = true;
+        if (cnt > maxCount) maxCount = cnt;
+      });
+      
+      if (fullForThisSlot) {
+        quotaEl.textContent = '❌ 已額滿';
+        quotaEl.className = 'camp-cb-quota q-full';
+        cardEl.classList.add('is-disabled');
+        if (checkbox) {
+          if (checkbox.checked) {
+            checkbox.checked = false;
+            updateFeeCalculation();
+          }
+          checkbox.disabled = true;
+        }
+      } else {
+        const remaining = limit - maxCount;
+        quotaEl.textContent = '✅ 還有 ' + remaining + ' 名';
+        quotaEl.className = 'camp-cb-quota ' + (remaining <= 5 ? 'q-warning' : 'q-available');
+        cardEl.classList.remove('is-disabled');
+        if (checkbox) checkbox.disabled = false;
+      }
+    }
+  });
+  
+  // 時段下拉本身的滿額判斷（簡化）
+  // 若所有梯次的某個時段都滿了，那個時段選項就 disabled
+  if (timeSlotSelect) {
+    Array.from(timeSlotSelect.options).forEach(opt => {
+      if (!opt.value) return;
+      let allFull = true;
+      let slot = '';
+      if (opt.value.includes('早上') || opt.value.includes('上午')) slot = '上午';
+      else if (opt.value.includes('下午')) slot = '下午';
+      else if (opt.value.includes('全天')) {
+        // 全天要兩邊都檢查
+        camps.forEach(c => {
+          const am = (QUOTA_DATA[c + '-上午'] && QUOTA_DATA[c + '-上午'].count) || 0;
+          const pm = (QUOTA_DATA[c + '-下午'] && QUOTA_DATA[c + '-下午'].count) || 0;
+          if (am < 30 && pm < 30) allFull = false;
+        });
+        opt.disabled = allFull;
+        opt.textContent = opt.textContent.replace(' (全部已額滿)', '');
+        if (allFull) opt.textContent += ' (全部已額滿)';
+        return;
+      }
+      if (slot) {
+        camps.forEach(c => {
+          const cnt = (QUOTA_DATA[c + '-' + slot] && QUOTA_DATA[c + '-' + slot].count) || 0;
+          if (cnt < 30) allFull = false;
+        });
+        opt.disabled = allFull;
+        opt.textContent = opt.textContent.replace(' (全部已額滿)', '');
+        if (allFull) opt.textContent += ' (全部已額滿)';
+      }
+    });
+  }
+}
+
+// 頁面載入後查詢一次
+document.addEventListener('DOMContentLoaded', function() {
+  loadQuota();
+  
+  // 時段改變時重新套用 UI（不重新撈，用快取）
+  const timeSlotSelect = document.querySelector('select[name="timeSlot"]');
+  if (timeSlotSelect) {
+    timeSlotSelect.addEventListener('change', function() {
+      applyQuotaUI();
+    });
+  }
+});
+
+// 報名前再撈一次最新名額（避免有人剛剛填走）
+async function refreshQuotaBeforeSubmit() {
+  await loadQuota();
+  return QUOTA_DATA;
+}
 </script>
 
 </body>
