@@ -7812,12 +7812,12 @@
     
     // 該學員會佔的時段
     let occupySlots = [];
-    if (timeSlot.includes('早上') || timeSlot.includes('上午')) {
+    if (timeSlot.includes('全天')) {
+      occupySlots = ['上午', '下午'];
+    } else if (timeSlot.includes('早上') || timeSlot.includes('上午')) {
       occupySlots = ['上午'];
     } else if (timeSlot.includes('下午')) {
       occupySlots = ['下午'];
-    } else if (timeSlot.includes('全天')) {
-      occupySlots = ['上午', '下午'];
     }
     
     const fullList = [];
@@ -7904,12 +7904,12 @@ function applyQuotaUI() {
   
   // 判斷當前選的時段會佔哪些時段
   let occupySlots = [];
-  if (selectedTimeSlot.includes('早上') || selectedTimeSlot.includes('上午')) {
+  if (selectedTimeSlot.includes('全天')) {
+    occupySlots = ['上午', '下午'];
+  } else if (selectedTimeSlot.includes('早上') || selectedTimeSlot.includes('上午')) {
     occupySlots = ['上午'];
   } else if (selectedTimeSlot.includes('下午')) {
     occupySlots = ['下午'];
-  } else if (selectedTimeSlot.includes('全天')) {
-    occupySlots = ['上午', '下午'];
   }
   
   // 每個梯次顯示名額狀態
