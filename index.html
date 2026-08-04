@@ -7830,14 +7830,17 @@
     font-weight: 900;
     color: var(--pf-green);
     line-height: 1.35;
+    min-height: 2.7em;      /* 讓三欄的時間對齊 */
   }
 
   .s3-time {
     font-size: 11.5px;
     font-weight: 700;
     color: rgba(15,27,20,0.72);
-    margin-top: 5px;
+    margin-top: 6px;
     line-height: 1.4;
+    white-space: nowrap;
+    letter-spacing: -0.2px;
   }
 
   .s3-note {
@@ -7973,6 +7976,64 @@
 
   .pay-row.pr-gold { background: rgba(217,169,79,0.10); }
 
+  .pay-body { display: block; flex: 1; min-width: 0; }
+
+  .pay-head {
+    display: block;
+    font-size: 14px;
+    font-weight: 900;
+    color: var(--pf-green);
+    letter-spacing: 0.3px;
+  }
+
+  .fee-opt {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 7px;
+  }
+
+  .fee-tag {
+    flex-shrink: 0;
+    min-width: 94px;
+    text-align: center;
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    padding: 4px 9px;
+    border-radius: 50px;
+    color: #fff;
+    line-height: 1.4;
+  }
+
+  .fee-tag.ft-2 { background: var(--pf-green); }
+  .fee-tag.ft-3 { background: linear-gradient(135deg, #D9A94F 0%, #B8862F 100%); }
+  .fee-tag.ft-morning { background: var(--pf-brown); }
+  .fee-tag.ft-taste { background: var(--pf-blue); }
+
+  .fee-amt {
+    font-size: 14.5px;
+    font-weight: 900;
+    color: var(--pf-green);
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+  }
+
+  .fee-amt.fa-gold { color: #A87828; }
+  .fee-amt.fa-morning { color: var(--pf-brown); }
+  .fee-amt.fa-taste { color: var(--pf-blue); }
+  .fee-amt.fa-red { color: var(--pf-red); }
+
+  .pay-note {
+    display: block;
+    margin-top: 8px;
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: rgba(15,27,20,0.72);
+  }
+
+  .pay-note strong { color: var(--pf-green); }
+
   /* ── 底部紅色 CTA 條 ── */
   .red-bar {
     background: linear-gradient(135deg, var(--pf-red) 0%, #A82420 100%);
@@ -8104,7 +8165,10 @@
     .gold-sticker { width: 70px; height: 70px; font-size: 9px; top: -58px; }
     .price-duo { margin-top: 52px; }
     .s3-day { font-size: 11px; }
-    .s3-time { font-size: 10.5px; }
+    .s3-time { font-size: 10px; letter-spacing: -0.4px; }
+    .s3-col { padding-left: 2px; padding-right: 2px; }
+    .fee-tag { min-width: 84px; font-size: 10.5px; padding: 4px 6px; }
+    .fee-amt { font-size: 13px; }
     .pk-if { font-size: 11.5px; }
     .pk-name { font-size: 13.5px; }
     .rb-btn { font-size: 17px; letter-spacing: 2px; }
@@ -8276,27 +8340,23 @@
         <div class="sched-3">
           <div class="s3-col">
             <div class="s3-day">週一、二<br>四、五</div>
-            <div class="s3-time">16:00<br>19:00</div>
+            <div class="s3-time">16:00 ～ 19:00</div>
           </div>
           <div class="s3-col">
             <div class="s3-day">週三</div>
-            <div class="s3-time">13:30<br>16:30</div>
+            <div class="s3-time">13:30 ～ 16:30</div>
           </div>
           <div class="s3-col">
             <div class="s3-day">週六</div>
-            <div class="s3-time">09:00<br>12:00</div>
+            <div class="s3-time">09:00 ～ 12:00</div>
             <div class="s3-note">（滿 4 人開班）</div>
           </div>
         </div>
 
         <div class="pay-panel" style="margin-top: 14px;">
-          <div class="pay-row">
-            <span class="pay-ico">👥</span>
-            <span><strong>名額不限</strong>，報名不受人數限制<span class="quota-live" id="quota_train" data-base="quota-live">目前 0 人</span></span>
-          </div>
           <div class="pay-row pr-gold">
             <span class="pay-ico">💳</span>
-            <span>每月初由球隊發<strong>繳費袋</strong>，收當月月費</span>
+            <span><strong>繳費方式：</strong>每月初由球隊發<strong>繳費袋</strong>，收當月月費</span>
           </div>
         </div>
       </div>
@@ -8421,36 +8481,64 @@
     <div class="pay-panel">
       <div class="pay-row">
         <span class="pay-ico">🏆</span>
-        <span>
-          <strong>培訓班 · 月費制</strong><br>
-          兩天班 2,000 元／月　|　三天以上班 2,500 元／月<br>
-          每月初發<strong>繳費袋</strong>，收當月月費
+        <span class="pay-body">
+          <strong class="pay-head">培訓班 · 月費制</strong>
+          <span class="fee-opt">
+            <span class="fee-tag ft-2">兩天班</span>
+            <span class="fee-amt">2,000 元 / 月</span>
+          </span>
+          <span class="fee-opt">
+            <span class="fee-tag ft-3">三天以上班</span>
+            <span class="fee-amt fa-gold">2,500 元 / 月</span>
+          </span>
+          <span class="pay-note">每月初發<strong>繳費袋</strong>，收當月月費</span>
         </span>
       </div>
+
       <div class="pay-row">
         <span class="pay-ico">🌅</span>
-        <span><strong>晨操班 · 學期制</strong>　2,500 元／學期，開課後一次繳清</span>
-      </div>
-      <div class="pay-row">
-        <span class="pay-ico">🌱</span>
-        <span><strong>體驗班 · 學期制</strong>　2,800 元／學期，開課後一次繳清</span>
-      </div>
-      <div class="pay-row pr-gold">
-        <span class="pay-ico">🗓️</span>
-        <span>
-          <strong>週六練習（09:00–12:00）</strong>，滿 4 人開班<br>
-          三天以上班<strong>免費參加</strong>；兩天班<span class="rd">每堂加收 300 元</span>，依實際到場次數計收
+        <span class="pay-body">
+          <strong class="pay-head">晨操班 · 學期制</strong>
+          <span class="fee-opt">
+            <span class="fee-tag ft-morning">一學期</span>
+            <span class="fee-amt fa-morning">2,500 元</span>
+          </span>
+          <span class="pay-note">開課後一次繳清</span>
         </span>
       </div>
+
+      <div class="pay-row">
+        <span class="pay-ico">🌱</span>
+        <span class="pay-body">
+          <strong class="pay-head">體驗班 · 學期制</strong>
+          <span class="fee-opt">
+            <span class="fee-tag ft-taste">一學期</span>
+            <span class="fee-amt fa-taste">2,800 元</span>
+          </span>
+          <span class="pay-note">開課後一次繳清</span>
+        </span>
+      </div>
+
+      <div class="pay-row pr-gold">
+        <span class="pay-ico">🗓️</span>
+        <span class="pay-body">
+          <strong class="pay-head">週六上午加碼練球</strong>
+          <span class="pay-note">09:00 ～ 12:00，滿 4 人開班</span>
+          <span class="fee-opt" style="margin-top: 8px;">
+            <span class="fee-tag ft-3">三天以上班</span>
+            <span class="fee-amt fa-gold">免費參加</span>
+          </span>
+          <span class="fee-opt">
+            <span class="fee-tag ft-2">兩天班</span>
+            <span class="fee-amt fa-red">每堂加收 300 元</span>
+          </span>
+        </span>
+      </div>
+
       <div class="pay-row">
         <span class="pay-ico">✅</span>
-        <span><strong>報名不需訂金</strong>，線上填表送出即完成名額登記</span>
-      </div>
-      <div class="pay-row">
-        <span class="pay-ico">📍</span>
-        <span>
-          繳費地點：<strong>開元國小 · 開元館 · 羽球隊</strong><br>
-          平日 08:00–08:30 或 17:00–19:00　|　<span class="rd">週三不辦理</span>
+        <span class="pay-body">
+          <strong class="pay-head">線上填表送出即報名成功</strong>
         </span>
       </div>
     </div>
