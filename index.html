@@ -2793,6 +2793,19 @@
 
   .pl-sub:first-of-type { border-top: none; padding-top: 0; margin-top: 13px; }
 
+  .pl-time-item .pl-day,
+  .pl-time-item .pl-hours { white-space: nowrap; }
+
+  /* 窄螢幕改成上下排，避免星期或時間被折行 */
+  @media (max-width: 392px) {
+    .pl-time-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 3px;
+    }
+    .pl-time-item .pl-hours { padding-left: 0; }
+  }
+
   .pl-time-item {
     display: flex;
     justify-content: space-between;
@@ -8846,7 +8859,7 @@
                   <span class="pl-hours">08:00 – 08:30</span>
                 </div>
                 <div class="pl-time-item">
-                  <span class="pl-day">平日傍晚</span>
+                  <span class="pl-day">每週一、二、四、五</span>
                   <span class="pl-hours">17:00 – 19:00</span>
                 </div>
                 <div class="pl-time-item">
