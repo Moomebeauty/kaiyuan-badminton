@@ -7888,6 +7888,33 @@
 
   .m3-value .sm { font-size: 10.5px; font-weight: 700; color: rgba(15,27,20,0.6); }
 
+  /* ── 固定上課日（文字版，避免「週二、週五」被誤讀成週二～週五）── */
+  .day-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1.5px solid var(--pf-line);
+    border-radius: 10px;
+    background: #fff;
+    padding: 10px 13px;
+    margin-top: 12px;
+    font-size: 13.5px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--pf-green);
+  }
+
+  .day-text .dt-ico { font-size: 15px; flex-shrink: 0; }
+
+  .day-text strong {
+    font-weight: 700;
+    font-size: 12px;
+    color: rgba(15,27,20,0.55);
+  }
+
+  .day-text.dt-gold { color: var(--pf-brown); }
+  .day-text.dt-blue { color: var(--pf-blue); }
+
   /* 兩張小卡並排 → 手機直接堆疊 */
   .pcard-duo { display: flex; flex-direction: column; }
 
@@ -8374,6 +8401,11 @@
           <div class="pcard-name nm-gold">晨操班</div>
           <div class="pcard-sub">上學前運動 · 培養規律習慣</div>
 
+          <div class="day-text dt-gold">
+            <span class="dt-ico">🗓️</span>
+            <span>每週二、每週五<strong>（固定 2 天）</strong></span>
+          </div>
+
           <div class="pblock-title pt-gold">適合誰？</div>
           <div class="suit-list">
             <div class="suit-item"><span class="suit-check sc-gold">✓</span><span>不佔下午時間</span></div>
@@ -8385,7 +8417,7 @@
           <div class="mini-3">
             <div class="m3-col">
               <div class="m3-label"><span>🕐</span><span>練習時段</span></div>
-              <div class="m3-value mv-gold">週二、週五<br><span class="sm">8:00 – 8:40</span></div>
+              <div class="m3-value mv-gold">每週二<br>每週五<br><span class="sm">08:00 – 08:40</span></div>
             </div>
             <div class="m3-col">
               <div class="m3-label"><span>💰</span><span>費用</span></div>
@@ -8408,6 +8440,11 @@
           <div class="pcard-name nm-blue">體驗班</div>
           <div class="pcard-sub">社團概念 · 輕鬆接觸羽球</div>
 
+          <div class="day-text dt-blue">
+            <span class="dt-ico">🗓️</span>
+            <span>每週三<strong>（固定 1 天）</strong></span>
+          </div>
+
           <div class="pblock-title pt-blue">適合誰？</div>
           <div class="suit-list">
             <div class="suit-item"><span class="suit-check sc-blue">✓</span><span>想先接觸看看</span></div>
@@ -8419,7 +8456,7 @@
           <div class="mini-3">
             <div class="m3-col">
               <div class="m3-label"><span>🕐</span><span>練習時段</span></div>
-              <div class="m3-value mv-blue">週三<br><span class="sm">13:30 – 15:30</span></div>
+              <div class="m3-value mv-blue">每週三<br><span class="sm">13:30 – 15:30</span></div>
             </div>
             <div class="m3-col">
               <div class="m3-label"><span>💰</span><span>費用</span></div>
@@ -9178,7 +9215,7 @@
                 <span class="cr-emoji">🌅</span>
                 <span class="cr-info">
                   <span class="cr-name">晨操班</span>
-                  <span class="cr-desc">2,500／學期 · 週二、五 08:00–08:40</span>
+                  <span class="cr-desc">2,500／學期 · 每週二和每週五 08:00–08:40</span>
                 </span>
                 <span class="cr-quota" id="cq_morning">限 30 人</span>
               </span>
