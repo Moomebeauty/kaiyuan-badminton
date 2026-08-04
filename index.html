@@ -2781,6 +2781,18 @@
     gap: 8px;
   }
 
+  .pl-sub {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--court-deep);
+    letter-spacing: 0.5px;
+    margin: 14px 0 7px;
+    padding-top: 13px;
+    border-top: 1px dashed rgba(15,27,20,0.14);
+  }
+
+  .pl-sub:first-of-type { border-top: none; padding-top: 0; margin-top: 13px; }
+
   .pl-time-item {
     display: flex;
     justify-content: space-between;
@@ -7888,33 +7900,6 @@
 
   .m3-value .sm { font-size: 10.5px; font-weight: 700; color: rgba(15,27,20,0.6); }
 
-  /* ── 固定上課日（文字版，避免「週二、週五」被誤讀成週二～週五）── */
-  .day-text {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border: 1.5px solid var(--pf-line);
-    border-radius: 10px;
-    background: #fff;
-    padding: 10px 13px;
-    margin-top: 12px;
-    font-size: 13.5px;
-    font-weight: 700;
-    line-height: 1.5;
-    color: var(--pf-green);
-  }
-
-  .day-text .dt-ico { font-size: 15px; flex-shrink: 0; }
-
-  .day-text strong {
-    font-weight: 700;
-    font-size: 12px;
-    color: rgba(15,27,20,0.55);
-  }
-
-  .day-text.dt-gold { color: var(--pf-brown); }
-  .day-text.dt-blue { color: var(--pf-blue); }
-
   /* 兩張小卡並排 → 手機直接堆疊 */
   .pcard-duo { display: flex; flex-direction: column; }
 
@@ -8290,11 +8275,6 @@
         <span class="ib-label">上課地點</span>
         <span class="ib-value">開元國小 · 開元館</span>
       </div>
-      <div class="ib-row">
-        <span class="ib-ico">💳</span>
-        <span class="ib-label">報名訂金</span>
-        <span class="ib-value">不需訂金</span>
-      </div>
     </div>
   </div>
 </section>
@@ -8386,6 +8366,35 @@
             <span><strong>繳費方式：</strong>每月初由球隊發<strong>繳費袋</strong>，收當月月費</span>
           </div>
         </div>
+
+        <div class="pblock-title">🎖️ 培訓班專屬權益</div>
+        <div class="pay-panel">
+          <div class="pay-row">
+            <span class="pay-ico">🏅</span>
+            <span class="pay-body">
+              <strong class="pay-head">教練帶隊參加比賽</strong>
+              <span class="fee-opt">
+                <span class="fee-tag ft-3">三天以上班</span>
+                <span class="fee-amt fa-gold">可直接參賽</span>
+              </span>
+              <span class="fee-opt">
+                <span class="fee-tag ft-2">兩天班</span>
+                <span class="fee-amt">需教練審核</span>
+              </span>
+              <span class="pay-note">兩天班學員如想報名比賽，須先經教練審核通過才可出賽。</span>
+            </span>
+          </div>
+          <div class="pay-row pr-gold">
+            <span class="pay-ico">👨‍👩‍👧</span>
+            <span class="pay-body">
+              <strong class="pay-head">家長可加入羽球後援會</strong>
+              <span class="pay-note">
+                培訓班家長可加入球隊<strong>羽球後援會</strong>，一起參與孩子的訓練與賽事。<br>
+                <span class="rd" style="font-weight:800;">家長後援大會 9 / 19（六）召開</span>，請報名培訓班的家長先把時間預留下來。
+              </span>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -8400,11 +8409,6 @@
         <div class="pcard-pad">
           <div class="pcard-name nm-gold">晨操班</div>
           <div class="pcard-sub">上學前運動 · 培養規律習慣</div>
-
-          <div class="day-text dt-gold">
-            <span class="dt-ico">🗓️</span>
-            <span>每週二、每週五<strong>（固定 2 天）</strong></span>
-          </div>
 
           <div class="pblock-title pt-gold">適合誰？</div>
           <div class="suit-list">
@@ -8439,11 +8443,6 @@
         <div class="pcard-pad">
           <div class="pcard-name nm-blue">體驗班</div>
           <div class="pcard-sub">社團概念 · 輕鬆接觸羽球</div>
-
-          <div class="day-text dt-blue">
-            <span class="dt-ico">🗓️</span>
-            <span>每週三<strong>（固定 1 天）</strong></span>
-          </div>
 
           <div class="pblock-title pt-blue">適合誰？</div>
           <div class="suit-list">
@@ -8682,17 +8681,8 @@
 <section id="flex" style="padding-top: 44px;">
   <div class="container">
 
-    <div class="flex-hero">
-      <div class="flex-eyebrow">FLEXIBLE SCHEDULE</div>
-      <div class="flex-title">補習、安親照上<br><span class="gold">球也照打</span></div>
-      <div class="flex-lead">
-        培訓班<strong>不綁固定星期</strong>。週一到週五，您挑得出哪幾天，孩子就哪幾天來。<br>
-        挑 <strong>2 天</strong>是 2,000 元／月，挑 <strong>3 天以上</strong>是 2,500 元／月 —— 天數多一天，費用不會再往上加。
-      </div>
-    </div>
-
-    <div class="p-sec-head" style="margin: 26px 0 14px;">
-      <div class="p-sec-title" style="font-size: 18px;">一週練習時間表</div>
+    <div class="p-sec-head" style="margin: 0 0 14px;">
+      <div class="p-sec-title" style="font-size: 18px;">培訓班一週練球時間表</div>
     </div>
 
     <div class="week-grid">
@@ -8800,7 +8790,7 @@
         <summary class="collapsible-header">
           <span class="ch-icon">💰</span>
           <span class="ch-title">報名與繳費流程</span>
-          <span class="ch-hint">不需訂金 · 填表即完成報名</span>
+          <span class="ch-hint">填表即完成報名 · 繳費方式說明</span>
           <span class="ch-arrow">▼</span>
         </summary>
         <div class="collapsible-body">
@@ -8811,7 +8801,7 @@
                 <div class="notice-icon">📝</div>
                 <div class="notice-text">
                   <strong>Step 1　線上填表</strong><br>
-                  <span class="ni-detail">選好班別後送出報名表，<strong style="color: var(--court-deep);">送出即完成報名、保留名額</strong>，不需要先繳訂金</span>
+                  <span class="ni-detail">選好班別後送出報名表，<strong style="color: var(--court-deep);">送出即完成報名、保留名額</strong></span>
                 </div>
               </div>
               <div class="notice-item">
@@ -8840,18 +8830,28 @@
               <div class="pl-place">
                 <strong>開元國小・開元館・羽球隊</strong>
               </div>
+
+              <div class="pl-sub">🏆 培訓班</div>
               <div class="pl-time">
                 <div class="pl-time-item">
-                  <span class="pl-day">平日早上</span>
+                  <span class="pl-day">每月發放繳費袋</span>
+                  <span class="pl-hours">裝入月費後交回教練</span>
+                </div>
+              </div>
+
+              <div class="pl-sub">🌅 晨操班 ＆ 🌱 體驗班</div>
+              <div class="pl-time">
+                <div class="pl-time-item">
+                  <span class="pl-day">每週二、每週五</span>
                   <span class="pl-hours">08:00 – 08:30</span>
                 </div>
                 <div class="pl-time-item">
                   <span class="pl-day">平日傍晚</span>
                   <span class="pl-hours">17:00 – 19:00</span>
                 </div>
-                <div class="pl-time-item pl-no">
-                  <span class="pl-day">⛔ 週三</span>
-                  <span class="pl-hours">不辦理繳費業務</span>
+                <div class="pl-time-item">
+                  <span class="pl-day">每週三</span>
+                  <span class="pl-hours">12:40 – 15:30</span>
                 </div>
               </div>
             </div>
@@ -8868,178 +8868,7 @@
         </div>
       </details>
 
-      <!-- 2. 請假與退費規則 -->
-      <details class="collapsible-card">
-        <summary class="collapsible-header">
-          <span class="ch-icon">🔄</span>
-          <span class="ch-title">請假與退費規則</span>
-          <span class="ch-hint">月費 / 學期費各自的規定</span>
-          <span class="ch-arrow">▼</span>
-        </summary>
-        <div class="collapsible-body">
-          <div class="notice-group notice-group-refund" style="margin-top: 0;">
-
-            <div class="course-refund-cards">
-              <div class="crc-card crc-card-flex">
-                <div class="crc-header">
-                  <div class="crc-badge crc-badge-gold">🏆 培訓班（月費制）</div>
-                  <div class="crc-subtitle">以月為單位，彈性最高</div>
-                </div>
-                <div class="crc-rules">
-                  <div class="crc-rule">
-                    <span class="crc-icon-good">✅</span>
-                    <div class="crc-text"><strong>可提前一個月告知停課</strong>，下個月起不再收費</div>
-                  </div>
-                  <div class="crc-rule">
-                    <span class="crc-icon-bad">❌</span>
-                    <div class="crc-text"><strong>當月已繳月費不退</strong>（請假亦同）</div>
-                  </div>
-                  <div class="crc-rule">
-                    <span class="crc-icon-good">✅</span>
-                    <div class="crc-text">當月請假可與教練約<strong>同月份其他練習日補課</strong></div>
-                  </div>
-                </div>
-                <div class="crc-note">
-                  💡 想調整上課天數（例如兩天班改三天以上班），請於<strong>月底前</strong>告知教練，下個月起生效
-                </div>
-              </div>
-
-              <div class="crc-card crc-card-premium">
-                <div class="crc-header">
-                  <div class="crc-badge crc-badge-blue">🌅🌱 晨操班 / 體驗班（學期費）</div>
-                  <div class="crc-subtitle">一次繳清整學期</div>
-                </div>
-                <div class="crc-rules">
-                  <div class="crc-rule">
-                    <span class="crc-icon-bad">❌</span>
-                    <div class="crc-text"><strong>請假不退費</strong></div>
-                  </div>
-                  <div class="crc-rule">
-                    <span class="crc-icon-bad">❌</span>
-                    <div class="crc-text"><strong>不安排補課</strong></div>
-                  </div>
-                </div>
-                <div class="crc-note crc-note-warn">
-                  ⚠️ 學期費已依整學期堂數計算，恕無法按堂退費，報名前請確認孩子的時間可以固定配合
-                </div>
-              </div>
-            </div>
-
-            <div class="refund-exception">
-              <div class="re-header">
-                <span class="re-icon">💝</span>
-                <div class="re-title-group">
-                  <div class="re-title">特殊情況協助</div>
-                  <div class="re-subtitle">針對「真的無法上課」的家庭，球隊會彈性處理</div>
-                </div>
-              </div>
-              <div class="re-content">
-                <p>每個家庭都可能遇到突發狀況，以下情況請<strong>主動聯繫球隊</strong>，我們會視個案彈性協調 🙏</p>
-
-                <div class="re-can">
-                  <div class="re-can-title">
-                    <span class="re-can-icon">✅</span>
-                    <strong>可申請協助的狀況</strong>
-                  </div>
-                  <div class="re-can-list">
-                    <div class="re-can-item">
-                      <span class="rc-emoji">🏥</span>
-                      <span>學員生病或受傷長期無法上課（需診斷證明）</span>
-                    </div>
-                    <div class="re-can-item">
-                      <span class="rc-emoji">🏠</span>
-                      <span>轉學、搬遷等無法繼續就讀的狀況</span>
-                    </div>
-                    <div class="re-can-item">
-                      <span class="rc-emoji">🌪️</span>
-                      <span>天災、疫情等不可控因素</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="re-cannot">
-                  <div class="re-cannot-title">
-                    <span class="re-cannot-icon">⚠️</span>
-                    <strong>以下情況恕無法協助退費</strong>
-                  </div>
-                  <div class="re-cannot-list">
-                    <div class="re-cannot-item">
-                      <span class="rcn-emoji">✈️</span>
-                      <span>家庭旅遊、出國行程</span>
-                    </div>
-                    <div class="re-cannot-item">
-                      <span class="rcn-emoji">😴</span>
-                      <span>孩子覺得累、體力不適應</span>
-                    </div>
-                    <div class="re-cannot-item">
-                      <span class="rcn-emoji">📚</span>
-                      <span>臨時新增補習、才藝課程</span>
-                    </div>
-                    <div class="re-cannot-item">
-                      <span class="rcn-emoji">🎯</span>
-                      <span>個人偏好改變、不想繼續上課</span>
-                    </div>
-                  </div>
-                  <div class="re-cannot-note">
-                    💡 請<strong>報名前充分評估</strong>孩子的體力與家庭作息，避免造成球隊師資安排與其他學員的權益損失
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </details>
-
-      <!-- 3. 重要規定 -->
-      <details class="collapsible-card">
-        <summary class="collapsible-header">
-          <span class="ch-icon">⚠️</span>
-          <span class="ch-title">重要規定</span>
-          <span class="ch-hint">請仔細閱讀，避免後續爭議</span>
-          <span class="ch-arrow">▼</span>
-        </summary>
-        <div class="collapsible-body">
-          <div class="notice-group notice-group-rules" style="margin-top: 0;">
-
-            <div class="rule-warning">
-              <div class="rw-header">
-                <span class="rw-icon">🗓️</span>
-                <strong>培訓班：選定的天數請固定出席</strong>
-              </div>
-              <div class="rw-content">
-                <p>報名時勾選的星期為<strong>當月固定的練習日</strong>，教練會依此安排分組與教學進度。</p>
-                <p>臨時更換星期（例如本週改成別天來）須<strong>事先與教練確認場地人數</strong>，恕無法自由調換。</p>
-                <p class="rw-tip">💡 若行程有長期變動，請於月底前告知，下個月起調整</p>
-              </div>
-            </div>
-
-            <div class="rule-warning" style="margin-top: 12px;">
-              <div class="rw-header">
-                <span class="rw-icon">🚫</span>
-                <strong>方案不可拆分或轉讓</strong>
-              </div>
-              <div class="rw-content">
-                <p><strong>兩天班不可拆成「這個月來 1 天、下個月來 3 天」</strong>使用，每月費用依報名方案計收。</p>
-                <p>報名名額限學員本人使用，<strong>不可轉讓他人</strong>。</p>
-                <p class="rw-tip">💡 兩天班若想參加週六，每堂加收 300 元；三天以上班則免費參加</p>
-              </div>
-            </div>
-
-            <div class="rule-warning" style="margin-top: 12px;">
-              <div class="rw-header">
-                <span class="rw-icon">👥</span>
-                <strong>週六班與名額限制</strong>
-              </div>
-              <div class="rw-content">
-                <p>週六班（09:00–12:00）需<strong>滿 4 人才開班</strong>，未達人數該週停課，會於 LINE 群組公告。</p>
-                <p><strong>晨操班限 30 人、體驗班限 20 人</strong>，額滿即停止收件；培訓班不限名額。</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </details>
-
-      <!-- 4. 上課須知 -->
+      <!-- 2. 上課須知 -->
       <details class="collapsible-card">
         <summary class="collapsible-header">
           <span class="ch-icon">🎒</span>
@@ -9057,14 +8886,6 @@
               <div class="notice-item">
                 <div class="notice-icon">🎒</div>
                 <div class="notice-text">需自備：<strong>球拍、球鞋、水壺、毛巾、換洗衣服</strong></div>
-              </div>
-              <div class="notice-item">
-                <div class="notice-icon">🌅</div>
-                <div class="notice-text">晨操班結束後請自行<strong>整理儀容並回教室</strong>，建議自備小毛巾</div>
-              </div>
-              <div class="notice-item">
-                <div class="notice-icon">🏸</div>
-                <div class="notice-text">尚未購買球拍的新學員，可先<strong>向教練借用</strong>，不影響上課</div>
               </div>
               <div class="notice-item">
                 <div class="notice-icon">🚗</div>
@@ -9383,21 +9204,7 @@
               我已了解 <strong style="color: var(--court-deep);">費用與繳費方式</strong><br>
               <span class="fa-detail">
                 • 培訓班：月費制，每月初由球隊發繳費袋收費<br>
-                • 晨操班 / 體驗班：學期費，開課後一次繳清<br>
-                • 報名時<strong>不需要訂金</strong>
-              </span>
-            </span>
-          </label>
-
-          <label class="fa-checkbox">
-            <input type="checkbox" name="agree_refund" required>
-            <span class="fa-checkmark"></span>
-            <span class="fa-text">
-              我已了解 <strong style="color: var(--racket-red-deep);">請假與退費規則</strong><br>
-              <span class="fa-detail">
-                • 培訓班：當月月費不退，可提前一個月告知停課<br>
-                • 晨操班 / 體驗班：請假不退費、不安排補課<br>
-                • 調整上課天數請於月底前告知，下個月生效
+                • 晨操班 / 體驗班：學期費，開課後一次繳清
               </span>
             </span>
           </label>
@@ -9406,10 +9213,11 @@
             <input type="checkbox" name="agree_schedule" required>
             <span class="fa-checkmark"></span>
             <span class="fa-text">
-              我已了解 <strong style="color: var(--court-deep);">上課時間安排</strong><br>
+              我已了解 <strong style="color: var(--court-deep);">上課與出賽規定</strong><br>
               <span class="fa-detail">
                 • 報名勾選的星期為當月固定練習日，請盡量固定出席<br>
                 • 週六班需滿 4 人開班；兩天班參加週六每堂加收 300 元<br>
+                • 比賽出賽：三天以上班可隨隊出賽，兩天班需教練審核<br>
                 • 晨操班限 30 人、體驗班限 20 人，額滿即止
               </span>
             </span>
@@ -9426,7 +9234,7 @@
           <div class="fr-content">
             <div class="fr-title">送出後請加入 LINE 群組</div>
             <div class="fr-text">
-              本學年報名<strong style="color: var(--court-deep);">不需訂金</strong>，送出即完成報名<br>
+              送出表單即完成報名<br>
               開課時間、分組與繳費資訊<br>
               皆會於 <strong>LINE 群組</strong>公告
             </div>
@@ -9760,7 +9568,7 @@
       payStatus: classType === '培訓班' ? '待收首月費' : '待收學期費',
       notes: formData.get('notes') || '無',
       agreeFee: formData.get('agree_fee') === 'on' ? '✅ 已同意' : '❌ 未同意',
-      agreeRefund: formData.get('agree_refund') === 'on' ? '✅ 已同意' : '❌ 未同意',
+      agreeRefund: '',   // 退費規則已自網站下架，此欄暫不使用
       agreeSchedule: formData.get('agree_schedule') === 'on' ? '✅ 已同意' : '❌ 未同意',
       userAgent: navigator.userAgent.substring(0, 200),
       screenSize: window.screen.width + 'x' + window.screen.height
