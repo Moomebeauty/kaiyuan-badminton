@@ -7419,7 +7419,699 @@
     .wk-day { font-size: 12px; }
     .wk-time { font-size: 8.5px; }
   }
+
+
+  /* ═══════════════════════════════════════════════════
+     🎨 115 海報風格層（Poster Layout）
+     ═══════════════════════════════════════════════════ */
+
+  :root {
+    --pf-green: #123A22;        /* 海報深綠 */
+    --pf-green-2: #1B4E2E;
+    --pf-gold: #D9A94F;
+    --pf-gold-lt: #EBC77E;
+    --pf-red: #C8322C;
+    --pf-blue: #1F4E79;
+    --pf-brown: #B8873A;
+    --pf-paper: #FBF9F3;
+    --pf-line: rgba(18,58,34,0.18);
+  }
+
+  /* ── 海報式 Hero ── */
+  .poster-hero {
+    position: relative;
+    background: linear-gradient(160deg, var(--pf-green) 0%, #0C2A18 100%);
+    padding: 26px 0 30px;
+    overflow: hidden;
+  }
+
+  .poster-hero .ph-net {
+    position: absolute;
+    inset: 0;
+    opacity: 0.16;
+    background-image:
+      repeating-linear-gradient(72deg, transparent 0 15px, rgba(255,255,255,0.5) 15px 16px),
+      repeating-linear-gradient(-72deg, transparent 0 15px, rgba(255,255,255,0.5) 15px 16px);
+    pointer-events: none;
+  }
+
+  .ph-inner { position: relative; z-index: 2; }
+
+  .ph-top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .ph-115 {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 74px;
+    font-weight: 700;
+    line-height: 0.86;
+    letter-spacing: -2px;
+    background: linear-gradient(175deg, #F5DFA8 0%, var(--pf-gold) 48%, #B8862F 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    flex-shrink: 0;
+    text-shadow: 0 4px 18px rgba(217,169,79,0.25);
+  }
+
+  .ph-headline { flex: 1; min-width: 0; }
+
+  .ph-h1 {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 21px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+    letter-spacing: 0.5px;
+  }
+
+  .ph-h2 {
+    font-size: 12px;
+    color: var(--pf-gold-lt);
+    margin-top: 7px;
+    letter-spacing: 1.2px;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  .ph-gear {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 18px;
+    font-size: 34px;
+    filter: drop-shadow(0 6px 14px rgba(0,0,0,0.35));
+  }
+
+  .ph-gear .rk { transform: rotate(-24deg); }
+  .ph-gear .sh { transform: rotate(12deg); font-size: 30px; }
+
+  .ph-school {
+    text-align: center;
+    margin-top: 14px;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    color: rgba(255,255,255,0.55);
+  }
+
+  .ph-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    margin-top: 18px;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--pf-gold-lt) 0%, var(--pf-gold) 100%);
+    color: #10301C;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba(217,169,79,0.3);
+  }
+
+  .ph-cta:active { transform: translateY(1px); }
+
+  /* ── 紅框資訊列 ── */
+  .info-bar {
+    background: #fff;
+    border: 1.5px solid var(--pf-red);
+    border-radius: 12px;
+    padding: 4px 14px;
+    margin-top: 22px;
+  }
+
+  .ib-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 0;
+    border-bottom: 1px dashed rgba(200,50,44,0.25);
+  }
+
+  .ib-row:last-child { border-bottom: none; }
+
+  .ib-ico { font-size: 16px; flex-shrink: 0; width: 22px; text-align: center; }
+
+  .ib-label {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: rgba(15,27,20,0.6);
+    flex-shrink: 0;
+  }
+
+  .ib-value {
+    flex: 1;
+    text-align: right;
+    font-size: 14.5px;
+    font-weight: 900;
+    color: var(--pf-green);
+    letter-spacing: 0.3px;
+  }
+
+  .ib-value .rd { color: var(--pf-red); }
+
+  /* ── 海報式卡片 ── */
+  .pcard {
+    background: var(--pf-paper);
+    border: 1.5px solid var(--pf-line);
+    border-radius: 14px;
+    margin-top: 26px;
+    padding: 0 0 18px;
+    position: relative;
+  }
+
+  .pcard-main { border-color: rgba(18,58,34,0.35); border-width: 2px; }
+
+  .pcard-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--pf-green);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    padding: 8px 18px 8px 15px;
+    border-radius: 12px 0 14px 0;
+    margin-bottom: 4px;
+  }
+
+  .pcard-tab .tb-ico { font-size: 14px; }
+
+  .pcard-tab.tb-gold { background: var(--pf-brown); }
+  .pcard-tab.tb-blue { background: var(--pf-blue); }
+
+  .pcard-pad { padding: 8px 17px 0; }
+
+  .pcard-name {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: 8px;
+    color: var(--pf-green);
+    line-height: 1.15;
+  }
+
+  .pcard-name.nm-gold { color: var(--pf-brown); }
+  .pcard-name.nm-blue { color: var(--pf-blue); }
+
+  .pcard-sub {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: rgba(15,27,20,0.62);
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+  }
+
+  .pblock-title {
+    font-size: 13.5px;
+    font-weight: 900;
+    color: var(--pf-green);
+    margin: 16px 0 9px;
+    letter-spacing: 0.5px;
+  }
+
+  .pblock-title.pt-gold { color: var(--pf-brown); }
+  .pblock-title.pt-blue { color: var(--pf-blue); }
+
+  /* 適合誰 · 打勾清單 */
+  .suit-list { display: flex; flex-direction: column; gap: 8px; }
+
+  .suit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: rgba(15,27,20,0.85);
+  }
+
+  .suit-check {
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: var(--pf-green);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .suit-check.sc-gold { background: var(--pf-brown); }
+  .suit-check.sc-blue { background: var(--pf-blue); }
+
+  /* 最大特色框 */
+  .feat-box {
+    border: 1.5px solid var(--pf-line);
+    border-radius: 11px;
+    background: #fff;
+    padding: 13px 15px;
+    margin-top: 16px;
+  }
+
+  .feat-head {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 14px;
+    font-weight: 900;
+    color: var(--pf-green);
+    margin-bottom: 9px;
+  }
+
+  .feat-line {
+    display: flex;
+    gap: 8px;
+    font-size: 12.8px;
+    line-height: 1.6;
+    color: rgba(15,27,20,0.82);
+    padding: 3px 0;
+  }
+
+  .feat-line .dia { color: var(--pf-gold); flex-shrink: 0; font-size: 10px; padding-top: 4px; }
+
+  /* 兩個價格盒 */
+  .price-duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+    margin-top: 58px;   /* 留給金色貼紙的空間 */
+    position: relative;
+  }
+
+  .price-box {
+    border: 1.5px solid var(--pf-line);
+    border-radius: 11px;
+    background: #fff;
+    padding: 12px 11px 13px;
+  }
+
+  .price-box.pb-star {
+    border-color: var(--pf-gold);
+    border-width: 2px;
+    background: linear-gradient(180deg, rgba(217,169,79,0.10) 0%, #fff 55%);
+  }
+
+  .pb-name {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 900;
+    color: var(--pf-green);
+    letter-spacing: 0.5px;
+  }
+
+  .pb-amount {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--pf-green);
+    line-height: 1.1;
+    margin-top: 5px;
+    letter-spacing: -0.5px;
+  }
+
+  .pb-unit {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: rgba(15,27,20,0.6);
+    letter-spacing: 0;
+  }
+
+  .pb-list {
+    margin-top: 9px;
+    padding-top: 9px;
+    border-top: 1px dashed var(--pf-line);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .pb-list li {
+    list-style: none;
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: rgba(15,27,20,0.75);
+    padding-left: 10px;
+    position: relative;
+  }
+
+  .pb-list li::before {
+    content: '·';
+    position: absolute;
+    left: 2px;
+    font-weight: 900;
+    color: var(--pf-gold);
+  }
+
+  .pb-list li strong { color: var(--pf-red); }
+  .pb-list li .free { color: var(--pf-green); font-weight: 800; }
+
+  /* 金色圓形貼紙 */
+  .gold-sticker {
+    position: absolute;
+    top: -64px;
+    right: 2px;
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    background: linear-gradient(150deg, var(--pf-gold-lt) 0%, var(--pf-gold) 55%, #B8862F 100%);
+    color: #16341F;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 900;
+    line-height: 1.35;
+    letter-spacing: -0.2px;
+    box-shadow: 0 6px 16px rgba(184,134,47,0.4);
+    transform: rotate(9deg);
+    z-index: 5;
+  }
+
+  /* 練習時段 3 欄 */
+  .sched-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1.5px solid var(--pf-line);
+    border-radius: 11px;
+    background: #fff;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+
+  .s3-col {
+    padding: 11px 5px 12px;
+    text-align: center;
+    border-right: 1px solid var(--pf-line);
+  }
+
+  .s3-col:last-child { border-right: none; }
+
+  .s3-day {
+    font-size: 12px;
+    font-weight: 900;
+    color: var(--pf-green);
+    line-height: 1.35;
+  }
+
+  .s3-time {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: rgba(15,27,20,0.72);
+    margin-top: 5px;
+    line-height: 1.4;
+  }
+
+  .s3-note {
+    font-size: 9.5px;
+    color: rgba(15,27,20,0.5);
+    margin-top: 3px;
+  }
+
+  /* 底部 3 欄資訊（晨操 / 體驗） */
+  .mini-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1.5px solid var(--pf-line);
+    margin-top: 16px;
+  }
+
+  .m3-col {
+    padding: 12px 5px 2px;
+    text-align: center;
+    border-right: 1px solid var(--pf-line);
+  }
+
+  .m3-col:last-child { border-right: none; }
+
+  .m3-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-size: 10.5px;
+    font-weight: 800;
+    color: rgba(15,27,20,0.55);
+  }
+
+  .m3-value {
+    font-size: 12.5px;
+    font-weight: 900;
+    color: var(--pf-green);
+    margin-top: 6px;
+    line-height: 1.45;
+  }
+
+  .m3-value.mv-gold { color: var(--pf-brown); }
+  .m3-value.mv-blue { color: var(--pf-blue); }
+
+  .m3-value .sm { font-size: 10.5px; font-weight: 700; color: rgba(15,27,20,0.6); }
+
+  /* 兩張小卡並排 → 手機直接堆疊 */
+  .pcard-duo { display: flex; flex-direction: column; }
+
+  /* ── 3 秒選對班 ── */
+  .pick-panel {
+    border: 1.5px solid var(--pf-line);
+    border-radius: 14px;
+    background: var(--pf-paper);
+    padding: 6px 15px 15px;
+    margin-top: 18px;
+  }
+
+  .pick-row {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 13px 0;
+    border-bottom: 1px dashed var(--pf-line);
+  }
+
+  .pick-row:last-child { border-bottom: none; }
+
+  .pk-ico { font-size: 18px; flex-shrink: 0; }
+
+  .pk-if {
+    flex: 1;
+    font-size: 12.5px;
+    line-height: 1.45;
+    color: rgba(15,27,20,0.85);
+    min-width: 0;
+  }
+
+  .pk-arrow { color: rgba(15,27,20,0.3); font-size: 14px; flex-shrink: 0; }
+
+  .pk-name {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--pf-green);
+    flex-shrink: 0;
+  }
+
+  .pk-name.nm-gold { color: var(--pf-brown); }
+  .pk-name.nm-blue { color: var(--pf-blue); }
+
+  .pk-pill {
+    flex-shrink: 0;
+    background: var(--pf-green);
+    color: #fff;
+    font-size: 10.5px;
+    font-weight: 800;
+    padding: 4px 9px;
+    border-radius: 50px;
+    white-space: nowrap;
+  }
+
+  .pk-pill.pp-gold { background: var(--pf-brown); }
+  .pk-pill.pp-blue { background: var(--pf-blue); }
+
+  /* ── 繳費資訊卡 ── */
+  .pay-panel {
+    border: 1.5px solid var(--pf-line);
+    border-radius: 14px;
+    background: #fff;
+    overflow: hidden;
+    margin-top: 18px;
+  }
+
+  .pay-row {
+    display: flex;
+    gap: 11px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--pf-line);
+    font-size: 13px;
+    line-height: 1.65;
+    color: rgba(15,27,20,0.85);
+  }
+
+  .pay-row:last-child { border-bottom: none; }
+
+  .pay-ico { font-size: 18px; flex-shrink: 0; line-height: 1.4; }
+
+  .pay-row strong { color: var(--pf-green); }
+  .pay-row .rd { color: var(--pf-red); font-weight: 800; }
+
+  .pay-row.pr-gold { background: rgba(217,169,79,0.10); }
+
+  /* ── 底部紅色 CTA 條 ── */
+  .red-bar {
+    background: linear-gradient(135deg, var(--pf-red) 0%, #A82420 100%);
+    border-radius: 14px;
+    padding: 20px 18px;
+    margin-top: 26px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 10px 26px rgba(200,50,44,0.28);
+  }
+
+  .rb-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 11px;
+    background: #fff;
+    color: var(--pf-red);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 19px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    cursor: pointer;
+  }
+
+  .rb-btn:active { transform: translateY(1px); }
+
+  .rb-sub {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-top: 9px;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .rb-foot {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 16px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.28);
+  }
+
+  .rb-cell { text-align: center; }
+
+  .rb-cell-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-size: 10.5px;
+    color: rgba(255,255,255,0.75);
+    font-weight: 700;
+  }
+
+  .rb-cell-value {
+    font-size: 13px;
+    font-weight: 900;
+    margin-top: 4px;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── 海報式區塊標題 ── */
+  .p-sec-head {
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .p-sec-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--pf-green);
+    letter-spacing: 1.5px;
+  }
+
+  .p-sec-title::before,
+  .p-sec-title::after {
+    content: '';
+    width: 26px;
+    height: 1.5px;
+    background: var(--pf-gold);
+  }
+
+  .p-sec-sub {
+    font-size: 12px;
+    color: rgba(15,27,20,0.55);
+    margin-top: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  /* 名額即時標籤 */
+  .quota-live {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 50px;
+    background: rgba(18,58,34,0.10);
+    color: var(--pf-green);
+    margin-left: 5px;
+    vertical-align: middle;
+  }
+
+  .quota-live.ql-warn { background: rgba(217,169,79,0.25); color: #8A6420; }
+  .quota-live.ql-full { background: rgba(200,50,44,0.13); color: var(--pf-red); }
+
+  .quota-live.q-warning { background: rgba(217,169,79,0.25); color: #8A6420; }
+  .quota-live.q-full { background: rgba(200,50,44,0.13); color: var(--pf-red); }
+  .m3-value.q-warning { color: #8A6420 !important; }
+  .m3-value.q-full { color: var(--pf-red) !important; }
+
+  /* ── 小螢幕微調 ── */
+  @media (max-width: 380px) {
+    .ph-115 { font-size: 60px; }
+    .ph-h1 { font-size: 18px; }
+    .ph-h2 { font-size: 11px; letter-spacing: 0.6px; }
+    .pcard-name { font-size: 32px; letter-spacing: 5px; }
+    .pb-amount { font-size: 25px; }
+    .gold-sticker { width: 70px; height: 70px; font-size: 9px; top: -58px; }
+    .price-duo { margin-top: 52px; }
+    .s3-day { font-size: 11px; }
+    .s3-time { font-size: 10.5px; }
+    .pk-if { font-size: 11.5px; }
+    .pk-name { font-size: 13.5px; }
+    .rb-btn { font-size: 17px; letter-spacing: 2px; }
+  }
+
 </style>
+
 </head>
 <body class="status-open">
 <!--
@@ -7452,106 +8144,330 @@
 <nav class="navbar" id="navbar">
   <div class="nav-scroll">
     <a href="#top" class="nav-link"><span class="nav-icon">🏠</span><span>首頁</span></a>
-    <a href="#classes" class="nav-link"><span class="nav-icon">🏸</span><span>三種班別</span></a>
-    <a href="#tuition" class="nav-link"><span class="nav-icon">💰</span><span>費用方案</span></a>
-    <a href="#pick" class="nav-link"><span class="nav-icon">🎯</span><span>怎麼選</span></a>
-    <a href="#flex" class="nav-link"><span class="nav-icon">🗓️</span><span>彈性選課</span></a>
+    <a href="#classes" class="nav-link"><span class="nav-icon">🏆</span><span>培訓班</span></a>
+    <a href="#c-morning" class="nav-link"><span class="nav-icon">🌅</span><span>晨操班</span></a>
+    <a href="#c-taste" class="nav-link"><span class="nav-icon">🌱</span><span>體驗班</span></a>
+    <a href="#tuition" class="nav-link"><span class="nav-icon">💰</span><span>繳費</span></a>
     <a href="#notice" class="nav-link"><span class="nav-icon">⚠️</span><span>注意事項</span></a>
     <a href="javascript:openModal()" class="nav-link cta"><span class="nav-icon">✍️</span><span>立即報名</span></a>
   </div>
 </nav>
 
-<header class="hero" id="top">
-  <svg class="court-lines" viewBox="0 0 400 600" preserveAspectRatio="none">
-    <rect x="20" y="20" width="360" height="560" fill="none" stroke="white" stroke-width="2"/>
-    <line x1="20" y1="300" x2="380" y2="300" stroke="white" stroke-width="2"/>
-    <line x1="200" y1="20" x2="200" y2="580" stroke="white" stroke-width="1.5"/>
-    <line x1="20" y1="120" x2="380" y2="120" stroke="white" stroke-width="1.5"/>
-    <line x1="20" y1="480" x2="380" y2="480" stroke="white" stroke-width="1.5"/>
-    <line x1="60" y1="120" x2="60" y2="480" stroke="white" stroke-width="1.5"/>
-    <line x1="340" y1="120" x2="340" y2="480" stroke="white" stroke-width="1.5"/>
-  </svg>
+<!-- ═══════════ 海報式 Hero ═══════════ -->
+<header class="poster-hero" id="top">
+  <div class="ph-net"></div>
+  <div class="container ph-inner">
 
-  <div class="container">
-    <div class="badge-top">
-      <span class="dot"></span>
-      <span>115 學年度 · 開始報名</span>
-    </div>
-
-    <!-- ========== 開元熊 LOGO ========== -->
-    <div class="school-logo">
-      <img src="logo.jpg" alt="臺南市北區開元國民小學羽球隊">
-    </div>
-
-    <!-- ========== 純文字主標題 ========== -->
-    <div class="school-mark">
-      <div class="school-mark-top">
-        <span class="line"></span>
-        <span class="en">EST. KAIYUAN BADMINTON</span>
-        <span class="line"></span>
-      </div>
-
-      <div class="school-name">
-        臺南市北區開元國民小學
-      </div>
-
-      <div class="main-title-block">
-        <span class="deco-emoji">🏸</span>
-        <h1 class="main-title">
-          羽球隊<span class="gold">招生</span>
-        </h1>
-        <span class="deco-emoji right">🏸</span>
+    <div class="ph-top">
+      <div class="ph-115">115</div>
+      <div class="ph-headline">
+        <div class="ph-h1">新學年 · 加入開元羽球隊</div>
+        <div class="ph-h2">三種班別 · 彈性選課 · 培養第二專長</div>
       </div>
     </div>
 
-    <!-- 學年標籤 -->
-    <div class="summer-tag-block">
-      <div class="summer-tag">SCHOOL YEAR</div>
-      <div class="year-label">1 1 5</div>
+    <div class="ph-gear">
+      <span class="rk">🏸</span>
+      <span class="sh">🏸</span>
     </div>
 
-    <h1 class="tagline">新學年開始<br><span class="accent">加入開元羽球隊</span></h1>
-    <p class="hero-sub">
-      <strong>三種班別 · 彈性選課</strong><br>有補習、有安親，一樣打得到球
-    </p>
+    <div class="ph-school">臺南市北區開元國民小學羽球隊</div>
 
-    <button onclick="openModal()" class="cta-main">
+    <button onclick="openModal()" class="ph-cta">
       <span>立即線上報名</span>
       <span style="font-family: serif;">→</span>
     </button>
   </div>
-
-  <svg class="hero-wave" viewBox="0 0 400 32" preserveAspectRatio="none">
-    <path d="M0,32 L0,16 Q100,0 200,16 T400,16 L400,32 Z" fill="#F4F1EA"/>
-  </svg>
 </header>
 
-<!-- ═══════════ 報名資訊卡 ═══════════ -->
-<section class="status-section">
+<!-- ═══════════ 紅框資訊列 ═══════════ -->
+<section style="padding: 0 0 4px;">
   <div class="container">
-    <div class="status-card">
-      <div class="status-deadline">
-        <div class="sd-label">📅 報名截止日</div>
-        <div class="sd-value">2026 / 8 / 29</div>
-        <div class="sd-sub">逾期將不再受理報名</div>
+    <div class="info-bar">
+      <div class="ib-row">
+        <span class="ib-ico">📅</span>
+        <span class="ib-label">報名截止</span>
+        <span class="ib-value"><span class="rd">2026 / 8 / 29</span></span>
       </div>
-
-      <div class="status-divider"></div>
-
-      <div class="status-quota">
-        <div class="sq-label">👦 招生對象</div>
-        <div class="sq-value"><span class="big-red">1 ~ 6 年級</span></div>
-        <div class="sq-sub">上課地點：開元國小 · 開元館</div>
+      <div class="ib-row">
+        <span class="ib-ico">👦</span>
+        <span class="ib-label">招生對象</span>
+        <span class="ib-value">1 ~ 6 年級</span>
+      </div>
+      <div class="ib-row">
+        <span class="ib-ico">📍</span>
+        <span class="ib-label">上課地點</span>
+        <span class="ib-value">開元國小 · 開元館</span>
+      </div>
+      <div class="ib-row">
+        <span class="ib-ico">💳</span>
+        <span class="ib-label">報名訂金</span>
+        <span class="ib-value">不需訂金</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ Why · 為什麼選開元羽球隊 ═══════════ -->
+<!-- ═══════════ 培訓班 ═══════════ -->
+<section id="classes" style="padding: 22px 0 0;">
+  <div class="container">
+
+    <div class="pcard pcard-main" id="c-train">
+      <div class="pcard-tab">
+        <span class="tb-ico">🏆</span>
+        <span>主力訓練班 · 彈性選課</span>
+      </div>
+
+      <div class="pcard-pad">
+        <div class="pcard-name">培訓班</div>
+        <div class="pcard-sub">零基礎也可以 · 完整訓練體系</div>
+
+        <!-- 最大特色 -->
+        <div class="feat-box">
+          <div class="feat-head">
+            <span>💡</span><span>最大特色：彈性選課！</span>
+          </div>
+          <div class="feat-line">
+            <span class="dia">◆</span>
+            <span>上課日：週一、二、三、四、五 <strong>任選幾天</strong></span>
+          </div>
+          <div class="feat-line">
+            <span class="dia">◆</span>
+            <span>依孩子的<strong>補習、安親、才藝</strong>時間彈性搭配</span>
+          </div>
+        </div>
+
+        <!-- 適合誰 -->
+        <div class="pblock-title">適合誰？</div>
+        <div class="suit-list">
+          <div class="suit-item"><span class="suit-check">✓</span><span>想認真學羽球</span></div>
+          <div class="suit-item"><span class="suit-check">✓</span><span>有補習 / 安親，需要彈性調整</span></div>
+          <div class="suit-item"><span class="suit-check">✓</span><span>想長期培養第二專長</span></div>
+          <div class="suit-item"><span class="suit-check">✓</span><span>零基礎也可以</span></div>
+        </div>
+
+        <!-- 兩個價格盒 -->
+        <div class="price-duo">
+          <div class="gold-sticker">
+            只差 500 元<br>多 6 小時<br>週六練習送！
+          </div>
+
+          <div class="price-box">
+            <div class="pb-name">兩天班</div>
+            <div class="pb-amount">2,000<span class="pb-unit"> 元 / 月</span></div>
+            <ul class="pb-list">
+              <li>週一~五任選 <strong style="color:var(--pf-green)">2 天</strong></li>
+              <li>週六練習<strong>每堂 +300 元</strong></li>
+            </ul>
+          </div>
+
+          <div class="price-box pb-star">
+            <div class="pb-name"><span>⭐</span>三天以上班</div>
+            <div class="pb-amount">2,500<span class="pb-unit"> 元 / 月</span></div>
+            <ul class="pb-list">
+              <li>週一~五任選 <strong style="color:var(--pf-green)">3~5 天</strong></li>
+              <li><span class="free">週六免費加碼練習！</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 練習時段 -->
+        <div class="pblock-title">🕐 練習時段</div>
+        <div class="sched-3">
+          <div class="s3-col">
+            <div class="s3-day">週一、二<br>四、五</div>
+            <div class="s3-time">16:00<br>19:00</div>
+          </div>
+          <div class="s3-col">
+            <div class="s3-day">週三</div>
+            <div class="s3-time">13:30<br>16:30</div>
+          </div>
+          <div class="s3-col">
+            <div class="s3-day">週六</div>
+            <div class="s3-time">09:00<br>12:00</div>
+            <div class="s3-note">（滿 4 人開班）</div>
+          </div>
+        </div>
+
+        <div class="pay-panel" style="margin-top: 14px;">
+          <div class="pay-row">
+            <span class="pay-ico">👥</span>
+            <span><strong>名額不限</strong>，報名不受人數限制<span class="quota-live" id="quota_train" data-base="quota-live">目前 0 人</span></span>
+          </div>
+          <div class="pay-row pr-gold">
+            <span class="pay-ico">💳</span>
+            <span>每月初由球隊發<strong>繳費袋</strong>，收當月月費</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ 晨操班 ＋ 體驗班 ═══════════ -->
+    <div class="pcard-duo">
+
+      <div class="pcard" id="c-morning">
+        <div class="pcard-tab tb-gold">
+          <span class="tb-ico">🌅</span>
+          <span>早晨運動班</span>
+        </div>
+        <div class="pcard-pad">
+          <div class="pcard-name nm-gold">晨操班</div>
+          <div class="pcard-sub">上學前運動 · 培養規律習慣</div>
+
+          <div class="pblock-title pt-gold">適合誰？</div>
+          <div class="suit-list">
+            <div class="suit-item"><span class="suit-check sc-gold">✓</span><span>不佔下午時間</span></div>
+            <div class="suit-item"><span class="suit-check sc-gold">✓</span><span>想在上學前運動</span></div>
+            <div class="suit-item"><span class="suit-check sc-gold">✓</span><span>培養規律的運動習慣</span></div>
+            <div class="suit-item"><span class="suit-check sc-gold">✓</span><span>零基礎也可以</span></div>
+          </div>
+
+          <div class="mini-3">
+            <div class="m3-col">
+              <div class="m3-label"><span>🕐</span><span>練習時段</span></div>
+              <div class="m3-value mv-gold">週二、週五<br><span class="sm">8:00 – 8:40</span></div>
+            </div>
+            <div class="m3-col">
+              <div class="m3-label"><span>💰</span><span>費用</span></div>
+              <div class="m3-value mv-gold">2,500 元<br><span class="sm">一學期</span></div>
+            </div>
+            <div class="m3-col">
+              <div class="m3-label"><span>👥</span><span>名額限制</span></div>
+              <div class="m3-value mv-gold" id="quota_morning" data-base="m3-value mv-gold">限 30 人</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard" id="c-taste">
+        <div class="pcard-tab tb-blue">
+          <span class="tb-ico">🌱</span>
+          <span>社團體驗班</span>
+        </div>
+        <div class="pcard-pad">
+          <div class="pcard-name nm-blue">體驗班</div>
+          <div class="pcard-sub">社團概念 · 輕鬆接觸羽球</div>
+
+          <div class="pblock-title pt-blue">適合誰？</div>
+          <div class="suit-list">
+            <div class="suit-item"><span class="suit-check sc-blue">✓</span><span>想先接觸看看</span></div>
+            <div class="suit-item"><span class="suit-check sc-blue">✓</span><span>好玩為主</span></div>
+            <div class="suit-item"><span class="suit-check sc-blue">✓</span><span>沒學過羽球</span></div>
+            <div class="suit-item"><span class="suit-check sc-blue">✓</span><span>想試試新才藝</span></div>
+          </div>
+
+          <div class="mini-3">
+            <div class="m3-col">
+              <div class="m3-label"><span>🕐</span><span>練習時段</span></div>
+              <div class="m3-value mv-blue">週三<br><span class="sm">13:30 – 15:30</span></div>
+            </div>
+            <div class="m3-col">
+              <div class="m3-label"><span>💰</span><span>費用</span></div>
+              <div class="m3-value mv-blue">2,800 元<br><span class="sm">一學期</span></div>
+            </div>
+            <div class="m3-col">
+              <div class="m3-label"><span>👥</span><span>名額限制</span></div>
+              <div class="m3-value mv-blue" id="quota_taste" data-base="m3-value mv-blue">限 20 人</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 3 秒選對班 ═══════════ -->
+<section id="pick" style="padding: 34px 0 0;">
+  <div class="container">
+    <div class="p-sec-head">
+      <div class="p-sec-title">3 秒選對班！</div>
+    </div>
+
+    <div class="pick-panel">
+      <a href="#c-train" class="pick-row" style="text-decoration:none;">
+        <span class="pk-ico">🏆</span>
+        <span class="pk-if">想紮實學球<br>自由選 2~5 天</span>
+        <span class="pk-arrow">→</span>
+        <span class="pk-name">培訓班</span>
+        <span class="pk-pill">2,000 起</span>
+      </a>
+      <a href="#c-morning" class="pick-row" style="text-decoration:none;">
+        <span class="pk-ico">🌅</span>
+        <span class="pk-if">想早上運動<br>培養好習慣</span>
+        <span class="pk-arrow">→</span>
+        <span class="pk-name nm-gold">晨操班</span>
+        <span class="pk-pill pp-gold">2,500 / 限 30 人</span>
+      </a>
+      <a href="#c-taste" class="pick-row" style="text-decoration:none;">
+        <span class="pk-ico">🌱</span>
+        <span class="pk-if">想輕鬆試試<br>當作社團玩玩</span>
+        <span class="pk-arrow">→</span>
+        <span class="pk-name nm-blue">體驗班</span>
+        <span class="pk-pill pp-blue">2,800 / 限 20 人</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 費用與繳費方式 ═══════════ -->
+<section id="tuition" style="padding: 34px 0 0;">
+  <div class="container">
+    <div class="p-sec-head">
+      <div class="p-sec-title">費用與繳費</div>
+      <div class="p-sec-sub">培訓班為月費 · 晨操與體驗為學期費</div>
+    </div>
+
+    <div class="pay-panel">
+      <div class="pay-row">
+        <span class="pay-ico">🏆</span>
+        <span>
+          <strong>培訓班 · 月費制</strong><br>
+          兩天班 2,000 元／月　|　三天以上班 2,500 元／月<br>
+          每月初發<strong>繳費袋</strong>，收當月月費
+        </span>
+      </div>
+      <div class="pay-row">
+        <span class="pay-ico">🌅</span>
+        <span><strong>晨操班 · 學期制</strong>　2,500 元／學期，開課後一次繳清</span>
+      </div>
+      <div class="pay-row">
+        <span class="pay-ico">🌱</span>
+        <span><strong>體驗班 · 學期制</strong>　2,800 元／學期，開課後一次繳清</span>
+      </div>
+      <div class="pay-row pr-gold">
+        <span class="pay-ico">🗓️</span>
+        <span>
+          <strong>週六練習（09:00–12:00）</strong>，滿 4 人開班<br>
+          三天以上班<strong>免費參加</strong>；兩天班<span class="rd">每堂加收 300 元</span>，依實際到場次數計收
+        </span>
+      </div>
+      <div class="pay-row">
+        <span class="pay-ico">✅</span>
+        <span><strong>報名不需訂金</strong>，線上填表送出即完成名額登記</span>
+      </div>
+      <div class="pay-row">
+        <span class="pay-ico">📍</span>
+        <span>
+          繳費地點：<strong>開元國小 · 開元館 · 羽球隊</strong><br>
+          平日 08:00–08:30 或 17:00–19:00　|　<span class="rd">週三不辦理</span>
+        </span>
+      </div>
+    </div>
+
+    <a href="javascript:openModal()" class="price-cta-btn" style="margin-top: 18px;">
+      <span class="pcb-icon">📝</span>
+      <span class="pcb-text">費用看懂了，我要報名</span>
+      <span class="pcb-arrow">→</span>
+    </a>
+  </div>
+</section>
+
 <section class="why-section" id="why">
   <div class="container">
-    <div class="why-header">
-      <h2 class="why-title">為什麼選擇<span class="why-em">開元羽球隊？</span></h2>
+    <div class="p-sec-head" style="margin-bottom: 16px;">
+      <div class="p-sec-title">為什麼選開元？</div>
+      <div class="p-sec-sub">點開下面兩張卡，3 分鐘看完</div>
     </div>
 
     <div class="learn-more-section">
@@ -7638,338 +8554,6 @@
   </div>
 </section>
 
-<!-- ═══════════ 三種班別 ═══════════ -->
-<section id="classes" style="padding-top: 44px;">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">PROGRAMS</div>
-      <h2 class="section-title">三種<span class="em">班別</span></h2>
-      <p class="section-subtitle">三種節奏 · 三種價位 · 都收零基礎</p>
-    </div>
-
-    <!-- 3 秒速覽 -->
-    <div class="class-compare">
-      <a href="#c-train" class="cmp-col cmp-main">
-        <div class="cmp-flag">最多人選</div>
-        <div class="cmp-emoji">🏆</div>
-        <div class="cmp-name">培訓班</div>
-        <div class="cmp-price">2,000<span style="font-size:13px;">起</span></div>
-        <div class="cmp-unit">每月</div>
-        <div class="cmp-slot">週一~五<br>自己挑天數</div>
-      </a>
-      <a href="#c-morning" class="cmp-col">
-        <div class="cmp-emoji">🌅</div>
-        <div class="cmp-name">晨操班</div>
-        <div class="cmp-price">2,500</div>
-        <div class="cmp-unit">每學期</div>
-        <div class="cmp-slot">週二、五<br>08:00–08:40</div>
-      </a>
-      <a href="#c-taste" class="cmp-col">
-        <div class="cmp-emoji">🌱</div>
-        <div class="cmp-name">體驗班</div>
-        <div class="cmp-price">2,800</div>
-        <div class="cmp-unit">每學期</div>
-        <div class="cmp-slot">週三<br>13:30–15:30</div>
-      </a>
-    </div>
-
-    <!-- 🏆 培訓班 -->
-    <div class="class-card cc-train" id="c-train">
-      <div class="cc-head">
-        <div class="cc-ribbon">主推</div>
-        <div class="cc-head-top">
-          <span class="cc-emoji">🏆</span>
-          <div>
-            <div class="cc-title">培訓班</div>
-            <div class="cc-sub">彈性選課 · 想認真學就選這班</div>
-          </div>
-        </div>
-        <div class="cc-price-row">
-          <span class="cc-price">2,000</span>
-          <span class="cc-price-unit">元 / 月起</span>
-          <span class="cc-price-note">兩天班 2,000 · 三天以上班 2,500（皆為月費）</span>
-        </div>
-      </div>
-      <div class="cc-body">
-        <div class="cc-row">
-          <span class="cc-row-icon">⏰</span>
-          <span class="cc-row-label">練習時段</span>
-          <span class="cc-row-value">
-            週一、二、四、五 <strong>16:00 – 19:00</strong><br>
-            週三 <strong>13:30 – 16:30</strong><br>
-            週六 <strong>09:00 – 12:00</strong><span style="font-size:11.5px; color:rgba(15,27,20,0.55);">（滿 4 人開班）</span>
-          </span>
-        </div>
-        <div class="cc-row">
-          <span class="cc-row-icon">🗓️</span>
-          <span class="cc-row-label">選課方式</span>
-          <span class="cc-row-value">週一～週五中<strong>任選 2 天</strong>或<strong>任選 3～5 天</strong>，依補習、安親、才藝時間自己搭</span>
-        </div>
-        <div class="cc-row">
-          <span class="cc-row-icon">👥</span>
-          <span class="cc-row-label">名額</span>
-          <span class="cc-row-value"><span class="cc-quota-pill" id="quota_train">不限名額</span></span>
-        </div>
-        <div class="cc-row">
-          <span class="cc-row-icon">💳</span>
-          <span class="cc-row-label">繳費</span>
-          <span class="cc-row-value">每月初由球隊發<strong>繳費袋</strong>，收當月月費</span>
-        </div>
-
-        <!-- 週六規則 -->
-        <div class="sat-rule">
-          <div class="sat-rule-head">🗓️ 週六班怎麼算？</div>
-          <div class="sat-rule-row">
-            <span class="sat-rule-plan">兩天班</span>
-            <span class="sat-rule-arrow">→</span>
-            <span class="sat-rule-res sr-pay">每堂加收 300 元</span>
-          </div>
-          <div class="sat-rule-row">
-            <span class="sat-rule-plan">三天以上班</span>
-            <span class="sat-rule-arrow">→</span>
-            <span class="sat-rule-res sr-free">免費參加</span>
-          </div>
-        </div>
-
-        <div class="cc-tag-row">
-          <span class="cc-tag cc-tag-hi">零基礎可</span>
-          <span class="cc-tag cc-tag-hi">彈性選課</span>
-          <span class="cc-tag">月費制</span>
-          <span class="cc-tag">1~6 年級</span>
-        </div>
-
-        <div class="cc-note cc-note-gold">
-          💡 <strong>有補習、有安親也能報。</strong>把還空著的那幾天挑出來就好，不用為了打球把整週行程重排。
-        </div>
-      </div>
-    </div>
-
-    <!-- 🌅 晨操班 -->
-    <div class="class-card cc-morning" id="c-morning">
-      <div class="cc-head">
-        <div class="cc-head-top">
-          <span class="cc-emoji">🌅</span>
-          <div>
-            <div class="cc-title">晨操班</div>
-            <div class="cc-sub">上學前動一動 · 不佔放學時間</div>
-          </div>
-        </div>
-        <div class="cc-price-row">
-          <span class="cc-price">2,500</span>
-          <span class="cc-price-unit">元 / 學期</span>
-          <span class="cc-price-note">一次繳清，整學期不再收費</span>
-        </div>
-      </div>
-      <div class="cc-body">
-        <div class="cc-row">
-          <span class="cc-row-icon">⏰</span>
-          <span class="cc-row-label">練習時段</span>
-          <span class="cc-row-value">每週二、週五 <strong>08:00 – 08:40</strong><br><span style="font-size:11.5px; color:rgba(15,27,20,0.55);">上課前 40 分鐘，結束直接進教室</span></span>
-        </div>
-        <div class="cc-row">
-          <span class="cc-row-icon">👥</span>
-          <span class="cc-row-label">名額</span>
-          <span class="cc-row-value"><span class="cc-quota-pill" id="quota_morning">限 30 人</span></span>
-        </div>
-        <div class="cc-row">
-          <span class="cc-row-icon">🎯</span>
-          <span class="cc-row-label">適合</span>
-          <span class="cc-row-value">全校學生 · 放學後行程已滿、想在上學前運動的孩子</span>
-        </div>
-
-        <div class="cc-tag-row">
-          <span class="cc-tag cc-tag-hi">零基礎可</span>
-          <span class="cc-tag">學期費</span>
-          <span class="cc-tag">每週 2 次</span>
-          <span class="cc-tag">1~6 年級</span>
-        </div>
-
-        <div class="cc-note">
-          💡 <strong>完全不影響下午行程。</strong>補習班、安親班照常，只借上學前的 40 分鐘。
-        </div>
-      </div>
-    </div>
-
-    <!-- 🌱 體驗班 -->
-    <div class="class-card cc-taste" id="c-taste">
-      <div class="cc-head">
-        <div class="cc-head-top">
-          <span class="cc-emoji">🌱</span>
-          <div>
-            <div class="cc-title">體驗班</div>
-            <div class="cc-sub">社團概念 · 先玩看看再說</div>
-          </div>
-        </div>
-        <div class="cc-price-row">
-          <span class="cc-price">2,800</span>
-          <span class="cc-price-unit">元 / 學期</span>
-          <span class="cc-price-note">一次繳清，整學期不再收費</span>
-        </div>
-      </div>
-      <div class="cc-body">
-        <div class="cc-row">
-          <span class="cc-row-icon">⏰</span>
-          <span class="cc-row-label">練習時段</span>
-          <span class="cc-row-value">每週三 <strong>13:30 – 15:30</strong><br><span style="font-size:11.5px; color:rgba(15,27,20,0.55);">週三下午，一週一次</span></span>
-        </div>
-        <div class="cc-row">
-          <span class="cc-row-icon">👥</span>
-          <span class="cc-row-label">名額</span>
-          <span class="cc-row-value"><span class="cc-quota-pill" id="quota_taste">限 20 人</span></span>
-        </div>
-        <div class="cc-row">
-          <span class="cc-row-icon">🎯</span>
-          <span class="cc-row-label">適合</span>
-          <span class="cc-row-value">想先接觸看看、以好玩為主，還不確定要不要長期學的孩子</span>
-        </div>
-
-        <div class="cc-tag-row">
-          <span class="cc-tag cc-tag-hi">零基礎可</span>
-          <span class="cc-tag">學期費</span>
-          <span class="cc-tag">每週 1 次</span>
-          <span class="cc-tag">1~6 年級</span>
-        </div>
-
-        <div class="cc-note">
-          💡 <strong>當作社團來上。</strong>玩出興趣之後，下學期再轉培訓班也完全沒問題。
-        </div>
-      </div>
-    </div>
-
-    <a href="javascript:openModal()" class="price-cta-btn">
-      <span class="pcb-icon">🚀</span>
-      <span class="pcb-text">看好了，直接報名</span>
-      <span class="pcb-arrow">→</span>
-    </a>
-  </div>
-</section>
-
-<!-- ═══════════ 費用方案 ═══════════ -->
-<section id="tuition" style="padding-top: 44px;">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">TUITION</div>
-      <h2 class="section-title">費用<span class="em">方案</span></h2>
-      <p class="section-subtitle">培訓班收月費 · 晨操班與體驗班收學期費</p>
-    </div>
-
-    <!-- 不用訂金 -->
-    <div class="no-deposit-banner">
-      <span class="ndb-icon">✅</span>
-      <div>
-        <div class="ndb-title">報名不需要訂金</div>
-        <div class="ndb-sub">線上填表送出即完成報名、名額同步保留，不必先付任何費用</div>
-      </div>
-    </div>
-
-    <table class="fee-table">
-      <thead>
-        <tr>
-          <th style="text-align:left;">班別 / 方案</th>
-          <th style="text-align:right;">費用</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="fee-row-main">
-          <td>
-            <div class="fee-plan-name">🏆 培訓班 · 兩天班<span class="fee-mini-tag">月費</span></div>
-            <div class="fee-plan-sub">週一～五任選 2 天</div>
-          </td>
-          <td class="fee-amt">2,000<span class="fee-amt-unit">元 / 月</span></td>
-        </tr>
-        <tr class="fee-row-main">
-          <td>
-            <div class="fee-plan-name">🏆 培訓班 · 三天以上班<span class="fee-mini-tag">月費</span></div>
-            <div class="fee-plan-sub">週一～五任選 3～5 天 · 週六免費參加</div>
-          </td>
-          <td class="fee-amt">2,500<span class="fee-amt-unit">元 / 月</span></td>
-        </tr>
-        <tr>
-          <td>
-            <div class="fee-plan-name">🌅 晨操班</div>
-            <div class="fee-plan-sub">每週二、五 08:00–08:40 · 限 30 人</div>
-          </td>
-          <td class="fee-amt">2,500<span class="fee-amt-unit">元 / 學期</span></td>
-        </tr>
-        <tr>
-          <td>
-            <div class="fee-plan-name">🌱 體驗班</div>
-            <div class="fee-plan-sub">每週三 13:30–15:30 · 限 20 人</div>
-          </td>
-          <td class="fee-amt">2,800<span class="fee-amt-unit">元 / 學期</span></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="fee-foot-note">
-      <span>💳</span>
-      <div>
-        <strong>培訓班</strong>於每月初由球隊發<strong>繳費袋</strong>收當月月費；<br>
-        <strong>晨操班、體驗班</strong>為學期費，開課後一次繳清。
-      </div>
-    </div>
-
-    <div class="fee-foot-note" style="background: rgba(232,184,108,0.14);">
-      <span>🗓️</span>
-      <div>
-        培訓班<strong>兩天班</strong>如要參加週六 09:00–12:00，<strong>每堂加收 300 元</strong>；<br>
-        <strong>三天以上班</strong>可<strong>免費參加</strong>週六（滿 4 人開班）。
-      </div>
-    </div>
-
-    <a href="javascript:openModal()" class="price-cta-btn">
-      <span class="pcb-icon">📝</span>
-      <span class="pcb-text">費用看懂了，我要報名</span>
-      <span class="pcb-arrow">→</span>
-    </a>
-  </div>
-</section>
-
-<!-- ═══════════ 3 秒選對班 ═══════════ -->
-<section id="pick" style="padding-top: 44px;">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-tag">GUIDE</div>
-      <h2 class="section-title">3 秒<span class="em">選對班</span></h2>
-      <p class="section-subtitle">看哪一句最像您家的狀況</p>
-    </div>
-
-    <div class="pick-guide">
-      <a href="#c-train" class="pick-card">
-        <span class="pick-emoji">💪</span>
-        <span class="pick-text">
-          <span class="pick-q">「想讓孩子認真學、長期打下去，時間還要能配合補習」</span>
-          <span class="pick-a">→ 選 培訓班</span>
-        </span>
-        <span class="pick-arrow">›</span>
-      </a>
-
-      <a href="#c-morning" class="pick-card pk-blue">
-        <span class="pick-emoji">🌅</span>
-        <span class="pick-text">
-          <span class="pick-q">「放學後行程已經排滿了，只能利用上學前運動」</span>
-          <span class="pick-a">→ 選 晨操班</span>
-        </span>
-        <span class="pick-arrow">›</span>
-      </a>
-
-      <a href="#c-taste" class="pick-card pk-gold">
-        <span class="pick-emoji">🌱</span>
-        <span class="pick-text">
-          <span class="pick-q">「還不確定孩子喜不喜歡，想先玩看看再決定」</span>
-          <span class="pick-a">→ 選 體驗班</span>
-        </span>
-        <span class="pick-arrow">›</span>
-      </a>
-    </div>
-
-    <div class="cc-note" style="margin-top: 16px;">
-      🏸 <strong>三種班別都收零基礎。</strong>沒學過、沒球拍、體力不好都可以報，教練會從握拍開始帶。
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ 培訓班 · 彈性選課深度說明 ═══════════ -->
 <section id="flex" style="padding-top: 44px;">
   <div class="container">
 
@@ -7982,8 +8566,8 @@
       </div>
     </div>
 
-    <div class="section-header" style="margin-bottom: 14px;">
-      <h3 class="section-title" style="font-size: 21px;">一週<span class="em">練習時間表</span></h3>
+    <div class="p-sec-head" style="margin: 26px 0 14px;">
+      <div class="p-sec-title" style="font-size: 18px;">一週練習時間表</div>
     </div>
 
     <div class="week-grid">
@@ -8019,7 +8603,7 @@
     </div>
 
     <div class="section-header" style="margin: 30px 0 14px;">
-      <h3 class="section-title" style="font-size: 21px;">別人家<span class="em">怎麼排</span></h3>
+      <div class="p-sec-title" style="font-size: 18px;">別人家怎麼排</div>
     </div>
 
     <div class="case-card">
@@ -8077,13 +8661,11 @@
   </div>
 </section>
 
-<!-- ═══════════ 注意事項 ═══════════ -->
 <section class="notice-section" id="notice">
   <div class="container">
-    <div class="section-header">
-      <div class="section-tag">NOTICE</div>
-      <h2 class="section-title">報名<span class="em">注意事項</span></h2>
-      <p class="section-subtitle">點選下方項目查看詳細規則</p>
+    <div class="p-sec-head" style="margin-bottom: 16px;">
+      <div class="p-sec-title">報名注意事項</div>
+      <div class="p-sec-sub">點選下方項目查看詳細規則</div>
     </div>
 
     <div class="collapsible-list">
@@ -8372,31 +8954,23 @@
   </div>
 </section>
 
-<!-- ═══════════ 最終 CTA ═══════════ -->
-<section style="padding: 0;" id="signup">
+<section style="padding: 34px 0 10px;" id="signup">
   <div class="container">
-    <div class="final-cta">
-      <svg class="final-cta-bg" viewBox="0 0 400 280" preserveAspectRatio="none">
-        <rect x="20" y="20" width="360" height="240" fill="none" stroke="white" stroke-width="2"/>
-        <line x1="20" y1="140" x2="380" y2="140" stroke="white" stroke-width="2"/>
-        <line x1="200" y1="20" x2="200" y2="260" stroke="white" stroke-width="1.5"/>
-      </svg>
+    <div class="red-bar">
+      <button onclick="openModal()" class="rb-btn">
+        <span>🚀</span><span>立即報名</span>
+      </button>
+      <div class="rb-sub">名額有限 · 先報先贏！</div>
 
-      <div class="final-cta-inner">
-        <div class="final-cta-emojis">
-          <span>🏸</span>
-          <span>🏸</span>
-          <span>🏸</span>
+      <div class="rb-foot">
+        <div class="rb-cell">
+          <div class="rb-cell-label"><span>📍</span><span>上課地點</span></div>
+          <div class="rb-cell-value">開元國小<br>開元館</div>
         </div>
-
-        <span class="urgency-badge">晨操班限 30 人 · 體驗班限 20 人</span>
-        <h2>115 學年度<br><span class="em">一起打球</span></h2>
-        <p>3 分鐘填表完成報名 · 不需訂金<br>送出後加入 LINE 群組，等開課通知就好</p>
-        <button onclick="openModal()" class="cta-final-btn">
-          <span>立即線上報名</span>
-          <span style="font-family: serif;">→</span>
-        </button>
-        <div class="deadline">— 報名截止 2026 / 8 / 29 —</div>
+        <div class="rb-cell">
+          <div class="rb-cell-label"><span>📅</span><span>報名截止</span></div>
+          <div class="rb-cell-value">2026<br>8 / 29</div>
+        </div>
       </div>
     </div>
   </div>
@@ -9188,21 +9762,21 @@
         cls = 'q-full';
       } else {
         const remain = limit - count;
-        text = '剩 ' + remain + ' / ' + limit + ' 名';
+        text = '剩 ' + remain + ' 名<br><span class="sm">上限 ' + limit + ' 人</span>';
         cls = (remain <= 5) ? 'q-warning' : 'q-available';
       }
 
-      // 頁面班別卡
+      // 頁面班別卡（保留元素原本的排版 class）
       const pageEl = document.getElementById(m.pageId);
       if (pageEl) {
-        pageEl.textContent = text;
-        pageEl.className = 'cc-quota-pill ' + cls;
+        pageEl.innerHTML = text;
+        pageEl.className = (pageEl.dataset.base || '') + ' ' + cls;
       }
 
       // 報名表單
       const formEl = document.getElementById(m.formId);
       if (formEl) {
-        formEl.textContent = text;
+        formEl.textContent = String(text).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
         formEl.className = 'cr-quota ' + cls;
       }
 
