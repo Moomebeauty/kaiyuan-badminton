@@ -7153,12 +7153,34 @@
 
   .class-radio { display: block; cursor: pointer; position: relative; }
 
-  .class-radio input[type="radio"] {
+  .class-radio input[type="radio"],
+  .class-radio input[type="checkbox"] {
     position: absolute;
     opacity: 0;
     width: 0;
     height: 0;
   }
+
+  /* 複選：勾選後在卡片右上角顯示打勾 */
+  .class-radio input:checked + .cr-box::after {
+    content: '✓';
+    position: absolute;
+    top: -8px;
+    right: -6px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--court-green);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(46,139,87,0.4);
+  }
+
+  .cr-box { position: relative; }
 
   .cr-box {
     display: flex;
@@ -7220,6 +7242,45 @@
 
   .cr-quota.q-warning { background: rgba(232,184,108,0.25); color: #8A6011; }
   .cr-quota.q-full { background: rgba(214,54,54,0.12); color: var(--racket-red-deep); }
+
+  /* 複選規則說明條 */
+  .combo-hint {
+    background: rgba(46,139,87,0.07);
+    border: 1.5px dashed var(--court-green);
+    border-radius: 11px;
+    padding: 11px 13px;
+    margin-bottom: 12px;
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: rgba(15,27,20,0.8);
+  }
+
+  .combo-hint strong { color: var(--court-deep); }
+
+  /* 互斥時出現的鎖定說明 */
+  .cr-lock {
+    margin-top: -4px;
+    margin-bottom: 4px;
+    padding: 11px 13px;
+    background: rgba(232,184,108,0.14);
+    border-radius: 11px;
+    font-size: 12px;
+    line-height: 1.7;
+    color: #7A5A18;
+    animation: lockIn 0.25s ease;
+  }
+
+  .cr-lock strong { color: #6B4E12; }
+
+  @keyframes lockIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .class-radio input:disabled + .cr-box .cr-name::after {
+    content: ' 🔒';
+    font-size: 11px;
+  }
 
   /* 培訓班追加問題區 */
   .train-extra {
@@ -7974,6 +8035,111 @@
   .pk-pill.pp-gold { background: var(--pf-brown); }
   .pk-pill.pp-blue { background: var(--pf-blue); }
 
+  /* ── 可以怎麼搭 ── */
+  .combo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 18px;
+  }
+
+  .combo-card {
+    position: relative;
+    background: #fff;
+    border: 1.5px solid var(--pf-line);
+    border-radius: 14px;
+    padding: 15px 16px;
+  }
+
+  .combo-card.combo-star {
+    border-color: var(--pf-gold);
+    border-width: 2px;
+    background: linear-gradient(180deg, rgba(217,169,79,0.10) 0%, #fff 55%);
+    padding-top: 20px;
+  }
+
+  .combo-card.combo-solo { background: var(--pf-paper); }
+
+  .cb-flag {
+    position: absolute;
+    top: -10px;
+    left: 14px;
+    background: linear-gradient(135deg, var(--pf-gold-lt) 0%, var(--pf-gold) 100%);
+    color: #16341F;
+    font-size: 10.5px;
+    font-weight: 900;
+    letter-spacing: 0.3px;
+    padding: 3px 10px;
+    border-radius: 50px;
+  }
+
+  .cb-head {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 8px;
+  }
+
+  .cb-emojis { font-size: 17px; flex-shrink: 0; }
+
+  .cb-name {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--pf-green);
+    letter-spacing: 0.5px;
+  }
+
+  .cb-detail {
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: rgba(15,27,20,0.75);
+  }
+
+  .cb-detail strong { color: var(--pf-green); font-weight: 800; }
+
+  .cb-price {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--pf-line);
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .cb-amt {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 23px;
+    font-weight: 700;
+    color: var(--pf-green);
+    line-height: 1;
+  }
+
+  .combo-star .cb-amt { color: #A87828; }
+
+  .cb-unit {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: rgba(15,27,20,0.6);
+  }
+
+  .combo-urgent {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(200,50,44,0.10) 0%, rgba(200,50,44,0.04) 100%);
+    border: 1.5px solid rgba(200,50,44,0.35);
+    font-size: 12.5px;
+    line-height: 1.75;
+    color: rgba(15,27,20,0.85);
+  }
+
+  .combo-urgent .cu-ico { font-size: 18px; flex-shrink: 0; line-height: 1.4; }
+
+  .combo-urgent strong { color: var(--pf-red); font-weight: 900; }
+
   /* ── 繳費資訊卡 ── */
   .pay-panel {
     border: 1.5px solid var(--pf-line);
@@ -8520,6 +8686,84 @@
   </div>
 </section>
 
+<!-- ═══════════ 可以怎麼搭 ═══════════ -->
+<section id="combo" style="padding: 34px 0 0;">
+  <div class="container">
+    <div class="p-sec-head">
+      <div class="p-sec-title">可以怎麼搭？</div>
+      <div class="p-sec-sub">晨操班和體驗班能一起報，培訓班單獨報名即可</div>
+    </div>
+
+    <div class="combo-list">
+
+      <div class="combo-card combo-star">
+        <span class="cb-flag">最多人選的入門組合</span>
+        <div class="cb-head">
+          <span class="cb-emojis">🌅 ＋ 🌱</span>
+          <span class="cb-name">晨操班 ＋ 體驗班</span>
+        </div>
+        <div class="cb-detail">
+          一週動 3 天 —— 週二、週五早上運動，週三下午打球。<br>
+          早上不佔放學時間，下午當社團玩，是最輕鬆的開始方式。
+        </div>
+        <div class="cb-price">
+          <span class="cb-amt">5,300</span>
+          <span class="cb-unit">元 / 學期（2,500 ＋ 2,800）</span>
+        </div>
+      </div>
+
+      <div class="combo-card">
+        <div class="cb-head">
+          <span class="cb-emojis">🌅</span>
+          <span class="cb-name">只報晨操班</span>
+        </div>
+        <div class="cb-detail">放學後時間已經排滿，只有早上有空。</div>
+        <div class="cb-price">
+          <span class="cb-amt">2,500</span>
+          <span class="cb-unit">元 / 學期</span>
+        </div>
+      </div>
+
+      <div class="combo-card">
+        <div class="cb-head">
+          <span class="cb-emojis">🌱</span>
+          <span class="cb-name">只報體驗班</span>
+        </div>
+        <div class="cb-detail">先試一學期，看孩子喜不喜歡。</div>
+        <div class="cb-price">
+          <span class="cb-amt">2,800</span>
+          <span class="cb-unit">元 / 學期</span>
+        </div>
+      </div>
+
+      <div class="combo-card combo-solo">
+        <div class="cb-head">
+          <span class="cb-emojis">🏆</span>
+          <span class="cb-name">培訓班（單獨報名）</span>
+        </div>
+        <div class="cb-detail">
+          培訓班是<strong>主力訓練</strong>，一週 2~5 天、完整課程體系，
+          <strong>已經涵蓋晨操與體驗的內容</strong>，不需要再加報。<br>
+          （週三 13:30 兩班時間也完全重疊）
+        </div>
+        <div class="cb-price">
+          <span class="cb-amt">2,000</span>
+          <span class="cb-unit">元起 / 月</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="combo-urgent">
+      <span class="cu-ico">🔥</span>
+      <span>
+        <strong>晨操 30 人 ＋ 體驗 20 人，培訓班學員不佔這些名額。</strong><br>
+        這 50 個位子只留給想輕鬆開始的孩子，額滿就要等下學期了。
+      </span>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════ 費用與繳費方式 ═══════════ -->
 <section id="tuition" style="padding: 34px 0 0;">
   <div class="container">
@@ -9031,9 +9275,14 @@
         <div class="form-group">
           <label class="form-label">請選擇要報名的班別 <span class="required">*</span></label>
 
+          <div class="combo-hint">
+            🌅 晨操班和 🌱 體驗班<strong>可以一起報名</strong>；
+            🏆 培訓班為主力訓練，<strong>單獨報名即可</strong>。
+          </div>
+
           <div class="class-radio-group">
-            <label class="class-radio">
-              <input type="radio" name="classType" value="培訓班" required onchange="onClassChange()">
+            <label class="class-radio" id="card_train">
+              <input type="checkbox" name="classType" value="培訓班" onchange="onClassChange()">
               <span class="cr-box">
                 <span class="cr-emoji">🏆</span>
                 <span class="cr-info">
@@ -9043,9 +9292,12 @@
                 <span class="cr-quota" id="cq_train">不限名額</span>
               </span>
             </label>
+            <div class="cr-lock" id="lock_train" style="display:none;">
+              🔒 已選晨操班／體驗班。若要改報培訓班，請先取消上面的勾選。
+            </div>
 
-            <label class="class-radio">
-              <input type="radio" name="classType" value="晨操班" required onchange="onClassChange()">
+            <label class="class-radio" id="card_morning">
+              <input type="checkbox" name="classType" value="晨操班" onchange="onClassChange()">
               <span class="cr-box">
                 <span class="cr-emoji">🌅</span>
                 <span class="cr-info">
@@ -9056,8 +9308,8 @@
               </span>
             </label>
 
-            <label class="class-radio">
-              <input type="radio" name="classType" value="體驗班" required onchange="onClassChange()">
+            <label class="class-radio" id="card_taste">
+              <input type="checkbox" name="classType" value="體驗班" onchange="onClassChange()">
               <span class="cr-box">
                 <span class="cr-emoji">🌱</span>
                 <span class="cr-info">
@@ -9067,9 +9319,14 @@
                 <span class="cr-quota" id="cq_taste">限 20 人</span>
               </span>
             </label>
+
+            <div class="cr-lock" id="lock_others" style="display:none;">
+              ✅ 培訓班<strong>已含完整訓練</strong>，不需要再加報；週三 13:30 也與體驗班時間重疊。
+              晨操班的名額就留給還沒開始練球的孩子囉！
+            </div>
           </div>
 
-          <div id="classError" class="form-error" style="display:none;">請選擇一種班別</div>
+          <div id="classError" class="form-error" style="display:none;">請至少選擇 1 種班別</div>
         </div>
 
         <!-- 🏆 培訓班追加問題 -->
@@ -9295,6 +9552,7 @@
     document.getElementById('modalOverlay').classList.remove('show');
     document.body.style.overflow = '';
     document.getElementById('signupForm').reset();
+    resetClassBoxes();
     document.getElementById('trainExtra').style.display = 'none';
     document.getElementById('feeCalculator').style.display = 'none';
     document.getElementById('classError').style.display = 'none';
@@ -9302,14 +9560,26 @@
     onWeekdayChange();
   }
 
+  function resetClassBoxes() {
+    document.querySelectorAll('input[name="classType"]').forEach(function(b) {
+      b.checked = false;
+      b.disabled = !!b.dataset.full;
+    });
+    document.getElementById('lock_train').style.display = 'none';
+    document.getElementById('lock_others').style.display = 'none';
+  }
+
   function closeModalBg(e) {
     if (e.target.id === 'modalOverlay') closeModal();
   }
 
   // ========== 表單互動 ==========
-  function getSelectedClass() {
-    const el = document.querySelector('input[name="classType"]:checked');
-    return el ? el.value : '';
+  function getSelectedClasses() {
+    return Array.from(document.querySelectorAll('input[name="classType"]:checked')).map(cb => cb.value);
+  }
+
+  function getClassBox(v) {
+    return document.querySelector('input[name="classType"][value="' + v + '"]');
   }
 
   function getTrainDays() {
@@ -9321,17 +9591,40 @@
     return Array.from(document.querySelectorAll('input[name="trainWeekdays"]:checked')).map(cb => cb.value);
   }
 
-  // 選班別 → 展開/收合培訓班追加問題
+  // 選班別 → 互斥規則 + 展開/收合培訓班追加問題
   function onClassChange() {
-    const cls = getSelectedClass();
+    const picked = getSelectedClasses();
+    const hasTrain = picked.indexOf('培訓班') !== -1;
+    const hasOther = picked.indexOf('晨操班') !== -1 || picked.indexOf('體驗班') !== -1;
+
     const extra = document.getElementById('trainExtra');
+    const lockTrain = document.getElementById('lock_train');
+    const lockOthers = document.getElementById('lock_others');
     document.getElementById('classError').style.display = 'none';
 
-    if (cls === '培訓班') {
+    // 🏆 培訓班 與 🌅🌱 互斥
+    ['晨操班', '體驗班'].forEach(function(v) {
+      const box = getClassBox(v);
+      if (!box) return;
+      if (hasTrain) {
+        box.checked = false;
+        if (!box.dataset.full) box.disabled = true;
+      } else if (!box.dataset.full) {
+        box.disabled = false;
+      }
+    });
+
+    const trainBox = getClassBox('培訓班');
+    if (trainBox) trainBox.disabled = hasOther;
+
+    lockOthers.style.display = hasTrain ? 'block' : 'none';
+    lockTrain.style.display  = hasOther ? 'block' : 'none';
+
+    // 培訓班追加問題
+    if (hasTrain) {
       extra.style.display = 'block';
     } else {
       extra.style.display = 'none';
-      // 清空培訓班相關欄位
       document.querySelectorAll('input[name="trainDays"]').forEach(r => r.checked = false);
       document.querySelectorAll('input[name="trainWeekdays"]').forEach(cb => cb.checked = false);
       document.getElementById('dayError').style.display = 'none';
@@ -9382,29 +9675,34 @@
     updateFeeCalculation();
   }
 
-  // ========== 費用試算 ==========
+  // ========== 費用試算（支援複選）==========
   function calcFee() {
-    const cls = getSelectedClass();
-    if (!cls) return null;
+    const picked = getSelectedClasses();
+    if (!picked.length) return null;
 
-    if (cls === '培訓班') {
+    if (picked.indexOf('培訓班') !== -1) {
       const plan = getTrainDays();
       if (!plan) return null;
       return {
-        classType: cls,
+        classes: ['培訓班'],
+        classText: '培訓班',
         plan: plan,
         amount: FEE_TABLE['培訓班'][plan],
         unit: '月費',
-        unitLabel: '元 / 月'
+        isTrain: true
       };
     }
 
+    let total = 0;
+    picked.forEach(function(c) { total += FEE_TABLE[c] || 0; });
+
     return {
-      classType: cls,
+      classes: picked,
+      classText: picked.join(' ＋ '),
       plan: '',
-      amount: FEE_TABLE[cls],
+      amount: total,
       unit: '學期費',
-      unitLabel: '元 / 學期'
+      isTrain: false
     };
   }
 
@@ -9415,14 +9713,13 @@
     if (!info) { box.style.display = 'none'; return; }
     box.style.display = 'block';
 
-    const cls = info.classType;
-    document.getElementById('fc_class').textContent = cls;
+    document.getElementById('fc_class').textContent = info.classText;
 
     const rowPlan = document.getElementById('fc_row_plan');
     const rowDays = document.getElementById('fc_row_days');
     const sug     = document.getElementById('fc_suggestion');
 
-    if (cls === '培訓班') {
+    if (info.isTrain) {
       rowPlan.style.display = 'flex';
       rowDays.style.display = 'flex';
 
@@ -9450,8 +9747,19 @@
     } else {
       rowPlan.style.display = 'none';
       rowDays.style.display = 'none';
-      sug.style.display = 'none';
-      document.getElementById('fc_total_label').textContent = '本學期：';
+      document.getElementById('fc_total_label').textContent = '本學期合計：';
+
+      if (info.classes.length === 2) {
+        sug.innerHTML = '🎉 <strong>晨操班 ＋ 體驗班</strong>一起報，孩子一週動 3 天（二、三、五），' +
+                        '早上運動＋下午玩球都有，是最輕鬆的入門組合。';
+        sug.style.display = 'block';
+      } else if (info.classes[0] === '晨操班') {
+        sug.innerHTML = '💡 想再多動一天？可以<strong>加報體驗班</strong>（週三 13:30–15:30），兩班時間不衝突。';
+        sug.style.display = 'block';
+      } else {
+        sug.innerHTML = '💡 想再多動一天？可以<strong>加報晨操班</strong>（每週二、每週五早上），兩班時間不衝突。';
+        sug.style.display = 'block';
+      }
     }
 
     document.getElementById('fc_total').textContent = info.amount.toLocaleString();
@@ -9474,8 +9782,9 @@
     const form = e.target;
     const formData = new FormData(form);
 
-    const classType = getSelectedClass();
-    if (!classType) {
+    const picked = getSelectedClasses();
+    const classType = picked.join('、');
+    if (!picked.length) {
       document.getElementById('classError').style.display = 'block';
       document.querySelector('.class-radio-group').scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
@@ -9484,7 +9793,7 @@
     let trainDays = '';
     let weekdays = [];
 
-    if (classType === '培訓班') {
+    if (picked.indexOf('培訓班') !== -1) {
       trainDays = getTrainDays();
       weekdays = getCheckedWeekdays();
 
@@ -9527,7 +9836,7 @@
       weekdayCount: weekdays.length,
       fee: feeInfo ? feeInfo.amount : 0,
       feeUnit: feeInfo ? feeInfo.unit : '',
-      payStatus: classType === '培訓班' ? '待收首月費' : '待收學期費',
+      payStatus: picked.indexOf('培訓班') !== -1 ? '待收首月費' : '待收學期費',
       notes: formData.get('notes') || '無',
       agreeFee: formData.get('agree_fee') === 'on' ? '✅ 已同意' : '❌ 未同意',
       agreeSchedule: formData.get('agree_schedule') === 'on' ? '✅ 已同意' : '❌ 未同意',
@@ -9541,12 +9850,12 @@
     try {
       // 送出前再撈一次最新名額，避免剛好撞滿
       await refreshQuotaBeforeSubmit();
-      const check = checkQuotaBeforeSubmit(classType);
+      const full = picked.filter(function(c) { return !checkQuotaBeforeSubmit(c).ok; });
 
-      if (!check.ok) {
+      if (full.length) {
         document.getElementById('formLoading').classList.remove('show');
         document.getElementById('formBody').style.display = 'block';
-        alert('抱歉！「' + classType + '」剛剛已額滿。\n\n請改選其他班別，謝謝！');
+        alert('抱歉！「' + full.join('、') + '」剛剛已額滿。\n\n請改選其他班別，謝謝！');
         applyQuotaUI();
         return;
       }
@@ -9593,6 +9902,7 @@
       <li><a href="#top" onclick="closeQuickNav()"><span class="qn-emoji">🏠</span>回到頂部</a></li>
       <li><a href="#why" onclick="closeQuickNav()"><span class="qn-emoji">⭐</span>為什麼選我們</a></li>
       <li><a href="#classes" onclick="closeQuickNav()"><span class="qn-emoji">🏸</span>三種班別</a></li>
+      <li><a href="#combo" onclick="closeQuickNav()"><span class="qn-emoji">🧩</span>可以怎麼搭</a></li>
       <li><a href="#tuition" onclick="closeQuickNav()"><span class="qn-emoji">💰</span>費用方案</a></li>
       <li><a href="#pick" onclick="closeQuickNav()"><span class="qn-emoji">🎯</span>3 秒選對班</a></li>
       <li><a href="#flex" onclick="closeQuickNav()"><span class="qn-emoji">🗓️</span>彈性選課</a></li>
@@ -9675,14 +9985,16 @@
       }
 
       // 額滿 → 停用該班別選項
-      const radio = document.querySelector('input[name="classType"][value="' + m.name + '"]');
-      if (radio) {
+      const box = document.querySelector('input[name="classType"][value="' + m.name + '"]');
+      if (box) {
         const isFull = (limit !== null && count >= limit);
-        if (isFull && radio.checked) {
-          radio.checked = false;
-          onClassChange();
+        if (isFull) {
+          box.dataset.full = '1';
+          box.disabled = true;
+          if (box.checked) { box.checked = false; onClassChange(); }
+        } else {
+          delete box.dataset.full;
         }
-        radio.disabled = isFull;
       }
     });
   }
