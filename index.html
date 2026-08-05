@@ -8140,6 +8140,119 @@
 
   .combo-urgent strong { color: var(--pf-red); font-weight: 900; }
 
+  /* 決策卡的條列重點 */
+  .cb-points {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .cb-points li {
+    position: relative;
+    padding-left: 16px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(15,27,20,0.78);
+  }
+
+  .cb-points li::before {
+    content: '·';
+    position: absolute;
+    left: 4px;
+    font-weight: 900;
+    color: var(--pf-gold);
+    font-size: 15px;
+    line-height: 1.3;
+  }
+
+  /* ── 別人家怎麼排（重新設計）── */
+  .cx-card {
+    background: #fff;
+    border: 1.5px solid var(--pf-line);
+    border-radius: 14px;
+    padding: 14px 15px;
+    margin-bottom: 12px;
+  }
+
+  .cx-card:last-of-type { margin-bottom: 0; }
+
+  .cx-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 5px;
+  }
+
+  .cx-emoji { font-size: 18px; flex-shrink: 0; }
+
+  .cx-title {
+    font-family: 'Fraunces', 'Noto Serif TC', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--pf-green);
+    flex: 1;
+  }
+
+  .cx-tag {
+    flex-shrink: 0;
+    background: var(--pf-green);
+    color: #fff;
+    font-size: 10.5px;
+    font-weight: 800;
+    padding: 4px 9px;
+    border-radius: 50px;
+  }
+
+  .cx-tag.cx-tag-gold {
+    background: linear-gradient(135deg, #D9A94F 0%, #B8862F 100%);
+    color: #16341F;
+  }
+
+  .cx-sit {
+    font-size: 12.5px;
+    color: rgba(15,27,20,0.6);
+    margin-bottom: 10px;
+  }
+
+  .cx-days {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+  }
+
+  .cx-day {
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 9px;
+    font-size: 13.5px;
+    font-weight: 800;
+    background: rgba(15,27,20,0.05);
+    color: rgba(15,27,20,0.28);
+  }
+
+  .cx-day.on {
+    background: var(--pf-green);
+    color: #fff;
+  }
+
+  .cx-result {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 11px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--pf-line);
+    font-size: 12.5px;
+    color: rgba(15,27,20,0.78);
+  }
+
+  .cx-check { font-size: 13px; flex-shrink: 0; }
+
+  .cx-result b { color: var(--pf-green); font-weight: 900; }
+
   /* ── 繳費資訊卡 ── */
   .pay-panel {
     border: 1.5px solid var(--pf-line);
@@ -8400,8 +8513,8 @@
 <nav class="navbar" id="navbar">
   <div class="nav-scroll">
     <a href="#top" class="nav-link"><span class="nav-icon">🏠</span><span>首頁</span></a>
-    <a href="#combo" class="nav-link"><span class="nav-icon">🧭</span><span>該怎麼選</span></a>
-    <a href="#classes" class="nav-link"><span class="nav-icon">🏸</span><span>班別細節</span></a>
+    <a href="#classes" class="nav-link"><span class="nav-icon">🏸</span><span>三種班別</span></a>
+    <a href="#combo" class="nav-link"><span class="nav-icon">🧭</span><span>怎麼選</span></a>
     <a href="#tuition" class="nav-link"><span class="nav-icon">💰</span><span>繳費</span></a>
     <a href="#notice" class="nav-link"><span class="nav-icon">⚠️</span><span>注意事項</span></a>
     <a href="javascript:openModal()" class="nav-link cta"><span class="nav-icon">✍️</span><span>立即報名</span></a>
@@ -8459,81 +8572,10 @@
 </section>
 
 <!-- ═══════════ 培訓班 ═══════════ -->
-<section id="combo" style="padding: 26px 0 0;">
-  <div class="container">
-    <div class="p-sec-head">
-      <div class="p-sec-title">該怎麼選？</div>
-      <div class="p-sec-sub">看看您家的狀況像哪一種，選好再往下看細節</div>
-    </div>
 
-    <div class="combo-list">
 
-      <div class="combo-card combo-star">
-        <span class="cb-flag">最多人選的入門組合</span>
-        <div class="cb-head">
-          <span class="cb-emojis">🌅 ＋ 🌱</span>
-          <span class="cb-name">晨操班 ＋ 體驗班</span>
-        </div>
-        <div class="cb-detail">
-          <strong>如果您家是這樣 →</strong> 想讓孩子多動、但不要太有壓力。<br>
-          一週動 3 天：週二、週五早上運動，週三下午打球。早上不佔放學時間，下午當社團玩。
-        </div>
-        <div class="cb-price">
-          <span class="cb-amt">5,300</span>
-          <span class="cb-unit">元 / 學期（2,500 ＋ 2,800）</span>
-        </div>
-      </div>
+<!-- ═══════════ 培訓班 ═══════════ -->
 
-      <div class="combo-card">
-        <div class="cb-head">
-          <span class="cb-emojis">🌅</span>
-          <span class="cb-name">只報晨操班</span>
-        </div>
-        <div class="cb-detail"><strong>如果您家是這樣 →</strong> 放學後補習、安親排滿了，只有早上擠得出時間。</div>
-        <div class="cb-price">
-          <span class="cb-amt">2,500</span>
-          <span class="cb-unit">元 / 學期</span>
-        </div>
-      </div>
-
-      <div class="combo-card">
-        <div class="cb-head">
-          <span class="cb-emojis">🌱</span>
-          <span class="cb-name">只報體驗班</span>
-        </div>
-        <div class="cb-detail"><strong>如果您家是這樣 →</strong> 想先接觸看看，一週一次、好玩為主就好。</div>
-        <div class="cb-price">
-          <span class="cb-amt">2,800</span>
-          <span class="cb-unit">元 / 學期</span>
-        </div>
-      </div>
-
-      <div class="combo-card combo-solo">
-        <div class="cb-head">
-          <span class="cb-emojis">🏆</span>
-          <span class="cb-name">培訓班（單獨報名）</span>
-        </div>
-        <div class="cb-detail">
-          <strong>如果您家是這樣 →</strong> 想讓孩子認真學、長期練，放學後挑得出 2 天以上。<br>
-          培訓班已<strong>涵蓋晨操與體驗的內容</strong>，不需要再加報（週三 13:30 兩班時間也完全重疊）。
-        </div>
-        <div class="cb-price">
-          <span class="cb-amt">2,000</span>
-          <span class="cb-unit">元起 / 月</span>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="combo-urgent">
-      <span class="cu-ico">🔥</span>
-      <span>
-        <strong>晨操 30 人 ＋ 體驗 20 人，培訓班學員不佔這些名額。</strong><br>
-        這 50 個位子只留給想輕鬆開始的孩子，額滿就要等下學期了。
-      </span>
-    </div>
-  </div>
-</section>
 
 <section id="classes" style="padding: 22px 0 0;">
   <div class="container">
@@ -8725,10 +8767,97 @@
       </div>
 
     </div>
+
+    <details class="collapsible-card" id="combo" style="margin-top: 24px;">
+      <summary class="collapsible-header">
+        <span class="ch-icon">🧭</span>
+        <span class="ch-title">不知道怎麼選？</span>
+        <span class="ch-hint">點開看 4 種常見情況</span>
+        <span class="ch-arrow">▼</span>
+      </summary>
+      <div class="collapsible-body">
+
+        <div class="combo-list">
+
+          <div class="combo-card combo-star">
+            <span class="cb-flag">最多人選</span>
+            <div class="cb-head">
+              <span class="cb-emojis">🌅 ＋ 🌱</span>
+              <span class="cb-name">晨操班 ＋ 體驗班</span>
+            </div>
+            <ul class="cb-points">
+              <li>想讓孩子多動，但不要有壓力</li>
+              <li>一週動 3 天：二、五早上 ＋ 三下午</li>
+              <li>完全不佔放學後的補習時間</li>
+            </ul>
+            <div class="cb-price">
+              <span class="cb-amt">5,300</span>
+              <span class="cb-unit">元 / 學期</span>
+            </div>
+          </div>
+
+          <div class="combo-card">
+            <div class="cb-head">
+              <span class="cb-emojis">🌅</span>
+              <span class="cb-name">只報晨操班</span>
+            </div>
+            <ul class="cb-points">
+              <li>放學後補習、安親已經排滿</li>
+              <li>只有早上擠得出時間</li>
+            </ul>
+            <div class="cb-price">
+              <span class="cb-amt">2,500</span>
+              <span class="cb-unit">元 / 學期</span>
+            </div>
+          </div>
+
+          <div class="combo-card">
+            <div class="cb-head">
+              <span class="cb-emojis">🌱</span>
+              <span class="cb-name">只報體驗班</span>
+            </div>
+            <ul class="cb-points">
+              <li>想先接觸看看，好玩為主</li>
+              <li>一週一次，壓力最小</li>
+            </ul>
+            <div class="cb-price">
+              <span class="cb-amt">2,800</span>
+              <span class="cb-unit">元 / 學期</span>
+            </div>
+          </div>
+
+          <div class="combo-card combo-solo">
+            <div class="cb-head">
+              <span class="cb-emojis">🏆</span>
+              <span class="cb-name">培訓班（單獨報名）</span>
+            </div>
+            <ul class="cb-points">
+              <li>想讓孩子認真學、長期練</li>
+              <li>放學後挑得出 2 天以上</li>
+              <li>已含完整訓練，不需再加報其他班</li>
+            </ul>
+            <div class="cb-price">
+              <span class="cb-amt">2,000</span>
+              <span class="cb-unit">元起 / 月</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="combo-urgent">
+          <span class="cu-ico">🔥</span>
+          <span>
+            <strong>晨操 30 人、體驗 20 人</strong><br>
+            培訓班學員不佔這些名額<br>
+            額滿就要等下學期
+          </span>
+        </div>
+
+      </div>
+    </details>
   </div>
 </section>
 
-<!-- ═══════════ 3 秒選對班 ═══════════ -->
 <!-- ═══════════ 費用與繳費方式 ═══════════ -->
 <section id="tuition" style="padding: 34px 0 0;">
   <div class="container">
@@ -8925,55 +9054,67 @@
       </summary>
       <div class="collapsible-body">
 
-    <div class="case-card">
-      <div class="case-head">
-        <span class="case-emoji">📚</span>
-        <span class="case-name">小明家 · 週一三有安親、週二有英文</span>
-      </div>
-      <div class="case-situation">放學後的時間幾乎被排滿，只剩週四、週五比較空。</div>
-      <div class="case-solution">
-        <span>✅</span>
-        <div><strong>選兩天班（週四、週五）</strong><br>2,000 元／月，安親與英文完全不用動。</div>
-      </div>
-      <div class="case-days">
-        <span class="case-day">一</span><span class="case-day">二</span><span class="case-day">三</span>
-        <span class="case-day on">四</span><span class="case-day on">五</span>
-      </div>
-    </div>
+        <div class="cx-card">
+          <div class="cx-top">
+            <span class="cx-emoji">📚</span>
+            <span class="cx-title">小明家</span>
+            <span class="cx-tag">兩天班</span>
+          </div>
+          <div class="cx-sit">週一三安親 · 週二補英文</div>
+          <div class="cx-days">
+            <span class="cx-day">一</span>
+            <span class="cx-day">二</span>
+            <span class="cx-day">三</span>
+            <span class="cx-day on">四</span>
+            <span class="cx-day on">五</span>
+          </div>
+          <div class="cx-result">
+            <span class="cx-check">✅</span>
+            <span>只挑週四、週五 · <b>2,000 元／月</b></span>
+          </div>
+        </div>
 
-    <div class="case-card">
-      <div class="case-head">
-        <span class="case-emoji">🏸</span>
-        <span class="case-name">小美家 · 想認真練，週三只有半天課</span>
-      </div>
-      <div class="case-situation">希望孩子多打幾天，週末也想讓她繼續練。</div>
-      <div class="case-solution">
-        <span>✅</span>
-        <div><strong>選三天以上班（週一、三、五）</strong><br>2,500 元／月，<strong>週六還能免費參加</strong>，等於一週練 4 天。</div>
-      </div>
-      <div class="case-days">
-        <span class="case-day on">一</span><span class="case-day">二</span><span class="case-day on">三</span>
-        <span class="case-day">四</span><span class="case-day on">五</span>
-      </div>
-    </div>
+        <div class="cx-card">
+          <div class="cx-top">
+            <span class="cx-emoji">🏸</span>
+            <span class="cx-title">小美家</span>
+            <span class="cx-tag cx-tag-gold">三天以上班</span>
+          </div>
+          <div class="cx-sit">想認真練 · 週三只有半天課</div>
+          <div class="cx-days">
+            <span class="cx-day on">一</span>
+            <span class="cx-day">二</span>
+            <span class="cx-day on">三</span>
+            <span class="cx-day">四</span>
+            <span class="cx-day on">五</span>
+          </div>
+          <div class="cx-result">
+            <span class="cx-check">✅</span>
+            <span>一、三、五 · <b>2,500 元／月</b>，週六免費</span>
+          </div>
+        </div>
 
-    <div class="case-card">
-      <div class="case-head">
-        <span class="case-emoji">💼</span>
-        <span class="case-name">阿豪家 · 雙薪、爸媽 19:00 才下班</span>
-      </div>
-      <div class="case-situation">放學到晚上這段時間沒人顧，又不想天天送安親班。</div>
-      <div class="case-solution">
-        <span>✅</span>
-        <div><strong>選三天以上班（週一～週五全選）</strong><br>一樣是 2,500 元／月，練到 19:00 剛好接得上下班時間。</div>
-      </div>
-      <div class="case-days">
-        <span class="case-day on">一</span><span class="case-day on">二</span><span class="case-day on">三</span>
-        <span class="case-day on">四</span><span class="case-day on">五</span>
-      </div>
-    </div>
+        <div class="cx-card">
+          <div class="cx-top">
+            <span class="cx-emoji">💼</span>
+            <span class="cx-title">阿豪家</span>
+            <span class="cx-tag cx-tag-gold">三天以上班</span>
+          </div>
+          <div class="cx-sit">雙薪 · 爸媽 19:00 才下班</div>
+          <div class="cx-days">
+            <span class="cx-day on">一</span>
+            <span class="cx-day on">二</span>
+            <span class="cx-day on">三</span>
+            <span class="cx-day on">四</span>
+            <span class="cx-day on">五</span>
+          </div>
+          <div class="cx-result">
+            <span class="cx-check">✅</span>
+            <span>五天全選 · <b>2,500 元／月</b>，練到 19:00</span>
+          </div>
+        </div>
 
-      </div>
+    </div>
     </details>
 
     <div class="cc-note cc-note-gold" style="margin-top: 16px;">
@@ -9849,8 +9990,8 @@
     </div>
     <ul class="qn-menu-list">
       <li><a href="#top" onclick="closeQuickNav()"><span class="qn-emoji">🏠</span>回到頂部</a></li>
-      <li><a href="#combo" onclick="closeQuickNav()"><span class="qn-emoji">🧭</span>該怎麼選</a></li>
-      <li><a href="#classes" onclick="closeQuickNav()"><span class="qn-emoji">🏸</span>班別細節</a></li>
+      <li><a href="#classes" onclick="closeQuickNav()"><span class="qn-emoji">🏸</span>三種班別</a></li>
+      <li><a href="#combo" onclick="closeQuickNav()"><span class="qn-emoji">🧭</span>不知道怎麼選</a></li>
       <li><a href="#tuition" onclick="closeQuickNav()"><span class="qn-emoji">💰</span>怎麼繳費</a></li>
       <li><a href="#why" onclick="closeQuickNav()"><span class="qn-emoji">⭐</span>為什麼選開元</a></li>
       <li><a href="#flex" onclick="closeQuickNav()"><span class="qn-emoji">🗓️</span>培訓班時間表</a></li>
