@@ -7506,7 +7506,6 @@
     .wk-time { font-size: 8.5px; }
   }
 
-
   /* ═══════════════════════════════════════════════════
      🎨 115 海報風格層（Poster Layout）
      ═══════════════════════════════════════════════════ */
@@ -8073,6 +8072,14 @@
     border-radius: 50px;
   }
 
+  .cb-flag.cb-flag-plain {
+    background: var(--pf-green);
+    color: #fff;
+    font-weight: 800;
+  }
+
+  .combo-card.combo-solo { padding-top: 20px; }
+
   .cb-head {
     display: flex;
     align-items: center;
@@ -8123,23 +8130,6 @@
     color: rgba(15,27,20,0.6);
   }
 
-  .combo-urgent {
-    display: flex;
-    gap: 10px;
-    margin-top: 16px;
-    padding: 14px 16px;
-    border-radius: 14px;
-    background: linear-gradient(135deg, rgba(200,50,44,0.10) 0%, rgba(200,50,44,0.04) 100%);
-    border: 1.5px solid rgba(200,50,44,0.35);
-    font-size: 12.5px;
-    line-height: 1.75;
-    color: rgba(15,27,20,0.85);
-  }
-
-  .combo-urgent .cu-ico { font-size: 18px; flex-shrink: 0; line-height: 1.4; }
-
-  .combo-urgent strong { color: var(--pf-red); font-weight: 900; }
-
   /* 決策卡的條列重點 */
   .cb-points {
     list-style: none;
@@ -8167,91 +8157,6 @@
     font-size: 15px;
     line-height: 1.3;
   }
-
-  /* ── 別人家怎麼排（重新設計）── */
-  .cx-card {
-    background: #fff;
-    border: 1.5px solid var(--pf-line);
-    border-radius: 14px;
-    padding: 14px 15px;
-    margin-bottom: 12px;
-  }
-
-  .cx-card:last-of-type { margin-bottom: 0; }
-
-  .cx-top {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 5px;
-  }
-
-  .cx-emoji { font-size: 18px; flex-shrink: 0; }
-
-  .cx-title {
-    font-family: 'Fraunces', 'Noto Serif TC', serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--pf-green);
-    flex: 1;
-  }
-
-  .cx-tag {
-    flex-shrink: 0;
-    background: var(--pf-green);
-    color: #fff;
-    font-size: 10.5px;
-    font-weight: 800;
-    padding: 4px 9px;
-    border-radius: 50px;
-  }
-
-  .cx-tag.cx-tag-gold {
-    background: linear-gradient(135deg, #D9A94F 0%, #B8862F 100%);
-    color: #16341F;
-  }
-
-  .cx-sit {
-    font-size: 12.5px;
-    color: rgba(15,27,20,0.6);
-    margin-bottom: 10px;
-  }
-
-  .cx-days {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 5px;
-  }
-
-  .cx-day {
-    text-align: center;
-    padding: 8px 0;
-    border-radius: 9px;
-    font-size: 13.5px;
-    font-weight: 800;
-    background: rgba(15,27,20,0.05);
-    color: rgba(15,27,20,0.28);
-  }
-
-  .cx-day.on {
-    background: var(--pf-green);
-    color: #fff;
-  }
-
-  .cx-result {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    margin-top: 11px;
-    padding-top: 10px;
-    border-top: 1px dashed var(--pf-line);
-    font-size: 12.5px;
-    color: rgba(15,27,20,0.78);
-  }
-
-  .cx-check { font-size: 13px; flex-shrink: 0; }
-
-  .cx-result b { color: var(--pf-green); font-weight: 900; }
 
   /* ── 繳費資訊卡 ── */
   .pay-panel {
@@ -8573,9 +8478,7 @@
 
 <!-- ═══════════ 培訓班 ═══════════ -->
 
-
 <!-- ═══════════ 培訓班 ═══════════ -->
-
 
 <section id="classes" style="padding: 22px 0 0;">
   <div class="container">
@@ -8780,19 +8683,21 @@
         <div class="combo-list">
 
           <div class="combo-card combo-star">
-            <span class="cb-flag">最多人選</span>
+            <span class="cb-flag">主力推薦</span>
             <div class="cb-head">
-              <span class="cb-emojis">🌅 ＋ 🌱</span>
-              <span class="cb-name">晨操班 ＋ 體驗班</span>
+              <span class="cb-emojis">🏆</span>
+              <span class="cb-name">培訓班</span>
             </div>
             <ul class="cb-points">
-              <li>想讓孩子多動，但不要有壓力</li>
-              <li>一週動 3 天：二、五早上 ＋ 三下午</li>
-              <li>完全不佔放學後的補習時間</li>
+              <li>想讓孩子認真學、長期練球</li>
+              <li>放學後挑得出 2 天以上</li>
+              <li>從基本功到比賽，完整訓練體系</li>
+              <li>培養運動家精神與抗壓、抗挫折的能力</li>
+              <li>表現優異可隨隊出賽，為校爭光</li>
             </ul>
             <div class="cb-price">
-              <span class="cb-amt">5,300</span>
-              <span class="cb-unit">元 / 學期</span>
+              <span class="cb-amt">2,000</span>
+              <span class="cb-unit">元起 / 月</span>
             </div>
           </div>
 
@@ -8827,30 +8732,21 @@
           </div>
 
           <div class="combo-card combo-solo">
+            <span class="cb-flag cb-flag-plain">也可以這樣搭</span>
             <div class="cb-head">
-              <span class="cb-emojis">🏆</span>
-              <span class="cb-name">培訓班（單獨報名）</span>
+              <span class="cb-name">晨操班 ＋ 體驗班</span>
             </div>
             <ul class="cb-points">
-              <li>想讓孩子認真學、長期練</li>
-              <li>放學後挑得出 2 天以上</li>
-              <li>已含完整訓練，不需再加報其他班</li>
+              <li>這兩班時間不衝突，可以一起報名</li>
+              <li>一週動 3 天：二、五早上 ＋ 三下午</li>
+              <li>完全不佔放學後的補習時間</li>
             </ul>
             <div class="cb-price">
-              <span class="cb-amt">2,000</span>
-              <span class="cb-unit">元起 / 月</span>
+              <span class="cb-amt">5,300</span>
+              <span class="cb-unit">元 / 學期</span>
             </div>
           </div>
 
-        </div>
-
-        <div class="combo-urgent">
-          <span class="cu-ico">🔥</span>
-          <span>
-            <strong>晨操 30 人、體驗 20 人</strong><br>
-            培訓班學員不佔這些名額<br>
-            額滿就要等下學期
-          </span>
         </div>
 
       </div>
@@ -9044,78 +8940,6 @@
       <span>🔵 週三提早（學校半天）</span>
       <span>🟡 週六加開（滿 4 人）</span>
     </div>
-
-    <details class="collapsible-card" style="margin-top: 26px;">
-      <summary class="collapsible-header">
-        <span class="ch-icon">🗂️</span>
-        <span class="ch-title">別人家怎麼排？</span>
-        <span class="ch-hint">3 個實際案例</span>
-        <span class="ch-arrow">▼</span>
-      </summary>
-      <div class="collapsible-body">
-
-        <div class="cx-card">
-          <div class="cx-top">
-            <span class="cx-emoji">📚</span>
-            <span class="cx-title">小明家</span>
-            <span class="cx-tag">兩天班</span>
-          </div>
-          <div class="cx-sit">週一三安親 · 週二補英文</div>
-          <div class="cx-days">
-            <span class="cx-day">一</span>
-            <span class="cx-day">二</span>
-            <span class="cx-day">三</span>
-            <span class="cx-day on">四</span>
-            <span class="cx-day on">五</span>
-          </div>
-          <div class="cx-result">
-            <span class="cx-check">✅</span>
-            <span>只挑週四、週五 · <b>2,000 元／月</b></span>
-          </div>
-        </div>
-
-        <div class="cx-card">
-          <div class="cx-top">
-            <span class="cx-emoji">🏸</span>
-            <span class="cx-title">小美家</span>
-            <span class="cx-tag cx-tag-gold">三天以上班</span>
-          </div>
-          <div class="cx-sit">想認真練 · 週三只有半天課</div>
-          <div class="cx-days">
-            <span class="cx-day on">一</span>
-            <span class="cx-day">二</span>
-            <span class="cx-day on">三</span>
-            <span class="cx-day">四</span>
-            <span class="cx-day on">五</span>
-          </div>
-          <div class="cx-result">
-            <span class="cx-check">✅</span>
-            <span>一、三、五 · <b>2,500 元／月</b>，週六免費</span>
-          </div>
-        </div>
-
-        <div class="cx-card">
-          <div class="cx-top">
-            <span class="cx-emoji">💼</span>
-            <span class="cx-title">阿豪家</span>
-            <span class="cx-tag cx-tag-gold">三天以上班</span>
-          </div>
-          <div class="cx-sit">雙薪 · 爸媽 19:00 才下班</div>
-          <div class="cx-days">
-            <span class="cx-day on">一</span>
-            <span class="cx-day on">二</span>
-            <span class="cx-day on">三</span>
-            <span class="cx-day on">四</span>
-            <span class="cx-day on">五</span>
-          </div>
-          <div class="cx-result">
-            <span class="cx-check">✅</span>
-            <span>五天全選 · <b>2,500 元／月</b>，練到 19:00</span>
-          </div>
-        </div>
-
-    </div>
-    </details>
 
     <div class="cc-note cc-note-gold" style="margin-top: 16px;">
       💡 <strong>不確定怎麼排？</strong>先在報名表勾一個大概，送出後加入 LINE 群組，教練會協助您依孩子的體力與行程調整。
