@@ -7245,17 +7245,25 @@
 
   /* 複選規則說明條 */
   .combo-hint {
-    background: rgba(46,139,87,0.07);
-    border: 1.5px dashed var(--court-green);
-    border-radius: 11px;
-    padding: 11px 13px;
-    margin-bottom: 12px;
-    font-size: 12.5px;
-    line-height: 1.7;
-    color: rgba(15,27,20,0.8);
+    display: flex;
+    gap: 7px;
+    padding: 0 2px;
+    margin: -2px 0 14px;
+    font-size: 12px;
+    line-height: 1.65;
+    color: rgba(15,27,20,0.5);
   }
 
-  .combo-hint strong { color: var(--court-deep); }
+  .combo-hint .ch-i {
+    flex-shrink: 0;
+    font-size: 12px;
+    line-height: 1.65;
+  }
+
+  .combo-hint b {
+    font-weight: 700;
+    color: rgba(15,27,20,0.62);
+  }
 
   /* 互斥時出現的鎖定說明 */
   .cr-lock {
@@ -9165,8 +9173,8 @@
           <label class="form-label">請選擇要報名的班別 <span class="required">*</span></label>
 
           <div class="combo-hint">
-            🌅 晨操班和 🌱 體驗班<strong>可以一起報名</strong>；
-            🏆 培訓班為主力訓練，<strong>單獨報名即可</strong>。
+            <span class="ch-i">ℹ️</span>
+            <span>晨操班和體驗班<b>可以一起報名</b>；培訓班為主力訓練，<b>單獨報名即可</b>。</span>
           </div>
 
           <div class="class-radio-group">
