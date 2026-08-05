@@ -8573,7 +8573,7 @@
         <span class="pay-ico">🗓️</span>
         <span class="pay-body">
           <strong class="pay-head">週六上午加碼練球</strong>
-          <span class="pay-note">09:00 ～ 12:00，滿 4 人開班</span>
+          <span class="pay-note">09:00 ～ 12:00 · <strong>每週於 LINE 群組登記</strong>，當週滿 4 人開班</span>
           <span class="fee-opt" style="margin-top: 8px;">
             <span class="fee-tag ft-3">三天以上班</span>
             <span class="fee-amt fa-gold">免費參加</span>
@@ -9074,7 +9074,7 @@
 
         <!-- 🏆 培訓班追加問題 -->
         <div class="train-extra" id="trainExtra" style="display:none;">
-          <div class="te-title"><span>🏆</span>培訓班 · 還有 3 個小問題</div>
+          <div class="te-title"><span>🏆</span>培訓班 · 還有 2 個小問題</div>
 
           <div class="te-block">
             <label class="te-label">1. 想上幾天？ <span class="required">*</span></label>
@@ -9140,28 +9140,16 @@
           </div>
 
           <div class="te-block">
-            <label class="te-label">3. 週六（09:00–12:00）要參加嗎？ <span class="required">*</span></label>
-            <div class="opt-row">
-              <label class="opt-pill">
-                <input type="radio" name="saturday" value="參加" onchange="updateFeeCalculation()">
-                <span class="opt-pill-box">
-                  <span class="opt-pill-main">要參加</span>
-                  <span class="opt-pill-sub" id="satSubYes">滿 4 人開班</span>
-                </span>
-              </label>
-              <label class="opt-pill">
-                <input type="radio" name="saturday" value="不參加" onchange="updateFeeCalculation()">
-                <span class="opt-pill-box">
-                  <span class="opt-pill-main">不參加</span>
-                  <span class="opt-pill-sub">只上平日</span>
-                </span>
-              </label>
+            <label class="te-label">📌 關於週六練習（09:00–12:00）</label>
+            <div class="te-hint" style="line-height: 1.75;">
+              週六<strong>不需要在這裡報名</strong>。每週會在 <strong>LINE 群組</strong>開放登記，
+              當週滿 4 人就開班，孩子有空再登記即可。
             </div>
             <div class="sat-warn" id="satWarn" style="display:none;">
-              ⚠️ 兩天班參加週六需<strong>每堂加收 300 元</strong>，依實際到場次數計收，與月費一起收。
+              ⚠️ 兩天班參加週六，<strong>每堂加收 300 元</strong>，依實際到場次數計收，與月費一起收。
             </div>
             <div class="te-hint" id="satFreeHint" style="display:none; color: var(--court-deep); font-weight: 700;">
-              ✅ 三天以上班可<strong>免費參加</strong>週六。
+              ✅ 三天以上班可<strong>免費參加</strong>週六，不會另外加收。
             </div>
           </div>
         </div>
@@ -9184,10 +9172,6 @@
             <div class="fc-row" id="fc_row_days" style="display:none;">
               <span class="fc-label">上課日：</span>
               <span class="fc-value" id="fc_days">—</span>
-            </div>
-            <div class="fc-row" id="fc_row_sat" style="display:none;">
-              <span class="fc-label">週六：</span>
-              <span class="fc-value" id="fc_sat">—</span>
             </div>
             <div class="fc-divider"></div>
             <div class="fc-row fc-total">
@@ -9230,7 +9214,7 @@
               我已了解 <strong style="color: var(--court-deep);">上課與出賽規定</strong><br>
               <span class="fa-detail">
                 • 報名勾選的星期為當月固定練習日，請盡量固定出席<br>
-                • 週六班需滿 4 人開班；兩天班參加週六每堂加收 300 元<br>
+                • 週六練習每週於 LINE 群組登記，滿 4 人開班；兩天班每堂加收 300 元<br>
                 • 比賽出賽：三天以上班可隨隊出賽，兩天班需教練審核<br>
                 • 晨操班限 30 人、體驗班限 20 人，額滿即止
               </span>
@@ -9333,11 +9317,6 @@
     return el ? el.value : '';
   }
 
-  function getSaturday() {
-    const el = document.querySelector('input[name="saturday"]:checked');
-    return el ? el.value : '';
-  }
-
   function getCheckedWeekdays() {
     return Array.from(document.querySelectorAll('input[name="trainWeekdays"]:checked')).map(cb => cb.value);
   }
@@ -9353,7 +9332,7 @@
     } else {
       extra.style.display = 'none';
       // 清空培訓班相關欄位
-      document.querySelectorAll('input[name="trainDays"], input[name="saturday"]').forEach(r => r.checked = false);
+      document.querySelectorAll('input[name="trainDays"]').forEach(r => r.checked = false);
       document.querySelectorAll('input[name="trainWeekdays"]').forEach(cb => cb.checked = false);
       document.getElementById('dayError').style.display = 'none';
       onWeekdayChange();
@@ -9361,26 +9340,14 @@
     updateFeeCalculation();
   }
 
-  // 選天數方案 → 更新週六提示 + 天數驗證
+  // 選天數方案 → 更新週六收費提示 + 天數驗證
   function onTrainDaysChange() {
     const plan = getTrainDays();
     const warn = document.getElementById('satWarn');
     const freeHint = document.getElementById('satFreeHint');
-    const satSubYes = document.getElementById('satSubYes');
 
-    if (plan === '兩天班') {
-      warn.style.display = 'block';
-      freeHint.style.display = 'none';
-      satSubYes.textContent = '每堂 +300 元';
-    } else if (plan === '三天以上班') {
-      warn.style.display = 'none';
-      freeHint.style.display = 'block';
-      satSubYes.textContent = '免費 · 滿 4 人開班';
-    } else {
-      warn.style.display = 'none';
-      freeHint.style.display = 'none';
-      satSubYes.textContent = '滿 4 人開班';
-    }
+    warn.style.display = (plan === '兩天班') ? 'block' : 'none';
+    freeHint.style.display = (plan === '三天以上班') ? 'block' : 'none';
 
     onWeekdayChange();
   }
@@ -9453,47 +9420,29 @@
 
     const rowPlan = document.getElementById('fc_row_plan');
     const rowDays = document.getElementById('fc_row_days');
-    const rowSat  = document.getElementById('fc_row_sat');
     const sug     = document.getElementById('fc_suggestion');
 
     if (cls === '培訓班') {
       rowPlan.style.display = 'flex';
       rowDays.style.display = 'flex';
-      rowSat.style.display = 'flex';
 
       document.getElementById('fc_plan').textContent = info.plan;
 
       const days = getCheckedWeekdays();
       document.getElementById('fc_days').textContent = days.length ? days.join('、') : '尚未選擇';
 
-      const sat = getSaturday();
-      if (sat === '參加') {
-        document.getElementById('fc_sat').textContent =
-          (info.plan === '兩天班') ? '參加（每堂 +300 元）' : '參加（免費）';
-      } else if (sat === '不參加') {
-        document.getElementById('fc_sat').textContent = '不參加';
-      } else {
-        document.getElementById('fc_sat').textContent = '尚未選擇';
-      }
+      document.getElementById('fc_total_label').textContent = '每月月費：';
 
-      document.getElementById('fc_total_label').textContent =
-        (info.plan === '兩天班' && sat === '參加') ? '每月月費：' : '每月：';
-
-      // 小建議：兩天班想上週六 → 用實際金額比給家長看
-      if (info.plan === '兩天班' && sat === '參加') {
-        const satMonth = SAT_FEE * SAT_PER_MONTH;              // 週六一個月約 1,200
-        const twoDayTotal = FEE_TABLE['培訓班']['兩天班'] + satMonth;
+      // 週六採每週群組登記，這裡只提醒收費差異
+      if (info.plan === '兩天班') {
         const threeDay = FEE_TABLE['培訓班']['三天以上班'];
-        const diff = twoDayTotal - threeDay;
         sug.innerHTML =
-          '💡 週六每堂 <strong>NT$' + SAT_FEE + '</strong>，一個月約 ' + SAT_PER_MONTH + ' 堂 ≈ <strong>NT$' +
-          satMonth.toLocaleString() + '</strong>，合計約 <strong>NT$' + twoDayTotal.toLocaleString() + '／月</strong>。<br>' +
-          '改選「<strong>三天以上班</strong>」只要 <strong>NT$' + threeDay.toLocaleString() +
-          '／月</strong>、平日多練 1 天以上而且<strong>週六免費</strong>，每月約省 <strong>NT$' +
-          diff.toLocaleString() + '</strong>，通常更划算！';
+          '💡 週六練習如要參加，<strong>每堂加收 NT$' + SAT_FEE + '</strong>（每週於 LINE 群組登記）。<br>' +
+          '若常會想去週六，改選「<strong>三天以上班</strong>」NT$' + threeDay.toLocaleString() +
+          '／月，平日多練 1 天以上而且<strong>週六免費</strong>，通常更划算。';
         sug.style.display = 'block';
-      } else if (info.plan === '三天以上班' && sat === '參加') {
-        sug.innerHTML = '✅ 三天以上班<strong>週六免費參加</strong>，不會另外加收費用。';
+      } else if (info.plan === '三天以上班') {
+        sug.innerHTML = '✅ 週六練習<strong>免費參加</strong>，不會另外加收（每週於 LINE 群組登記）。';
         sug.style.display = 'block';
       } else {
         sug.style.display = 'none';
@@ -9501,7 +9450,6 @@
     } else {
       rowPlan.style.display = 'none';
       rowDays.style.display = 'none';
-      rowSat.style.display = 'none';
       sug.style.display = 'none';
       document.getElementById('fc_total_label').textContent = '本學期：';
     }
@@ -9535,12 +9483,10 @@
 
     let trainDays = '';
     let weekdays = [];
-    let saturday = '';
 
     if (classType === '培訓班') {
       trainDays = getTrainDays();
       weekdays = getCheckedWeekdays();
-      saturday = getSaturday();
 
       if (!trainDays) {
         alert('請選擇「兩天班」或「三天以上班」');
@@ -9554,11 +9500,6 @@
       }
       if (trainDays === '三天以上班' && weekdays.length < 3) {
         alert('「三天以上班」請至少選 3 天上課日\n（目前選了 ' + weekdays.length + ' 天）');
-        document.getElementById('trainExtra').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        return;
-      }
-      if (!saturday) {
-        alert('請選擇週六是否參加');
         document.getElementById('trainExtra').scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
       }
@@ -9584,7 +9525,6 @@
       trainDays: trainDays,
       trainWeekdays: weekdays.join('、'),
       weekdayCount: weekdays.length,
-      saturday: saturday,
       fee: feeInfo ? feeInfo.amount : 0,
       feeUnit: feeInfo ? feeInfo.unit : '',
       payStatus: classType === '培訓班' ? '待收首月費' : '待收學期費',
