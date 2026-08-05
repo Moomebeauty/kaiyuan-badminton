@@ -9264,7 +9264,15 @@
   // 開元國小羽球隊 · 115 學年度招生
   // 前端邏輯 v9（三種班別版）
   // ══════════════════════════════════════════
-  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyRAPSgV6dGzIkUX4WWUKEnGdl41dLojSjLT-zHiPca4JorESp9jSIS8MAp_Tfp6PcUkw/exec';
+  /* ═══════════════════════════════════════════════════
+     ⚠️ 要換 Google Sheets 就改這一行（第 9267 行附近）
+     ═══════════════════════════════════════════════════
+     步驟：新試算表 → 擴充功能 → Apps Script → 貼上 v9
+          → 部署 → 新增部署作業 → 類型「網頁應用程式」
+          → 執行身分「我」、存取權「所有人」→ 複製網址貼在下面
+     ⚠️ 網址結尾一定要是 /exec，不是 /dev
+     ═══════════════════════════════════════════════════ */
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzvSXucmVRqhJ1n3sVaihJ0Zup7P8RSM26KgeLxiVy2CoBQQ7o3fpUs1q3kNHJEupuG/exec';
 
   // ========== 費用表（115 學年度） ==========
   const FEE_TABLE = {
@@ -9582,7 +9590,6 @@
       payStatus: classType === '培訓班' ? '待收首月費' : '待收學期費',
       notes: formData.get('notes') || '無',
       agreeFee: formData.get('agree_fee') === 'on' ? '✅ 已同意' : '❌ 未同意',
-      agreeRefund: '',   // 退費規則已自網站下架，此欄暫不使用
       agreeSchedule: formData.get('agree_schedule') === 'on' ? '✅ 已同意' : '❌ 未同意',
       userAgent: navigator.userAgent.substring(0, 200),
       screenSize: window.screen.width + 'x' + window.screen.height
