@@ -8701,9 +8701,9 @@
       </div>
 
       <div class="pcard" id="c-taste">
-        <div class="pcard-tab tb-blue tb-closed">
+        <div class="pcard-tab tb-blue">
           <span class="tb-ico">🌱</span>
-          <span>社團體驗班 · 已額滿</span>
+          <span>社團體驗班</span>
         </div>
         <div class="pcard-pad">
           <div class="pcard-name nm-blue">體驗班</div>
@@ -8728,7 +8728,7 @@
             </div>
             <div class="m3-col">
               <div class="m3-label"><span>👥</span><span>名額限制</span></div>
-              <div class="m3-value mv-blue" id="quota_taste" data-base="m3-value mv-blue">❌ 已額滿</div>
+              <div class="m3-value mv-blue" id="quota_taste" data-base="m3-value mv-blue">限 20 人</div>
             </div>
           </div>
         </div>
@@ -8740,7 +8740,7 @@
       <summary class="collapsible-header">
         <span class="ch-icon">🧭</span>
         <span class="ch-title">不知道怎麼選？</span>
-        <span class="ch-hint">點開看說明</span>
+        <span class="ch-hint">點開看 3 種常見情況</span>
         <span class="ch-arrow">▼</span>
       </summary>
       <div class="collapsible-body">
@@ -8778,16 +8778,19 @@
             </ul>
           </div>
 
-          <div class="combo-card combo-closed">
+          <div class="combo-card">
             <div class="cb-head">
               <span class="cb-emojis">🌱</span>
               <span class="cb-name">只報體驗班</span>
-              <span class="cb-closed-tag">已額滿</span>
             </div>
             <ul class="cb-points">
-              <li>本學期名額已滿，停止收件</li>
-              <li>想加入可改報培訓班</li>
+              <li>想先接觸看看，好玩為主</li>
+              <li>一週一次，壓力最小</li>
             </ul>
+            <div class="cb-price">
+              <span class="cb-amt">2,800</span>
+              <span class="cb-unit">元 / 學期</span>
+            </div>
           </div>
 
 
@@ -9191,7 +9194,12 @@
 
           <div class="closed-note">
             <span class="cn-i">🔒</span>
-            <span><b>晨操班、體驗班本學期已額滿</b>，停止收件。<br>目前開放報名的是 🏆 <b>培訓班</b>。</span>
+            <span><b>晨操班本學期已額滿</b>，停止收件。<br>培訓班與體驗班仍開放報名。</span>
+          </div>
+
+          <div class="combo-hint">
+            <span class="ch-i">ℹ️</span>
+            <span>培訓班為主力訓練，<b>單獨報名即可</b>。</span>
           </div>
 
           <div class="class-radio-group">
@@ -9230,7 +9238,7 @@
                   <span class="cr-name">體驗班</span>
                   <span class="cr-desc">2,800／學期 · 週三 13:30–15:30</span>
                 </span>
-                <span class="cr-quota q-full" id="cq_taste">❌ 已額滿</span>
+                <span class="cr-quota" id="cq_taste">限 20 人</span>
               </span>
             </label>
 
@@ -9438,8 +9446,8 @@
      ═══════════════════════════════════════════════════ */
   const CLASS_CLOSED = {
     '培訓班': false,
-    '晨操班': true,     // ← 已額滿，停止收件
-    '體驗班': true      // ← 已額滿，停止收件
+    '晨操班': true,     // ← 已額滿（超收），手動關閉
+    '體驗班': false     // ← 依後台名額自動判斷，滿 20 人會自己關
   };
 
   // ========== 費用表（115 學年度） ==========
