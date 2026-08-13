@@ -7244,6 +7244,22 @@
   .cr-quota.q-full { background: rgba(214,54,54,0.12); color: var(--racket-red-deep); }
 
   /* 複選規則說明條 */
+  .closed-note {
+    display: flex;
+    gap: 8px;
+    padding: 11px 13px;
+    margin: 0 0 14px;
+    border-radius: 11px;
+    background: rgba(214,54,54,0.07);
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: rgba(15,27,20,0.72);
+  }
+
+  .closed-note .cn-i { flex-shrink: 0; font-size: 13px; line-height: 1.6; }
+
+  .closed-note b { color: var(--racket-red-deep); font-weight: 800; }
+
   .combo-hint {
     display: flex;
     gap: 7px;
@@ -8088,6 +8104,27 @@
 
   .combo-card.combo-solo { padding-top: 20px; }
 
+  .pcard-tab.tb-closed { background: #8A8A8A; }
+
+  .combo-card.combo-closed {
+    background: #F4F4F2;
+    border-style: dashed;
+    opacity: 0.72;
+  }
+
+  .combo-closed .cb-name { color: rgba(15,27,20,0.5); }
+
+  .cb-closed-tag {
+    margin-left: auto;
+    flex-shrink: 0;
+    background: rgba(200,50,44,0.12);
+    color: var(--pf-red);
+    font-size: 10.5px;
+    font-weight: 800;
+    padding: 3px 9px;
+    border-radius: 50px;
+  }
+
   .cb-head {
     display: flex;
     align-items: center;
@@ -8630,9 +8667,9 @@
     <div class="pcard-duo">
 
       <div class="pcard" id="c-morning">
-        <div class="pcard-tab tb-gold">
+        <div class="pcard-tab tb-gold tb-closed">
           <span class="tb-ico">🌅</span>
-          <span>早晨運動班</span>
+          <span>早晨運動班 · 已額滿</span>
         </div>
         <div class="pcard-pad">
           <div class="pcard-name nm-gold">晨操班</div>
@@ -8657,16 +8694,16 @@
             </div>
             <div class="m3-col">
               <div class="m3-label"><span>👥</span><span>名額限制</span></div>
-              <div class="m3-value mv-gold" id="quota_morning" data-base="m3-value mv-gold">限 30 人</div>
+              <div class="m3-value mv-gold" id="quota_morning" data-base="m3-value mv-gold">❌ 已額滿</div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="pcard" id="c-taste">
-        <div class="pcard-tab tb-blue">
+        <div class="pcard-tab tb-blue tb-closed">
           <span class="tb-ico">🌱</span>
-          <span>社團體驗班</span>
+          <span>社團體驗班 · 已額滿</span>
         </div>
         <div class="pcard-pad">
           <div class="pcard-name nm-blue">體驗班</div>
@@ -8691,7 +8728,7 @@
             </div>
             <div class="m3-col">
               <div class="m3-label"><span>👥</span><span>名額限制</span></div>
-              <div class="m3-value mv-blue" id="quota_taste" data-base="m3-value mv-blue">限 20 人</div>
+              <div class="m3-value mv-blue" id="quota_taste" data-base="m3-value mv-blue">❌ 已額滿</div>
             </div>
           </div>
         </div>
@@ -8703,7 +8740,7 @@
       <summary class="collapsible-header">
         <span class="ch-icon">🧭</span>
         <span class="ch-title">不知道怎麼選？</span>
-        <span class="ch-hint">點開看 4 種常見情況</span>
+        <span class="ch-hint">點開看說明</span>
         <span class="ch-arrow">▼</span>
       </summary>
       <div class="collapsible-body">
@@ -8729,51 +8766,31 @@
             </div>
           </div>
 
-          <div class="combo-card">
+          <div class="combo-card combo-closed">
             <div class="cb-head">
               <span class="cb-emojis">🌅</span>
               <span class="cb-name">只報晨操班</span>
+              <span class="cb-closed-tag">已額滿</span>
             </div>
             <ul class="cb-points">
-              <li>放學後補習、安親已經排滿</li>
-              <li>只有早上擠得出時間</li>
+              <li>本學期名額已滿，停止收件</li>
+              <li>想加入可改報培訓班</li>
             </ul>
-            <div class="cb-price">
-              <span class="cb-amt">2,500</span>
-              <span class="cb-unit">元 / 學期</span>
-            </div>
           </div>
 
-          <div class="combo-card">
+          <div class="combo-card combo-closed">
             <div class="cb-head">
               <span class="cb-emojis">🌱</span>
               <span class="cb-name">只報體驗班</span>
+              <span class="cb-closed-tag">已額滿</span>
             </div>
             <ul class="cb-points">
-              <li>想先接觸看看，好玩為主</li>
-              <li>一週一次，壓力最小</li>
+              <li>本學期名額已滿，停止收件</li>
+              <li>想加入可改報培訓班</li>
             </ul>
-            <div class="cb-price">
-              <span class="cb-amt">2,800</span>
-              <span class="cb-unit">元 / 學期</span>
-            </div>
           </div>
 
-          <div class="combo-card combo-solo">
-            <span class="cb-flag cb-flag-plain">也可以這樣搭</span>
-            <div class="cb-head">
-              <span class="cb-name">晨操班 ＋ 體驗班</span>
-            </div>
-            <ul class="cb-points">
-              <li>這兩班時間不衝突，可以一起報名</li>
-              <li>一週動 3 天：二、五早上 ＋ 三下午</li>
-              <li>完全不佔放學後的補習時間</li>
-            </ul>
-            <div class="cb-price">
-              <span class="cb-amt">5,300</span>
-              <span class="cb-unit">元 / 學期</span>
-            </div>
-          </div>
+
 
         </div>
 
@@ -9172,9 +9189,9 @@
         <div class="form-group">
           <label class="form-label">請選擇要報名的班別 <span class="required">*</span></label>
 
-          <div class="combo-hint">
-            <span class="ch-i">ℹ️</span>
-            <span>晨操班和體驗班<b>可以一起報名</b>；培訓班為主力訓練，<b>單獨報名即可</b>。</span>
+          <div class="closed-note">
+            <span class="cn-i">🔒</span>
+            <span><b>晨操班、體驗班本學期已額滿</b>，停止收件。<br>目前開放報名的是 🏆 <b>培訓班</b>。</span>
           </div>
 
           <div class="class-radio-group">
@@ -9201,7 +9218,7 @@
                   <span class="cr-name">晨操班</span>
                   <span class="cr-desc">2,500／學期 · 每週二和每週五 08:00–08:40</span>
                 </span>
-                <span class="cr-quota" id="cq_morning">限 30 人</span>
+                <span class="cr-quota q-full" id="cq_morning">❌ 已額滿</span>
               </span>
             </label>
 
@@ -9213,7 +9230,7 @@
                   <span class="cr-name">體驗班</span>
                   <span class="cr-desc">2,800／學期 · 週三 13:30–15:30</span>
                 </span>
-                <span class="cr-quota" id="cq_taste">限 20 人</span>
+                <span class="cr-quota q-full" id="cq_taste">❌ 已額滿</span>
               </span>
             </label>
 
@@ -9411,6 +9428,19 @@
      ⚠️ 網址結尾一定要是 /exec，不是 /dev
      ═══════════════════════════════════════════════════ */
   const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzvSXucmVRqhJ1n3sVaihJ0Zup7P8RSM26KgeLxiVy2CoBQQ7o3fpUs1q3kNHJEupuG/exec';
+
+  /* ═══════════════════════════════════════════════════
+     🔒 手動關閉班別（額滿時用這裡，不必等後台）
+     ═══════════════════════════════════════════════════
+     要關閉：把班別設成 true
+     要重開：改成 false
+     ⚠️ 這裡的設定優先於後台名額，設 true 就一定關閉
+     ═══════════════════════════════════════════════════ */
+  const CLASS_CLOSED = {
+    '培訓班': false,
+    '晨操班': true,     // ← 已額滿，停止收件
+    '體驗班': true      // ← 已額滿，停止收件
+  };
 
   // ========== 費用表（115 學年度） ==========
   const FEE_TABLE = {
@@ -9775,6 +9805,7 @@
 
   // 送出前的最終名額檢查
   function checkQuotaBeforeSubmit(classType) {
+    if (CLASS_CLOSED[classType]) return { ok: false };
     if (!QUOTA_DATA) return { ok: true };
     const d = QUOTA_DATA[classType];
     if (!d) return { ok: true };
@@ -9837,8 +9868,6 @@
   }
 
   function applyQuotaUI() {
-    if (!QUOTA_DATA) return;
-
     const map = [
       { name: '培訓班', pageId: 'quota_train',   formId: 'cq_train'   },
       { name: '晨操班', pageId: 'quota_morning', formId: 'cq_morning' },
@@ -9846,14 +9875,18 @@
     ];
 
     map.forEach(function(m) {
-      const d = QUOTA_DATA[m.name];
-      if (!d) return;
+      const closed = !!CLASS_CLOSED[m.name];
+      const d = (QUOTA_DATA && QUOTA_DATA[m.name]) || null;
+      if (!closed && !d) return;
 
-      const limit = (d.limit === null || d.limit === undefined) ? null : d.limit;
-      const count = d.count || 0;
+      const limit = (!d || d.limit === null || d.limit === undefined) ? null : d.limit;
+      const count = d ? (d.count || 0) : 0;
 
       let text, cls;
-      if (limit === null) {
+      if (closed) {
+        text = '❌ 已額滿';
+        cls = 'q-full';
+      } else if (limit === null) {
         text = '不限名額 · 已 ' + count + ' 人';
         cls = 'q-available';
       } else if (count >= limit) {
@@ -9882,7 +9915,7 @@
       // 額滿 → 停用該班別選項
       const box = document.querySelector('input[name="classType"][value="' + m.name + '"]');
       if (box) {
-        const isFull = (limit !== null && count >= limit);
+        const isFull = closed || (limit !== null && count >= limit);
         if (isFull) {
           box.dataset.full = '1';
           box.disabled = true;
@@ -9895,6 +9928,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function() {
+    applyQuotaUI();   // 先套用手動關閉，不等後台回應
     loadQuota();
     onWeekdayChange();
   });
