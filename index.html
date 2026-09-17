@@ -8817,6 +8817,198 @@
     .rule-title { font-size:14px; }
   }
 
+
+  /* ═══════════════════════════════════════════
+     💬 意見信箱
+     ═══════════════════════════════════════════ */
+  .fb-intro {
+    background:linear-gradient(150deg,var(--pf-green) 0%,#0C2A18 100%);
+    border-radius:18px;
+    padding:20px 18px;
+    color:#fff;
+    margin-top:18px;
+    position:relative;
+    overflow:hidden;
+  }
+  .fb-intro::after {
+    content:'💬';
+    position:absolute; right:-6px; bottom:-14px;
+    font-size:80px; opacity:0.09;
+  }
+  .fb-eyebrow {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:12px; letter-spacing:3px;
+    color:var(--pf-gold-lt);
+  }
+  .fb-title {
+    font-family:'Fraunces','Noto Serif TC',serif;
+    font-size:21px; font-weight:700;
+    margin-top:5px; line-height:1.35;
+  }
+  .fb-desc {
+    font-size:13px; line-height:1.8;
+    color:rgba(255,255,255,0.85);
+    margin-top:10px;
+    position:relative; z-index:2;
+  }
+  .fb-desc b { color:var(--pf-gold-lt); }
+
+  .fb-card {
+    background:#fff;
+    border:1.5px solid var(--pf-line);
+    border-radius:16px;
+    padding:18px 16px;
+    margin-top:14px;
+  }
+
+  .fb-label {
+    display:block;
+    font-size:13.5px; font-weight:800;
+    color:var(--pf-green);
+    margin-bottom:8px;
+    letter-spacing:0.3px;
+  }
+  .fb-label .opt {
+    font-size:11px; font-weight:600;
+    color:rgba(15,27,20,0.4);
+    margin-left:5px;
+  }
+
+  .fb-group { margin-bottom:18px; }
+  .fb-group:last-of-type { margin-bottom:0; }
+
+  .fb-pills { display:flex; flex-wrap:wrap; gap:7px; }
+
+  .fb-pill { display:block; cursor:pointer; position:relative; }
+  .fb-pill input { position:absolute; opacity:0; width:0; height:0; }
+
+  .fb-pill-face {
+    padding:9px 15px;
+    border:2px solid var(--pf-line);
+    border-radius:50px;
+    background:#fff;
+    font-size:13px; font-weight:600;
+    color:rgba(15,27,20,0.7);
+    transition:all 0.15s;
+  }
+  .fb-pill input:checked + .fb-pill-face {
+    border-color:var(--pf-green);
+    background:rgba(18,58,34,0.08);
+    color:var(--pf-green);
+    font-weight:800;
+  }
+
+  .fb-textarea {
+    width:100%;
+    min-height:130px;
+    padding:12px 14px;
+    border:2px solid var(--pf-line);
+    border-radius:12px;
+    font-family:'Noto Sans TC',sans-serif;
+    font-size:14px;
+    line-height:1.75;
+    color:var(--pf-green);
+    background:var(--pf-paper);
+    resize:vertical;
+    box-sizing:border-box;
+  }
+  .fb-textarea:focus {
+    outline:none;
+    border-color:var(--pf-green);
+    background:#fff;
+  }
+
+  .fb-input {
+    width:100%;
+    padding:11px 14px;
+    border:2px solid var(--pf-line);
+    border-radius:12px;
+    font-family:'Noto Sans TC',sans-serif;
+    font-size:14px;
+    color:var(--pf-green);
+    background:var(--pf-paper);
+    box-sizing:border-box;
+  }
+  .fb-input:focus { outline:none; border-color:var(--pf-green); background:#fff; }
+
+  .fb-hint {
+    font-size:11.5px;
+    line-height:1.7;
+    color:rgba(15,27,20,0.5);
+    margin-top:7px;
+  }
+
+  .fb-privacy {
+    display:flex; gap:9px;
+    margin-top:14px;
+    padding:12px 14px;
+    border-radius:12px;
+    background:rgba(18,58,34,0.05);
+    font-size:12px;
+    line-height:1.75;
+    color:rgba(15,27,20,0.72);
+  }
+  .fb-privacy .pv-ico { flex-shrink:0; font-size:16px; line-height:1.4; }
+  .fb-privacy b { color:var(--pf-green); }
+
+  .fb-submit {
+    display:flex; align-items:center; justify-content:center; gap:9px;
+    width:100%;
+    margin-top:16px;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,var(--pf-green) 0%,#0C2A18 100%);
+    color:#fff;
+    font-family:'Noto Sans TC',sans-serif;
+    font-size:16px; font-weight:900;
+    letter-spacing:1px;
+    cursor:pointer;
+    box-shadow:0 6px 18px rgba(18,58,34,0.22);
+  }
+  .fb-submit:active { transform:translateY(1px); }
+  .fb-submit:disabled { opacity:0.55; cursor:not-allowed; }
+
+  .fb-done {
+    display:none;
+    text-align:center;
+    padding:34px 18px;
+  }
+  .fb-done.show { display:block; }
+  .fb-done-ico {
+    width:62px; height:62px;
+    margin:0 auto 14px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--pf-gold-lt) 0%,var(--pf-gold) 100%);
+    color:#16341F;
+    font-size:30px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .fb-done-title {
+    font-family:'Fraunces','Noto Serif TC',serif;
+    font-size:21px; font-weight:700;
+    color:var(--pf-green);
+  }
+  .fb-done-txt {
+    font-size:13.5px;
+    line-height:1.85;
+    color:rgba(15,27,20,0.72);
+    margin-top:9px;
+  }
+
+  .fb-err {
+    display:none;
+    margin-top:10px;
+    padding:10px 13px;
+    border-radius:10px;
+    background:rgba(200,50,44,0.09);
+    color:var(--pf-red);
+    font-size:12.5px;
+    font-weight:700;
+    line-height:1.6;
+  }
+  .fb-err.show { display:block; }
+
 </style>
 </head>
 <body class="status-closed">
@@ -8828,6 +9020,7 @@
     <a href="#rules" class="nav-link"><span class="nav-icon">📋</span><span>球隊規範</span></a>
     <a href="#system" class="nav-link"><span class="nav-icon">🏆</span><span>訓練制度</span></a>
     <a href="#levels" class="nav-link"><span class="nav-icon">🦅</span><span>能力分級</span></a>
+    <a href="#feedback" class="nav-link"><span class="nav-icon">💬</span><span>意見信箱</span></a>
     <a href="#archive" class="nav-link"><span class="nav-icon">📁</span><span>招生資訊</span></a>
   </div>
 </nav>
@@ -9169,6 +9362,115 @@
         分級不是為了比較，而是讓孩子<b>看得見自己走到哪裡、下一步要練什麼</b>。<br>
         每個孩子的速度不一樣，教練會依個別狀況評估晉級。
       </span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 意見信箱 ═══════════ -->
+<section id="feedback" style="padding: 34px 0 0;">
+  <div class="container">
+    <div class="p-sec-head">
+      <div class="p-sec-title">意見信箱</div>
+      <div class="p-sec-sub">有話想說，這裡都收得到</div>
+    </div>
+
+    <div class="fb-intro">
+      <div class="fb-eyebrow">WE ARE LISTENING</div>
+      <div class="fb-title">不用具名，也不用不好意思</div>
+      <div class="fb-desc">
+        有些話當面說不出口，傳訊息又怕教練多想——這很正常。<br>
+        這個信箱就是為了這種時候存在的。<b>可以完全匿名</b>，孩子也可以自己來寫。<br>
+        不管是建議、疑問、感謝，或是覺得哪裡不太對勁，都歡迎告訴我們。
+      </div>
+    </div>
+
+    <div class="fb-card" id="fbCard">
+      <div class="fb-group">
+        <label class="fb-label">我是</label>
+        <div class="fb-pills">
+          <label class="fb-pill">
+            <input type="radio" name="fbWho" value="家長" checked>
+            <span class="fb-pill-face">👩‍👧 家長</span>
+          </label>
+          <label class="fb-pill">
+            <input type="radio" name="fbWho" value="學生">
+            <span class="fb-pill-face">🧒 學生</span>
+          </label>
+          <label class="fb-pill">
+            <input type="radio" name="fbWho" value="不想說">
+            <span class="fb-pill-face">🤐 不想說</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="fb-group">
+        <label class="fb-label">想說的是</label>
+        <div class="fb-pills">
+          <label class="fb-pill">
+            <input type="radio" name="fbType" value="建議" checked>
+            <span class="fb-pill-face">💡 建議</span>
+          </label>
+          <label class="fb-pill">
+            <input type="radio" name="fbType" value="疑問">
+            <span class="fb-pill-face">❓ 疑問</span>
+          </label>
+          <label class="fb-pill">
+            <input type="radio" name="fbType" value="感謝">
+            <span class="fb-pill-face">💐 感謝</span>
+          </label>
+          <label class="fb-pill">
+            <input type="radio" name="fbType" value="需要協助">
+            <span class="fb-pill-face">🆘 需要協助</span>
+          </label>
+          <label class="fb-pill">
+            <input type="radio" name="fbType" value="其他">
+            <span class="fb-pill-face">✏️ 其他</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="fb-group">
+        <label class="fb-label">內容 <span class="opt">＊必填</span></label>
+        <textarea class="fb-textarea" id="fbContent" placeholder="請放心寫下您想說的話。&#10;&#10;例如：孩子最近好像對某個練習比較退縮、想了解某個規定的原因、某位教練讓孩子很有進步想說聲謝謝……"></textarea>
+        <div class="fb-hint">💡 越具體越好，但不用擔心寫得不夠好——把想法說出來最重要。</div>
+      </div>
+
+      <div class="fb-group">
+        <label class="fb-label">留下稱呼 <span class="opt">選填，不留就是匿名</span></label>
+        <input type="text" class="fb-input" id="fbName" placeholder="例：小明的媽媽（可不填）">
+      </div>
+
+      <div class="fb-group">
+        <label class="fb-label">聯絡方式 <span class="opt">選填，希望我們回覆再填</span></label>
+        <input type="text" class="fb-input" id="fbContact" placeholder="電話或 LINE ID（可不填）">
+        <div class="fb-hint">沒填也沒關係，我們一樣會看、一樣會處理。只是無法個別回覆您。</div>
+      </div>
+
+      <div class="fb-privacy">
+        <span class="pv-ico">🔐</span>
+        <span>
+          <b>我們的承諾：</b>不留姓名就是真的匿名，系統不會記錄您的裝置或身分。<br>
+          所有意見僅由總教練與後援會會長查看，<b>不會在群組公開，也不會對孩子有任何影響</b>。
+        </span>
+      </div>
+
+      <div class="fb-err" id="fbErr"></div>
+
+      <button class="fb-submit" id="fbBtn" onclick="submitFeedback()">
+        <span>📨</span><span>送出意見</span>
+      </button>
+    </div>
+
+    <div class="fb-done" id="fbDone">
+      <div class="fb-done-ico">✓</div>
+      <div class="fb-done-title">收到了，謝謝您</div>
+      <div class="fb-done-txt">
+        您的意見已經送到教練團隊手上。<br>
+        願意說出來，就是對球隊最好的幫助 🤍
+      </div>
+      <button class="btn-reset-fb fb-submit" style="max-width:220px;margin:18px auto 0;background:var(--pf-paper);color:var(--pf-green);box-shadow:none;border:2px solid var(--pf-line);" onclick="resetFeedback()">
+        <span>再寫一則</span>
+      </button>
     </div>
   </div>
 </section>
@@ -9596,6 +9898,7 @@
       <li><a href="#rules" onclick="closeQuickNav()"><span class="qn-emoji">📋</span>球隊規範</a></li>
       <li><a href="#system" onclick="closeQuickNav()"><span class="qn-emoji">🏆</span>訓練制度</a></li>
       <li><a href="#levels" onclick="closeQuickNav()"><span class="qn-emoji">🦅</span>能力分級</a></li>
+      <li><a href="#feedback" onclick="closeQuickNav()"><span class="qn-emoji">💬</span>意見信箱</a></li>
       <li><a href="#archive" onclick="closeQuickNav()"><span class="qn-emoji">📁</span>招生資訊</a></li>
     </ul>
   </div>
@@ -9614,6 +9917,76 @@ function toggleQuickNav(){
 }
 function closeQuickNav(){
   document.getElementById('quickNav').classList.remove('quick-nav-open');
+}
+
+const FEEDBACK_URL='https://script.google.com/macros/s/AKfycbzvSXucmVRqhJ1n3sVaihJ0Zup7P8RSM26KgeLxiVy2CoBQQ7o3fpUs1q3kNHJEupuG/exec';
+
+function pickRadio(name){
+  var el=document.querySelector('input[name="'+name+'"]:checked');
+  return el?el.value:'';
+}
+
+function showFbErr(msg){
+  var e=document.getElementById('fbErr');
+  e.textContent=msg;
+  e.classList.add('show');
+  setTimeout(function(){e.classList.remove('show');},5000);
+}
+
+async function submitFeedback(){
+  var content=(document.getElementById('fbContent').value||'').trim();
+  if(content.length<5){
+    showFbErr('⚠️ 請至少寫幾個字，讓我們知道您想說什麼');
+    document.getElementById('fbContent').focus();
+    return;
+  }
+  var btn=document.getElementById('fbBtn');
+  btn.disabled=true;
+  btn.innerHTML='<span>⏳</span><span>送出中…</span>';
+
+  var timestamp=new Date().toLocaleString('zh-TW',{
+    timeZone:'Asia/Taipei',
+    year:'numeric',month:'2-digit',day:'2-digit',
+    hour:'2-digit',minute:'2-digit'
+  });
+
+  var data={
+    formType:'feedback',
+    submitTime:timestamp,
+    who:pickRadio('fbWho'),
+    category:pickRadio('fbType'),
+    content:content,
+    nickname:(document.getElementById('fbName').value||'').trim(),
+    contact:(document.getElementById('fbContact').value||'').trim()
+  };
+
+  try{
+    await fetch(FEEDBACK_URL,{
+      method:'POST',
+      mode:'no-cors',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(data)
+    });
+    document.getElementById('fbCard').style.display='none';
+    document.getElementById('fbDone').classList.add('show');
+    document.getElementById('fbDone').scrollIntoView({behavior:'smooth',block:'center'});
+  }catch(err){
+    showFbErr('❌ 送出失敗，請檢查網路後再試一次');
+    btn.disabled=false;
+    btn.innerHTML='<span>📨</span><span>送出意見</span>';
+  }
+}
+
+function resetFeedback(){
+  document.getElementById('fbContent').value='';
+  document.getElementById('fbName').value='';
+  document.getElementById('fbContact').value='';
+  var b=document.getElementById('fbBtn');
+  b.disabled=false;
+  b.innerHTML='<span>📨</span><span>送出意見</span>';
+  document.getElementById('fbDone').classList.remove('show');
+  document.getElementById('fbCard').style.display='block';
+  document.getElementById('feedback').scrollIntoView({behavior:'smooth',block:'start'});
 }
 </script>
 </body>
