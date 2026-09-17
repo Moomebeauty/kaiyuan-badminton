@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>開元國小羽球隊 · 115 學年度招生中</title>
+<title>開元國小羽球隊 · 臺南市北區開元國民小學</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Noto+Sans+TC:wght@400;500;600;700;900&family=Noto+Serif+TC:wght@500;600;700;900&display=swap" rel="stylesheet">
@@ -6437,7 +6437,7 @@
   body.status-closed .floating-cta,
   body.status-closed .price-cta-btn,
   body.status-closed .quick-nav-fab,
-  body.status-closed a[href="#signup"] {
+  body.status-closed a[href="#archive"] {
     filter: grayscale(0.7) opacity(0.5);
     pointer-events: none;
   }
@@ -6458,7 +6458,7 @@
   }
   
   /* 報名按鈕：浮動相關 */
-  body.status-closed .nav-pill[href="#signup"] {
+  body.status-closed .nav-pill[href="#archive"] {
     opacity: 0.5;
     text-decoration: line-through;
   }
@@ -8429,58 +8429,419 @@
     .rb-btn { font-size: 17px; letter-spacing: 2px; }
   }
 
+
+
+  /* ═══════════════════════════════════════════
+     🏸 球隊網站（教練團隊 / 規範 / 訓練制度）
+     ═══════════════════════════════════════════ */
+
+  /* ── 教練卡 ── */
+  .coach-list { display:flex; flex-direction:column; gap:14px; margin-top:18px; }
+
+  .coach-card {
+    display:flex; gap:14px;
+    background:var(--pf-paper);
+    border:1.5px solid var(--pf-line);
+    border-radius:16px;
+    padding:16px;
+    position:relative;
+  }
+
+  .coach-card.cc-head-coach {
+    border-color:var(--pf-gold);
+    border-width:2px;
+    background:linear-gradient(180deg,rgba(217,169,79,0.10) 0%,var(--pf-paper) 55%);
+  }
+
+  .cc-avatar {
+    flex-shrink:0;
+    width:64px; height:64px;
+    border-radius:50%;
+    background:linear-gradient(140deg,var(--pf-green) 0%,#0C2A18 100%);
+    color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces','Noto Serif TC',serif;
+    font-size:26px; font-weight:700;
+    letter-spacing:1px;
+  }
+
+  .coach-card.cc-head-coach .cc-avatar {
+    background:linear-gradient(140deg,var(--pf-gold) 0%,#B8862F 100%);
+    color:#16341F;
+  }
+
+  .cc-body { flex:1; min-width:0; }
+
+  .cc-role {
+    display:inline-block;
+    font-size:10.5px; font-weight:800;
+    letter-spacing:0.5px;
+    padding:3px 9px;
+    border-radius:50px;
+    background:var(--pf-green);
+    color:#fff;
+    margin-bottom:6px;
+  }
+
+  .coach-card.cc-head-coach .cc-role {
+    background:linear-gradient(135deg,var(--pf-gold) 0%,#B8862F 100%);
+    color:#16341F;
+  }
+
+  .cc-name {
+    font-family:'Fraunces','Noto Serif TC',serif;
+    font-size:22px; font-weight:700;
+    color:var(--pf-green);
+    letter-spacing:2px;
+    line-height:1.2;
+  }
+
+  .coach-card.cc-head-coach .cc-name { color:#8A6420; }
+
+  .cc-tag {
+    display:inline-block;
+    margin-top:5px;
+    font-size:11.5px; font-weight:700;
+    padding:3px 10px;
+    border-radius:50px;
+    background:rgba(18,58,34,0.07);
+    color:rgba(15,27,20,0.62);
+  }
+
+  .cc-facts { margin-top:10px; display:flex; flex-direction:column; gap:5px; }
+
+  .cc-fact {
+    display:flex; gap:7px;
+    font-size:12.5px; line-height:1.55;
+    color:rgba(15,27,20,0.78);
+  }
+
+  .cc-fact .ico { flex-shrink:0; font-size:12px; }
+
+  .cc-fact b { color:var(--pf-green); font-weight:700; }
+
+  /* ── 規範卡 ── */
+  .rule-list { display:flex; flex-direction:column; gap:10px; margin-top:18px; }
+
+  .rule-card {
+    background:#fff;
+    border:1.5px solid var(--pf-line);
+    border-radius:14px;
+    overflow:hidden;
+  }
+
+  .rule-card > summary {
+    display:flex; align-items:center; gap:10px;
+    padding:13px 15px;
+    cursor:pointer;
+    list-style:none;
+    background:var(--pf-paper);
+  }
+
+  .rule-card > summary::-webkit-details-marker { display:none; }
+
+  .rule-num {
+    flex-shrink:0;
+    width:26px; height:26px;
+    border-radius:8px;
+    background:var(--pf-green);
+    color:#fff;
+    font-size:13px; font-weight:800;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  .rule-title {
+    flex:1;
+    font-size:15px; font-weight:800;
+    color:var(--pf-green);
+    letter-spacing:0.5px;
+  }
+
+  .rule-hint {
+    font-size:11px;
+    color:rgba(15,27,20,0.45);
+    flex-shrink:0;
+  }
+
+  .rule-arrow {
+    flex-shrink:0;
+    font-size:10px;
+    color:rgba(15,27,20,0.35);
+    transition:transform 0.2s;
+  }
+
+  .rule-card[open] .rule-arrow { transform:rotate(180deg); }
+  .rule-card[open] > summary { border-bottom:1px solid var(--pf-line); }
+
+  .rule-body {
+    padding:14px 16px 16px;
+    font-size:13px;
+    line-height:1.85;
+    color:rgba(15,27,20,0.8);
+  }
+
+  .rule-body p { margin:0 0 9px; }
+  .rule-body p:last-child { margin-bottom:0; }
+  .rule-body strong { color:var(--pf-green); font-weight:800; }
+  .rule-body .rd { color:var(--pf-red); font-weight:800; }
+
+  .rule-key {
+    margin-top:10px;
+    padding:9px 12px;
+    border-radius:9px;
+    background:rgba(217,169,79,0.13);
+    font-size:12.5px;
+    line-height:1.7;
+    color:#7A5A18;
+  }
+
+  /* ── 排名賽 ── */
+  .rank-box {
+    background:linear-gradient(150deg,var(--pf-green) 0%,#0C2A18 100%);
+    border-radius:18px;
+    padding:20px 18px;
+    color:#fff;
+    margin-top:18px;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .rank-box::after {
+    content:'🏆';
+    position:absolute;
+    right:-8px; bottom:-14px;
+    font-size:82px;
+    opacity:0.09;
+  }
+
+  .rank-eyebrow {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:12px; letter-spacing:3px;
+    color:var(--pf-gold-lt);
+  }
+
+  .rank-title {
+    font-family:'Fraunces','Noto Serif TC',serif;
+    font-size:21px; font-weight:700;
+    margin-top:5px;
+    line-height:1.35;
+  }
+
+  .rank-desc {
+    font-size:13px; line-height:1.75;
+    color:rgba(255,255,255,0.85);
+    margin-top:9px;
+    position:relative; z-index:2;
+  }
+
+  .rank-when {
+    display:inline-flex; align-items:center; gap:6px;
+    margin-top:12px;
+    padding:6px 13px;
+    border-radius:50px;
+    background:rgba(255,255,255,0.14);
+    font-size:12.5px; font-weight:700;
+    position:relative; z-index:2;
+  }
+
+  /* ── 分級表（鳥類階梯）── */
+  .level-list { display:flex; flex-direction:column; gap:9px; margin-top:16px; }
+
+  .level-card {
+    display:flex; gap:12px;
+    background:#fff;
+    border:1.5px solid var(--pf-line);
+    border-radius:14px;
+    padding:13px 15px;
+    align-items:flex-start;
+    position:relative;
+  }
+
+  .lv-badge {
+    flex-shrink:0;
+    width:46px;
+    text-align:center;
+  }
+
+  .lv-emoji { font-size:26px; line-height:1; display:block; }
+
+  .lv-num {
+    display:block;
+    margin-top:4px;
+    font-size:10px; font-weight:800;
+    letter-spacing:0.5px;
+    color:rgba(15,27,20,0.4);
+  }
+
+  .lv-body { flex:1; min-width:0; }
+
+  .lv-name {
+    font-family:'Fraunces','Noto Serif TC',serif;
+    font-size:18px; font-weight:700;
+    color:var(--pf-green);
+    letter-spacing:2px;
+    line-height:1.2;
+  }
+
+  .lv-skill {
+    font-size:12.5px;
+    line-height:1.65;
+    color:rgba(15,27,20,0.75);
+    margin-top:5px;
+  }
+
+  .lv-skill b { color:var(--pf-green); font-weight:700; }
+
+  /* 各級漸進色 */
+  .level-card.lv-1 { border-left:5px solid #C9C4BA; }
+  .level-card.lv-2 { border-left:5px solid #B5C2A8; }
+  .level-card.lv-3 { border-left:5px solid #94B39B; }
+  .level-card.lv-4 { border-left:5px solid #6FA383; }
+  .level-card.lv-5 { border-left:5px solid #4A8F6B; }
+  .level-card.lv-6 { border-left:5px solid #2E7A56; }
+  .level-card.lv-7 {
+    border-left:5px solid var(--pf-gold);
+    background:linear-gradient(120deg,rgba(217,169,79,0.11) 0%,#fff 60%);
+    border-color:var(--pf-gold);
+  }
+  .level-card.lv-7 .lv-name { color:#8A6420; }
+
+  .lv-flag {
+    position:absolute;
+    top:-9px; right:12px;
+    background:linear-gradient(135deg,var(--pf-gold-lt) 0%,var(--pf-gold) 100%);
+    color:#16341F;
+    font-size:10px; font-weight:900;
+    padding:3px 9px;
+    border-radius:50px;
+  }
+
+  .level-note {
+    display:flex; gap:9px;
+    margin-top:14px;
+    padding:13px 15px;
+    border-radius:13px;
+    background:var(--pf-paper);
+    border:1.5px solid var(--pf-line);
+    font-size:12.5px;
+    line-height:1.75;
+    color:rgba(15,27,20,0.78);
+  }
+
+  .level-note .ln-ico { flex-shrink:0; font-size:17px; line-height:1.4; }
+
+  .level-note b { color:var(--pf-green); }
+
+  /* ── 封存招生區 ── */
+  .archive-wrap {
+    border:2px dashed rgba(15,27,20,0.2);
+    border-radius:16px;
+    background:rgba(15,27,20,0.03);
+    margin-top:18px;
+    overflow:hidden;
+  }
+
+  .archive-wrap > summary {
+    display:flex; align-items:center; gap:11px;
+    padding:15px 16px;
+    cursor:pointer;
+    list-style:none;
+  }
+
+  .archive-wrap > summary::-webkit-details-marker { display:none; }
+
+  .ar-lock { font-size:20px; flex-shrink:0; opacity:0.55; }
+
+  .ar-txt { flex:1; }
+
+  .ar-title {
+    font-size:15px; font-weight:800;
+    color:rgba(15,27,20,0.6);
+    letter-spacing:0.5px;
+  }
+
+  .ar-sub {
+    font-size:11.5px;
+    color:rgba(15,27,20,0.42);
+    margin-top:2px;
+  }
+
+  .ar-arrow {
+    font-size:10px;
+    color:rgba(15,27,20,0.35);
+    transition:transform 0.2s;
+    flex-shrink:0;
+  }
+
+  .archive-wrap[open] .ar-arrow { transform:rotate(180deg); }
+
+  .ar-banner {
+    display:flex; gap:10px;
+    margin:0 14px 4px;
+    padding:12px 14px;
+    border-radius:12px;
+    background:rgba(200,50,44,0.08);
+    border:1.5px solid rgba(200,50,44,0.28);
+    font-size:12.5px;
+    line-height:1.7;
+    color:rgba(15,27,20,0.78);
+  }
+
+  .ar-banner b { color:var(--pf-red); font-weight:800; }
+
+  /* 封存內容：整體灰階、禁止互動 */
+  .ar-content {
+    filter:grayscale(0.55);
+    opacity:0.78;
+    pointer-events:none;
+    padding-top:6px;
+  }
+
+  .ar-content section { padding-top:10px !important; }
+
+  /* ── 通用 ── */
+  .p-lead {
+    font-size:13.5px;
+    line-height:1.8;
+    color:rgba(15,27,20,0.78);
+    margin-top:16px;
+    text-align:center;
+  }
+
+  @media (max-width:380px) {
+    .cc-avatar { width:54px; height:54px; font-size:22px; }
+    .cc-name { font-size:19px; letter-spacing:1px; }
+    .lv-name { font-size:16px; letter-spacing:1px; }
+    .lv-badge { width:40px; }
+    .lv-emoji { font-size:23px; }
+    .rule-title { font-size:14px; }
+  }
+
 </style>
-
 </head>
-<body class="status-open">
-<!--
-═══════════════════════════════════════════════════════════
-📌 招生狀態切換說明（給管理員看的）
-═══════════════════════════════════════════════════════════
-要切換招生狀態，只要改 <body> 標籤的 class：
-
-✅ status-open      → 招生中（一切正常）
-🔴 status-closed    → 招生已截止（灰階 + 顯示截止標記）
-🚧 status-maintain  → 網站整修中
-
-例如：
-  <body class="status-open">     ← 招生中（目前狀態）
-  <body class="status-closed">   ← 招生已截止
-═══════════════════════════════════════════════════════════
--->
-
-<!-- 🔴 招生已截止·全域提示橫幅 -->
-<div class="closed-banner">
-  <div class="cb-container">
-    <div class="cb-icon">🔒</div>
-    <div class="cb-text">
-      <div class="cb-title">115 學年度招生已截止</div>
-      <div class="cb-subtitle">感謝家長熱烈報名 · 詳情請洽開元館</div>
-    </div>
-  </div>
-</div>
+<body class="status-closed">
 
 <nav class="navbar" id="navbar">
   <div class="nav-scroll">
     <a href="#top" class="nav-link"><span class="nav-icon">🏠</span><span>首頁</span></a>
-    <a href="#classes" class="nav-link"><span class="nav-icon">🏸</span><span>三種班別</span></a>
-    <a href="#combo" class="nav-link"><span class="nav-icon">🧭</span><span>怎麼選</span></a>
-    <a href="#tuition" class="nav-link"><span class="nav-icon">💰</span><span>繳費</span></a>
-    <a href="#notice" class="nav-link"><span class="nav-icon">⚠️</span><span>注意事項</span></a>
-    <a href="javascript:openModal()" class="nav-link cta"><span class="nav-icon">✍️</span><span>立即報名</span></a>
+    <a href="#coach" class="nav-link"><span class="nav-icon">👨‍🏫</span><span>教練團隊</span></a>
+    <a href="#rules" class="nav-link"><span class="nav-icon">📋</span><span>球隊規範</span></a>
+    <a href="#system" class="nav-link"><span class="nav-icon">🏆</span><span>訓練制度</span></a>
+    <a href="#levels" class="nav-link"><span class="nav-icon">🦅</span><span>能力分級</span></a>
+    <a href="#archive" class="nav-link"><span class="nav-icon">📁</span><span>招生資訊</span></a>
   </div>
 </nav>
 
-<!-- ═══════════ 海報式 Hero ═══════════ -->
+<!-- ═══════════ Hero ═══════════ -->
 <header class="poster-hero" id="top">
   <div class="ph-net"></div>
   <div class="container ph-inner">
 
     <div class="ph-top">
-      <div class="ph-115">115</div>
+      <div class="ph-115">🏸</div>
       <div class="ph-headline">
-        <div class="ph-h1">新學年 · 加入開元羽球隊</div>
-        <div class="ph-h2">三種班別 · 彈性選課 · 培養第二專長</div>
+        <div class="ph-h1">開元國小羽球隊</div>
+        <div class="ph-h2">品德為先 · 紮實訓練 · 為校爭光</div>
       </div>
     </div>
 
@@ -8489,16 +8850,357 @@
       <span class="sh">🏸</span>
     </div>
 
-    <div class="ph-school">臺南市北區開元國民小學羽球隊</div>
-
-    <button onclick="openModal()" class="ph-cta">
-      <span>立即線上報名</span>
-      <span style="font-family: serif;">→</span>
-    </button>
+    <div class="ph-school">臺南市北區開元國民小學 · 開元館</div>
   </div>
 </header>
 
-<!-- ═══════════ 紅框資訊列 ═══════════ -->
+<!-- ═══════════ 教練團隊 ═══════════ -->
+<section id="coach" style="padding: 26px 0 0;">
+  <div class="container">
+    <div class="p-sec-head">
+      <div class="p-sec-title">教練團隊</div>
+      <div class="p-sec-sub">三位教練，各有專長，一起把孩子帶起來</div>
+    </div>
+
+    <div class="coach-list">
+
+      <div class="coach-card cc-head-coach">
+        <div class="cc-avatar">許</div>
+        <div class="cc-body">
+          <span class="cc-role">總教練</span>
+          <div class="cc-name">許伯涵</div>
+          <div class="cc-facts">
+            <div class="cc-fact"><span class="ico">🎖️</span><span>中華羽協 <b>國家 A 級教練</b></span></div>
+            <div class="cc-fact"><span class="ico">📅</span><span>教學經歷 <b>14 年</b></span></div>
+            <div class="cc-fact"><span class="ico">🏟️</span><span>現任藏龍羽球館<b>創館教練</b></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="coach-card">
+        <div class="cc-avatar">劉</div>
+        <div class="cc-body">
+          <span class="cc-role">助理教練</span>
+          <div class="cc-name">劉虹妙</div>
+          <span class="cc-tag">🌸 溫柔教練代表</span>
+          <div class="cc-facts">
+            <div class="cc-fact"><span class="ico">🎖️</span><span>中華羽協 <b>國家 B 級教練</b></span></div>
+            <div class="cc-fact"><span class="ico">🏸</span><span>擅長<b>單打</b>教學</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="coach-card">
+        <div class="cc-avatar">陳</div>
+        <div class="cc-body">
+          <span class="cc-role">助理教練</span>
+          <div class="cc-name">陳妤榛</div>
+          <span class="cc-tag">🧒 孩子王代表</span>
+          <div class="cc-facts">
+            <div class="cc-fact"><span class="ico">🎖️</span><span>中華羽協 <b>國家 C 級教練</b></span></div>
+            <div class="cc-fact"><span class="ico">🏸</span><span>擅長<b>雙打</b>教學</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 球隊規範 ═══════════ -->
+<section id="rules" style="padding: 34px 0 0;">
+  <div class="container">
+    <div class="p-sec-head">
+      <div class="p-sec-title">球隊規範</div>
+      <div class="p-sec-sub">點開每一項查看完整說明</div>
+    </div>
+
+    <div class="rule-list">
+
+      <details class="rule-card">
+        <summary>
+          <span class="rule-num">1</span>
+          <span class="rule-title">時間觀念</span>
+          <span class="rule-hint">提早到場</span>
+          <span class="rule-arrow">▼</span>
+        </summary>
+        <div class="rule-body">
+          <p>請學生<strong>提早到達開元館</strong>，換好球服和球鞋，做好練習的準備。</p>
+          <p>無特殊原因，練習和比賽<strong>不得缺席、遲到或早退</strong>。</p>
+        </div>
+      </details>
+
+      <details class="rule-card">
+        <summary>
+          <span class="rule-num">2</span>
+          <span class="rule-title">禮貌與態度</span>
+          <span class="rule-hint">主動問好</span>
+          <span class="rule-arrow">▼</span>
+        </summary>
+        <div class="rule-body">
+          <p>見到師長和教練時，要<strong>主動大聲問好</strong>。</p>
+          <p>練球時要全力以赴，不可偷懶。遵從教練、經理和隊長的指導，表現出積極的態度。</p>
+          <div class="rule-key">💡 做事主動，也是對自己態度的一種體現。</div>
+        </div>
+      </details>
+
+      <details class="rule-card">
+        <summary>
+          <span class="rule-num">3</span>
+          <span class="rule-title">團隊合作</span>
+          <span class="rule-hint">學長姐與學弟妹</span>
+          <span class="rule-arrow">▼</span>
+        </summary>
+        <div class="rule-body">
+          <p>集合時需<strong>快速跑步到位</strong>，停止手邊的事情，展示出球隊應有的風範。</p>
+          <p>強調團隊精神——<strong>學弟妹要尊重學長姐，學長姐要愛護學弟妹</strong>。</p>
+          <p>遇到問題時，應該找教練或經理協助解決，<span class="rd">不可自行吵架或製造矛盾</span>。</p>
+        </div>
+      </details>
+
+      <details class="rule-card">
+        <summary>
+          <span class="rule-num">4</span>
+          <span class="rule-title">環境整潔</span>
+          <span class="rule-hint">值日生計畫</span>
+          <span class="rule-arrow">▼</span>
+        </summary>
+        <div class="rule-body">
+          <p>每位隊員要<strong>主動整理場地和周邊環境</strong>。</p>
+          <p>使用場地時要愛護，保持整潔——這是對場地的尊重，也是球隊應有的態度。</p>
+          <div class="rule-key">🧹 球隊採<strong>值日生計畫</strong>，輪流負責場地整理。</div>
+        </div>
+      </details>
+
+      <details class="rule-card">
+        <summary>
+          <span class="rule-num">5</span>
+          <span class="rule-title">訓練紀律</span>
+          <span class="rule-hint">練球沒有捷徑</span>
+          <span class="rule-arrow">▼</span>
+        </summary>
+        <div class="rule-body">
+          <p>羽球是一項技巧性比較高的運動，包括基本動作、來球反應與處理、動作連續性、技巧變化等等。訓練基本動作及技巧需要較長時間打好基礎，因此<strong>訓練時間是影響球技的最大關鍵</strong>。</p>
+          <p>練球沒有捷徑。只要願意每天來、不遲到早退，球技就會在累積中慢慢進步。</p>
+          <p>尤其在<strong>寒暑假</strong>，沒有課業壓力，是精華的黃金訓練時間，隊員的進步會更加明顯。</p>
+          <div class="rule-key">💡 現在孩子的活動繁多，我們不強制要求全勤，但鼓勵隊員盡可能多來練球。<strong>費用不變，練習越多，球技自然進步越快。</strong></div>
+        </div>
+      </details>
+
+      <details class="rule-card">
+        <summary>
+          <span class="rule-num">6</span>
+          <span class="rule-title">體能訓練</span>
+          <span class="rule-hint">一切的根本</span>
+          <span class="rule-arrow">▼</span>
+        </summary>
+        <div class="rule-body">
+          <p>在所有的運動中，<strong>體能是最根本的基礎</strong>。沒有好的體能，就無法有良好的運動表現。因此球隊會不定期安排基本體能訓練。</p>
+          <p>體能訓練往往比較辛苦，孩子有時會試圖躲避或閃避。但這些訓練對提升身體素質非常重要，不僅能增強體能，還能<strong>減少受傷的機率</strong>。</p>
+          <div class="rule-key">🙏 希望家長能多鼓勵孩子積極參加體能訓練，這樣他們才能更好地在球場上發揮。</div>
+        </div>
+      </details>
+
+      <details class="rule-card">
+        <summary>
+          <span class="rule-num">7</span>
+          <span class="rule-title">團體文化</span>
+          <span class="rule-hint">家長與教練合作</span>
+          <span class="rule-arrow">▼</span>
+        </summary>
+        <div class="rule-body">
+          <p>在運動類的團體文化中，孩子之間的競爭、取笑甚至偶爾的爭吵都是較常見的現象，尤其男生更為明顯。儘管教練在球隊中會嚴格要求和管教，這類情況仍難以完全避免。</p>
+          <p>家長如果發現孩子在球隊中遇到這類情況，<strong>請及時與教練聯繫</strong>。相對地，如果教練發現孩子有嚴重的脫序行為，也會主動告知家長。</p>
+          <div class="rule-key">🤝 我們希望家長和教練能夠合作，幫助孩子在友善的團體文化中學習成長，也請家長多多包容理解和溝通。</div>
+        </div>
+      </details>
+
+      <details class="rule-card">
+        <summary>
+          <span class="rule-num">8</span>
+          <span class="rule-title">健康管理</span>
+          <span class="rule-hint">熱身與收操</span>
+          <span class="rule-arrow">▼</span>
+        </summary>
+        <div class="rule-body">
+          <p>練習前需做好<strong>熱身伸展</strong>，練習後需進行<strong>收操拉筋</strong>，避免運動傷害。</p>
+          <p>練球後如滿身大汗，應馬上擦乾並更換乾淨衣服，避免感冒。</p>
+        </div>
+      </details>
+
+      <details class="rule-card">
+        <summary>
+          <span class="rule-num">9</span>
+          <span class="rule-title">品行要求</span>
+          <span class="rule-hint">品德比球技更重要</span>
+          <span class="rule-arrow">▼</span>
+        </summary>
+        <div class="rule-body">
+          <p><strong>品德比球技更重要。</strong>只有具備良好品行的人，才能有良好的球技。</p>
+          <p><span class="rd">品行不佳且不改進者，一律不予留在球隊</span>，剩餘練習課程不補課、不退費。</p>
+        </div>
+      </details>
+
+    </div>
+
+    <div class="level-note" style="margin-top:16px;">
+      <span class="ln-ico">🤍</span>
+      <span>
+        希望家長能與隊員一起遵守球隊規範，共同維護球隊的榮譽和團結精神。<br>
+        <b>讓我們一起努力，在球場上和生活中成為更好的自己！</b>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 訓練制度 ═══════════ -->
+<section id="system" style="padding: 34px 0 0;">
+  <div class="container">
+    <div class="p-sec-head">
+      <div class="p-sec-title">訓練制度</div>
+      <div class="p-sec-sub">讓孩子看得見自己的進步</div>
+    </div>
+
+    <div class="rank-box">
+      <div class="rank-eyebrow">RANKING MATCH</div>
+      <div class="rank-title">隊內排名賽</div>
+      <div class="rank-desc">
+        球隊定期舉辦隊內排名賽，幫助孩子提高競爭力。<br>
+        良好的競爭會帶來進步——在熟悉的隊友面前上場，孩子既有壓力也有安全感，是練習面對比賽最好的方式。
+      </div>
+      <span class="rank-when">📅 每學期末舉辦一次</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 能力分級表 ═══════════ -->
+<section id="levels" style="padding: 30px 0 0;">
+  <div class="container">
+    <div class="p-sec-head">
+      <div class="p-sec-title">能力分級表</div>
+      <div class="p-sec-sub">從蛋到鳳凰，七個階段一步步飛起來</div>
+    </div>
+
+    <div class="level-list">
+
+      <div class="level-card lv-1">
+        <div class="lv-badge">
+          <span class="lv-emoji">🥚</span>
+          <span class="lv-num">LV.1</span>
+        </div>
+        <div class="lv-body">
+          <div class="lv-name">蛋</div>
+          <div class="lv-skill">基本<b>握拍</b>、<b>前後跑動</b></div>
+        </div>
+      </div>
+
+      <div class="level-card lv-2">
+        <div class="lv-badge">
+          <span class="lv-emoji">🐦</span>
+          <span class="lv-num">LV.2</span>
+        </div>
+        <div class="lv-body">
+          <div class="lv-name">麻雀</div>
+          <div class="lv-skill">基本<b>步伐</b>、<b>發球</b>、基本揮拍動作（壓、長、小、挑）</div>
+        </div>
+      </div>
+
+      <div class="level-card lv-3">
+        <div class="lv-badge">
+          <span class="lv-emoji">🕊️</span>
+          <span class="lv-num">LV.3</span>
+        </div>
+        <div class="lv-body">
+          <div class="lv-name">鴿子</div>
+          <div class="lv-skill">基本<b>米字步伐</b> ＋ 基本球回擊（壓、長、小、挑）</div>
+        </div>
+      </div>
+
+      <div class="level-card lv-4">
+        <div class="lv-badge">
+          <span class="lv-emoji">🦜</span>
+          <span class="lv-num">LV.4</span>
+        </div>
+        <div class="lv-body">
+          <div class="lv-name">鸚鵡</div>
+          <div class="lv-skill">基本<b>啟動步</b>結合米字步伐、<b>進階球路</b>運用（殺、切、勾）</div>
+        </div>
+      </div>
+
+      <div class="level-card lv-5">
+        <div class="lv-badge">
+          <span class="lv-emoji">🦢</span>
+          <span class="lv-num">LV.5</span>
+        </div>
+        <div class="lv-body">
+          <div class="lv-name">天鵝</div>
+          <div class="lv-skill"><b>不固定步伐</b>跑動結合基本球路回擊（壓、長、小、挑）</div>
+        </div>
+      </div>
+
+      <div class="level-card lv-6">
+        <div class="lv-badge">
+          <span class="lv-emoji">🦅</span>
+          <span class="lv-num">LV.6</span>
+        </div>
+        <div class="lv-body">
+          <div class="lv-name">老鷹</div>
+          <div class="lv-skill"><b>不固定步伐</b>跑動結合<b>進階球路</b>運用（殺、切、勾）</div>
+        </div>
+      </div>
+
+      <div class="level-card lv-7">
+        <span class="lv-flag">最高級</span>
+        <div class="lv-badge">
+          <span class="lv-emoji">🔥</span>
+          <span class="lv-num">LV.7</span>
+        </div>
+        <div class="lv-body">
+          <div class="lv-name">鳳凰</div>
+          <div class="lv-skill">不固定步伐<b>流暢</b>且能夠<b>控制擊球方向</b>，結合基本與進階球路運用</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="level-note">
+      <span class="ln-ico">💡</span>
+      <span>
+        分級不是為了比較，而是讓孩子<b>看得見自己走到哪裡、下一步要練什麼</b>。<br>
+        每個孩子的速度不一樣，教練會依個別狀況評估晉級。
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 招生資訊（封存）═══════════ -->
+<section id="archive" style="padding: 34px 0 10px;">
+  <div class="container">
+    <div class="p-sec-head">
+      <div class="p-sec-title">招生資訊</div>
+      <div class="p-sec-sub">115 學年度招生已結束</div>
+    </div>
+
+    <details class="archive-wrap">
+      <summary>
+        <span class="ar-lock">🔒</span>
+        <span class="ar-txt">
+          <span class="ar-title">115 學年度招生資訊（已封存）</span>
+          <span class="ar-sub">點開可查看班別、費用與時段，僅供參考</span>
+        </span>
+        <span class="ar-arrow">▼</span>
+      </summary>
+
+      <div class="ar-banner">
+        <span>⚠️</span>
+        <span>
+          <b>本梯次招生已結束，目前無法報名。</b><br>
+          以下內容僅供參考。<b>寒假訓練班</b>預計於學期末開放報名，屆時將於此網站與 LINE 群組公告。
+        </span>
+      </div>
+
+      <div class="ar-content">
+
 <section style="padding: 0 0 4px;">
   <div class="container">
     <div class="info-bar">
@@ -8851,249 +9553,12 @@
       </div>
     </div>
 
-    <a href="javascript:openModal()" class="price-cta-btn" style="margin-top: 18px;">
-      <span class="pcb-icon">📝</span>
-      <span class="pcb-text">費用看懂了，我要報名</span>
-      <span class="pcb-arrow">→</span>
-    </a>
+    
   </div>
 </section>
 
-<section class="why-section" id="why">
-  <div class="container">
-    <div class="p-sec-head" style="margin-bottom: 16px;">
-      <div class="p-sec-title">為什麼選開元？</div>
-      <div class="p-sec-sub">點開下面兩張卡，3 分鐘看完</div>
-    </div>
-
-    <div class="learn-more-section">
-      <details class="learn-more-card">
-        <summary class="lm-header">
-          <span class="lm-icon">🤔</span>
-          <span class="lm-title">您是否也在煩惱？</span>
-          <span class="lm-hint">開學後怎麼幫孩子安排？</span>
-          <span class="lm-arrow">▼</span>
-        </summary>
-        <div class="lm-body">
-          <div class="pain-intro-mini">
-            <div class="quote-mark">"</div>
-            <h3>新學期最怕孩子……</h3>
-            <p>放學就回家滑手機、坐一整晚<br>體力越來越差、視力越來越糟、越來越不想動</p>
-          </div>
-          <div class="pain-list-mini">
-            <div class="pain-item-mini">
-              <span class="pi-emoji">😟</span>
-              <span class="pi-text">擔心孩子放學就看 3C，視力與專注力下降</span>
-            </div>
-            <div class="pain-item-mini">
-              <span class="pi-emoji">📚</span>
-              <span class="pi-text">已經有補習、安親、才藝，時間根本喬不出來</span>
-            </div>
-            <div class="pain-item-mini">
-              <span class="pi-emoji">💼</span>
-              <span class="pi-text">雙薪家庭下班晚，希望孩子放學後有地方去</span>
-            </div>
-            <div class="pain-item-mini">
-              <span class="pi-emoji">🤷</span>
-              <span class="pi-text">孩子沒學過羽球，怕跟不上、不敢報名</span>
-            </div>
-          </div>
-          <div class="pain-promise">
-            <span class="pp-icon">🏸</span>
-            <strong>三種班別 · 三種節奏，總有一種合得上</strong><br>
-            零基礎也能從第一堂開始，慢慢打進節奏裡
-          </div>
-        </div>
-      </details>
-
-      <details class="learn-more-card">
-        <summary class="lm-header">
-          <span class="lm-icon">⭐</span>
-          <span class="lm-title">為什麼選開元羽球？</span>
-          <span class="lm-hint">4 大特色一次看</span>
-          <span class="lm-arrow">▼</span>
-        </summary>
-        <div class="lm-body">
-          <div class="feature-grid-mini">
-            <div class="feature-card-mini">
-              <div class="fm-num">01</div>
-              <div class="fm-text">
-                <h4>專業教練團隊</h4>
-                <p>國家級認證教練親自指導，從基礎握拍到進階戰術，循序漸進培養每位孩子的羽球底蘊</p>
-              </div>
-            </div>
-            <div class="feature-card-mini">
-              <div class="fm-num">02</div>
-              <div class="fm-text">
-                <h4>分齡分級教學</h4>
-                <p>低、中、高年級各自編組，依孩子的程度與體能量身打造合適的訓練菜單</p>
-              </div>
-            </div>
-            <div class="feature-card-mini">
-              <div class="fm-num">03</div>
-              <div class="fm-text">
-                <h4>校隊舞台機會</h4>
-                <p>表現優異者可加入校隊，代表學校參加市賽、全國賽，累積寶貴的比賽經驗</p>
-              </div>
-            </div>
-            <div class="feature-card-mini">
-              <div class="fm-num">04</div>
-              <div class="fm-text">
-                <h4>時間搭得上生活</h4>
-                <p>培訓班天數自己挑、晨操班只佔上學前 40 分鐘，補習與安親都能並存</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </details>
-    </div>
-  </div>
-</section>
-
-
-<section class="notice-section" id="notice">
-  <div class="container">
-    <div class="p-sec-head" style="margin-bottom: 16px;">
-      <div class="p-sec-title">報名注意事項</div>
-      <div class="p-sec-sub">點選下方項目查看詳細規則</div>
-    </div>
-
-    <div class="collapsible-list">
-
-      <!-- 1. 報名與繳費流程 -->
-      <details class="collapsible-card">
-        <summary class="collapsible-header">
-          <span class="ch-icon">💰</span>
-          <span class="ch-title">報名與繳費流程</span>
-          <span class="ch-hint">填表即完成報名 · 繳費方式說明</span>
-          <span class="ch-arrow">▼</span>
-        </summary>
-        <div class="collapsible-body">
-          <div class="notice-group notice-group-payment" style="margin-top: 0;">
-
-            <div class="notice-card">
-              <div class="notice-item">
-                <div class="notice-icon">📝</div>
-                <div class="notice-text">
-                  <strong>Step 1　線上填表</strong><br>
-                  <span class="ni-detail">選好班別後送出報名表，<strong style="color: var(--court-deep);">送出即完成報名、保留名額</strong></span>
-                </div>
-              </div>
-              <div class="notice-item">
-                <div class="notice-icon">💬</div>
-                <div class="notice-text">
-                  <strong>Step 2　加入 LINE 群組</strong><br>
-                  <span class="ni-detail">送出後請主動加入球隊 LINE 群組，開課時間與分組會在群組公告</span>
-                </div>
-              </div>
-              <div class="notice-item">
-                <div class="notice-icon">💵</div>
-                <div class="notice-text">
-                  <strong>Step 3　開課後繳費</strong><br>
-                  <span class="ni-detail">
-                    培訓班：每月初由球隊發<strong>繳費袋</strong>收當月月費<br>
-                    晨操班 / 體驗班：開課後<strong>一次繳清整學期費用</strong>
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div class="payment-location">
-              <div class="pl-title">
-                <span>📍</span> 繳費地點 ＆ 時間
-              </div>
-              <div class="pl-place">
-                <strong>開元國小・開元館・羽球隊</strong>
-              </div>
-
-              <div class="pl-sub">🏆 培訓班</div>
-              <div class="pl-time">
-                <div class="pl-time-item">
-                  <span class="pl-day">每月發放繳費袋</span>
-                  <span class="pl-hours">裝入月費後交回教練</span>
-                </div>
-              </div>
-
-              <div class="pl-sub">🌅 晨操班 ＆ 🌱 體驗班</div>
-              <div class="pl-time">
-                <div class="pl-time-item">
-                  <span class="pl-day">每週二、每週五</span>
-                  <span class="pl-hours">08:00 – 08:30</span>
-                </div>
-                <div class="pl-time-item">
-                  <span class="pl-day">每週一、二、四、五</span>
-                  <span class="pl-hours">17:00 – 19:00</span>
-                </div>
-                <div class="pl-time-item">
-                  <span class="pl-day">每週三</span>
-                  <span class="pl-hours">12:40 – 15:30</span>
-                </div>
-              </div>
-            </div>
-
-            <a href="https://line.me/ti/g/8xCPL-yz9M" target="_blank" class="line-group-btn">
-              <div class="line-icon">💬</div>
-              <div class="line-text">
-                <div class="line-title">加入 LINE 群組</div>
-                <div class="line-sub">報名完成後請加入，方便接收最新訊息</div>
-              </div>
-              <div class="line-arrow">→</div>
-            </a>
-          </div>
-        </div>
-      </details>
-
-      <!-- 2. 上課須知 -->
-      <details class="collapsible-card">
-        <summary class="collapsible-header">
-          <span class="ch-icon">🎒</span>
-          <span class="ch-title">上課須知</span>
-          <span class="ch-hint">幫助孩子順利參與每堂課</span>
-          <span class="ch-arrow">▼</span>
-        </summary>
-        <div class="collapsible-body">
-          <div class="notice-group notice-group-class" style="margin-top: 0;">
-            <div class="notice-card">
-              <div class="notice-item">
-                <div class="notice-icon">⏰</div>
-                <div class="notice-text">請於上課前 <strong>10–15 分鐘</strong>提早到場，做好上課準備</div>
-              </div>
-              <div class="notice-item">
-                <div class="notice-icon">🎒</div>
-                <div class="notice-text">需自備：<strong>球拍、球鞋、水壺、毛巾、換洗衣服</strong></div>
-              </div>
-              <div class="notice-item">
-                <div class="notice-icon">🚗</div>
-                <div class="notice-text">培訓班平日練習至 <strong>19:00</strong>，請家長準時接送</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </details>
-
-    </div><!-- collapsible-list end -->
-  </div>
-</section>
-
-<section style="padding: 34px 0 10px;" id="signup">
-  <div class="container">
-    <div class="red-bar">
-      <button onclick="openModal()" class="rb-btn">
-        <span>🚀</span><span>立即報名</span>
-      </button>
-      <div class="rb-sub">名額有限 · 先報先贏！</div>
-
-      <div class="rb-foot">
-        <div class="rb-cell">
-          <div class="rb-cell-label"><span>📍</span><span>上課地點</span></div>
-          <div class="rb-cell-value">開元國小<br>開元館</div>
-        </div>
-        <div class="rb-cell">
-          <div class="rb-cell-label"><span>📅</span><span>報名截止</span></div>
-          <div class="rb-cell-value">2026<br>8 / 29</div>
-        </div>
       </div>
-    </div>
+    </details>
   </div>
 </section>
 
@@ -9110,842 +9575,46 @@
     <div><a href="https://line.me/ti/g/8xCPL-yz9M" target="_blank" style="color: var(--shuttle-cork); text-decoration: none; font-weight: 600;">💬 加入 LINE 群組</a></div>
   </div>
   <div class="copyright">
-    © 2026 KAIYUAN BADMINTON TEAM · 115 SCHOOL YEAR
+    © 2026 KAIYUAN BADMINTON TEAM
   </div>
 </footer>
 
-<button onclick="openModal()" class="float-cta" id="floatCta">
-  <span class="badge-mini">115</span>
-  <span>立即報名</span>
-</button>
-
-<!-- ═══════════ 報名表單 Modal ═══════════ -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModalBg(event)">
-  <div class="modal">
-    <div class="modal-header">
-      <button class="modal-close" onclick="closeModal()">✕</button>
-      <h3>🏸 115 學年度羽球隊報名</h3>
-      <p>請填寫以下資料完成報名 · 約 1 分鐘即可完成</p>
-    </div>
-
-    <div class="form-loading" id="formLoading">
-      <div class="spinner"></div>
-      <p style="color: rgba(15,27,20,0.7); font-size: 14px;">資料傳送中，請稍候...</p>
-    </div>
-
-    <div class="success-screen" id="successScreen">
-      <div class="success-icon">✓</div>
-      <h3>報名成功！</h3>
-      <p>感謝您為孩子完成線上報名<br><strong style="color: var(--court-deep);">名額已為您保留</strong><br>請主動加入 LINE 群組<br>開課時間與繳費資訊將於群組公告</p>
-      <a href="https://line.me/ti/g/8xCPL-yz9M" target="_blank" class="form-submit" style="background: linear-gradient(135deg, #06C755 0%, #00B900 100%); color: white; text-decoration: none; display: block; text-align: center; margin-bottom: 10px;">
-        💬 立即加入 LINE 群組
-      </a>
-      <button onclick="closeModal()" class="form-submit" style="background: var(--ink);">
-        關閉視窗
-      </button>
-    </div>
-
-    <div class="modal-body" id="formBody">
-      <form id="signupForm" onsubmit="submitForm(event)">
-
-        <div class="form-section-title"><span class="icon">👦</span>學生資料</div>
-
-        <div class="form-group">
-          <label class="form-label">學生姓名 <span class="required">*</span></label>
-          <input type="text" class="form-input" name="studentName" required placeholder="請輸入學生姓名">
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">就讀年級 <span class="required">*</span></label>
-          <select class="form-select" name="grade" required>
-            <option value="">請選擇</option>
-            <option value="1年級">1 年級</option>
-            <option value="2年級">2 年級</option>
-            <option value="3年級">3 年級</option>
-            <option value="4年級">4 年級</option>
-            <option value="5年級">5 年級</option>
-            <option value="6年級">6 年級</option>
-          </select>
-          <div class="form-hint">💡 請填 <strong>115 學年度（開學後）</strong>的年級</div>
-        </div>
-
-        <div class="form-section-title"><span class="icon">📞</span>家長聯絡資料</div>
-
-        <div class="form-group">
-          <label class="form-label">家長姓名 <span class="required">*</span></label>
-          <input type="text" class="form-input" name="parentName" required placeholder="請輸入家長姓名">
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">聯絡電話 <span class="required">*</span></label>
-          <input type="tel" class="form-input" name="phone" required placeholder="例：0912-345-678">
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Line ID 或 Email</label>
-          <input type="text" class="form-input" name="contact" placeholder="方便聯繫的方式">
-          <div class="form-helper">球隊將透過 LINE / Email 通知開課與繳費資訊</div>
-        </div>
-
-        <div class="form-section-title"><span class="icon">🏸</span>選擇班別</div>
-
-        <div class="form-group">
-          <label class="form-label">請選擇要報名的班別 <span class="required">*</span></label>
-
-          <div class="closed-note">
-            <span class="cn-i">🔒</span>
-            <span><b>晨操班本學期已額滿</b>，停止收件。<br>培訓班與體驗班仍開放報名。</span>
-          </div>
-
-          <div class="combo-hint">
-            <span class="ch-i">ℹ️</span>
-            <span>培訓班為主力訓練，<b>單獨報名即可</b>。</span>
-          </div>
-
-          <div class="class-radio-group">
-            <label class="class-radio" id="card_train">
-              <input type="checkbox" name="classType" value="培訓班" onchange="onClassChange()">
-              <span class="cr-box">
-                <span class="cr-emoji">🏆</span>
-                <span class="cr-info">
-                  <span class="cr-name">培訓班</span>
-                  <span class="cr-desc">月費制 · 週一~五自選天數 · 2,000 起</span>
-                </span>
-                <span class="cr-quota" id="cq_train">不限名額</span>
-              </span>
-            </label>
-            <div class="cr-lock" id="lock_train" style="display:none;">
-              🔒 已選晨操班／體驗班。若要改報培訓班，請先取消上面的勾選。
-            </div>
-
-            <label class="class-radio" id="card_morning">
-              <input type="checkbox" name="classType" value="晨操班" onchange="onClassChange()">
-              <span class="cr-box">
-                <span class="cr-emoji">🌅</span>
-                <span class="cr-info">
-                  <span class="cr-name">晨操班</span>
-                  <span class="cr-desc">2,500／學期 · 每週二和每週五 08:00–08:40</span>
-                </span>
-                <span class="cr-quota q-full" id="cq_morning">❌ 已額滿</span>
-              </span>
-            </label>
-
-            <label class="class-radio" id="card_taste">
-              <input type="checkbox" name="classType" value="體驗班" onchange="onClassChange()">
-              <span class="cr-box">
-                <span class="cr-emoji">🌱</span>
-                <span class="cr-info">
-                  <span class="cr-name">體驗班</span>
-                  <span class="cr-desc">2,800／學期 · 週三 13:30–15:30</span>
-                </span>
-                <span class="cr-quota" id="cq_taste">限 20 人</span>
-              </span>
-            </label>
-
-            <div class="cr-lock" id="lock_others" style="display:none;">
-              ✅ 培訓班<strong>已含完整訓練</strong>，不需要再加報；週三 13:30 也與體驗班時間重疊。
-              晨操班的名額就留給還沒開始練球的孩子囉！
-            </div>
-          </div>
-
-          <div id="classError" class="form-error" style="display:none;">請至少選擇 1 種班別</div>
-        </div>
-
-        <!-- 🏆 培訓班追加問題 -->
-        <div class="train-extra" id="trainExtra" style="display:none;">
-          <div class="te-title"><span>🏆</span>培訓班 · 還有 2 個小問題</div>
-
-          <div class="te-block">
-            <label class="te-label">1. 想上幾天？ <span class="required">*</span></label>
-            <div class="opt-row">
-              <label class="opt-pill">
-                <input type="radio" name="trainDays" value="兩天班" onchange="onTrainDaysChange()">
-                <span class="opt-pill-box">
-                  <span class="opt-pill-main">兩天班</span>
-                  <span class="opt-pill-sub">2,000 元／月</span>
-                </span>
-              </label>
-              <label class="opt-pill">
-                <input type="radio" name="trainDays" value="三天以上班" onchange="onTrainDaysChange()">
-                <span class="opt-pill-box">
-                  <span class="opt-pill-main">三天以上班</span>
-                  <span class="opt-pill-sub">2,500 元／月</span>
-                </span>
-              </label>
-            </div>
-          </div>
-
-          <div class="te-block">
-            <label class="te-label">2. 想上哪幾天？ <span class="required">*</span></label>
-            <div class="day-grid">
-              <label class="day-chip">
-                <input type="checkbox" name="trainWeekdays" value="週一" onchange="onWeekdayChange()">
-                <span class="day-chip-box">
-                  <span class="day-chip-name">一</span>
-                  <span class="day-chip-time">16:00<br>19:00</span>
-                </span>
-              </label>
-              <label class="day-chip">
-                <input type="checkbox" name="trainWeekdays" value="週二" onchange="onWeekdayChange()">
-                <span class="day-chip-box">
-                  <span class="day-chip-name">二</span>
-                  <span class="day-chip-time">16:00<br>19:00</span>
-                </span>
-              </label>
-              <label class="day-chip">
-                <input type="checkbox" name="trainWeekdays" value="週三" onchange="onWeekdayChange()">
-                <span class="day-chip-box">
-                  <span class="day-chip-name">三</span>
-                  <span class="day-chip-time">13:30<br>16:30</span>
-                </span>
-              </label>
-              <label class="day-chip">
-                <input type="checkbox" name="trainWeekdays" value="週四" onchange="onWeekdayChange()">
-                <span class="day-chip-box">
-                  <span class="day-chip-name">四</span>
-                  <span class="day-chip-time">16:00<br>19:00</span>
-                </span>
-              </label>
-              <label class="day-chip">
-                <input type="checkbox" name="trainWeekdays" value="週五" onchange="onWeekdayChange()">
-                <span class="day-chip-box">
-                  <span class="day-chip-name">五</span>
-                  <span class="day-chip-time">16:00<br>19:00</span>
-                </span>
-              </label>
-            </div>
-            <div class="day-counter" id="dayCounter">已選 0 天</div>
-            <div id="dayError" class="form-error" style="display:none;"></div>
-          </div>
-
-          <div class="te-block">
-            <label class="te-label">📌 關於週六練習（09:00–12:00）</label>
-            <div class="te-hint" style="line-height: 1.75;">
-              週六<strong>不需要在這裡報名</strong>。每週會在 <strong>LINE 群組</strong>開放登記，
-              當週滿 4 人就開班，孩子有空再登記即可。
-            </div>
-            <div class="sat-warn" id="satWarn" style="display:none;">
-              ⚠️ 兩天班參加週六，<strong>每堂加收 300 元</strong>，依實際到場次數計收，與月費一起收。
-            </div>
-            <div class="te-hint" id="satFreeHint" style="display:none; color: var(--court-deep); font-weight: 700;">
-              ✅ 三天以上班可<strong>免費參加</strong>週六，不會另外加收。
-            </div>
-          </div>
-        </div>
-
-        <!-- 💰 費用試算 -->
-        <div id="feeCalculator" class="fee-calculator" style="display:none;">
-          <div class="fc-header">
-            <span class="fc-icon">💰</span>
-            <span class="fc-title">您的報名費試算</span>
-          </div>
-          <div class="fc-body">
-            <div class="fc-row">
-              <span class="fc-label">班別：</span>
-              <span class="fc-value" id="fc_class">—</span>
-            </div>
-            <div class="fc-row" id="fc_row_plan" style="display:none;">
-              <span class="fc-label">方案：</span>
-              <span class="fc-value" id="fc_plan">—</span>
-            </div>
-            <div class="fc-row" id="fc_row_days" style="display:none;">
-              <span class="fc-label">上課日：</span>
-              <span class="fc-value" id="fc_days">—</span>
-            </div>
-            <div class="fc-divider"></div>
-            <div class="fc-row fc-total">
-              <span class="fc-label" id="fc_total_label">總計：</span>
-              <span class="fc-value-total"><span class="fc-cur">NT$</span><span id="fc_total">0</span></span>
-            </div>
-            <div id="fc_suggestion" class="fc-suggestion" style="display:none;"></div>
-          </div>
-        </div>
-
-        <div class="form-section-title"><span class="icon">📝</span>其他資訊</div>
-
-        <div class="form-group">
-          <label class="form-label">特殊狀況或備註</label>
-          <textarea class="form-textarea" name="notes" placeholder="例：過敏體質、有舊傷、目前有補習需提早離開、其他需教練留意事項..."></textarea>
-        </div>
-
-        <!-- 規則確認 -->
-        <div class="form-agreement">
-          <div class="fa-title">
-            📋 <strong>送出報名前，請確認以下規則</strong>
-          </div>
-
-          <label class="fa-checkbox">
-            <input type="checkbox" name="agree_fee" required>
-            <span class="fa-checkmark"></span>
-            <span class="fa-text">
-              我已了解 <strong style="color: var(--court-deep);">費用與繳費方式</strong><br>
-              <span class="fa-detail">
-                • 培訓班：月費制，每月初由球隊發繳費袋收費<br>
-                • 晨操班 / 體驗班：學期費，開課後一次繳清
-              </span>
-            </span>
-          </label>
-
-          <label class="fa-checkbox">
-            <input type="checkbox" name="agree_schedule" required>
-            <span class="fa-checkmark"></span>
-            <span class="fa-text">
-              我已了解 <strong style="color: var(--court-deep);">上課與出賽規定</strong><br>
-              <span class="fa-detail">
-                • 報名勾選的星期為當月固定練習日，請盡量固定出席<br>
-                • 週六練習每週於 LINE 群組登記，滿 4 人開班；兩天班每堂加收 300 元<br>
-                • 比賽出賽：三天以上班可隨隊出賽，兩天班需教練審核<br>
-                • 晨操班限 30 人、體驗班限 20 人，額滿即止
-              </span>
-            </span>
-          </label>
-        </div>
-
-        <button type="submit" class="form-submit" id="submitBtn">
-          <span class="btn-text-open">確認送出報名</span>
-          <span class="btn-text-closed">🔒 招生已截止</span>
-        </button>
-
-        <div class="form-reminder">
-          <div class="fr-icon">💬</div>
-          <div class="fr-content">
-            <div class="fr-title">送出後請加入 LINE 群組</div>
-            <div class="fr-text">
-              送出表單即完成報名<br>
-              開課時間、分組與繳費資訊<br>
-              皆會於 <strong>LINE 群組</strong>公告
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-<script>
-  // ══════════════════════════════════════════
-  // 開元國小羽球隊 · 115 學年度招生
-  // 前端邏輯 v9（三種班別版）
-  // ══════════════════════════════════════════
-  /* ═══════════════════════════════════════════════════
-     ⚠️ 要換 Google Sheets 就改這一行（第 9267 行附近）
-     ═══════════════════════════════════════════════════
-     步驟：新試算表 → 擴充功能 → Apps Script → 貼上 v9
-          → 部署 → 新增部署作業 → 類型「網頁應用程式」
-          → 執行身分「我」、存取權「所有人」→ 複製網址貼在下面
-     ⚠️ 網址結尾一定要是 /exec，不是 /dev
-     ═══════════════════════════════════════════════════ */
-  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzvSXucmVRqhJ1n3sVaihJ0Zup7P8RSM26KgeLxiVy2CoBQQ7o3fpUs1q3kNHJEupuG/exec';
-
-  /* ═══════════════════════════════════════════════════
-     🔒 手動關閉班別（額滿時用這裡，不必等後台）
-     ═══════════════════════════════════════════════════
-     要關閉：把班別設成 true
-     要重開：改成 false
-     ⚠️ 這裡的設定優先於後台名額，設 true 就一定關閉
-     ═══════════════════════════════════════════════════ */
-  const CLASS_CLOSED = {
-    '培訓班': false,
-    '晨操班': true,     // ← 已額滿（超收），手動關閉
-    '體驗班': false     // ← 依後台名額自動判斷，滿 20 人會自己關
-  };
-
-  // ========== 費用表（115 學年度） ==========
-  const FEE_TABLE = {
-    '培訓班': { '兩天班': 2000, '三天以上班': 2500 },
-    '晨操班': 2500,
-    '體驗班': 2800
-  };
-
-  // 週六加收（僅兩天班適用，三天以上班免費）
-  const SAT_FEE = 300;        // 每堂 300 元
-  const SAT_PER_MONTH = 4;    // 一個月約 4 堂，用於試算參考
-
-  // 名額上限（null = 不限）
-  const CLASS_LIMIT = {
-    '培訓班': null,
-    '晨操班': 30,
-    '體驗班': 20
-  };
-
-  const floatCta = document.getElementById('floatCta');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 600) floatCta.classList.add('show');
-    else floatCta.classList.remove('show');
-  });
-
-  // ========== Modal ==========
-  function openModal() {
-    document.getElementById('modalOverlay').classList.add('show');
-    document.body.style.overflow = 'hidden';
-    document.getElementById('formBody').style.display = 'block';
-    document.getElementById('formLoading').classList.remove('show');
-    document.getElementById('successScreen').classList.remove('show');
-  }
-
-  function closeModal() {
-    document.getElementById('modalOverlay').classList.remove('show');
-    document.body.style.overflow = '';
-    document.getElementById('signupForm').reset();
-    resetClassBoxes();
-    document.getElementById('trainExtra').style.display = 'none';
-    document.getElementById('feeCalculator').style.display = 'none';
-    document.getElementById('classError').style.display = 'none';
-    document.getElementById('dayError').style.display = 'none';
-    onWeekdayChange();
-  }
-
-  function resetClassBoxes() {
-    document.querySelectorAll('input[name="classType"]').forEach(function(b) {
-      b.checked = false;
-      b.disabled = !!b.dataset.full;
-    });
-    document.getElementById('lock_train').style.display = 'none';
-    document.getElementById('lock_others').style.display = 'none';
-  }
-
-  function closeModalBg(e) {
-    if (e.target.id === 'modalOverlay') closeModal();
-  }
-
-  // ========== 表單互動 ==========
-  function getSelectedClasses() {
-    return Array.from(document.querySelectorAll('input[name="classType"]:checked')).map(cb => cb.value);
-  }
-
-  function getClassBox(v) {
-    return document.querySelector('input[name="classType"][value="' + v + '"]');
-  }
-
-  function getTrainDays() {
-    const el = document.querySelector('input[name="trainDays"]:checked');
-    return el ? el.value : '';
-  }
-
-  function getCheckedWeekdays() {
-    return Array.from(document.querySelectorAll('input[name="trainWeekdays"]:checked')).map(cb => cb.value);
-  }
-
-  // 選班別 → 互斥規則 + 展開/收合培訓班追加問題
-  function onClassChange() {
-    const picked = getSelectedClasses();
-    const hasTrain = picked.indexOf('培訓班') !== -1;
-    const hasOther = picked.indexOf('晨操班') !== -1 || picked.indexOf('體驗班') !== -1;
-
-    const extra = document.getElementById('trainExtra');
-    const lockTrain = document.getElementById('lock_train');
-    const lockOthers = document.getElementById('lock_others');
-    document.getElementById('classError').style.display = 'none';
-
-    // 🏆 培訓班 與 🌅🌱 互斥
-    ['晨操班', '體驗班'].forEach(function(v) {
-      const box = getClassBox(v);
-      if (!box) return;
-      if (hasTrain) {
-        box.checked = false;
-        if (!box.dataset.full) box.disabled = true;
-      } else if (!box.dataset.full) {
-        box.disabled = false;
-      }
-    });
-
-    const trainBox = getClassBox('培訓班');
-    if (trainBox) trainBox.disabled = hasOther;
-
-    lockOthers.style.display = hasTrain ? 'block' : 'none';
-    lockTrain.style.display  = hasOther ? 'block' : 'none';
-
-    // 培訓班追加問題
-    if (hasTrain) {
-      extra.style.display = 'block';
-    } else {
-      extra.style.display = 'none';
-      document.querySelectorAll('input[name="trainDays"]').forEach(r => r.checked = false);
-      document.querySelectorAll('input[name="trainWeekdays"]').forEach(cb => cb.checked = false);
-      document.getElementById('dayError').style.display = 'none';
-      onWeekdayChange();
-    }
-    updateFeeCalculation();
-  }
-
-  // 選天數方案 → 更新週六收費提示 + 天數驗證
-  function onTrainDaysChange() {
-    const plan = getTrainDays();
-    const warn = document.getElementById('satWarn');
-    const freeHint = document.getElementById('satFreeHint');
-
-    warn.style.display = (plan === '兩天班') ? 'block' : 'none';
-    freeHint.style.display = (plan === '三天以上班') ? 'block' : 'none';
-
-    onWeekdayChange();
-  }
-
-  // 勾星期 → 計數 + 驗證
-  function onWeekdayChange() {
-    const days = getCheckedWeekdays();
-    const plan = getTrainDays();
-    const counter = document.getElementById('dayCounter');
-    const err = document.getElementById('dayError');
-
-    counter.textContent = '已選 ' + days.length + ' 天';
-    counter.classList.remove('warn');
-    err.style.display = 'none';
-
-    if (plan === '兩天班') {
-      if (days.length > 2) {
-        counter.classList.add('warn');
-        err.textContent = '⚠️ 兩天班最多只能選 2 天，請取消 ' + (days.length - 2) + ' 天，或改選「三天以上班」';
-        err.style.display = 'block';
-      } else if (days.length > 0 && days.length < 2) {
-        counter.classList.add('warn');
-      }
-    } else if (plan === '三天以上班') {
-      if (days.length > 0 && days.length < 3) {
-        counter.classList.add('warn');
-        err.textContent = '⚠️ 三天以上班請至少選 3 天，或改選「兩天班」';
-        err.style.display = 'block';
-      }
-    }
-
-    updateFeeCalculation();
-  }
-
-  // ========== 費用試算（支援複選）==========
-  function calcFee() {
-    const picked = getSelectedClasses();
-    if (!picked.length) return null;
-
-    if (picked.indexOf('培訓班') !== -1) {
-      const plan = getTrainDays();
-      if (!plan) return null;
-      return {
-        classes: ['培訓班'],
-        classText: '培訓班',
-        plan: plan,
-        amount: FEE_TABLE['培訓班'][plan],
-        unit: '月費',
-        isTrain: true
-      };
-    }
-
-    let total = 0;
-    picked.forEach(function(c) { total += FEE_TABLE[c] || 0; });
-
-    return {
-      classes: picked,
-      classText: picked.join(' ＋ '),
-      plan: '',
-      amount: total,
-      unit: '學期費',
-      isTrain: false
-    };
-  }
-
-  function updateFeeCalculation() {
-    const box = document.getElementById('feeCalculator');
-    const info = calcFee();
-
-    if (!info) { box.style.display = 'none'; return; }
-    box.style.display = 'block';
-
-    document.getElementById('fc_class').textContent = info.classText;
-
-    const rowPlan = document.getElementById('fc_row_plan');
-    const rowDays = document.getElementById('fc_row_days');
-    const sug     = document.getElementById('fc_suggestion');
-
-    if (info.isTrain) {
-      rowPlan.style.display = 'flex';
-      rowDays.style.display = 'flex';
-
-      document.getElementById('fc_plan').textContent = info.plan;
-
-      const days = getCheckedWeekdays();
-      document.getElementById('fc_days').textContent = days.length ? days.join('、') : '尚未選擇';
-
-      document.getElementById('fc_total_label').textContent = '每月月費：';
-
-      // 週六採每週群組登記，這裡只提醒收費差異
-      if (info.plan === '兩天班') {
-        const threeDay = FEE_TABLE['培訓班']['三天以上班'];
-        sug.innerHTML =
-          '💡 週六練習如要參加，<strong>每堂加收 NT$' + SAT_FEE + '</strong>（每週於 LINE 群組登記）。<br>' +
-          '若常會想去週六，改選「<strong>三天以上班</strong>」NT$' + threeDay.toLocaleString() +
-          '／月，平日多練 1 天以上而且<strong>週六免費</strong>，通常更划算。';
-        sug.style.display = 'block';
-      } else if (info.plan === '三天以上班') {
-        sug.innerHTML = '✅ 週六練習<strong>免費參加</strong>，不會另外加收（每週於 LINE 群組登記）。';
-        sug.style.display = 'block';
-      } else {
-        sug.style.display = 'none';
-      }
-    } else {
-      rowPlan.style.display = 'none';
-      rowDays.style.display = 'none';
-      document.getElementById('fc_total_label').textContent = '本學期合計：';
-
-      if (info.classes.length === 2) {
-        sug.innerHTML = '🎉 <strong>晨操班 ＋ 體驗班</strong>一起報，孩子一週動 3 天（二、三、五），' +
-                        '早上運動＋下午玩球都有，是最輕鬆的入門組合。';
-        sug.style.display = 'block';
-      } else if (info.classes[0] === '晨操班') {
-        sug.innerHTML = '💡 想再多動一天？可以<strong>加報體驗班</strong>（週三 13:30–15:30），兩班時間不衝突。';
-        sug.style.display = 'block';
-      } else {
-        sug.innerHTML = '💡 想再多動一天？可以<strong>加報晨操班</strong>（每週二、每週五早上），兩班時間不衝突。';
-        sug.style.display = 'block';
-      }
-    }
-
-    document.getElementById('fc_total').textContent = info.amount.toLocaleString();
-  }
-
-  // ========== 送出報名 ==========
-  async function submitForm(e) {
-    e.preventDefault();
-
-    // 🔒 招生狀態檢查（最高優先級）
-    if (document.body.classList.contains('status-closed')) {
-      alert('🔒 招生已截止\n\n115 學年度招生已結束，感謝家長熱烈報名！\n如有問題請洽開元館羽球隊。');
-      return;
-    }
-    if (document.body.classList.contains('status-maintain')) {
-      alert('🚧 網站整修中\n\n暫停接受報名，請稍後再試。');
-      return;
-    }
-
-    const form = e.target;
-    const formData = new FormData(form);
-
-    const picked = getSelectedClasses();
-    const classType = picked.join('、');
-    if (!picked.length) {
-      document.getElementById('classError').style.display = 'block';
-      document.querySelector('.class-radio-group').scrollIntoView({ behavior: 'smooth', block: 'center' });
-      return;
-    }
-
-    let trainDays = '';
-    let weekdays = [];
-
-    if (picked.indexOf('培訓班') !== -1) {
-      trainDays = getTrainDays();
-      weekdays = getCheckedWeekdays();
-
-      if (!trainDays) {
-        alert('請選擇「兩天班」或「三天以上班」');
-        document.getElementById('trainExtra').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        return;
-      }
-      if (trainDays === '兩天班' && weekdays.length !== 2) {
-        alert('「兩天班」請剛好選 2 天上課日\n（目前選了 ' + weekdays.length + ' 天）');
-        document.getElementById('trainExtra').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        return;
-      }
-      if (trainDays === '三天以上班' && weekdays.length < 3) {
-        alert('「三天以上班」請至少選 3 天上課日\n（目前選了 ' + weekdays.length + ' 天）');
-        document.getElementById('trainExtra').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        return;
-      }
-    }
-
-    const feeInfo = calcFee();
-
-    const now = new Date();
-    const timestamp = now.toLocaleString('zh-TW', {
-      timeZone: 'Asia/Taipei',
-      year: 'numeric', month: '2-digit', day: '2-digit',
-      hour: '2-digit', minute: '2-digit', second: '2-digit'
-    });
-
-    const data = {
-      submitTime: timestamp,
-      studentName: formData.get('studentName'),
-      grade: formData.get('grade'),
-      parentName: formData.get('parentName'),
-      phone: formData.get('phone'),
-      contact: formData.get('contact') || '未填',
-      classType: classType,
-      trainDays: trainDays,
-      trainWeekdays: weekdays.join('、'),
-      weekdayCount: weekdays.length,
-      fee: feeInfo ? feeInfo.amount : 0,
-      feeUnit: feeInfo ? feeInfo.unit : '',
-      payStatus: picked.indexOf('培訓班') !== -1 ? '待收首月費' : '待收學期費',
-      notes: formData.get('notes') || '無',
-      agreeFee: formData.get('agree_fee') === 'on' ? '✅ 已同意' : '❌ 未同意',
-      agreeSchedule: formData.get('agree_schedule') === 'on' ? '✅ 已同意' : '❌ 未同意',
-      userAgent: navigator.userAgent.substring(0, 200),
-      screenSize: window.screen.width + 'x' + window.screen.height
-    };
-
-    document.getElementById('formBody').style.display = 'none';
-    document.getElementById('formLoading').classList.add('show');
-
-    try {
-      // 送出前再撈一次最新名額，避免剛好撞滿
-      await refreshQuotaBeforeSubmit();
-      const full = picked.filter(function(c) { return !checkQuotaBeforeSubmit(c).ok; });
-
-      if (full.length) {
-        document.getElementById('formLoading').classList.remove('show');
-        document.getElementById('formBody').style.display = 'block';
-        alert('抱歉！「' + full.join('、') + '」剛剛已額滿。\n\n請改選其他班別，謝謝！');
-        applyQuotaUI();
-        return;
-      }
-
-      await fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-
-      document.getElementById('formLoading').classList.remove('show');
-      document.getElementById('successScreen').classList.add('show');
-    } catch (error) {
-      alert('報名送出失敗，請稍後再試或加入 LINE 群組聯繫球隊');
-      document.getElementById('formLoading').classList.remove('show');
-      document.getElementById('formBody').style.display = 'block';
-    }
-  }
-
-  // 送出前的最終名額檢查
-  function checkQuotaBeforeSubmit(classType) {
-    if (CLASS_CLOSED[classType]) return { ok: false };
-    if (!QUOTA_DATA) return { ok: true };
-    const d = QUOTA_DATA[classType];
-    if (!d) return { ok: true };
-    if (d.limit === null || d.limit === undefined) return { ok: true };
-    if (d.count >= d.limit) return { ok: false };
-    return { ok: true };
-  }
-</script>
-
-<!-- 🆕 浮動快速導覽 -->
+<!-- 浮動快速導覽 -->
 <div class="quick-nav" id="quickNav">
-  <button class="quick-nav-toggle" id="quickNavToggle" onclick="toggleQuickNav()" aria-label="快速導覽">
+  <button class="quick-nav-toggle" onclick="toggleQuickNav()" aria-label="快速導覽">
     <span class="qn-icon">📑</span>
     <span class="qn-label">快速<br>導覽</span>
   </button>
-  <div class="quick-nav-menu" id="quickNavMenu">
+  <div class="quick-nav-menu">
     <div class="qn-menu-header">
       <span class="qn-menu-title">🏸 快速跳轉</span>
       <button class="qn-close" onclick="toggleQuickNav()" aria-label="關閉">✕</button>
     </div>
     <ul class="qn-menu-list">
       <li><a href="#top" onclick="closeQuickNav()"><span class="qn-emoji">🏠</span>回到頂部</a></li>
-      <li><a href="#classes" onclick="closeQuickNav()"><span class="qn-emoji">🏸</span>三種班別</a></li>
-      <li><a href="#combo" onclick="closeQuickNav()"><span class="qn-emoji">🧭</span>不知道怎麼選</a></li>
-      <li><a href="#tuition" onclick="closeQuickNav()"><span class="qn-emoji">💰</span>怎麼繳費</a></li>
-      <li><a href="#why" onclick="closeQuickNav()"><span class="qn-emoji">⭐</span>為什麼選開元</a></li>
-      <li><a href="#notice" onclick="closeQuickNav()"><span class="qn-emoji">📋</span>注意事項</a></li>
-      <li class="qn-cta-item"><a href="javascript:openModal()" onclick="closeQuickNav()" class="qn-cta"><span class="qn-emoji">🚀</span>立刻報名</a></li>
+      <li><a href="#coach" onclick="closeQuickNav()"><span class="qn-emoji">👨‍🏫</span>教練團隊</a></li>
+      <li><a href="#rules" onclick="closeQuickNav()"><span class="qn-emoji">📋</span>球隊規範</a></li>
+      <li><a href="#system" onclick="closeQuickNav()"><span class="qn-emoji">🏆</span>訓練制度</a></li>
+      <li><a href="#levels" onclick="closeQuickNav()"><span class="qn-emoji">🦅</span>能力分級</a></li>
+      <li><a href="#archive" onclick="closeQuickNav()"><span class="qn-emoji">📁</span>招生資訊</a></li>
     </ul>
   </div>
 </div>
 
 <script>
-  function toggleQuickNav() {
-    document.getElementById('quickNav').classList.toggle('quick-nav-open');
-  }
-  function closeQuickNav() {
-    document.getElementById('quickNav').classList.remove('quick-nav-open');
-  }
-  window.addEventListener('scroll', function() {
-    const nav = document.getElementById('quickNav');
-    if (window.scrollY > 300) nav.classList.add('quick-nav-visible');
-    else nav.classList.remove('quick-nav-visible');
-  });
-
-  // ============================================
-  // 🆕 v9: 即時名額查詢（依班別）
-  // ============================================
-  let QUOTA_DATA = null;
-
-  async function loadQuota() {
-    try {
-      const resp = await fetch(GOOGLE_SCRIPT_URL + '?action=quota');
-      QUOTA_DATA = await resp.json();
-      console.log('[名額] 載入完成', QUOTA_DATA);
-      applyQuotaUI();
-    } catch (err) {
-      console.warn('[名額] 載入失敗', err);
-    }
-  }
-
-  function applyQuotaUI() {
-    const map = [
-      { name: '培訓班', pageId: 'quota_train',   formId: 'cq_train'   },
-      { name: '晨操班', pageId: 'quota_morning', formId: 'cq_morning' },
-      { name: '體驗班', pageId: 'quota_taste',   formId: 'cq_taste'   }
-    ];
-
-    map.forEach(function(m) {
-      const closed = !!CLASS_CLOSED[m.name];
-      const d = (QUOTA_DATA && QUOTA_DATA[m.name]) || null;
-      if (!closed && !d) return;
-
-      const limit = (!d || d.limit === null || d.limit === undefined) ? null : d.limit;
-      const count = d ? (d.count || 0) : 0;
-
-      let text, cls;
-      if (closed) {
-        text = '❌ 已額滿';
-        cls = 'q-full';
-      } else if (limit === null) {
-        text = '不限名額 · 已 ' + count + ' 人';
-        cls = 'q-available';
-      } else if (count >= limit) {
-        text = '❌ 已額滿';
-        cls = 'q-full';
-      } else {
-        const remain = limit - count;
-        text = '剩 ' + remain + ' 名<br><span class="sm">上限 ' + limit + ' 人</span>';
-        cls = (remain <= 5) ? 'q-warning' : 'q-available';
-      }
-
-      // 頁面班別卡（保留元素原本的排版 class）
-      const pageEl = document.getElementById(m.pageId);
-      if (pageEl) {
-        pageEl.innerHTML = text;
-        pageEl.className = (pageEl.dataset.base || '') + ' ' + cls;
-      }
-
-      // 報名表單
-      const formEl = document.getElementById(m.formId);
-      if (formEl) {
-        formEl.textContent = String(text).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
-        formEl.className = 'cr-quota ' + cls;
-      }
-
-      // 額滿 → 停用該班別選項
-      const box = document.querySelector('input[name="classType"][value="' + m.name + '"]');
-      if (box) {
-        const isFull = closed || (limit !== null && count >= limit);
-        if (isFull) {
-          box.dataset.full = '1';
-          box.disabled = true;
-          if (box.checked) { box.checked = false; onClassChange(); }
-        } else {
-          delete box.dataset.full;
-        }
-      }
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    applyQuotaUI();   // 先套用手動關閉，不等後台回應
-    loadQuota();
-    onWeekdayChange();
-  });
-
-  async function refreshQuotaBeforeSubmit() {
-    await loadQuota();
-    return QUOTA_DATA;
-  }
+/* 開元國小羽球隊 · 球隊網站 */
+window.addEventListener('scroll',function(){
+  var nav=document.getElementById('quickNav');
+  if(!nav)return;
+  if(window.scrollY>300)nav.classList.add('quick-nav-visible');
+  else nav.classList.remove('quick-nav-visible');
+});
+function toggleQuickNav(){
+  document.getElementById('quickNav').classList.toggle('quick-nav-open');
+}
+function closeQuickNav(){
+  document.getElementById('quickNav').classList.remove('quick-nav-open');
+}
 </script>
-
 </body>
 </html>
