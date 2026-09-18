@@ -8877,19 +8877,27 @@
   .fb-group { margin-bottom:18px; }
   .fb-group:last-of-type { margin-bottom:0; }
 
-  .fb-pills { display:flex; flex-wrap:wrap; gap:7px; }
+  .fb-pills {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:7px;
+  }
 
   .fb-pill { display:block; cursor:pointer; position:relative; }
   .fb-pill input { position:absolute; opacity:0; width:0; height:0; }
 
   .fb-pill-face {
-    padding:9px 15px;
+    display:flex; align-items:center; justify-content:center; gap:4px;
+    padding:11px 6px;
     border:2px solid var(--pf-line);
-    border-radius:50px;
+    border-radius:12px;
     background:#fff;
     font-size:13px; font-weight:600;
     color:rgba(15,27,20,0.7);
     transition:all 0.15s;
+    text-align:center;
+    line-height:1.3;
+    white-space:nowrap;
   }
   .fb-pill input:checked + .fb-pill-face {
     border-color:var(--pf-green);
@@ -8900,7 +8908,7 @@
 
   .fb-textarea {
     width:100%;
-    min-height:130px;
+    min-height:160px;
     padding:12px 14px;
     border:2px solid var(--pf-line);
     border-radius:12px;
@@ -9009,19 +9017,209 @@
   }
   .fb-err.show { display:block; }
 
+
+  /* ═══════════════════════════════════════════
+     ☰ 頂部列 ＋ 側邊選單
+     ═══════════════════════════════════════════ */
+  /* body 有 overflow-x:hidden 會讓 sticky 失效，改用 fixed */
+  .topbar {
+    position:fixed; top:0; left:0; right:0; z-index:900;
+    background:rgba(255,255,255,0.96);
+    backdrop-filter:saturate(180%) blur(12px);
+    -webkit-backdrop-filter:saturate(180%) blur(12px);
+    border-bottom:1px solid rgba(18,58,34,0.1);
+  }
+  body { padding-top:54px; }
+
+  .tb-inner {
+    max-width:560px; margin:0 auto;
+    padding:11px 16px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .tb-brand { display:flex; align-items:center; gap:8px; flex:1; min-width:0; text-decoration:none; }
+  .tb-dot {
+    width:11px; height:11px; border-radius:50%;
+    background:linear-gradient(140deg,var(--pf-gold-lt) 0%,#B8862F 100%);
+    flex-shrink:0;
+    box-shadow:0 0 0 3px rgba(217,169,79,0.18);
+  }
+  .tb-name {
+    font-family:'Fraunces','Noto Serif TC',serif;
+    font-size:17px; font-weight:700;
+    color:var(--pf-green);
+    letter-spacing:0.5px;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
+  .tb-menu {
+    flex-shrink:0;
+    display:flex; align-items:center; gap:7px;
+    padding:8px 14px;
+    border:1.5px solid var(--pf-line);
+    border-radius:11px;
+    background:#fff;
+    color:var(--pf-green);
+    font-family:'Noto Sans TC',sans-serif;
+    font-size:14px; font-weight:800;
+    cursor:pointer;
+  }
+  .tb-menu:active { transform:translateY(1px); }
+  .tb-bars { display:flex; flex-direction:column; gap:3px; }
+  .tb-bars i { display:block; width:15px; height:2px; background:var(--pf-green); border-radius:2px; }
+
+  /* 遮罩 */
+  section[id], header[id] { scroll-margin-top:62px; }
+
+  .dw-mask {
+    position:fixed; inset:0; z-index:960;
+    background:rgba(10,20,14,0.42);
+    opacity:0; visibility:hidden;
+    transition:opacity 0.25s;
+  }
+  body.drawer-open .dw-mask { opacity:1; visibility:visible; }
+
+  /* 抽屜 */
+  .drawer {
+    position:fixed; top:0; left:0; bottom:0; z-index:970;
+    width:80%; max-width:310px;
+    background:#fff;
+    transform:translateX(-102%);
+    transition:transform 0.28s cubic-bezier(.4,0,.2,1);
+    display:flex; flex-direction:column;
+    box-shadow:6px 0 28px rgba(10,20,14,0.16);
+  }
+  body.drawer-open .drawer { transform:translateX(0); }
+
+  .dw-head {
+    display:flex; align-items:center; gap:9px;
+    padding:16px 16px 14px;
+    border-bottom:1px solid rgba(18,58,34,0.1);
+    flex-shrink:0;
+  }
+  .dw-head .tb-name { font-size:16px; flex:1; }
+  .dw-close {
+    flex-shrink:0;
+    width:36px; height:36px;
+    border:none; border-radius:10px;
+    background:var(--pf-paper);
+    color:var(--pf-green);
+    font-size:17px; font-weight:700;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  .dw-body { flex:1; overflow-y:auto; padding:14px 12px 26px; }
+
+  .dw-group {
+    font-size:11.5px; font-weight:800;
+    letter-spacing:1.2px;
+    color:var(--pf-gold);
+    padding:0 10px;
+    margin:16px 0 6px;
+  }
+  .dw-group:first-child { margin-top:2px; }
+
+  .dw-link {
+    display:flex; align-items:center; gap:10px;
+    padding:13px 12px;
+    border-radius:11px;
+    text-decoration:none;
+    color:rgba(15,27,20,0.82);
+    font-size:15px; font-weight:600;
+    transition:background 0.15s;
+  }
+  .dw-link:active { background:var(--pf-paper); }
+  .dw-link .dw-ico { font-size:16px; flex-shrink:0; width:20px; text-align:center; }
+  .dw-link .dw-txt { flex:1; }
+  .dw-link .dw-ar { font-size:12px; color:rgba(15,27,20,0.25); flex-shrink:0; }
+
+  .dw-link.is-active {
+    background:rgba(217,169,79,0.18);
+    color:#8A6420;
+    font-weight:800;
+  }
+  .dw-link.is-active .dw-ar { color:#B8862F; }
+
+  .dw-link.dw-muted { color:rgba(15,27,20,0.45); }
+
+  .dw-foot {
+    flex-shrink:0;
+    padding:13px 16px 16px;
+    border-top:1px solid rgba(18,58,34,0.1);
+    font-size:11.5px;
+    line-height:1.7;
+    color:rgba(15,27,20,0.45);
+  }
+
+  @media (min-width:561px){
+    .drawer { max-width:340px; }
+  }
+
 </style>
 </head>
 <body class="status-closed">
 
-<nav class="navbar" id="navbar">
-  <div class="nav-scroll">
-    <a href="#top" class="nav-link"><span class="nav-icon">🏠</span><span>首頁</span></a>
-    <a href="#coach" class="nav-link"><span class="nav-icon">👨‍🏫</span><span>教練團隊</span></a>
-    <a href="#rules" class="nav-link"><span class="nav-icon">📋</span><span>球隊規範</span></a>
-    <a href="#system" class="nav-link"><span class="nav-icon">🏆</span><span>訓練制度</span></a>
-    <a href="#levels" class="nav-link"><span class="nav-icon">🦅</span><span>能力分級</span></a>
-    <a href="#feedback" class="nav-link"><span class="nav-icon">💬</span><span>意見信箱</span></a>
-    <a href="#archive" class="nav-link"><span class="nav-icon">📁</span><span>招生資訊</span></a>
+<!-- ═══════════ 頂部列 ═══════════ -->
+<div class="topbar">
+  <div class="tb-inner">
+    <a href="#top" class="tb-brand">
+      <span class="tb-dot"></span>
+      <span class="tb-name">開元國小羽球隊</span>
+    </a>
+    <button class="tb-menu" onclick="openDrawer()" aria-label="開啟選單">
+      <span class="tb-bars"><i></i><i></i><i></i></span>
+      <span>選單</span>
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════ 側邊選單 ═══════════ -->
+<div class="dw-mask" onclick="closeDrawer()"></div>
+<nav class="drawer" id="drawer">
+  <div class="dw-head">
+    <span class="tb-dot"></span>
+    <span class="tb-name">開元國小羽球隊</span>
+    <button class="dw-close" onclick="closeDrawer()" aria-label="關閉選單">✕</button>
+  </div>
+
+  <div class="dw-body">
+    <div class="dw-group">首　頁</div>
+    <a href="#top" class="dw-link" data-sec="top" onclick="closeDrawer()">
+      <span class="dw-ico">🏠</span><span class="dw-txt">回到首頁</span><span class="dw-ar">›</span>
+    </a>
+
+    <div class="dw-group">認識球隊</div>
+    <a href="#coach" class="dw-link" data-sec="coach" onclick="closeDrawer()">
+      <span class="dw-ico">👨‍🏫</span><span class="dw-txt">教練團隊</span><span class="dw-ar">›</span>
+    </a>
+    <a href="#rules" class="dw-link" data-sec="rules" onclick="closeDrawer()">
+      <span class="dw-ico">📋</span><span class="dw-txt">球隊規範</span><span class="dw-ar">›</span>
+    </a>
+
+    <div class="dw-group">訓　練</div>
+    <a href="#system" class="dw-link" data-sec="system" onclick="closeDrawer()">
+      <span class="dw-ico">🏆</span><span class="dw-txt">訓練制度</span><span class="dw-ar">›</span>
+    </a>
+    <a href="#levels" class="dw-link" data-sec="levels" onclick="closeDrawer()">
+      <span class="dw-ico">🦅</span><span class="dw-txt">能力分級表</span><span class="dw-ar">›</span>
+    </a>
+
+    <div class="dw-group">聯絡我們</div>
+    <a href="#feedback" class="dw-link" data-sec="feedback" onclick="closeDrawer()">
+      <span class="dw-ico">💬</span><span class="dw-txt">意見信箱</span><span class="dw-ar">›</span>
+    </a>
+    <a href="https://line.me/ti/g/8xCPL-yz9M" target="_blank" class="dw-link" onclick="closeDrawer()">
+      <span class="dw-ico">🟢</span><span class="dw-txt">加入 LINE 群組</span><span class="dw-ar">›</span>
+    </a>
+
+    <div class="dw-group">其　他</div>
+    <a href="#archive" class="dw-link dw-muted" data-sec="archive" onclick="closeDrawer()">
+      <span class="dw-ico">🔒</span><span class="dw-txt">招生資訊（已封存）</span><span class="dw-ar">›</span>
+    </a>
+  </div>
+
+  <div class="dw-foot">
+    臺南市北區開元國民小學 · 開元館<br>
+    © 2026 KAIYUAN BADMINTON TEAM
   </div>
 </nav>
 
@@ -9431,8 +9629,8 @@
 
       <div class="fb-group">
         <label class="fb-label">內容 <span class="opt">＊必填</span></label>
-        <textarea class="fb-textarea" id="fbContent" placeholder="請放心寫下您想說的話。&#10;&#10;例如：孩子最近好像對某個練習比較退縮、想了解某個規定的原因、某位教練讓孩子很有進步想說聲謝謝……"></textarea>
-        <div class="fb-hint">💡 越具體越好，但不用擔心寫得不夠好——把想法說出來最重要。</div>
+        <textarea class="fb-textarea" id="fbContent" placeholder="請放心寫下您想說的話。&#10;&#10;例如：孩子最近對某個練習有點退縮、想了解某個規定的原因、想跟教練說聲謝謝……"></textarea>
+        <div class="fb-hint">💡 不用擔心寫得好不好，說出來最重要。</div>
       </div>
 
       <div class="fb-group">
@@ -9443,7 +9641,7 @@
       <div class="fb-group">
         <label class="fb-label">聯絡方式 <span class="opt">選填，希望我們回覆再填</span></label>
         <input type="text" class="fb-input" id="fbContact" placeholder="電話或 LINE ID（可不填）">
-        <div class="fb-hint">沒填也沒關係，我們一樣會看、一樣會處理。只是無法個別回覆您。</div>
+        <div class="fb-hint">沒填一樣會看、會處理，只是無法個別回覆。</div>
       </div>
 
       <div class="fb-privacy">
@@ -9881,43 +10079,40 @@
   </div>
 </footer>
 
-<!-- 浮動快速導覽 -->
-<div class="quick-nav" id="quickNav">
-  <button class="quick-nav-toggle" onclick="toggleQuickNav()" aria-label="快速導覽">
-    <span class="qn-icon">📑</span>
-    <span class="qn-label">快速<br>導覽</span>
-  </button>
-  <div class="quick-nav-menu">
-    <div class="qn-menu-header">
-      <span class="qn-menu-title">🏸 快速跳轉</span>
-      <button class="qn-close" onclick="toggleQuickNav()" aria-label="關閉">✕</button>
-    </div>
-    <ul class="qn-menu-list">
-      <li><a href="#top" onclick="closeQuickNav()"><span class="qn-emoji">🏠</span>回到頂部</a></li>
-      <li><a href="#coach" onclick="closeQuickNav()"><span class="qn-emoji">👨‍🏫</span>教練團隊</a></li>
-      <li><a href="#rules" onclick="closeQuickNav()"><span class="qn-emoji">📋</span>球隊規範</a></li>
-      <li><a href="#system" onclick="closeQuickNav()"><span class="qn-emoji">🏆</span>訓練制度</a></li>
-      <li><a href="#levels" onclick="closeQuickNav()"><span class="qn-emoji">🦅</span>能力分級</a></li>
-      <li><a href="#feedback" onclick="closeQuickNav()"><span class="qn-emoji">💬</span>意見信箱</a></li>
-      <li><a href="#archive" onclick="closeQuickNav()"><span class="qn-emoji">📁</span>招生資訊</a></li>
-    </ul>
-  </div>
-</div>
+
 
 <script>
 /* 開元國小羽球隊 · 球隊網站 */
-window.addEventListener('scroll',function(){
-  var nav=document.getElementById('quickNav');
-  if(!nav)return;
-  if(window.scrollY>300)nav.classList.add('quick-nav-visible');
-  else nav.classList.remove('quick-nav-visible');
+
+/* ── 側邊選單 ── */
+function openDrawer(){
+  document.body.classList.add('drawer-open');
+  document.body.style.overflow='hidden';
+  markActiveSection();
+}
+function closeDrawer(){
+  document.body.classList.remove('drawer-open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')closeDrawer();
 });
-function toggleQuickNav(){
-  document.getElementById('quickNav').classList.toggle('quick-nav-open');
+
+/* 依捲動位置標示目前所在區塊 */
+function markActiveSection(){
+  var links=document.querySelectorAll('.dw-link[data-sec]');
+  var pos=window.scrollY+140;
+  var current='top';
+  links.forEach(function(a){
+    var el=document.getElementById(a.dataset.sec);
+    if(el&&el.offsetTop<=pos)current=a.dataset.sec;
+  });
+  links.forEach(function(a){
+    a.classList.toggle('is-active',a.dataset.sec===current);
+  });
 }
-function closeQuickNav(){
-  document.getElementById('quickNav').classList.remove('quick-nav-open');
-}
+window.addEventListener('scroll',markActiveSection,{passive:true});
+document.addEventListener('DOMContentLoaded',markActiveSection);
 
 const FEEDBACK_URL='https://script.google.com/macros/s/AKfycbzvSXucmVRqhJ1n3sVaihJ0Zup7P8RSM26KgeLxiVy2CoBQQ7o3fpUs1q3kNHJEupuG/exec';
 
