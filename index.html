@@ -9154,6 +9154,94 @@
     .drawer { max-width:340px; }
   }
 
+
+  /* ═══════════════════════════════════════════
+     📄 分頁模式
+     ═══════════════════════════════════════════ */
+  .page { display:none; }
+  .page.is-active { display:block; animation:pageIn 0.25s ease; }
+  @keyframes pageIn { from{opacity:0;transform:translateY(6px);} to{opacity:1;transform:none;} }
+
+  /* 精簡版 Hero */
+  .poster-hero-sm { padding:18px 0 20px; }
+  .poster-hero-sm .ph-top { gap:11px; }
+  .poster-hero-sm .ph-115 { font-size:44px; }
+  .poster-hero-sm .ph-h1 { font-size:19px; }
+  .poster-hero-sm .ph-h2 { font-size:11.5px; margin-top:5px; }
+  .poster-hero-sm .ph-gear { display:none; }
+  .poster-hero-sm .ph-school {
+    margin-top:12px; font-size:10.5px; letter-spacing:2px;
+  }
+
+  /* 首頁入口卡 */
+  .home-grid { display:flex; flex-direction:column; gap:10px; }
+
+  .hm-card {
+    display:flex; align-items:center; gap:13px;
+    padding:15px 15px;
+    background:#fff;
+    border:1.5px solid var(--pf-line);
+    border-radius:14px;
+    text-decoration:none;
+    transition:transform 0.12s, box-shadow 0.15s;
+  }
+  .hm-card:active { transform:scale(0.985); }
+
+  .hm-ico {
+    flex-shrink:0;
+    width:44px; height:44px;
+    border-radius:12px;
+    background:var(--pf-paper);
+    display:flex; align-items:center; justify-content:center;
+    font-size:21px;
+  }
+  .hm-txt { flex:1; min-width:0; }
+  .hm-title {
+    display:block;
+    font-family:'Fraunces','Noto Serif TC',serif;
+    font-size:16.5px; font-weight:700;
+    color:var(--pf-green);
+    letter-spacing:0.5px;
+  }
+  .hm-sub {
+    display:block;
+    font-size:12px;
+    color:rgba(15,27,20,0.5);
+    margin-top:3px;
+  }
+  .hm-ar { flex-shrink:0; font-size:18px; color:rgba(15,27,20,0.25); }
+
+  .hm-card.hm-gold {
+    border-color:var(--pf-gold);
+    background:linear-gradient(120deg,rgba(217,169,79,0.12) 0%,#fff 60%);
+  }
+  .hm-card.hm-gold .hm-ico { background:rgba(217,169,79,0.2); }
+  .hm-card.hm-gold .hm-title { color:#8A6420; }
+
+  .hm-card.hm-line { border-color:rgba(6,199,85,0.4); }
+  .hm-card.hm-line .hm-ico { background:rgba(6,199,85,0.12); }
+
+  .hm-card.hm-muted { background:rgba(15,27,20,0.03); border-style:dashed; }
+  .hm-card.hm-muted .hm-title { color:rgba(15,27,20,0.5); }
+
+  /* 回首頁 */
+  .back-home {
+    display:inline-flex; align-items:center; gap:7px;
+    margin:26px 0 8px;
+    padding:11px 18px;
+    border-radius:50px;
+    background:var(--pf-paper);
+    border:1.5px solid var(--pf-line);
+    color:var(--pf-green);
+    font-size:14px; font-weight:700;
+    text-decoration:none;
+  }
+  .back-home:active { transform:translateY(1px); }
+
+  /* 頂部列防溢出 */
+  .tb-inner { width:100%; box-sizing:border-box; }
+  .tb-menu { white-space:nowrap; }
+
 </style>
 </head>
 <body class="status-closed">
@@ -9161,7 +9249,7 @@
 <!-- ═══════════ 頂部列 ═══════════ -->
 <div class="topbar">
   <div class="tb-inner">
-    <a href="#top" class="tb-brand">
+    <a href="#home" class="tb-brand" onclick="goPage('home');return false;">
       <span class="tb-dot"></span>
       <span class="tb-name">開元國小羽球隊</span>
     </a>
@@ -9183,28 +9271,28 @@
 
   <div class="dw-body">
     <div class="dw-group">首　頁</div>
-    <a href="#top" class="dw-link" data-sec="top" onclick="closeDrawer()">
+    <a href="#home" class="dw-link" data-sec="home" onclick="goPage('home');return false;">
       <span class="dw-ico">🏠</span><span class="dw-txt">回到首頁</span><span class="dw-ar">›</span>
     </a>
 
     <div class="dw-group">認識球隊</div>
-    <a href="#coach" class="dw-link" data-sec="coach" onclick="closeDrawer()">
+    <a href="#coach" class="dw-link" data-sec="coach" onclick="goPage('coach');return false;">
       <span class="dw-ico">👨‍🏫</span><span class="dw-txt">教練團隊</span><span class="dw-ar">›</span>
     </a>
-    <a href="#rules" class="dw-link" data-sec="rules" onclick="closeDrawer()">
+    <a href="#rules" class="dw-link" data-sec="rules" onclick="goPage('rules');return false;">
       <span class="dw-ico">📋</span><span class="dw-txt">球隊規範</span><span class="dw-ar">›</span>
     </a>
 
     <div class="dw-group">訓　練</div>
-    <a href="#system" class="dw-link" data-sec="system" onclick="closeDrawer()">
+    <a href="#system" class="dw-link" data-sec="system" onclick="goPage('system');return false;">
       <span class="dw-ico">🏆</span><span class="dw-txt">訓練制度</span><span class="dw-ar">›</span>
     </a>
-    <a href="#levels" class="dw-link" data-sec="levels" onclick="closeDrawer()">
+    <a href="#levels" class="dw-link" data-sec="levels" onclick="goPage('levels');return false;">
       <span class="dw-ico">🦅</span><span class="dw-txt">能力分級表</span><span class="dw-ar">›</span>
     </a>
 
     <div class="dw-group">聯絡我們</div>
-    <a href="#feedback" class="dw-link" data-sec="feedback" onclick="closeDrawer()">
+    <a href="#feedback" class="dw-link" data-sec="feedback" onclick="goPage('feedback');return false;">
       <span class="dw-ico">💬</span><span class="dw-txt">意見信箱</span><span class="dw-ar">›</span>
     </a>
     <a href="https://line.me/ti/g/8xCPL-yz9M" target="_blank" class="dw-link" onclick="closeDrawer()">
@@ -9212,7 +9300,7 @@
     </a>
 
     <div class="dw-group">其　他</div>
-    <a href="#archive" class="dw-link dw-muted" data-sec="archive" onclick="closeDrawer()">
+    <a href="#archive" class="dw-link dw-muted" data-sec="archive" onclick="goPage('archive');return false;">
       <span class="dw-ico">🔒</span><span class="dw-txt">招生資訊（已封存）</span><span class="dw-ar">›</span>
     </a>
   </div>
@@ -9224,7 +9312,9 @@
 </nav>
 
 <!-- ═══════════ Hero ═══════════ -->
-<header class="poster-hero" id="top">
+<!-- ═══════════ 首頁 ═══════════ -->
+<div class="page is-active" id="page-home">
+<header class="poster-hero poster-hero-sm" id="top">
   <div class="ph-net"></div>
   <div class="container ph-inner">
 
@@ -9246,6 +9336,72 @@
 </header>
 
 <!-- ═══════════ 教練團隊 ═══════════ -->
+
+<section style="padding: 24px 0 8px;">
+  <div class="container">
+    <div class="home-grid">
+      <a href="#coach" class="hm-card" onclick="goPage('coach');return false;">
+        <span class="hm-ico">👨‍🏫</span>
+        <span class="hm-txt">
+          <span class="hm-title">教練團隊</span>
+          <span class="hm-sub">三位教練，各有專長</span>
+        </span>
+        <span class="hm-ar">›</span>
+      </a>
+      <a href="#rules" class="hm-card" onclick="goPage('rules');return false;">
+        <span class="hm-ico">📋</span>
+        <span class="hm-txt">
+          <span class="hm-title">球隊規範</span>
+          <span class="hm-sub">九項規定與注意事項</span>
+        </span>
+        <span class="hm-ar">›</span>
+      </a>
+      <a href="#system" class="hm-card" onclick="goPage('system');return false;">
+        <span class="hm-ico">🏆</span>
+        <span class="hm-txt">
+          <span class="hm-title">訓練制度</span>
+          <span class="hm-sub">隊內排名賽</span>
+        </span>
+        <span class="hm-ar">›</span>
+      </a>
+      <a href="#levels" class="hm-card" onclick="goPage('levels');return false;">
+        <span class="hm-ico">🦅</span>
+        <span class="hm-txt">
+          <span class="hm-title">能力分級表</span>
+          <span class="hm-sub">從蛋到鳳凰，七個階段</span>
+        </span>
+        <span class="hm-ar">›</span>
+      </a>
+      <a href="#feedback" class="hm-card hm-gold" onclick="goPage('feedback');return false;">
+        <span class="hm-ico">💬</span>
+        <span class="hm-txt">
+          <span class="hm-title">意見信箱</span>
+          <span class="hm-sub">可匿名，有話都能說</span>
+        </span>
+        <span class="hm-ar">›</span>
+      </a>
+      <a href="https://line.me/ti/g/8xCPL-yz9M" target="_blank" class="hm-card hm-line">
+        <span class="hm-ico">🟢</span>
+        <span class="hm-txt">
+          <span class="hm-title">加入 LINE 群組</span>
+          <span class="hm-sub">停課與比賽通知都在這</span>
+        </span>
+        <span class="hm-ar">›</span>
+      </a>
+      <a href="#archive" class="hm-card hm-muted" onclick="goPage('archive');return false;">
+        <span class="hm-ico">🔒</span>
+        <span class="hm-txt">
+          <span class="hm-title">招生資訊（已封存）</span>
+          <span class="hm-sub">寒假訓練班將於學期末公告</span>
+        </span>
+        <span class="hm-ar">›</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</div>
+<div class="page" id="page-coach">
 <section id="coach" style="padding: 26px 0 0;">
   <div class="container">
     <div class="p-sec-head">
@@ -9299,6 +9455,9 @@
 </section>
 
 <!-- ═══════════ 球隊規範 ═══════════ -->
+  <div class="container"><a href="#home" class="back-home" onclick="goPage('home');return false;">← 回到首頁</a></div>
+</div>
+<div class="page" id="page-rules">
 <section id="rules" style="padding: 34px 0 0;">
   <div class="container">
     <div class="p-sec-head">
@@ -9445,6 +9604,9 @@
 </section>
 
 <!-- ═══════════ 訓練制度 ═══════════ -->
+  <div class="container"><a href="#home" class="back-home" onclick="goPage('home');return false;">← 回到首頁</a></div>
+</div>
+<div class="page" id="page-system">
 <section id="system" style="padding: 34px 0 0;">
   <div class="container">
     <div class="p-sec-head">
@@ -9465,6 +9627,9 @@
 </section>
 
 <!-- ═══════════ 能力分級表 ═══════════ -->
+  <div class="container"><a href="#home" class="back-home" onclick="goPage('home');return false;">← 回到首頁</a></div>
+</div>
+<div class="page" id="page-levels">
 <section id="levels" style="padding: 30px 0 0;">
   <div class="container">
     <div class="p-sec-head">
@@ -9565,6 +9730,9 @@
 </section>
 
 <!-- ═══════════ 意見信箱 ═══════════ -->
+  <div class="container"><a href="#home" class="back-home" onclick="goPage('home');return false;">← 回到首頁</a></div>
+</div>
+<div class="page" id="page-feedback">
 <section id="feedback" style="padding: 34px 0 0;">
   <div class="container">
     <div class="p-sec-head">
@@ -9674,6 +9842,9 @@
 </section>
 
 <!-- ═══════════ 招生資訊（封存）═══════════ -->
+  <div class="container"><a href="#home" class="back-home" onclick="goPage('home');return false;">← 回到首頁</a></div>
+</div>
+<div class="page" id="page-archive">
 <section id="archive" style="padding: 34px 0 10px;">
   <div class="container">
     <div class="p-sec-head">
@@ -10061,6 +10232,8 @@
     </details>
   </div>
 </section>
+  <div class="container"><a href="#home" class="back-home" onclick="goPage('home');return false;">← 回到首頁</a></div>
+</div>
 
 <footer>
   <div class="footer-emojis">
@@ -10098,21 +10271,32 @@ document.addEventListener('keydown',function(e){
   if(e.key==='Escape')closeDrawer();
 });
 
-/* 依捲動位置標示目前所在區塊 */
-function markActiveSection(){
-  var links=document.querySelectorAll('.dw-link[data-sec]');
-  var pos=window.scrollY+140;
-  var current='top';
-  links.forEach(function(a){
-    var el=document.getElementById(a.dataset.sec);
-    if(el&&el.offsetTop<=pos)current=a.dataset.sec;
+/* ── 分頁切換 ── */
+var PAGES=['home','coach','rules','system','levels','feedback','archive'];
+
+function goPage(id,skipHash){
+  if(PAGES.indexOf(id)===-1)id='home';
+  PAGES.forEach(function(k){
+    var el=document.getElementById('page-'+k);
+    if(el)el.classList.toggle('is-active',k===id);
   });
-  links.forEach(function(a){
-    a.classList.toggle('is-active',a.dataset.sec===current);
+  document.querySelectorAll('.dw-link[data-sec]').forEach(function(a){
+    a.classList.toggle('is-active',a.dataset.sec===id);
   });
+  window.scrollTo({top:0,behavior:'auto'});
+  closeDrawer();
+  if(!skipHash&&location.hash!=='#'+id){
+    history.pushState({page:id},'','#'+id);
+  }
 }
-window.addEventListener('scroll',markActiveSection,{passive:true});
-document.addEventListener('DOMContentLoaded',markActiveSection);
+
+window.addEventListener('popstate',function(){
+  goPage((location.hash||'#home').slice(1),true);
+});
+
+document.addEventListener('DOMContentLoaded',function(){
+  goPage((location.hash||'#home').slice(1),true);
+});
 
 const FEEDBACK_URL='https://script.google.com/macros/s/AKfycbzvSXucmVRqhJ1n3sVaihJ0Zup7P8RSM26KgeLxiVy2CoBQQ7o3fpUs1q3kNHJEupuG/exec';
 
